@@ -1,4 +1,4 @@
-## Welcome to my site
+## Welcome
 
 I am a PhD Student at School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). I am lucky to be advised by Prof. Tim Brown and Prof. Amy Ogan. We work on building and evaluating technology to support marginalized users in a developmental context, mostly in health care and education. 
 
