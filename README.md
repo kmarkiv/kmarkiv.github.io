@@ -1,37 +1,11 @@
 ## Welcome to my site
 
-You can use the [editor on GitHub](https://github.com/kmarkiv/kmarkiv.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+I am a PhD Student at School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). I am lucky to be advised by Prof. Tim Brown and Prof. Amy Ogan. We work on building and evaluating technology to support marginalized users in a developmental context, mostly in health care and education. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I am also a long distance swimmer and I have been able to raise money for charity by swimming across channels on many occasions for people in need in India. 
 
-### Markdown
+I have built products for the web, Android, desktop, iOS and hardware gadgets. Read my story and portfolio if you are interested in knowing more about me. I am grateful that my work has been featured in the media. You can also have a look at my apps on Google Play or visit my Github.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+###  Contact
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kmarkiv/kmarkiv.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Wanna chat? [contact me](mailto:kmarkiv@cmu.edu) .
