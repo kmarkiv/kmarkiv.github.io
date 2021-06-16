@@ -11,3 +11,5 @@ description: The Minimal Light is a simple and elegant jekyll theme for academic
 canonical: https://minimal-light.yyliu.net/
 remote_theme: yaoyao-liu/minimal-light
 google_analytics: UA-12079075-1
+
+theme: jekyll-theme-minimal
