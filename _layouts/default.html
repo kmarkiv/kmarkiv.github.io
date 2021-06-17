@@ -35,7 +35,7 @@
         
         {% if site.avatar %}
       
-        <a class="image avatar">  <img src="{{site.avatar}}" alt="Image alt text"></a>
+        <a class="image avatar">  <img src="{{site.avatar}}" alt="{{ site.title }}"></a>
         {% endif %}
 
         <h1>{{ site.title }}</h1> 
@@ -51,7 +51,7 @@
         <br>
         {{ site.email }}
         <br>
-        <a href="{{site.cv}}">View my CV</a>
+        <a href="{{site.cv}}" target="_blank">View my CV</a>
         <br>
         <br>
         {% endif %}
@@ -70,19 +70,20 @@
       <footer>
         <div class="social-icons">
 
-          {% if site.linkedin %}
-          <a href="{{ site.linkedin }}" target="_blank">
-            <i class="fab fa-linkedin-in">in</i>
-          </a>
-          {% endif %}
+         
           {% if site.google_scholar %}
-          <a href="{{ site.google_scholar}}" target="_blank">
+          <a href="{{ site.google_scholar}}" target="_blank" title="{{ site.title }} twitter">
             <i class="ai ai-google-scholar" style="font-size:1.6rem">g</i>
           </a>
           {% endif %}
           {% if site.github_link %}            
-          <a href="{{ site.github_link }}" target="_blank">
+          <a href="{{ site.github_link }}" target="_blank" title="{{ site.title }} twitter">
             <i class="fab fa-github">t</i>
+          </a>
+          {% endif %}
+           {% if site.linkedin %}
+          <a href="{{ site.linkedin }}" target="_blank" title="{{ site.title }} linkedin">
+            <i class="fab fa-linkedin-in">in</i>
           </a>
           {% endif %}
         </div>
