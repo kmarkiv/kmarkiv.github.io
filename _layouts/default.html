@@ -35,7 +35,7 @@
         
         {% if site.avatar %}
       
-        <a class="image avatar">  <img src="https://placekitten.com/220/220" alt="Image alt text"></a>
+        <a class="image avatar">  <img src="{{site.avatar}" alt="Image alt text"></a>
         {% endif %}
 
         <h1>{{ site.title }}</h1> 
@@ -50,7 +50,8 @@
         {% if site.email %}
         <br>
         {{ site.email }}
-        <a href="mailto:kmarkiv@cmu.edu">View my CV</a>
+        <br>
+        <a href="{{site.cv}">View my CV</a>
         <br>
         <br>
         {% endif %}
