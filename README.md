@@ -33,7 +33,7 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 - SV Temple: I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
 
 ### Swimming
-I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India.
+I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/)
 
 * Elephanta to Gateway of India for supporting acid attack victims
 * Swim Miami 2016 for buying wheelchairs for differently-abled people
@@ -41,9 +41,15 @@ I am a long-distance swimmer, and I have raised money for charity by partnering 
 * Across Lake Muhazi in Rwanda for fun
 
 ### Coding
-I have built technology on the web, Android, desktop, iOS and hardware gadgets. I stil love to build things but only do so for my research. 
+I have built technology on the web, Android, desktop, iOS and hardware gadgets. I stil love to build things but rarely do it for projects outside my research. 
 
-* Lake Muhazi in Rwanda 
+* Learn Kannada: An android application to teach a second language which has >10K downloads
+* WebGL Viewer: I designed a 3D viewer for phone and web browsers in par with Google street view. 
+* Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
+* Enginux: A custom Ubuntu derivative based on Linux Mint.
+* Textin: A desktop application to send text messages and my first entreprenurship venture 
+* Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
+
 
 
 ###  Contact
