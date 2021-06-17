@@ -14,7 +14,7 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 * **[May. 2021]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
 * **[May. 2021]** Helped Organize [HCIxB](hcixb.org)  for CHI 2021
 * **[Apr. 2021]** Finished a pilot study for my RCT
-* **[Apr. 2021]** Successfully finished my first teaching assistantship
+* **[Apr. 2021]** Survied my first TAship
 
 ## Publications
 
