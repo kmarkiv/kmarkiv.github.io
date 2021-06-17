@@ -16,43 +16,35 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 * **[Apr. 2021]** Finished a pilot study for my RCT
 * **[Apr. 2021]** Survied my first TAship
 
-## Publications
+### Selected Publications [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en)
 
-- **Mnemonics Training: Multi-Class Incremental Learning without Forgetting**
-  <br>
-  **Yaoyao Liu**, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-  <br>
-  IEEE Conference on Computer Vision and Pattern Recognition. **CVPR 2020**.
-  <br>
-  [[PDF](https://arxiv.org/pdf/2002.10211.pdf)] [[Code](https://github.com/yaoyao-liu/mnemonics)] <strong><i style="color:#e74d3c">Oral Presentation</i></strong>
+* Cannanure V.K., Brown T., Ogan A. DIA: A Human AI Hybrid Chatbot for Low Resource Contexts. ICTD 2020, Guayaquil, Ecuador
+* Cannanure V.K., Souvenir J., Adji Y. , Apke H., Jasinska K., Brown T., Ogan A. ”I’m fine where I am, but I want to do more”: Exploring Teacher Aspirations in Rural Cote D’Ivoire. ACM COMPASS 2020, Guayaquil, Ecuador
+* Madaio, M., Yarzebinski, E., Cannanure V.K., Zinszer B., Seri, A., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. Collective Support and Independent Learning with a Voice-Based Literacy Technology in Rural Communities. . CHI ’20, Apr 2020, Hawaii, USA
+* Cannanure V.K., Madaio, M., Yarzebinski, E., Ogan, A, Brown T. Using Graphical Models to Understand Usage of an Educational Interactive Voice Response System. COMPASS ’19, Jun 2019, Accra, Ghana [Poster]
+* Madaio, M., Cannanure V.K., Yarzebinski, E., Zasacky, S., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. ”You Give a Little of Yourself”: Family Support for Children’s Use of an IVR Literacy System.. COMPASS ’19, Jun 2019, Accra, Ghana
 
-- **Learning to Self-Train for Semi-Supervised Few-Shot Classification**
-  <br>
-  Xinzhe Li, Qianru Sun, **Yaoyao Liu**, Shibao Zheng, Qin Zhou, Tat-Seng Chua, Bernt Schiele
-  <br>
-  33rd Conference on Neural Information Processing Systems. **NeurIPS 2019**.
-  <br>
-  [[PDF](http://papers.nips.cc/paper/9216-learning-to-self-train-for-semi-supervised-few-shot-classification.pdf)] [[Code](https://github.com/xinzheli1217/learning-to-self-train)]
+### Services
 
-- **Meta-Transfer Learning for Few-Shot Learning**
-  <br>
-  Qianru Sun\*, **Yaoyao Liu\***, Tat-Seng Chua, Bernt Schiele
-  <br>
-  IEEE Conference on Computer Vision and Pattern Recognition. **CVPR 2019**.
-  <br>
-  [[PDF](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf)] [[Code](https://github.com/yaoyao-liu/meta-transfer-learning)] [[Project](https://mtl.yyliu.net/)]
-
-## Services
-
-- Co-organizer: [ACM MM Asia 2020](https://mmasia2020.org/).
-- Conference Reviewers: [NeurIPS 2020](https://neurips.cc/Conferences/2020), and [CVPR 2020](http://cvpr2020.thecvf.com/).
-- Journal Reviewers: [T-PAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34), and [IJCV](https://www.springer.com/journal/11263).
+- Organizer: [HCIxB](hcixb.org) is a community of researchers across the world
+- Volunteer: SIGCHI Development Fund
+- Reviewer: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
+- Fundraising: I have raised ~$25,000 for various causes in India, thanks to Milaap.
+- SV Temple: I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
 
 ### Swimming
-I am a long distance swimmer and I have raised money for charity by swimming across channels on many occasions for people in need in India. 
+I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India.
+
+* Elephanta to Gateway of India for supporting acid attack victims
+* Swim Miami 2016 for buying wheelchairs for differently-abled people
+* Swim Miami 2021 for covid relief 
+* Across Lake Muhazi in Rwanda for fun
 
 ### Coding
-I have built products for the web, Android, desktop, iOS and hardware gadgets. Read my story and portfolio if you are interested in knowing more about me. I am grateful that my work has been featured in the media. You can also have a look at my apps on Google Play or visit my Github.
+I have built technology on the web, Android, desktop, iOS and hardware gadgets. I stil love to build things but only do so for my research. 
+
+* Lake Muhazi in Rwanda 
+
 
 ###  Contact
 
