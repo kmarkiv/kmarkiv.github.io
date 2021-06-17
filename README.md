@@ -4,16 +4,17 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 
 ### Research Interests
 
-* **Human-Centered AI:** image recognition, image generation, video captioning
-* **ICTD:** meta-learning, incremental learning, transfer learning
-* **Education:** meta-learning, incremental learning, transfer learning
+* **ICTD**: Aspirations, Assets based design
+* **Human-Centered AI**: Chatbots, IVR (Interactive Voice Response)
+* **Education**: Teacher professional development
+* **Health**: Health Information
 
 ### News
 
-* **[May. 2021] Swam at Swim Miami to**[raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram)**for COVID relief** 
-* **[May. 2021] Helped Organize**[HCIxB](hcixb.org)  for CHI 2021
-* **[Apr. 2021] Finished a pilot study for my RCT**
-* **[Apr. 2021] Successfully finished my first teaching assistantship**
+* **[May. 2021]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
+* **[May. 2021]** Helped Organize [HCIxB](hcixb.org)  for CHI 2021
+* **[Apr. 2021]** Finished a pilot study for my RCT
+* **[Apr. 2021]** Successfully finished my first teaching assistantship
 
 ## Publications
 
