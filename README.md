@@ -3,22 +3,11 @@
 
 I am a PhD Student at School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). I am lucky to be advised by Prof. Tim Brown and Prof. Amy Ogan. We work on building and evaluating technology to support marginalized users in a developmental context, mostly in health care and education. 
 
-I am also a long distance swimmer and I have been able to raise money for charity by swimming across channels on many occasions for people in need in India. 
-
-I have built products for the web, Android, desktop, iOS and hardware gadgets. Read my story and portfolio if you are interested in knowing more about me. I am grateful that my work has been featured in the media. You can also have a look at my apps on Google Play or visit my Github.
-
-###  Contact
-
-Wanna chat? [contact me](mailto:kmarkiv@cmu.edu).
-
-
-
-I am a Ph.D. student at ...
-
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Human Centered AI:** image recognition, image generation, video captioning
+- **ICTD:** meta-learning, incremental learning, transfer learning
+- **Education:** meta-learning, incremental learning, transfer learning
 
 ## News
 
@@ -58,3 +47,13 @@ I am a Ph.D. student at ...
 - Co-organizer: [ACM MM Asia 2020](https://mmasia2020.org/).
 - Conference Reviewers: [NeurIPS 2020](https://neurips.cc/Conferences/2020), and [CVPR 2020](http://cvpr2020.thecvf.com/).
 - Journal Reviewers: [T-PAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34), and [IJCV](https://www.springer.com/journal/11263).
+
+### Swimming
+I am a long distance swimmer and I have raised money for charity by swimming across channels on many occasions for people in need in India. 
+
+### Coding
+I have built products for the web, Android, desktop, iOS and hardware gadgets. Read my story and portfolio if you are interested in knowing more about me. I am grateful that my work has been featured in the media. You can also have a look at my apps on Google Play or visit my Github.
+
+###  Contact
+
+Wanna chat? [contact me](mailto:kmarkiv@cmu.edu).
