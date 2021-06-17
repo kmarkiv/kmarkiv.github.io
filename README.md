@@ -1,20 +1,19 @@
+### About Me
 
-## About Me
+I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). Prof. Amy Ogan and Prof. Tim Brown are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts.
 
-I am a PhD Student at School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). I am lucky to be advised by Prof. Tim Brown and Prof. Amy Ogan. We work on building and evaluating technology to support marginalized users in a developmental context, mostly in health care and education. 
+### Research Interests
 
-## Research Interests
+* **Human-Centered AI:** image recognition, image generation, video captioning
+* **ICTD:** meta-learning, incremental learning, transfer learning
+* **Education:** meta-learning, incremental learning, transfer learning
 
-- **Human Centered AI:** image recognition, image generation, video captioning
-- **ICTD:** meta-learning, incremental learning, transfer learning
-- **Education:** meta-learning, incremental learning, transfer learning
+### News
 
-## News
-
-- **[Feb. 2020]** Our paper about incremental learning is accepted to [CVPR 2020](http://cvpr2020.thecvf.com/).
-- **[Feb. 2020]** We will host the [ACM Multimedia Asia 2020](https://mmasia2020.org/) conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to [NeurIPS 2019](https://nips.cc/Conferences/2019).
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to [CVPR 2019](http://cvpr2019.thecvf.com/).
+* **[May. 2021] Swam at Swim Miami to**[raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram)**for COVID relief** 
+* **[May. 2021] Helped Organize**[HCIxB](hcixb.org)  for CHI 2021
+* **[Apr. 2021] Finished a pilot study for my RCT**
+* **[Apr. 2021] Successfully finished my first teaching assistantship**
 
 ## Publications
 
