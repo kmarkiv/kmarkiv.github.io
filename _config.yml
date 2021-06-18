@@ -10,6 +10,7 @@ cv: ./assets/Vikram_Kamath_CV.pdf
 favicon_dark: ./assets/img/favicon-dark.png
 description: Simple guy. Tinkerer, swimmer, traveler, writer and social worker. 
 canonical: https://kmarkiv.com
+calendar: https://calendly.com/kmarkiv/vikram
 
 google_analytics: UA-12079075-1
 remote_theme: yaoyao-liu/minimal-light
