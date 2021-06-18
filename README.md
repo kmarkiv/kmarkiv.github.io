@@ -8,7 +8,7 @@ My research interests are:
 * **Education**: Teacher professional development
 * **Health**: Health Information
 
-After >10 years of having fancy portfolios, I decide to keep it simple. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+After >10 years of having fancy portfolios, I decided to keep it simple. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
 
 ### News
 
@@ -62,5 +62,6 @@ Over the past 15 years, I have built technology on the web, Android, desktop, iO
 
 
 ###  Contact
+
 
 Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can email me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or tweet to [@kmarkiv](https://twitter.com/kmarkiv).
