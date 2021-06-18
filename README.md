@@ -8,6 +8,8 @@ My research interests are:
 * **Education**: Teacher professional development
 * **Health**: Health Information
 
+After >10 years of having fancy portfolios, I decide to keep it simple. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+
 ### News
 
 * **[May. 2021]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
@@ -32,7 +34,7 @@ My research interests are:
 -  **[SV Temple volunteer]**: During school, I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
 
 ### Swimming
-I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}
+I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}.
 
 * Elephanta to Gateway of India for supporting acid attack victims.
 * Swim Miami 2016 for buying wheelchairs for differently-abled people.
@@ -49,7 +51,7 @@ Over the past 15 years, I have built technology on the web, Android, desktop, iO
 * Enginux: I helped build a custom Ubuntu derivative based on Linux Mint.
 * Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
 
-After >10 years of having fancy portfolios, I chose to have a simple version. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+
 
 ###  Hobbies
 * Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
