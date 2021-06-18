@@ -1,8 +1,6 @@
 ### About Me
 
-I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). Prof. Amy Ogan and Prof. Tim Brown are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts.
-
-### Research Interests
+I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). Prof. Amy Ogan and Prof. Tim Brown are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. My research interests are:
 
 * **ICTD**: Aspirations, Assets based design
 * **Human-Centered AI**: Chatbots, IVR (Interactive Voice Response)
@@ -50,7 +48,7 @@ Over the past 15 years, I have built technology on the web, Android, desktop, iO
 * Enginux: A custom Ubuntu derivative based on Linux Mint.
 * Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
 
-After >10 years of having fancy portfolios, I have chosen to have a very simple one as I feel like I have very little to say/prove to anyone. I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+After >10 years of having fancy portfolios, I have chosen to have a very simple one as I feel like I have very little to say/prove to anyone. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
 
 ###  Hobbies
 * Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
@@ -62,6 +60,4 @@ After >10 years of having fancy portfolios, I have chosen to have a very simple 
 
 ###  Contact
 
-You can read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or check some photos from my travels or successful cooking experimnents on [Facebook](https://www.facebook.com/vikramkamathc). I 
-
-Always happy to chat contact me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu).
+Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me as a friend on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can contact me by email at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or [@kmarkiv](https://twitter.com/kmarkiv) on twitter.
