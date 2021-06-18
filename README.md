@@ -1,7 +1,8 @@
 ### About Me
 
-I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). Prof. Amy Ogan and Prof. Tim Brown are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. My research interests are:
+I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). Prof. Amy Ogan and Prof. Tim Brown are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. 
 
+My research interests are:
 * **ICTD**: Aspirations, Assets based design
 * **Human-Centered AI**: Chatbots, IVR (Interactive Voice Response)
 * **Education**: Teacher professional development
@@ -52,8 +53,8 @@ After >10 years of having fancy portfolios, I chose to have a simple version. To
 
 ###  Hobbies
 * Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
-* Sketching: I love to draw cartoon characters, and I usually have a positive message. 
-* Meditation: I follow heartfulness practice regularly.
+* Sketching: I love to draw cartoon characters, and I usually draw them with a positive message. 
+* Meditation: I follow the heartfulness practice regularly.
 * Learning French: As much as I can.
 
 
