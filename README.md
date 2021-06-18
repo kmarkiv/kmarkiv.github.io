@@ -61,4 +61,4 @@ After >10 years of having fancy portfolios, I chose to have a simple version. To
 
 ###  Contact
 
-Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me as a friend on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can contact me by email at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or [@kmarkiv](https://twitter.com/kmarkiv) on Twitter.
+Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can email me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or on Twitter at [@kmarkiv](https://twitter.com/kmarkiv).
