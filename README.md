@@ -24,13 +24,13 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 * Cannanure V.K., Madaio, M., Yarzebinski, E., Ogan, A, Brown T. Using Graphical Models to Understand Usage of an Educational Interactive Voice Response System. COMPASS ’19, Jun 2019, Accra, Ghana [Poster]
 * Madaio, M., Cannanure V.K., Yarzebinski, E., Zasacky, S., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. ”You Give a Little of Yourself”: Family Support for Children’s Use of an IVR Literacy System.. COMPASS ’19, Jun 2019, Accra, Ghana
 
-### Services
+### Service
 
-- [HCIxB Organizer]: [HCIxB](hcixb.org) is a community of researchers across the world
-- [SIGCHI Development Fund Volunteer]: I help with the events calendar at sigchi.org
-- [Regular reviewer]: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
-- [Fundraising]: I have raised ~$25,000 for various causes in India, thanks to Milaap.org, social media, and my supportive family.
-- [SV Temple volunteer]: During school, I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
+- **[HCIxB Organizer]**: [HCIxB](hcixb.org) is a community of researchers across the world
+-  **[SIGCHI Development Fund Volunteer]**: I help with the events calendar at sigchi.org
+-  **[Regular reviewer]**: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
+-  **[Fundraising]**: I have raised ~$25,000 for various causes in India, thanks to Milaap.org, social media, and my supportive family.
+-  **[SV Temple volunteer]**: During school, I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
 
 ### Swimming
 I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}
