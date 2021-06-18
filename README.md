@@ -14,9 +14,9 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 * **[May. 2021]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
 * **[May. 2021]** Helped Organize [HCIxB](hcixb.org)  for CHI 2021
 * **[Apr. 2021]** Finished a pilot study for my RCT
-* **[Apr. 2021]** Survied my first TAship
+* **[Apr. 2021]** Survived my first TAship
 
-### Selected Publications [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en)
+### Selected Publications (see [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
 * Cannanure V.K., Brown T., Ogan A. DIA: A Human AI Hybrid Chatbot for Low Resource Contexts. ICTD 2020, Guayaquil, Ecuador
 * Cannanure V.K., Souvenir J., Adji Y. , Apke H., Jasinska K., Brown T., Ogan A. ”I’m fine where I am, but I want to do more”: Exploring Teacher Aspirations in Rural Cote D’Ivoire. ACM COMPASS 2020, Guayaquil, Ecuador
@@ -26,14 +26,14 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 
 ### Services
 
-- Organizer: [HCIxB](hcixb.org) is a community of researchers across the world
-- Volunteer: SIGCHI Development Fund
-- Reviewer: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
-- Fundraising: I have raised ~$25,000 for various causes in India, thanks to Milaap.
-- SV Temple: I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
+- [HCIxB Organizer]: [HCIxB](hcixb.org) is a community of researchers across the world
+- [SIGCHI Development Fund Volunteer]: I help with the events calendar at sigchi.org
+- [Regular reviewer]: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
+- [Fundraising]: I have raised ~$25,000 for various causes in India, thanks to Milaap.org, social media, and my supportive family.
+- [SV Temple volunteer]: During school, I volunteer as a second language(Kannada) teacher for little kids at the local temple in Pittsburgh.
 
 ### Swimming
-I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/)
+I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}
 
 * Elephanta to Gateway of India for supporting acid attack victims
 * Swim Miami 2016 for buying wheelchairs for differently-abled people
@@ -41,17 +41,27 @@ I am a long-distance swimmer, and I have raised money for charity by partnering 
 * Across Lake Muhazi in Rwanda for fun
 
 ### Coding
-I have built technology on the web, Android, desktop, iOS and hardware gadgets. I stil love to build things but rarely do it for projects outside my research. 
+Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. Here are some projects that I am proud about:
 
-* Learn Kannada: An android application to teach a second language which has >10K downloads
-* WebGL Viewer: I designed a 3D viewer for phone and web browsers in par with Google street view. 
 * Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
+* WebGL viewer: I designed a 3D viewer for phone and web browsers on par with Google street view. 
+* Learn Kannada: An android application to teach a second language that has >10K downloads
+* Textin: A desktop application to send text messages and my first entrepreneurship venture 
 * Enginux: A custom Ubuntu derivative based on Linux Mint.
-* Textin: A desktop application to send text messages and my first entreprenurship venture 
 * Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
+
+After >10 years of having fancy portfolios, I have chosen to have a very simple one as I feel like I have very little to say/prove to anyone. I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+
+###  Hobbies
+* Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
+* Sketching: I love to draw cartoon characters, and I usually have a positive message. 
+* Meditation: I follow heartfulness practice regularly.
+* Learning French: As much as I can.
 
 
 
 ###  Contact
 
-Wanna chat? [contact me](mailto:kmarkiv@cmu.edu).
+You can read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or check some photos from my travels or successful cooking experimnents on [Facebook](https://www.facebook.com/vikramkamathc). I 
+
+Always happy to chat contact me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu).
