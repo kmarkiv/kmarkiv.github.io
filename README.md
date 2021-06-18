@@ -54,7 +54,7 @@ Over the past 15 years, I have built technology on the web, Android, desktop, iO
 
 
 ###  Hobbies
-* Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
+* Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures.
 * Sketching: I love to draw cartoon characters, and I usually draw them with a positive message. 
 * Meditation: I follow the heartfulness practice regularly.
 * Learning French: As much as I can.
@@ -63,4 +63,4 @@ Over the past 15 years, I have built technology on the web, Android, desktop, iO
 
 ###  Contact
 
-Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can email me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or on Twitter at [@kmarkiv](https://twitter.com/kmarkiv).
+Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can email me at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or tweet to [@kmarkiv](https://twitter.com/kmarkiv).
