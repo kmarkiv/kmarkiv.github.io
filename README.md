@@ -33,22 +33,22 @@ I am a Ph.D. Student at the School of Computer Science at Carnegie Mellon. I spe
 ### Swimming
 I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}
 
-* Elephanta to Gateway of India for supporting acid attack victims
-* Swim Miami 2016 for buying wheelchairs for differently-abled people
-* Swim Miami 2021 for covid relief 
-* Across Lake Muhazi in Rwanda for fun
+* Elephanta to Gateway of India for supporting acid attack victims.
+* Swim Miami 2016 for buying wheelchairs for differently-abled people.
+* Swim Miami 2021 for covid relief.
+* Across Lake Muhazi in Rwanda for fun.
 
 ### Coding
 Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. Here are some projects that I am proud about:
 
 * Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
 * WebGL viewer: I designed a 3D viewer for phone and web browsers on par with Google street view. 
-* Learn Kannada: An android application to teach a second language that has >10K downloads
+* Learn Kannada: An android application to teach a second language that has >10K downloads.
 * Textin: A desktop application to send text messages and my first entrepreneurship venture 
-* Enginux: A custom Ubuntu derivative based on Linux Mint.
+* Enginux: I helped build a custom Ubuntu derivative based on Linux Mint.
 * Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
 
-After >10 years of having fancy portfolios, I have chosen to have a very simple one as I feel like I have very little to say/prove to anyone. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+After >10 years of having fancy portfolios, I chose to have a simple version. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
 
 ###  Hobbies
 * Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures  and post the successful ones on Facebook.
@@ -60,4 +60,4 @@ After >10 years of having fancy portfolios, I have chosen to have a very simple 
 
 ###  Contact
 
-Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me as a friend on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can contact me by email at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or [@kmarkiv](https://twitter.com/kmarkiv) on twitter.
+Read more about me on my [blog](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} or add me as a friend on [Facebook](https://www.facebook.com/vikramkamathc){:target="_blank" rel="noopener"}. You can contact me by email at [kmarkiv@cmu.edu](mailto:kmarkiv@cmu.edu) or [@kmarkiv](https://twitter.com/kmarkiv) on Twitter.
