@@ -10,7 +10,7 @@ My research interests are:
 * **Education**: Teacher professional development
 * **Health**: Health Information
 
-After >10 years of having fancy portfolios, I decided to keep it simple. Today, I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
+ I aspire to be a friendly neighborhood HCI/ICTD citizen to contribute to society in my small way.
 
 ### News
 
@@ -44,7 +44,9 @@ I am a long-distance swimmer, and I have raised money for charity by partnering 
 * Across Lake Muhazi in Rwanda for fun.
 
 ### Coding
-Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. Here are some projects that I am proud about:
+Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. After >10 years of having fancy portfolios, I decided to keep it simple this time.
+
+Here are some selected projects that I am proud about:
 
 * Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
 * WebGL viewer: I designed a 3D viewer for phone and web browsers on par with Google street view. 
