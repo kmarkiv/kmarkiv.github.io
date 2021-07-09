@@ -30,7 +30,7 @@ My research interests are:
 
 ### Service
 
-- **[HCIxB Organizer]**: [HCIxB](hcixb.org) is a community of researchers across the world
+- **[HCIxB Organizer]**: [HCIxB](hcixb.org) is a community of researchers across the world.
 -  **[SIGCHI Development Fund Volunteer]**: I help with the events calendar at sigchi.org
 -  **[Regular reviewer]**: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
 -  **[Fundraising]**: I have raised ~$25,000 for various causes in India, thanks to Milaap.org, social media, and my supportive family.
@@ -39,10 +39,10 @@ My research interests are:
 ### Swimming
 I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="_blank" rel="noopener"}.
 
-* Elephanta to Gateway of India for supporting acid attack victims.
+* Elephanta to gateway of India for supporting acid attack victims.
 * Swim Miami 2016 for buying wheelchairs for differently-abled people.
 * Swim Miami 2021 for covid relief.
-* Across Lake Muhazi in Rwanda for fun.
+* Across lake Muhazi in Rwanda for fun.
 
 ### Coding
 Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. After >10 years of having fancy portfolios, I decided to keep it simple this time.
