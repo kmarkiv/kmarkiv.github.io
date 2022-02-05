@@ -4,13 +4,14 @@ I am a Ph.D. candidate at the school of Computer Science at Carnegie Mellon. I s
 
 Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/faculty-and-staff/directory/bios/brown-tim.html) are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. 
 
-My research interests are:
-* **ICTD**: Aspirations, Assets based design
+I aspire to be a friendly neighborhood HCI/ICTD citizen.
+
+### Research Interests
+* **ICTD**: Aspirations, Assets Based Design
 * **Human-Centered AI**: Chatbots, IVR (Interactive Voice Response)
-* **Education**: Teacher professional development
+* **Education**: Teacher Professional Development
 * **Health**: Health Information
 
- I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### News
 * **[June. 2021]** Formed my thesis committee
@@ -45,9 +46,9 @@ I am a long-distance swimmer, and I have raised money for charity by partnering 
 * Across lake Muhazi in Rwanda for fun.
 
 ### Coding
-Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research. After >10 years of having fancy portfolios, I decided to keep it simple this time.
+Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research these days. After more than a decade of fancy portfolios, I decided to keep it simple this time.
 
-Here are some selected projects that I am proud about:
+Here are some selected projects:
 
 * Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
 * WebGL viewer: I designed a 3D viewer for phone and web browsers on par with Google street view. 
