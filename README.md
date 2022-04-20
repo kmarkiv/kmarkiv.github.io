@@ -66,6 +66,7 @@ Here are some selected projects:
 *   Sketching: I love to draw cartoon characters, and I usually draw them with a positive message.
 *   Meditation: I follow the heartfulness practice regularly.
 *   Learning French: As much as I can.
+*   Chess: I play Blitz and Bullet on chess.com 
 
 ### Contact
 
