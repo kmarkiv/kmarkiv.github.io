@@ -40,7 +40,7 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### Swimming
 
-I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="\_blank" rel="noopener"}.
+I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="\_blank" rel="noopener"}. Here are some selected swims. 
 
 *   Elephanta to gateway of India for supporting acid attack victims.
 *   Swim Miami 2016 for buying wheelchairs for differently-abled people.
