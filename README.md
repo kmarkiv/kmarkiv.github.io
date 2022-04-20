@@ -2,7 +2,7 @@
 
 I am a Ph.D. candidate at the school of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D). 
 
-Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/faculty-and-staff/directory/bios/brown-tim.html) are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. 
+Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts. 
 
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
