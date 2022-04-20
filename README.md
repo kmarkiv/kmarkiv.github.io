@@ -15,11 +15,10 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### News
 
-*   **\[Apr. 2022\]** Helped Organize [HCIxB](hcixb.org)  for CHI 2022
+*   **\[Apr. 2022\]** Helped Organize [HCIxB](https://hcixb.org)  for CHI 2022
 *   **\[June. 2021\]** Formed my thesis committee
-*   **\[May. 2021\]** Helped Organize [HCIxB](hcixb.org)  for CHI 2021
 *   **\[May. 2021\]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
-*   **\[May. 2021\]** Helped Organize [HCIxB](hcixb.org)  for CHI 2021
+*   **\[May. 2021\]** Helped Organize [HCIxB](https://hcixb.org)  for CHI 2021
 *   **\[Apr. 2021\]** Finished a pilot study for my RCT
 *   **\[Apr. 2021\]** Survived my first TAship
 
