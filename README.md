@@ -33,7 +33,7 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### Service
 
-*   **HCIxB Organizer**: [HCIxB](hcixb.org) is a community of researchers across the world.
+*   **HCIxB Organizer**: [HCIxB](https://hcixb.org) is a community of researchers across the world.
 *   **SIGCHI Development Fund Volunteer**: I help with the events calendar at sigchi.org
 *   **Regular reviewer\]**: CSCW, CHI, CHI extended abstract, CHI case studies, ACM COMPASS
 *   **Fundraising**: I have raised ~$25,000 for various causes in India, thanks to Milaap.org, social media, and my supportive family.
