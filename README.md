@@ -17,14 +17,14 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### News
 
-*   **\[June. 2022\]** Passed my thesis proposal
-*   **\[May. 2022\]** Finished my second TAship
-*   **\[Apr. 2022\]** Helped Organize [HCIxB](https://hcixb.org)  for CHI 2022
-*   **\[June. 2021\]** Formed my thesis committee
-*   **\[May. 2021\]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
-*   **\[May. 2021\]** Helped Organize [HCIxB](https://hcixb.org)  for CHI 2021
-*   **\[Apr. 2021\]** Finished a pilot study for my RCT
-*   **\[Apr. 2021\]** Survived my first TAship
+*   **\[June. 2022\]** passed my thesis proposal
+*   **\[May. 2022\]** finished my second TAship
+*   **\[Apr. 2022\]** helped Organize [HCIxB](https://hcixb.org)  for CHI 2022
+*   **\[June. 2021\]** formed my thesis committee
+*   **\[May. 2021\]** swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
+*   **\[May. 2021\]** helped Organize [HCIxB](https://hcixb.org)  for CHI 2021
+*   **\[Apr. 2021\]** finished a pilot study for my RCT
+*   **\[Apr. 2021\]** survived my first TAship
 
 ### Selected Publications (see [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
