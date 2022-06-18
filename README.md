@@ -4,6 +4,8 @@ I am a Ph.D. candidate at the school of Computer Science at Carnegie Mellon. I s
 
 Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts.
 
+I recently passed my thesis proposal. Here is the draft of my [thesis document.]({{site.cv_link}}) 
+
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### Research Interests
@@ -15,6 +17,8 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### News
 
+*   **\[June. 2022\]** Passed my thesis proposal
+*   **\[May. 2022\]** Finished my second TAship
 *   **\[Apr. 2022\]** Helped Organize [HCIxB](https://hcixb.org)  for CHI 2022
 *   **\[June. 2021\]** Formed my thesis committee
 *   **\[May. 2021\]** Swam at Swim Miami to [raise money](https://milaap.org/fundraisers/swim-oxygen-india-vikram) for COVID relief
