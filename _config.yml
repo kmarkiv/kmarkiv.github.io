@@ -6,9 +6,9 @@ github_link: https://twitter.com/kmarkiv
 linkedin: https://www.linkedin.com/in/vikramkamathc/
 avatar: ./assets/avatar.jpg
 favicon: ./assets/img/favicon.png
-cv: ./assets/Vikram_Kamath_CV.pdf
+cv: ./static/Vikram_Kamath_CV.pdf
 favicon_dark: ./assets/img/favicon-dark.png
-description: Simple guy. Researcher, programmer, and swimmer. 
+description: simple guy. researcher, programmer, and swimmer. 
 canonical: https://kmarkiv.com
 calendar: https://calendly.com/kmarkiv/vikram
 position: PhD student
