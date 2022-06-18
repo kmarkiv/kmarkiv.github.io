@@ -4,7 +4,7 @@ I am a Ph.D. candidate at the school of Computer Science at Carnegie Mellon. I s
 
 Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) are my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts.
 
-I recently passed my thesis proposal. Here is the draft of my [thesis document](%7B%7Bsite.thesis_link%7D%7D).
+I recently passed my thesis proposal. Here is the draft of my [thesis document]({{site.thesis_link}}).
 
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
