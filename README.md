@@ -8,7 +8,7 @@ I recently passed my thesis proposal. Here is the draft of my [thesis document](
 
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
-<table><tbody><tr><td>I am looking for <strong>postdoc</strong> positions for the <strong>Fall of 2023 </strong>in<strong> </strong>HCI for Development (<strong>HCI4D</strong>), AI for Social Good (<strong>AI4SG</strong>).</td></tr></tbody></table>
+<table><tbody><tr><td>I am looking for <strong>postdoc</strong> positions for the <strong>Fall of 2023</strong>in<strong> in </strong>HCI for Development (<strong>HCI4D</strong>) or AI for Social Good (<strong>AI4SG</strong>).</td></tr></tbody></table>
 
 ### Research Interests
 
