@@ -51,7 +51,7 @@ I am a long-distance swimmer, and I have raised money for charity by partnering 
 *   Swim Miami 2021 for covid relief.
 *   Across lake Muhazi in Rwanda for fun.
 
-### Coding
+### Software development
 
 Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research these days. After more than a decade of fancy portfolios, I decided to keep it simple this time.
 
