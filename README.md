@@ -19,6 +19,7 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### News
 
+*   **\[Aug. 2023\]** passed my thesis defense and graduated!
 *   **\[June. 2022\]** passed my thesis proposal
 *   **\[May. 2022\]** finished my second TAship
 *   **\[Apr. 2022\]** helped Organize [HCIxB](https://hcixb.org)  for CHI 2022
