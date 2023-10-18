@@ -10,7 +10,7 @@ cv: ./static/Vikram_Kamath_CV.pdf
 favicon_dark: ./assets/img/favicon-dark.png
 description: simple guy. researcher, programmer, and swimmer. 
 canonical: https://kmarkiv.com
-calendar: https://calendly.com/kmarkiv/meet-with-vikram
+calendar: https://calendly.com/kmarkiv/vikram
 position: PhD student
 google_analytics: UA-12079075-1
 remote_theme: yaoyao-liu/minimal-light
