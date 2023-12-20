@@ -16,7 +16,7 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 *   **Health**: Health Information
 
 ### News
-*   **\[Oct. 2023\]** Moved to S
+*   **\[Oct. 2023\]** Moved to Saarbrücken, Germany
 *   **\[Aug. 2023\]** passed my thesis defense and graduated!
 *   **\[June. 2022\]** passed my thesis proposal
 *   **\[May. 2022\]** finished my second TAship
