@@ -1,10 +1,8 @@
 ### About Me
 
-I recently graduated with a Ph.D. candidate from the school of Computer Science at Carnegie Mellon. I specialize in Human-Computer Interaction for Development (HCI4D).
+I am a postdoctoral fellow at Saarland University, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I specialize in Human-Computer Interaction for Development (HCI4D).
 
-Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) were my amazing advisors. We work on building and evaluating low-cost technology to support teachers in low-resource contexts.
-
-I recently passed my thesis defense. Here is the draft of my [thesis document]({{site.thesis_link}}).
+I recently graduated with a Ph.D. from Carnegie Mellon School of Computer Science. Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) were my amazing advisors. We worked on building and evaluating low-cost technology to support teachers in low-resource contexts. Here is the draft of my [thesis document]({{site.thesis_link}}).
 
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
@@ -18,7 +16,7 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 *   **Health**: Health Information
 
 ### News
-
+*   **\[Oct. 2023\]** Moved to S
 *   **\[Aug. 2023\]** passed my thesis defense and graduated!
 *   **\[June. 2022\]** passed my thesis proposal
 *   **\[May. 2022\]** finished my second TAship
@@ -30,9 +28,9 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 ### Selected Publications (see [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
 *   Cannanure V.K., Brown T., Ogan A. DIA: A Human AI Hybrid Chatbot for Low Resource Contexts. ICTD 2020, Guayaquil, Ecuador
-*   Cannanure V.K., Souvenir J., Adji Y. , Apke H., Jasinska K., Brown T., Ogan A. ”I’m fine where I am, but I want to do more”: Exploring Teacher Aspirations in Rural Cote D’Ivoire. ACM COMPASS 2020, Guayaquil, Ecuador
-*   Madaio, M., Yarzebinski, E., Cannanure V.K., Zinszer B., Seri, A., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. Collective Support and Independent Learning with a Voice-Based Literacy Technology in Rural Communities. . CHI ’20, Apr 2020, Hawaii, USA
-*   Cannanure V.K., Madaio, M., Yarzebinski, E., Ogan, A, Brown T. Using Graphical Models to Understand Usage of an Educational Interactive Voice Response System. COMPASS ’19, Jun 2019, Accra, Ghana \[Poster\]
+*   Cannanure V.K., Souvenir J., Adji Y., Apke H., Jasinska K., Brown T., Ogan A. ”I’m fine where I am, but I want to do more”: Exploring Teacher Aspirations in Rural Cote D’Ivoire. ACM COMPASS 2020, Guayaquil, Ecuador
+*   Madaio, M., Yarzebinski, E., Cannanure V.K., Zinszer B., Seri, A., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. Collective Support and Independent Learning with a Voice-Based Literacy Technology in Rural Communities. CHI ’20, Apr 2020, Hawaii, USA
+*   Cannanure V.K., Madaio, M., Yarzebinski, E., Ogan, A., Brown T. Using Graphical Models to Understand Usage of an Educational Interactive Voice Response System. COMPASS ’19, Jun 2019, Accra, Ghana \[Poster\]
 *   Madaio, M., Cannanure V.K., Yarzebinski, E., Zasacky, S., Tanoh, F., Hannon-Cropp, J., Cassell, J., Jasinska, K. Ogan, A. ”You Give a Little of Yourself”: Family Support for Children’s Use of an IVR Literacy System.. COMPASS ’19, Jun 2019, Accra, Ghana
 
 ### Service
@@ -45,32 +43,32 @@ I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
 ### Swimming
 
-I am a long-distance swimmer, and I have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="\_blank" rel="noopener"}. Here are some selected swims. 
+I am a long-distance swimmer and have raised money for charity by partnering with NGOs in India. You can read more about my adventures on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/){:target="\_blank" rel="noopener"}. Here are some selected swims. 
 
-*   Elephanta to gateway of India for supporting acid attack victims.
+*   Elephanta to Gateway of India for supporting acid attack victims.
 *   Swim Miami 2016 for buying wheelchairs for differently-abled people.
-*   Swim Miami 2021 for covid relief.
-*   Across lake Muhazi in Rwanda for fun.
+*   Swim Miami 2021 for COVID relief.
+*   Across Lake Muhazi in Rwanda for fun.
 
 ### Software development
 
-Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love to make things but rarely do it for projects outside my research these days. After more than a decade of fancy portfolios, I decided to keep it simple this time.
+Over the past 15 years, I have built technology on the web, Android, desktop, iOS, and hardware gadgets. I still love making things but rarely do it for projects outside my research. After over a decade of fancy portfolios, I kept it simple this time.
 
 Here are some selected projects:
 
 *   Flask APIs at scale: APIs that served 4 million users at TeliportMe (where I was the Architect)
-*   WebGL viewer: I designed a 3D viewer for phone and web browsers on par with Google street view.
-*   Learn Kannada: An android application to teach a second language that has >10K downloads.
+*   WebGL viewer: I designed a 3D viewer for phones and web browsers that is on par with Google Street View.
+*   Learn Kannada: An Android application to teach a second language with>10K downloads.
 *   Textin: A desktop application to send text messages and my first entrepreneurship venture
 *   Enginux: I helped build a custom Ubuntu derivative based on Linux Mint.
-*   Jedi Mouse: An interactive device that uses gestures and EEG data from the brain from the user to control the mouse.
+*   Jedi Mouse: An interactive device that uses gestures and EEG data from the user's brain to control the mouse.
 
 ### Hobbies
 
-*   Cooking: I am good at cooking South Indian food, but I occasionally try vegetarian cuisines from other cultures.
-*   Sketching: I love to draw cartoon characters, and I usually draw them with a positive message.
+*   Cooking: I am good at cooking South Indian food but occasionally try vegetarian cuisines from other cultures.
+*   Sketching: I love to draw cartoon characters, usually with a positive message.
 *   Meditation: I follow the heartfulness practice regularly.
-*   Learning French: As much as I can.
+*   Learning French and German: As much as I can.
 *   Chess: I play Blitz and Bullet on chess.com 
 
 ### Contact
