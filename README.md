@@ -2,7 +2,7 @@
 
 I am a postdoctoral fellow at Saarland University, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I specialize in Human-Computer Interaction for Development (HCI4D).
 
-I recently graduated with a Ph.D. from Carnegie Mellon School of Computer Science. Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) were my amazing advisors. We worked on building and evaluating low-cost technology to support teachers in low-resource contexts. Here is the draft of my [thesis document]({{site.thesis_link}}).
+I recently graduated with a Ph.D. from Carnegie Mellon School of Computer Science. Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html) were my amazing advisors. My work was on building and evaluating low-cost chatbot to support teachers in low-resource contexts. Here is the draft of my [thesis]({{site.thesis_link}}).
 
 I aspire to be a friendly neighborhood HCI/ICTD citizen.
 
