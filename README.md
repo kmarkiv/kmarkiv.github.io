@@ -1,11 +1,10 @@
-### About Me
+### Hello!
 
 I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Everyday AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
 I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
 
 
----
 
 ### Research Interests
 
@@ -13,7 +12,6 @@ I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by
 - **Human-Centered AI** – chatbots, IVR, microlearning, reflective practice  
 - **Education & Health** – teacher PD, community health information access  
 
----
 
 ### News
 - **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
@@ -21,7 +19,6 @@ I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by
 - **Oct 2023** – Started postdoc in Saarbrücken.
 - **Aug 2023** – Defended PhD at CMU 🎓
 
----
 
 ### Selected Publications  
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
@@ -33,7 +30,6 @@ I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by
 - Cannanure V.K., Brown T., Ogan A. **DIA: A Human-AI Hybrid Chatbot for Low-Resource Contexts.** *ICTD 2020.*
 - Cannanure V.K., Souvenir J., Adji Y., Apke H., Brown T., Ogan A. **Teacher Aspirations in Rural Côte d’Ivoire.** *ACM COMPASS 2020.*
 
----
 
 ### Service
 
@@ -43,7 +39,6 @@ I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by
 - **Fundraising:** Raised ~$25,000 for social causes in India.
 - **Kannada language teacher** (volunteer), SV Temple, Pittsburgh.
 
----
 
 ### Swimming
 
@@ -55,17 +50,15 @@ Selected swims:
 - Swim Miami 2016 & 2021  
 - Lake Muhazi, Rwanda  
 
----
 
 ### Software & Making Things
 
 I’ve built systems for **web, Android, desktop, iOS**, and **hardware**.  
 Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D viewer**, **Learn Kannada** (10K+ downloads), and **Jedi Mouse** (gesture + EEG cursor control).
 
----
 
 ### Contact
 
-**Email:** vica001@teams.uni-saarland.de  
-**Website:** kmarkiv.com  
+**Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)
 **Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)  
+**Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="\_blank" rel="noopener"} 
