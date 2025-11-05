@@ -1,8 +1,8 @@
 ### Hello!
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Everyday AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
+I’m a postdoctoral fellow at **Saarland University**, Germany advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Everyday AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
-I completed my **Ph.D. in Human–Computer Interaction (CMU, 2023)**, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
+I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
 
 
 
