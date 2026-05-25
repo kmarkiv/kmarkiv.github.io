@@ -368,6 +368,7 @@ button:active {
 
 .theme-choice {
   background: linear-gradient(145deg, #fff, #fff5df);
+  grid-column: 1 / -1;
 }
 
 .theme-visuals {
@@ -448,12 +449,25 @@ button:active {
   border-radius: 14px;
   color: var(--orange);
   display: flex;
+  flex-direction: column;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 2.45rem;
   font-weight: 750;
   grid-row: 1 / 4;
-  height: 68px;
+  height: 80px;
   justify-content: center;
+}
+
+.theme-letter strong {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.theme-letter span {
+  color: var(--blue);
+  font-size: 0.91rem;
+  line-height: 1.15;
+  margin-top: 4px;
 }
 
 .theme-icon {
@@ -481,25 +495,9 @@ button:active {
   margin: 0;
 }
 
-.theme-label {
-  background: var(--orange-soft);
-  border-radius: 999px;
-  color: #bb541f;
-  font-size: 0.76rem;
-  font-weight: 700;
-  grid-column: 3;
-  grid-row: 1;
-  padding: 4px 9px;
-}
-
-.theme-card.local .theme-label {
-  background: var(--blue-soft);
-  color: var(--blue);
-}
-
 .theme-card button {
   grid-column: 3;
-  grid-row: 2 / 4;
+  grid-row: 1 / 4;
   height: 52px;
   min-width: 82px;
   padding: 0 10px;
@@ -816,8 +814,11 @@ button:active {
   }
 
   .theme-letter {
-    font-size: 2.25rem;
-    height: 64px;
+    height: 78px;
+  }
+
+  .theme-letter strong {
+    font-size: 2.05rem;
   }
 
   .theme-card button {
