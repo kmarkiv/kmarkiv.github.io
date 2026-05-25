@@ -182,7 +182,7 @@
   }
 
   function beginAutomaticAdvance() {
-    var remaining = 20;
+    var remaining = 10;
 
     clearAdvanceTimers();
     secondsLeft.textContent = remaining;
@@ -193,7 +193,7 @@
         window.clearInterval(countdownTimer);
       }
     }, 1000);
-    advanceTimer = window.setTimeout(advanceFromFeedback, 20000);
+    advanceTimer = window.setTimeout(advanceFromFeedback, 10000);
   }
 
   function displayQuestion() {

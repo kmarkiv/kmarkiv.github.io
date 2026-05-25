@@ -58,6 +58,28 @@ body {
   outline: 3px solid rgba(25, 118, 150, 0.25);
 }
 
+.bottom-nav {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.bottom-nav a {
+  background: var(--orange);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 15px 28px;
+  text-decoration: none;
+}
+
+.bottom-nav a:hover,
+.bottom-nav a:focus-visible {
+  background: #db6530;
+  outline: 3px solid rgba(243, 122, 61, 0.25);
+}
+
 .hero {
   background: var(--card-bg);
   border: 1px solid var(--border);
