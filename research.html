@@ -1,0 +1,242 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    <title>{{ site.title }} | HCI, ICTD, and Human-Centered AI</title>
+    <link rel="canonical" href="{{ site.canonical }}/research.html">
+    <link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="name" href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#recent">Recent</a>
+          <a href="#publications">Highlights</a>
+          <a href="#more">More</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <img class="portrait" src="{{ site.avatar | relative_url }}" alt="Portrait of Vikram Kamath Cannanure">
+        <div class="hero-content">
+          <p class="kicker">Postdoctoral Fellow · Saarland University</p>
+          <h1>Human-centered AI for learning and participation in low-infrastructure contexts.</h1>
+          <p class="lede">
+            I am a postdoctoral fellow at Saarland University, advised by Prof.
+            <a href="https://ingmarweber.de/" target="_blank" rel="noopener">Ingmar Weber</a>.
+            I work at the intersection of Human-Computer Interaction, ICTD, and Everyday AI.
+          </p>
+          <div class="actions" aria-label="Profiles and materials">
+            <a class="primary" href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://dblp.org/pid/221/4536.html" target="_blank" rel="noopener">DBLP</a>
+            <a href="https://orcid.org/0000-0002-0944-7074" target="_blank" rel="noopener">ORCID</a>
+            <a href="{{ site.cv_link }}" target="_blank" rel="noopener">CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container introduction" id="about">
+        <div class="about-copy">
+          <p class="kicker">About</p>
+          <h2>Practical AI for learning, reflection, and participation</h2>
+          <p>
+            I design and study practical, low-cost AI systems that support learning,
+            reflection, and civic participation. My work is particularly concerned with
+            settings where infrastructure, connectivity, and resources shape what useful
+            technology can look like.
+          </p>
+          <p>
+            I completed my <strong>PhD in Human-Computer Interaction</strong> at Carnegie
+            Mellon University, advised by Prof.
+            <a href="https://www.amyogan.com/" target="_blank" rel="noopener">Amy Ogan</a>
+            and Prof.
+            <a href="https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html" target="_blank" rel="noopener">Tim Brown</a>.
+            My dissertation evaluated low-cost, chat-based teacher learning systems that
+            supported <strong>400+ teachers and 10,000+ students</strong> in rural
+            Côte d’Ivoire. Read the
+            <a href="{{ site.thesis_link }}" target="_blank" rel="noopener">thesis draft</a>.
+          </p>
+        </div>
+        <aside class="news-card">
+          <p class="kicker">News</p>
+          <ul class="timeline">
+            <li><time>Oct 2025</time><span>Lead instructor for <strong>AI &amp; the Global South</strong>.</span></li>
+            <li><time>Feb 2025</time><span>Papers accepted to <strong>CUI 2025</strong> and <strong>COMPASS 2025</strong>.</span></li>
+            <li><time>Oct 2023</time><span>Started my postdoc in Saarbrücken.</span></li>
+            <li><time>Aug 2023</time><span>Defended my PhD at Carnegie Mellon University.</span></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="container focus" id="research">
+        <div class="section-title">
+          <p class="kicker">Research</p>
+          <h2>What I work on</h2>
+        </div>
+        <div class="focus-grid">
+          <article>
+            <h3>Human-Centered AI</h3>
+            <p>Conversational agents, LLM-supported research methods, and systems designed around human judgment.</p>
+          </article>
+          <article>
+            <h3>ICTD</h3>
+            <p>Aspirations, asset-based design, and locally meaningful innovation in low-infrastructure contexts.</p>
+          </article>
+          <article>
+            <h3>Education &amp; Health</h3>
+            <p>Teacher professional development, learning communities, and access to health information.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container publications" id="recent">
+        <div class="section-header">
+          <div class="section-title">
+            <p class="kicker">Publications</p>
+            <h2>Recent papers</h2>
+          </div>
+          <div class="pub-note">
+            <p>
+              For the complete, current publication record and citation counts, visit
+              <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+              or <a href="https://dblp.org/pid/221/4536.html" target="_blank" rel="noopener">DBLP</a>.
+              Selected metadata verified with indexed/publisher records in May 2026.
+            </p>
+            <a class="bib-download" href="{{ '/assets/publications.bib' | relative_url }}" download>Download BibTeX</a>
+          </div>
+        </div>
+
+        <ol class="publication-list">
+          {% for publication in site.data.publications limit:3 %}
+          <li class="publication">
+            <div class="pub-year">{{ publication.year }}</div>
+            <div class="pub-main">
+              <span class="pub-tag">{{ publication.tag }}</span>
+              <h3>{{ publication.title }}</h3>
+              <p class="pub-authors">{{ publication.authors }}</p>
+              <p class="pub-venue">{{ publication.venue }}.</p>
+              <div class="pub-links">
+                <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
+                {% if publication.preprint %}
+                <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>
+                {% endif %}
+                <details>
+                  <summary>Cite</summary>
+                  <pre>{{ publication.bibtex | escape }}</pre>
+                </details>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <section class="container publications" id="publications">
+        <div class="section-header">
+          <div class="section-title">
+            <p class="kicker">Highlighted Work</p>
+            <h2>Top 7 publications</h2>
+          </div>
+          <p class="pub-note">
+            Seven representative publications spanning human-centered AI, education,
+            and technology for development.
+          </p>
+        </div>
+
+        <ol class="publication-list">
+          {% for publication in site.data.publications limit:7 %}
+          <li class="publication">
+            <div class="pub-year">{{ publication.year }}</div>
+            <div class="pub-main">
+              <span class="pub-tag">{{ publication.tag }}</span>
+              <h3>{{ publication.title }}</h3>
+              <p class="pub-authors">{{ publication.authors }}</p>
+              <p class="pub-venue">{{ publication.venue }}.</p>
+              <div class="pub-links">
+                <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
+                {% if publication.preprint %}
+                <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>
+                {% endif %}
+                <details>
+                  <summary>Cite</summary>
+                  <pre>{{ publication.bibtex | escape }}</pre>
+                </details>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <section class="container story-section" id="more">
+        <div class="section-title story-heading">
+          <p class="kicker">More</p>
+          <h2>Community, making, and life beyond papers</h2>
+        </div>
+        <div class="story-grid">
+        <article class="panel">
+          <p class="kicker">Service</p>
+          <h3>Research community</h3>
+          <ul>
+            <li><strong>Co-organizer &amp; Community Lead</strong>, HCI Across Borders, CHI 2020-2025 and COMPASS 2023-2024.</li>
+            <li><strong>Program Committees</strong>, COMPASS 2025 and AfriCHI 2025.</li>
+            <li><strong>Reviewer</strong>, CHI, CSCW, COMPASS, ICTD, CHI EA, and CHI Case Studies.</li>
+            <li><strong>Volunteer Kannada language teacher</strong>, SV Temple, Pittsburgh.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="kicker">Software &amp; Making</p>
+          <h3>Systems I have built</h3>
+          <p>
+            I have built systems for <strong>web, Android, desktop, iOS</strong>, and
+            <strong>hardware</strong>. Selected projects include scalable Flask APIs
+            serving 4M+ users, a WebGL 3D viewer, <strong>Learn Kannada</strong> with
+            10K+ downloads, and Jedi Mouse, a gesture and EEG cursor control project.
+          </p>
+          <p>Explore <a href="{{ '/akka/' | relative_url }}">Akka</a>, a Kannada-supported alphabet learning tool.</p>
+        </article>
+        <article class="panel">
+          <p class="kicker">Swimming</p>
+          <h3>Distance and fundraising</h3>
+          <p>
+            I am a long-distance swimmer and have raised approximately
+            <strong>$25,000</strong> for social causes in India. Selected swims include
+            Elephanta Island to Gateway of India, Swim Miami in 2016 and 2021, and
+            Lake Muhazi in Rwanda.
+          </p>
+          <p>
+            Read a
+            <a href="https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/" target="_blank" rel="noopener">swimming story on my blog</a>.
+          </p>
+        </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2>Get in touch</h2>
+          <p><a href="mailto:vica001@teams.uni-saarland.de">vica001@teams.uni-saarland.de</a></p>
+        </div>
+        <div class="footer-links">
+          <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://twitter.com/kmarkiv" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://kmarkiv.wordpress.com/" target="_blank" rel="noopener">Blog</a>
+          <a href="{{ site.calendar }}" target="_blank" rel="noopener">Schedule a meeting</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

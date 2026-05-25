@@ -1,0 +1,123 @@
+- year: 2025
+  title: "Exploring AI in Education: Child-Computer Interaction in the Global South"
+  authors: "Riti Verma, Ingmar Weber, and Vikram Kamath Cannanure"
+  venue: "ACM Journal on Computing and Sustainable Societies, 3(3), Article 20, 1-23"
+  doi: "10.1145/3736645"
+  url: "https://doi.org/10.1145/3736645"
+  tag: "AI & Education"
+  bibtex: |
+    @article{verma2025exploring,
+      title = {Exploring AI in Education: Child-Computer Interaction in the Global South},
+      author = {Verma, Riti and Weber, Ingmar and Cannanure, Vikram Kamath},
+      journal = {ACM Journal on Computing and Sustainable Societies},
+      volume = {3},
+      number = {3},
+      articleno = {20},
+      year = {2025},
+      doi = {10.1145/3736645}
+    }
+
+- year: 2025
+  title: "Exploring LLMs for Automated Generation and Adaptation of Questionnaires"
+  authors: "Divya Mani Adhikari, Alexander Hartland, Ingmar Weber, and Vikram Kamath Cannanure"
+  venue: "Proceedings of the 7th ACM Conference on Conversational User Interfaces (CUI), Article 70, 1-23"
+  doi: "10.1145/3719160.3736606"
+  url: "https://doi.org/10.1145/3719160.3736606"
+  preprint: "https://arxiv.org/abs/2501.05985"
+  tag: "Conversational AI"
+  bibtex: |
+    @inproceedings{adhikari2025exploring,
+      title = {Exploring LLMs for Automated Generation and Adaptation of Questionnaires},
+      author = {Adhikari, Divya Mani and Hartland, Alexander and Weber, Ingmar and Cannanure, Vikram Kamath},
+      booktitle = {Proceedings of the 7th ACM Conference on Conversational User Interfaces},
+      year = {2025},
+      articleno = {70},
+      doi = {10.1145/3719160.3736606}
+    }
+
+- year: 2025
+  title: "Learn, Explore and Reflect by Chatting: Understanding the Value of an LLM-Based Voting Advice Application Chatbot"
+  authors: "Jianlong Zhu, Manon Kempermann, Vikram Kamath Cannanure, Alexander Hartland, Rosa M. Navarrete, Giuseppe Carteny, Daniela Braun, and Ingmar Weber"
+  venue: "Proceedings of the 7th ACM Conference on Conversational User Interfaces (CUI)"
+  doi: "10.1145/3719160.3736611"
+  url: "https://doi.org/10.1145/3719160.3736611"
+  preprint: "https://arxiv.org/abs/2505.09806"
+  tag: "Conversational AI"
+  bibtex: |
+    @inproceedings{zhu2025learn,
+      title = {Learn, Explore and Reflect by Chatting: Understanding the Value of an LLM-Based Voting Advice Application Chatbot},
+      author = {Zhu, Jianlong and Kempermann, Manon and Cannanure, Vikram Kamath and Hartland, Alexander and Navarrete, Rosa M. and Carteny, Giuseppe and Braun, Daniela and Weber, Ingmar},
+      booktitle = {Proceedings of the 7th ACM Conference on Conversational User Interfaces},
+      year = {2025},
+      doi = {10.1145/3719160.3736611}
+    }
+
+- year: 2024
+  title: "Understanding the Longitudinal Impact of a Chatbot to Facilitate a Virtual Community of Practice for Teachers in Rural Côte d’Ivoire"
+  authors: "Vikram Kamath Cannanure, Tricia Ngoon, Sharon Wolf, Kaja Jasińska, Timothy X. Brown, and Amy Ogan"
+  venue: "ACM Journal on Computing and Sustainable Societies, 2(3), Article 37, 1-37"
+  doi: "10.1145/3675762"
+  url: "https://doi.org/10.1145/3675762"
+  tag: "Teacher Learning"
+  bibtex: |
+    @article{cannanure2024longitudinal,
+      title = {Understanding the Longitudinal Impact of a Chatbot to Facilitate a Virtual Community of Practice for Teachers in Rural C{\^o}te d'Ivoire},
+      author = {Cannanure, Vikram Kamath and Ngoon, Tricia and Wolf, Sharon and Jasi{\'n}ska, Kaja and Brown, Timothy X. and Ogan, Amy},
+      journal = {ACM Journal on Computing and Sustainable Societies},
+      volume = {2},
+      number = {3},
+      articleno = {37},
+      year = {2024},
+      doi = {10.1145/3675762}
+    }
+
+- year: 2024
+  title: "“I Believe I Did Not Preach into the Desert”: Opportunities and Challenges in Scaling Teacher Mentorship through Mobile Technology in Rural Côte d’Ivoire"
+  authors: "Tricia J. Ngoon, Vikram Kamath Cannanure, Kaja Jasińska, Sharon Wolf, and Amy Ogan"
+  venue: "Proceedings of the Eleventh ACM Conference on Learning @ Scale (L@S), 232-242"
+  doi: "10.1145/3657604.3662035"
+  url: "https://doi.org/10.1145/3657604.3662035"
+  tag: "Teacher Learning"
+  bibtex: |
+    @inproceedings{ngoon2024believe,
+      title = {{``I Believe I Did Not Preach into the Desert''}: Opportunities and Challenges in Scaling Teacher Mentorship through Mobile Technology in Rural C{\^o}te d'Ivoire},
+      author = {Ngoon, Tricia J. and Cannanure, Vikram Kamath and Jasi{\'n}ska, Kaja and Wolf, Sharon and Ogan, Amy},
+      booktitle = {Proceedings of the Eleventh ACM Conference on Learning @ Scale},
+      pages = {232--242},
+      year = {2024},
+      doi = {10.1145/3657604.3662035}
+    }
+
+- year: 2020
+  title: "“I’m Fine Where I Am, but I Want to Do More”: Exploring Teacher Aspirations in Rural Côte d’Ivoire"
+  authors: "Vikram Kamath Cannanure, Justin Souvenir Niweteto, Yves Thierry Adji, Akpe Yapo Hermann, Kaja K. Jasińska, Timothy X. Brown, and Amy Ogan"
+  venue: "ACM SIGCAS Conference on Computing and Sustainable Societies (COMPASS), 1-12"
+  doi: "10.1145/3378393.3403653"
+  url: "https://doi.org/10.1145/3378393.3403653"
+  tag: "ICTD"
+  bibtex: |
+    @inproceedings{cannanure2020aspirations,
+      title = {{``I'm Fine Where I Am, but I Want to Do More''}: Exploring Teacher Aspirations in Rural C{\^o}te d'Ivoire},
+      author = {Cannanure, Vikram Kamath and Niweteto, Justin Souvenir and Adji, Yves Thierry and Hermann, Akpe Yapo and Jasi{\'n}ska, Kaja K. and Brown, Timothy X. and Ogan, Amy},
+      booktitle = {ACM SIGCAS Conference on Computing and Sustainable Societies},
+      pages = {1--12},
+      year = {2020},
+      doi = {10.1145/3378393.3403653}
+    }
+
+- year: 2020
+  title: "DIA: A Human AI Hybrid Conversational Assistant for Developing Contexts"
+  authors: "Vikram Kamath Cannanure, Timothy X. Brown, and Amy Ogan"
+  venue: "Proceedings of the 2020 International Conference on Information and Communication Technologies and Development (ICTD), Article 24, 1-5"
+  doi: "10.1145/3392561.3397577"
+  url: "https://doi.org/10.1145/3392561.3397577"
+  tag: "ICTD"
+  bibtex: |
+    @inproceedings{cannanure2020dia,
+      title = {DIA: A Human AI Hybrid Conversational Assistant for Developing Contexts},
+      author = {Cannanure, Vikram Kamath and Brown, Timothy X. and Ogan, Amy},
+      booktitle = {Proceedings of the 2020 International Conference on Information and Communication Technologies and Development},
+      articleno = {24},
+      year = {2020},
+      doi = {10.1145/3392561.3397577}
+    }
