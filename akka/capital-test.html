@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ಕನ್ನಡ ಓದಲು ಬರುವ ಕಲಿಯುವವರಿಗಾಗಿ ದೊಡ್ಡ ಇಂಗ್ಲಿಷ್ ಅಕ್ಷರಗಳ ಹೊಂದಿಕೊಳ್ಳುವ 40 ಪ್ರಶ್ನೆಗಳ ಪರೀಕ್ಷೆ.">
+    <title>ದೊಡ್ಡ ಅಕ್ಷರಗಳ ಪರೀಕ್ಷೆ | Capital Letter Test</title>
+    <link rel="stylesheet" href="./assets/css/alphabet.css">
+  </head>
+  <body>
+    <main class="quiz">
+      <nav class="top-nav" aria-label="ಪಾಠಗಳ ಪುಟ">
+        <a href="./index.html">ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ</a>
+      </nav>
+
+      <header class="hero quiz-hero">
+        <p class="eyebrow">Capital Letters Test / ದೊಡ್ಡ ಅಕ್ಷರಗಳ ಪರೀಕ್ಷೆ</p>
+        <h1>ಅಕ್ಷರ ಗುರುತಿಸೋಣ!</h1>
+        <p class="intro">
+          ಕಾಣುವ ಇಂಗ್ಲಿಷ್ ದೊಡ್ಡ ಅಕ್ಷರದ ಹೆಸರನ್ನು ಕನ್ನಡದಲ್ಲಿ ಆಯ್ಕೆ ಮಾಡಿ.
+          ಒಟ್ಟು <strong>40 ಪ್ರಶ್ನೆಗಳು</strong> ಇವೆ.
+        </p>
+        <div class="tip" role="note">
+          ತಪ್ಪಾದ ಅಕ್ಷರವನ್ನು ಮತ್ತೆ ಕೇಳುವ ಸಾಧ್ಯತೆ ಹೆಚ್ಚುತ್ತದೆ. ಹೀಗಾಗಿ ನಿಮಗೆ
+          ಕಷ್ಟವಾಗುವ ಅಕ್ಷರಗಳ ಮೇಲೆ ಹೆಚ್ಚು ಅಭ್ಯಾಸ ಸಿಗುತ್ತದೆ.
+        </div>
+      </header>
+
+      <section class="quiz-panel" id="quiz-panel" aria-live="polite">
+        <div class="quiz-progress">
+          <p id="question-count">ಪ್ರಶ್ನೆ 1 / 40</p>
+          <p id="score-count">ಸರಿಯಾದ ಉತ್ತರ: 0</p>
+        </div>
+        <div class="progress-bar" aria-hidden="true">
+          <span id="progress-fill"></span>
+        </div>
+
+        <div class="answer-feedback" id="answer-feedback" hidden>
+          <p id="feedback-text"></p>
+          <div class="feedback-practice">
+            <strong id="feedback-letter"></strong>
+            <span id="feedback-reading"></span>
+            <button class="quiz-listen" id="feedback-listen" type="button">ಕೇಳಿ</button>
+          </div>
+          <p class="advance-note">
+            ಮುಂದಿನ ಪ್ರಶ್ನೆ <strong id="seconds-left">20</strong> ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಬರುತ್ತದೆ.
+          </p>
+          <button class="next-question" id="next-question" type="button">ಈಗ ಮುಂದುವರಿಸಿ</button>
+        </div>
+
+        <p class="quiz-prompt">ಈ ಅಕ್ಷರವನ್ನು ಕನ್ನಡದಲ್ಲಿ ಹೇಗೆ ಓದುತ್ತೀರಿ?</p>
+        <div class="quiz-letter" id="quiz-letter" aria-label="Question letter">A</div>
+        <div class="answer-grid" id="answer-grid" aria-label="ಉತ್ತರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"></div>
+      </section>
+
+      <section class="results" id="results" hidden aria-live="polite">
+        <h2>ಪರೀಕ್ಷೆ ಮುಗಿಯಿತು!</h2>
+        <p class="result-score" id="result-score"></p>
+        <div id="review-panel">
+          <h3>ಮತ್ತೆ ಅಭ್ಯಾಸ ಮಾಡಬೇಕಾದ ಅಕ್ಷರಗಳು</h3>
+          <p id="review-message"></p>
+          <div class="review-list" id="review-list"></div>
+        </div>
+        <p class="saved-note">
+          ಈ ತಪ್ಪುಗಳು ನೆನಪಿನಲ್ಲಿರುತ್ತವೆ. ಮುಂದಿನ ಪರೀಕ್ಷೆಯಲ್ಲಿ ಈ ಅಕ್ಷರಗಳು
+          ಅಭ್ಯಾಸಕ್ಕೆ ಹೆಚ್ಚು ಬಾರಿ ಬರಬಹುದು.
+        </p>
+        <div class="result-actions">
+          <button class="restart-test" id="restart-test" type="button">ಮತ್ತೆ ಪರೀಕ್ಷೆ ಮಾಡಿ</button>
+          <a class="study-link" href="./alphabet.html">ದೊಡ್ಡ ಅಕ್ಷರಗಳನ್ನು ಓದಿ</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="./assets/js/capital-test.js"></script>
+  </body>
+</html>
