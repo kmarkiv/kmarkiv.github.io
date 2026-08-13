@@ -349,8 +349,10 @@ section[id] {
   color: var(--coral);
   display: block;
   font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.92rem;
   font-style: italic;
   margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
 .principle h3 {
@@ -393,6 +395,42 @@ section[id] {
   padding-left: clamp(35px, 7vw, 80px);
 }
 
+.case-studies {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(55px, 8vw, 88px);
+  padding-top: 26px;
+}
+
+.case-study {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 180px minmax(0, 1fr);
+}
+
+.case-study img {
+  background: white;
+  border-radius: 5px;
+  display: block;
+  height: 132px;
+  object-fit: cover;
+  object-position: left center;
+  width: 100%;
+}
+
+.case-study h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.case-study p:not(.section-number) {
+  color: #bfd0cb;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
 .stat {
   align-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
@@ -417,6 +455,10 @@ section[id] {
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1;
+}
+
+.stat-wide strong {
+  font-size: clamp(2rem, 3.7vw, 3.25rem);
 }
 
 .stat span {
@@ -489,6 +531,50 @@ section[id] {
 .publication-body .venue {
   font-style: italic;
   margin-top: 3px;
+}
+
+.citation {
+  margin-top: 15px;
+}
+
+.citation summary {
+  color: var(--forest);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 720;
+  list-style: none;
+  width: fit-content;
+}
+
+.citation summary::-webkit-details-marker {
+  display: none;
+}
+
+.citation summary::after {
+  content: " +";
+}
+
+.citation[open] summary::after {
+  content: " −";
+}
+
+.citation-instruction {
+  color: var(--muted);
+  font-size: 0.8rem !important;
+  margin-top: 11px !important;
+}
+
+.citation pre {
+  background: #f0eee8;
+  border-left: 2px solid var(--coral);
+  color: #34413d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  margin: 12px 0 0;
+  overflow-x: auto;
+  padding: 14px;
+  white-space: pre-wrap;
 }
 
 .publication-arrow {
@@ -612,6 +698,10 @@ section[id] {
     padding-left: 0;
   }
 
+  .case-studies {
+    grid-template-columns: 1fr;
+  }
+
   .footer-cta {
     align-items: flex-start;
   }
@@ -664,6 +754,14 @@ section[id] {
 
   .field-evidence {
     grid-template-columns: 1fr;
+  }
+
+  .case-study {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study img {
+    height: 190px;
   }
 
   .stat:nth-child(2) {

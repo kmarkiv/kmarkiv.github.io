@@ -1,3 +1,106 @@
+- year: 2026
+  title: "Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education"
+  authors: "Hamayoon Behmanush, Freshta Akhtari, Ingmar Weber, and Vikram Kamath Cannanure"
+  authors_list:
+    - "Hamayoon Behmanush"
+    - "Freshta Akhtari"
+    - "Ingmar Weber"
+    - "Vikram Kamath Cannanure"
+  venue: "Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency (FAccT), 6203-6225"
+  url: "https://arxiv.org/abs/2604.07253"
+  preprint: "https://arxiv.org/abs/2604.07253"
+  tag: "Learning & Safety"
+  bibtex: |
+    @inproceedings{behmanush2026safe,
+      title = {Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education},
+      author = {Behmanush, Hamayoon and Akhtari, Freshta and Weber, Ingmar and Cannanure, Vikram Kamath},
+      booktitle = {Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency},
+      pages = {6203--6225},
+      year = {2026},
+      eprint = {2604.07253},
+      archivePrefix = {arXiv}
+    }
+
+- year: 2026
+  title: "Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire"
+  authors: "Sharon Wolf, Amy Ogan, Kaja K. Jasińska, Samuel Kembou, Vikram Kamath Cannanure, Hannah Whitehead, Julianna Corbett, Fabrice Tanoh, Brooke Wortsman, Joshua Lim, Hui Zhao, and Anahita Kumar"
+  authors_list:
+    - "Sharon Wolf"
+    - "Amy Ogan"
+    - "Kaja K. Jasińska"
+    - "Samuel Kembou"
+    - "Vikram Kamath Cannanure"
+    - "Hannah Whitehead"
+    - "Julianna Corbett"
+    - "Fabrice Tanoh"
+    - "Brooke Wortsman"
+    - "Joshua Lim"
+    - "Hui Zhao"
+    - "Anahita Kumar"
+  venue: "American Educational Research Journal"
+  doi: "10.3102/00028312261430679"
+  url: "https://doi.org/10.3102/00028312261430679"
+  tag: "Teacher Learning"
+  bibtex: |
+    @article{wolf2026impacts,
+      title = {Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire},
+      author = {Wolf, Sharon and Ogan, Amy and Jasińska, Kaja K. and Kembou, Samuel and Cannanure, Vikram Kamath and Whitehead, Hannah and Corbett, Julianna and Tanoh, Fabrice and Wortsman, Brooke and Lim, Joshua and Zhao, Hui and Kumar, Anahita},
+      journal = {American Educational Research Journal},
+      year = {2026},
+      doi = {10.3102/00028312261430679}
+    }
+
+- year: 2026
+  title: "Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon"
+  authors: "Vikram Kamath Cannanure, Bruno Yinkfu, Douglas Bryan, Mati Amin, and Ingmar Weber"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Bruno Yinkfu"
+    - "Douglas Bryan"
+    - "Mati Amin"
+    - "Ingmar Weber"
+  venue: "arXiv preprint arXiv:2604.04139"
+  doi: "10.48550/arXiv.2604.04139"
+  url: "https://arxiv.org/abs/2604.04139"
+  preprint: "https://arxiv.org/abs/2604.04139"
+  tag: "Teacher Learning"
+  bibtex: |
+    @misc{cannanure2026whatsapp,
+      title = {Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon},
+      author = {Cannanure, Vikram Kamath and Yinkfu, Bruno and Bryan, Douglas and Amin, Mati and Weber, Ingmar},
+      year = {2026},
+      eprint = {2604.04139},
+      archivePrefix = {arXiv},
+      primaryClass = {cs.HC},
+      doi = {10.48550/arXiv.2604.04139}
+    }
+
+- year: 2025
+  title: "A Design-Based Research Approach to Bridge Teacher Aspirations and Goal-Setting"
+  authors: "Vikram Kamath Cannanure, Tricia J. Ngoon, Sharon Wolf, Kaja K. Jasińska, Tim Brown, and Amy Ogan"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Tricia J. Ngoon"
+    - "Sharon Wolf"
+    - "Kaja K. Jasińska"
+    - "Tim Brown"
+    - "Amy Ogan"
+  venue: "ACM Journal on Computing and Sustainable Societies, 3(4), 1-23"
+  doi: "10.1145/3736648"
+  url: "https://doi.org/10.1145/3736648"
+  tag: "ICTD"
+  bibtex: |
+    @article{cannanure2025designbased,
+      title = {A Design-Based Research Approach to Bridge Teacher Aspirations and Goal-Setting},
+      author = {Cannanure, Vikram Kamath and Ngoon, Tricia J. and Wolf, Sharon and Jasińska, Kaja K. and Brown, Tim and Ogan, Amy},
+      journal = {ACM Journal on Computing and Sustainable Societies},
+      volume = {3},
+      number = {4},
+      pages = {1--23},
+      year = {2025},
+      doi = {10.1145/3736648}
+    }
+
 - year: 2025
   title: "Exploring AI in Education: Child-Computer Interaction in the Global South"
   authors: "Riti Verma, Ingmar Weber, and Vikram Kamath Cannanure"

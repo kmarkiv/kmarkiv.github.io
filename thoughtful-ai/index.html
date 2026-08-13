@@ -5,26 +5,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="The Thoughtful AI Lab studies and builds participatory, context-aware AI that strengthens human capabilities over time.">
     <meta name="theme-color" content="#f4efe5">
-    <title>Vikram Kamath Cannanure · Thoughtful AI</title>
+    <title>Thoughtful AI Lab</title>
     <link rel="canonical" href="{{ site.canonical }}/thoughtful-ai/">
     <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+    {% for publication in site.data.publications %}
+    <meta name="citation_title" content="{{ publication.title | escape }}">
+    <meta name="citation_publication_date" content="{{ publication.year }}">
+    <meta name="citation_journal_title" content="{{ publication.venue | escape }}">
+    <meta name="citation_author" content="{{ publication.authors | escape }}">
+    {% if publication.doi %}<meta name="citation_doi" content="{{ publication.doi }}">{% endif %}
+    {% if publication.preprint %}<meta name="citation_pdf_url" content="{{ publication.preprint | replace: '/abs/', '/pdf/' }}.pdf">{% endif %}
+    {% endfor %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {% for publication in site.data.publications %}
+          {
+            "@type": "ScholarlyArticle",
+            "headline": {{ publication.title | jsonify }},
+            "url": {{ publication.url | jsonify }},
+            "datePublished": {{ publication.year | jsonify }},
+            "isPartOf": { "@type": "Periodical", "name": {{ publication.venue | jsonify }} },
+            "author": [
+              {% if publication.authors_list %}
+                {% for author in publication.authors_list %}{ "@type": "Person", "name": {{ author | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}
+              {% else %}
+                { "@type": "Person", "name": {{ publication.authors | jsonify }} }
+              {% endif %}
+            ]{% if publication.doi %},
+            "identifier": "https://doi.org/{{ publication.doi }}"{% endif %}
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="shell header-inner">
-        <a class="wordmark" href="#top" aria-label="Vikram Kamath Cannanure, home">
-          <span>Vikram Kamath</span>
-          <span class="wordmark-muted">Cannanure</span>
+        <a class="wordmark" href="#top" aria-label="Thoughtful AI Lab, home">
+          <span>Thoughtful</span>
+          <span class="wordmark-muted">AI Lab</span>
         </a>
         <nav class="nav" aria-label="Primary navigation">
-          <a href="#approach">Approach</a>
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a class="nav-contact" href="mailto:vica001@teams.uni-saarland.de">Let’s talk</a>
+          <a href="#research">Research</a>
+          <a href="#principles">Principles</a>
+          <a href="#publications">Publications</a>
+          <a class="nav-contact" href="#join">Work with us</a>
         </nav>
       </div>
     </header>
@@ -32,24 +64,24 @@
     <main id="main">
       <section class="hero shell" id="top">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> Human–Computer Interaction · ICTD</p>
-          <h1>AI should help people <em>think</em>—not think for them.</h1>
+          <p class="eyebrow"><span></span> Human–Computer Interaction · ICTD · AI</p>
+          <h1>Useful now.<br>Capable <em>later.</em></h1>
           <p class="hero-lede">
-            I research and build <strong>thoughtful AI</strong>: technology that begins
-            with people and their context, strengthens human judgment, and earns its
-            place in everyday life.
+            The <strong>Thoughtful AI Lab</strong> studies and builds AI with people,
+            adapts it to the realities of their lives, and asks what they remain able to
+            do after the answer is gone.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="{{ site.cv_link }}" target="_blank" rel="noopener">Read my CV <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#research">Explore our research <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#join">Collaborate with us <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
-        <aside class="hero-note" aria-label="Current role">
+        <aside class="hero-note" aria-label="Lab location and leadership">
           <img src="{{ '/assets/avatar.jpg' | relative_url }}" alt="Vikram Kamath Cannanure monogram">
           <div>
-            <p class="note-label">Currently</p>
-            <p>Postdoctoral Fellow at Saarland University, working with <a href="https://ingmarweber.de/" target="_blank" rel="noopener">Ingmar Weber</a>.</p>
+            <p class="note-label">Based at Saarland University</p>
+            <p>Led by <a href="{{ site.linkedin }}" target="_blank" rel="noopener">Vikram Kamath Cannanure</a>, in Saarbrücken, Germany.</p>
           </div>
         </aside>
       </section>
@@ -57,85 +89,104 @@
       <section class="manifesto" aria-labelledby="manifesto-title">
         <div class="shell manifesto-grid">
           <div>
-            <p class="section-number">01 / Point of view</p>
-            <h2 id="manifesto-title">Thoughtful AI is not defined by what a system can do.</h2>
+            <p class="section-number">01 / Our orientation</p>
+            <h2 id="manifesto-title">The immediate answer is only the beginning.</h2>
           </div>
           <div class="manifesto-copy">
-            <p class="manifesto-lead">It is defined by what becomes possible for the people using it.</p>
+            <p class="manifesto-lead">We evaluate AI by what it leaves people able to do.</p>
             <p>
-              That shifts the questions I ask. Not only “Is the model accurate?” but
-              “Whose goals does it serve?” “Will it work here?” and “Does it leave
-              people with more agency, understanding, and room to act?”
+              A direct answer can be useful. But useful assistance should also make room
+              for people to consider options, navigate their own context, and act with
+              greater understanding and agency the next time.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="approach shell" id="approach" aria-labelledby="approach-title">
+      <section class="approach shell" id="principles" aria-labelledby="approach-title">
         <div class="section-heading">
           <div>
-            <p class="section-number">02 / How I work</p>
-            <h2 id="approach-title">From lived context to lasting value.</h2>
+            <p class="section-number">02 / Design principles</p>
+            <h2 id="approach-title">Before, during, and after the interaction.</h2>
           </div>
-          <p>Three commitments connect my work across education, civic participation, and the Global South.</p>
+          <p>We work across the full lifecycle of AI assistance: who shapes it, how it responds in context, and what capabilities remain.</p>
         </div>
 
         <div class="principles">
           <article class="principle">
-            <span class="principle-index">A</span>
-            <h3>Listen before building</h3>
-            <p>Start with aspirations, constraints, and knowledge already present in a community—not with a technology looking for a use.</p>
+            <span class="principle-index">Before</span>
+            <h3>Inclusive participation</h3>
+            <p>Whose knowledge, goals, and aspirations shape the system? We begin with local strengths and make absences visible.</p>
           </article>
           <article class="principle">
-            <span class="principle-index">B</span>
-            <h3>Design for reflection</h3>
-            <p>Use conversation and AI to help people learn, explore choices, and make judgments of their own.</p>
+            <span class="principle-index">During</span>
+            <h3>Context-aware care</h3>
+            <p>How should support change as needs, risks, language, and infrastructure change? We design for care, uncertainty, and human handoffs.</p>
           </article>
           <article class="principle">
-            <span class="principle-index">C</span>
-            <h3>Stay for the long term</h3>
-            <p>Evaluate beyond the demo: in real settings, over time, and at the scale where infrastructure and institutions matter.</p>
+            <span class="principle-index">After</span>
+            <h3>Lasting capabilities</h3>
+            <p>What can people still do after AI assistance ends? We look beyond task completion to learning, confidence, agency, and solidarity.</p>
           </article>
         </div>
       </section>
 
-      <section class="field-story" aria-labelledby="field-title">
+      <section class="field-story" id="research" aria-labelledby="field-title">
         <div class="shell field-grid">
           <div class="field-intro">
-            <p class="section-number light">03 / In practice</p>
-            <h2 id="field-title">What thoughtful AI looks like on the ground.</h2>
+            <p class="section-number light">03 / Research in practice</p>
+            <h2 id="field-title">We study AI where its consequences are real.</h2>
             <p>
-              My doctoral research followed one question from early fieldwork to
-              multi-year deployment: how might a low-cost conversational system support
-              teachers where connectivity, time, and access to mentors are limited?
+              Our work spans commercial AI, sensitive health and wellness support, and
+              teacher learning in low-infrastructure settings. These are not just test
+              beds: they reveal who current systems serve, where they break down, and
+              how they can strengthen people over time.
             </p>
-            <a class="text-link light-link" href="{{ site.thesis_link }}" target="_blank" rel="noopener">Read the dissertation <span aria-hidden="true">↗</span></a>
+            <a class="text-link light-link" href="#publications">Explore related publications <span aria-hidden="true">↓</span></a>
           </div>
 
-          <div class="field-evidence" aria-label="Project impact">
+          <div class="field-evidence" aria-label="Selected research evidence">
             <div class="stat">
-              <strong>400+</strong>
-              <span>teachers supported</span>
+              <strong>3,961</strong>
+              <span>app reviews examined to understand expectations of commercial AI</span>
             </div>
             <div class="stat">
-              <strong>10,000+</strong>
-              <span>students reached</span>
+              <strong>108</strong>
+              <span>people onboarded to a private wellness-support pilot</span>
             </div>
             <div class="stat stat-wide">
-              <strong>Rural Côte d’Ivoire</strong>
-              <span>A human–AI system shaped around local teaching practice and low-infrastructure realities.</span>
+              <strong>313 teachers</strong>
+              <span>followed across a year to examine what peer support and agency can endure beyond an AI interaction.</span>
             </div>
           </div>
         </div>
+        <div class="shell case-studies" aria-label="Selected research cases">
+          <article class="case-study">
+            <img src="{{ '/assets/images/thoughtful-ai/australian-ai-reviews.png' | relative_url }}" alt="Comparison of ratings and negative-review shares for five commercial AI assistants">
+            <div>
+              <p class="section-number light">Before / Commercial AI</p>
+              <h3>What do current systems assume?</h3>
+              <p>App reviews make visible what answer-first assistants promise, and the context, reliability, and safety gaps people encounter in practice.</p>
+            </div>
+          </article>
+          <article class="case-study">
+            <img src="{{ '/assets/images/thoughtful-ai/teacher-community-chatbot.png' | relative_url }}" alt="Screens from a chatbot-supported teacher community of practice in Côte d’Ivoire">
+            <div>
+              <p class="section-number light">After / Teacher learning</p>
+              <h3>What remains after assistance?</h3>
+              <p>A chatbot can scaffold connection, reflection, and peer support—but the lasting outcome is teachers’ capacity to help one another.</p>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section class="work shell" id="work" aria-labelledby="work-title">
+      <section class="work shell" id="publications" aria-labelledby="work-title">
         <div class="section-heading work-heading">
           <div>
-            <p class="section-number">04 / Selected work</p>
-            <h2 id="work-title">Research across learning, participation, and AI.</h2>
+            <p class="section-number">04 / Publications</p>
+            <h2 id="work-title">Building the evidence for more thoughtful AI.</h2>
           </div>
-          <p>Recent and representative publications. The full record is on <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>.</p>
+          <p>Selected work on conversational AI, learning, reflection, and technology in the Global South. The full record is on <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>.</p>
         </div>
 
         <ol class="publication-list">
@@ -149,6 +200,11 @@
               <h3><a href="{{ publication.url }}" target="_blank" rel="noopener">{{ publication.title }}</a></h3>
               <p>{{ publication.authors }}</p>
               <p class="venue">{{ publication.venue }}.</p>
+              <details class="citation">
+                <summary>Cite this paper</summary>
+                <p class="citation-instruction">Copy the BibTeX below, or find this record in <a href="https://scholar.google.com/scholar?q={{ publication.title | url_encode }}" target="_blank" rel="noopener">Google Scholar</a>.</p>
+                <pre><code>{{ publication.bibtex | escape }}</code></pre>
+              </details>
             </div>
             <a class="publication-arrow" href="{{ publication.url }}" target="_blank" rel="noopener" aria-label="Read {{ publication.title }}">↗</a>
           </li>
@@ -161,30 +217,30 @@
         </div>
       </section>
 
-      <section class="about" id="about" aria-labelledby="about-title">
+      <section class="about" id="join" aria-labelledby="about-title">
         <div class="shell about-grid">
           <div>
-            <p class="section-number">05 / About</p>
-            <h2 id="about-title">Researcher, builder, teacher—and long-distance swimmer.</h2>
+            <p class="section-number">05 / Join the conversation</p>
+            <h2 id="about-title">Make AI more useful without making people smaller.</h2>
           </div>
           <div class="about-copy">
             <p>
-              I am a postdoctoral fellow at Saarland University and earned my PhD in
-              Human–Computer Interaction at Carnegie Mellon University, advised by
-              <a href="https://www.amyogan.com/" target="_blank" rel="noopener">Amy Ogan</a>
-              and <a href="https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html" target="_blank" rel="noopener">Tim Brown</a>.
+              The lab is led by <a href="{{ site.linkedin }}" target="_blank" rel="noopener">Vikram Kamath Cannanure</a>,
+              a postdoctoral fellow at Saarland University. Its work connects Human-Computer
+              Interaction, ICTD, and Everyday AI through collaborations with communities,
+              researchers, practitioners, and public-interest organizations.
             </p>
             <p>
-              Beyond papers, I build software and hardware, teach Kannada, support the
-              HCI Across Borders community, and swim long distances to raise funds for
-              social causes in India. Different currents, same instinct: meaningful
-              progress is collective and earned over time.
+              We welcome collaborators who care about participatory AI, learning,
+              health and wellbeing, civic participation, multilingual systems, and
+              technology that works in low-resource contexts. If that sounds like your
+              work, get in touch.
             </p>
             <div class="about-links">
-              <a href="{{ site.cv_link }}" target="_blank" rel="noopener">CV ↗</a>
+              <a href="mailto:vica001@teams.uni-saarland.de">Email the lab ↗</a>
+              <a href="{{ site.cv_link }}" target="_blank" rel="noopener">Vikram’s CV ↗</a>
               <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>
-              <a href="https://kmarkiv.wordpress.com/" target="_blank" rel="noopener">Stories ↗</a>
-              <a href="{{ '/akka/' | relative_url }}">Akka ↗</a>
+              <a href="{{ site.calendar }}" target="_blank" rel="noopener">Schedule a conversation ↗</a>
             </div>
           </div>
         </div>
@@ -194,17 +250,17 @@
     <footer class="site-footer">
       <div class="shell footer-grid">
         <div>
-          <p class="section-number light">Let’s make AI more thoughtful.</p>
-          <h2>Have a question, collaboration, or idea?</h2>
+          <p class="section-number light">Thoughtful AI Lab</p>
+          <h2>Let’s build AI that helps people navigate, not just arrive.</h2>
         </div>
         <div class="footer-cta">
-          <a class="button button-light" href="mailto:vica001@teams.uni-saarland.de">Send an email <span aria-hidden="true">↗</span></a>
-          <a href="{{ site.calendar }}" target="_blank" rel="noopener">Schedule a conversation</a>
+          <a class="button button-light" href="mailto:vica001@teams.uni-saarland.de">Start a conversation <span aria-hidden="true">↗</span></a>
+          <a href="{{ site.calendar }}" target="_blank" rel="noopener">Schedule a meeting</a>
         </div>
       </div>
       <div class="shell footer-bottom">
-        <span>© 2026 Vikram Kamath Cannanure</span>
-        <span>Built with care in Saarbrücken</span>
+        <span>© 2026 Thoughtful AI Lab</span>
+        <span>Saarbrücken, Germany</span>
       </div>
     </footer>
   </body>
