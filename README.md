@@ -17,6 +17,8 @@ I lead the **[Thoughtful AI Lab](/thoughtful-ai/)**, where we study and build AI
 - **Human-Centered AI** – chatbots, IVR, microlearning, reflective practice  
 - **Education & Health** – teacher PD, community health information access  
 
+There's a fuller [research overview](/research.html) with recent projects and highlights.
+
 
 ### News
 - **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
@@ -29,9 +31,9 @@ I lead the **[Thoughtful AI Lab](/thoughtful-ai/)**, where we study and build AI
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
 - Cannanure V.K., Ngoon T., Wolf S., Jasińska K., Brown T., Ogan A. **Understanding the Longitudinal Impacts of a Chatbot for Teacher PD at Scale.** *ACM COMPASS 2024.*
-- Adhikari D.M., Hartland A., Cannanure V.K., Weber I. **LLMs for Automated Generation & Adaptation of Questionnaires.** *ACM CUI 2025* (accepted).
-- Zhu J., Kempermann M., Cannanure V.K., Weber I. **Learn, Explore, and Reflect by Chatting: An LLM-based Voting Advice Assistant.** *ACM CUI 2025* (accepted).
-- Behmanush H., Akhtari F., Nooripoor R., Weber I., Cannanure V.K. **Online Learning & GenAI for Afghan Women.** *ACM COMPASS 2025* (accepted).
+- Adhikari D.M., Hartland A., Cannanure V.K., Weber I. **LLMs for Automated Generation & Adaptation of Questionnaires.** *ACM CUI 2025.*
+- Zhu J., Kempermann M., Cannanure V.K., Weber I. **Learn, Explore, and Reflect by Chatting: An LLM-based Voting Advice Assistant.** *ACM CUI 2025.*
+- Behmanush H., Akhtari F., Nooripoor R., Weber I., Cannanure V.K. **Online Learning & GenAI for Afghan Women.** *ACM COMPASS 2025.*
 - Cannanure V.K., Brown T., Ogan A. **DIA: A Human-AI Hybrid Chatbot for Low-Resource Contexts.** *ICTD 2020.*
 - Cannanure V.K., Souvenir J., Adji Y., Apke H., Brown T., Ogan A. **Teacher Aspirations in Rural Côte d’Ivoire.** *ACM COMPASS 2020.*
 
