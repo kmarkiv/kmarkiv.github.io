@@ -6,11 +6,6 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 
 
-### Thoughtful AI Lab
-
-I lead the **[Thoughtful AI Lab](/thoughtful-ai/)**, where we study and build AI *with* people, adapt it to the realities of their lives, and ask what they remain able to do after the assistance ends.
-
-
 ### Research Interests
 
 - **ICTD** – aspirations, asset-based design, local innovation  
