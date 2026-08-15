@@ -1,20 +1,24 @@
-title: Vikram Kamath
+title: Vikram Kamath Cannanure
 affiliation: Saarland University
 email: vica001 (at) teams.uni-saarland.de
 google_scholar: https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en
-github_link: https://twitter.com/kmarkiv
+github_link: https://github.com/kmarkiv
+twitter_link: https://twitter.com/kmarkiv
 linkedin: https://www.linkedin.com/in/vikramkamathc/
 avatar: ./assets/avatar.jpg
-favicon: ./assets/img/favicon.png
-cv: ./static/Vikram_Kamath_CV.pdf
-favicon_dark: ./assets/img/favicon-dark.png
-description: simple guy. researcher, programmer, and swimmer. 
+favicon: ./assets/avatar.jpg
+cv: ./assets/Vikram_Kamath_CV.pdf
+favicon_dark: ./assets/avatar.jpg
+description: Postdoctoral fellow at Saarland University working on Human-Computer Interaction, ICTD, and everyday AI for learning, reflection, and civic participation. Researcher, programmer, and long-distance swimmer.
 canonical: https://kmarkiv.com
 calendar: https://calendly.com/kmarkiv/vikram
 position: Postdoctoral Fellow
-google_analytics: UA-12079075-1
+# Universal Analytics (UA-) stopped collecting data in July 2023 — the old
+# property is left here only as a record. Replace with a GA4 id (G-XXXXXXX)
+# to start measuring again, or delete this block entirely.
+# google_analytics: UA-12079075-1
 remote_theme: yaoyao-liu/minimal-light
-cv_link: https://bit.ly/vikram_cv_web 
+cv_link: https://bit.ly/vikram_cv_web
 thesis_link: https://kilthub.cmu.edu/articles/thesis/DIA_Supporting_Teacher_Professional_Development_in_Low_Infrastructure_Settings/25135118?file=44377391
 
 #theme: jekyll-theme-minimal

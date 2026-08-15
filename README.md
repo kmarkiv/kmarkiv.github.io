@@ -6,6 +6,11 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 
 
+### Thoughtful AI Lab
+
+I lead the **[Thoughtful AI Lab](/thoughtful-ai/)**, where we study and build AI *with* people, adapt it to the realities of their lives, and ask what they remain able to do after the assistance ends.
+
+
 ### Research Interests
 
 - **ICTD** – aspirations, asset-based design, local innovation  
@@ -59,6 +64,6 @@ Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D view
 
 ### Contact
 
-**Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)
+**Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)  
 **Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)  
 **Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="\_blank" rel="noopener"} 

@@ -7,17 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The Thoughtful AI Lab studies and builds participatory, context-aware AI that strengthens human capabilities over time.">
     <meta name="theme-color" content="#f4efe5">
-    <title>Thoughtful AI Lab</title>
+    <title>Thoughtful AI Lab — Vikram Kamath Cannanure, Saarland University</title>
+    <meta name="author" content="Vikram Kamath Cannanure">
     <link rel="canonical" href="{{ site.canonical }}/thoughtful-ai/">
+    <link rel="icon" href="{{ '/assets/avatar.jpg' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
-    {% for publication in site.data.publications %}
-    <meta name="citation_title" content="{{ publication.title | escape }}">
-    <meta name="citation_publication_date" content="{{ publication.year }}">
-    <meta name="citation_journal_title" content="{{ publication.venue | escape }}">
-    <meta name="citation_author" content="{{ publication.authors | escape }}">
-    {% if publication.doi %}<meta name="citation_doi" content="{{ publication.doi }}">{% endif %}
-    {% if publication.preprint %}<meta name="citation_pdf_url" content="{{ publication.preprint | replace: '/abs/', '/pdf/' }}.pdf">{% endif %}
-    {% endfor %}
+
+    <!-- Link previews (LinkedIn, Slack, Bluesky, X, iMessage) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Thoughtful AI Lab">
+    <meta property="og:title" content="Thoughtful AI Lab">
+    <meta property="og:description" content="We study and build participatory, context-aware AI — and ask what people remain able to do after the assistance ends. Led by Vikram Kamath Cannanure at Saarland University.">
+    <meta property="og:url" content="{{ site.canonical }}/thoughtful-ai/">
+    <meta property="og:image" content="{{ site.canonical }}/assets/images/thoughtful-ai/teacher-community-chatbot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thoughtful AI Lab">
+    <meta name="twitter:description" content="Participatory, context-aware AI that leaves people more capable, not less.">
+    <meta name="twitter:image" content="{{ site.canonical }}/assets/images/thoughtful-ai/teacher-community-chatbot.png">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -56,6 +62,7 @@
           <a href="#research">Research</a>
           <a href="#principles">Principles</a>
           <a href="#publications">Publications</a>
+          <a href="{{ site.canonical }}/">Vikram’s site</a>
           <a class="nav-contact" href="#join">Work with us</a>
         </nav>
       </div>
@@ -259,8 +266,8 @@
         </div>
       </div>
       <div class="shell footer-bottom">
-        <span>© 2026 Thoughtful AI Lab</span>
-        <span>Saarbrücken, Germany</span>
+        <span>© {{ 'now' | date: "%Y" }} Thoughtful AI Lab</span>
+        <span><a href="{{ site.canonical }}/">kmarkiv.com</a> · Saarbrücken, Germany</span>
       </div>
     </footer>
   </body>

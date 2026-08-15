@@ -809,3 +809,8 @@ section[id] {
     transition: none;
   }
 }
+
+/* links sitting on the dark footer need a light underline to be visible */
+.footer-bottom a {
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
