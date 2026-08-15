@@ -2,6 +2,8 @@
 
 I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Everyday AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
+My current focus is **thoughtful AI**: building AI *with* people, adapting it to the realities of their lives, and asking what they remain able to do once the assistance ends.
+
 I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
 
 
@@ -16,6 +18,8 @@ There's a fuller [research overview](/research.html) with recent projects and hi
 
 
 ### News
+- **2026** – Serving as **Papers Chair for ACM COMPASS 2026**.
+- **2026** – Paper at **ACM FAccT 2026** on designing safe, accountable GenAI learning companions with women banned from formal education.
 - **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
 - **Feb 2025** – Papers accepted to **CUI 2025** (LLM survey design; VAA reflection) and **COMPASS 2025** (online learning & GenAI for Afghan women).
 - **Oct 2023** – Started postdoc in Saarbrücken.
@@ -25,6 +29,8 @@ There's a fuller [research overview](/research.html) with recent projects and hi
 ### Selected Publications  
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
+- Behmanush H., Akhtari F., Weber I., Cannanure V.K. **Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education.** *ACM FAccT 2026.*
+- Wolf S., Ogan A., Jasińska K.K., Kembou S., Cannanure V.K., et al. **Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire.** *American Educational Research Journal, 2026.*
 - Cannanure V.K., Ngoon T., Wolf S., Jasińska K., Brown T., Ogan A. **Understanding the Longitudinal Impacts of a Chatbot for Teacher PD at Scale.** *ACM COMPASS 2024.*
 - Adhikari D.M., Hartland A., Cannanure V.K., Weber I. **LLMs for Automated Generation & Adaptation of Questionnaires.** *ACM CUI 2025.*
 - Zhu J., Kempermann M., Cannanure V.K., Weber I. **Learn, Explore, and Reflect by Chatting: An LLM-based Voting Advice Assistant.** *ACM CUI 2025.*
@@ -36,6 +42,7 @@ There's a fuller [research overview](/research.html) with recent projects and hi
 ### Service
 
 - **Co-Organizer & Community Lead**, HCI Across Borders (CHI ’20–’25; COMPASS ’23/’24).
+- **Papers Chair**, ACM COMPASS 2026.
 - **Program Committees:** COMPASS 2025, AfriCHI 2025.
 - **Reviewer:** CHI, CSCW, COMPASS, ICTD, CHI EA, CHI Case Studies.
 - **Fundraising:** Raised ~$25,000 for social causes in India.
