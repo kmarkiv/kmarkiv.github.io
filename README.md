@@ -14,8 +14,6 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 - **Human-Centered AI** – chatbots, IVR, microlearning, reflective practice  
 - **Education & Health** – teacher PD, community health information access  
 
-There's a fuller [research overview](/research.html) with recent projects and highlights.
-
 
 ### News
 - **2026** – Serving as **Papers Chair for ACM COMPASS 2026**.
