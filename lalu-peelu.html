@@ -125,6 +125,8 @@
   .letter .l-big{font-size:2.5rem;font-weight:800;letter-spacing:1px}
   .letter .l-kn{font-size:1.15rem;
     font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",serif}
+  .letter .l-word{font-size:.5rem;font-weight:700;opacity:.7;line-height:1.2;
+    font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",sans-serif}
   .letter.flip{animation:cardflip .45s ease}
   @keyframes cardflip{0%{transform:rotate(3deg) rotateY(0)}
     50%{transform:rotate(3deg) rotateY(74deg) scale(.94)}
@@ -133,6 +135,38 @@
     .letter{width:138px;padding:14px 10px 16px;gap:8px}
     .letter .l-big{font-size:3.6rem}
     .letter .l-kn{font-size:1.7rem}
+    .letter .l-word{font-size:.72rem}
+  }
+
+  /* the bonus quiz, on a slip of the same paper */
+  .quiz{position:fixed;inset:0;z-index:130;display:none;
+    align-items:center;justify-content:center;padding:20px;background:rgba(20,16,12,.6)}
+  .quiz.show{display:flex}
+  .quiz .slip{position:relative;width:100%;max-width:330px;background:#ece5d6;color:#3f3b33;
+    padding:20px 18px 16px;text-align:center;transform:rotate(-1.2deg);
+    filter:drop-shadow(0 10px 16px rgba(0,0,0,.45));
+    clip-path:polygon(1% 2%,34% 0,68% 3%,100% 1%,98% 30%,100% 62%,97% 98%,
+                      64% 100%,30% 97%,2% 99%,0 60%,2% 28%);
+    background-image:repeating-linear-gradient(rgba(120,114,104,.10) 0 1px,transparent 1px 5px)}
+  .quiz .qtag{font-size:.58rem;font-weight:800;letter-spacing:1px;opacity:.5;text-transform:uppercase}
+  .quiz .qask{margin:2px 0 4px;font-size:.82rem;font-weight:700;opacity:.8}
+  .quiz .qbig{font-size:3.1rem;font-weight:800;line-height:1.05;letter-spacing:1px}
+  .quiz .qopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .quiz .qopt{border:0;border-radius:12px;padding:12px 10px;font:inherit;font-size:1.15rem;
+    font-weight:700;background:#fffaf0;color:#3f3b33;box-shadow:0 3px 0 rgba(0,0,0,.18);
+    font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",serif}
+  .quiz .qopt:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+  .quiz .qopt.wrong{animation:nope .4s ease}
+  .quiz .qopt.right{background:#bfe6a0}
+  @keyframes nope{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}
+    75%{transform:translateX(7px)}}
+  .quiz .qskip{position:absolute;top:6px;right:10px;border:0;background:none;
+    font:inherit;font-size:1rem;color:#3f3b33;opacity:.45;padding:4px 6px}
+  .quiz .qprize{margin-top:10px;font-size:.66rem;font-weight:700;opacity:.6}
+  @media (min-width:700px){
+    .quiz .slip{max-width:420px;padding:26px 24px 20px}
+    .quiz .qbig{font-size:4rem}
+    .quiz .qopt{font-size:1.4rem;padding:15px}
   }
 
   .prop,.crumb{position:absolute;left:0;bottom:0}
@@ -334,6 +368,17 @@
 
 <button class="install" id="btnInstall" aria-label="Save to home screen">⬇︎<span class="short">&nbsp;Save</span><span class="long">&nbsp;Save to phone</span></button>
 
+<div class="quiz" id="quiz">
+  <div class="slip">
+    <button class="qskip" id="qSkip" aria-label="Close">✕</button>
+    <div class="qtag">bonus</div>
+    <p class="qask" id="qAsk">Which sound is this letter?</p>
+    <div class="qbig" id="qBig">C</div>
+    <div class="qopts" id="qOpts"></div>
+    <p class="qprize">Get it right: full food + a clean box 🎉</p>
+  </div>
+</div>
+
 <div class="sheet" id="sheet">
   <div>
     <h2>Put them on your phone</h2>
@@ -347,8 +392,9 @@
     <div class="rim"></div>
     <div class="floor" id="floor"></div>
     <button class="letter" id="letterCard" aria-label="Next letter">
-      <span class="l-big" id="lBig">A</span>
-      <span class="l-kn" id="lKn">ಏ</span>
+      <span class="l-big" id="lBig">C</span>
+      <span class="l-kn" id="lKn">ಸೀ</span>
+      <span class="l-word" id="lWord">carrot · ಗಜ್ಜರಿ</span>
     </button>
     <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in</div>
   </div>
@@ -935,8 +981,10 @@ class Pig {
   }
   goRead(){                                  // wander over and sniff the paper
     this.clear();
+    if (Date.now() - lastPigRead < 30000) return this.think();   // not every minute
     this.walkTo(FW*0.80, yNear + rnd(2,16), ()=>{     // the scrap is at the front right now
       this.bubbleSay(pick(['sniff','?','nom?']), 1300);
+      lastPigRead = Date.now();
       nextLetter(true);
       this.hold('sniffing', rnd(1.6,3), ()=>this.think());
     });
@@ -1020,7 +1068,7 @@ class Pig {
     const r = Math.random();
     if (r < .16 && need.love > 55) { this.popcorn();
       this.timer = setTimeout(()=>this.think(), 900); return; }
-    if (r < .24) return this.goRead();                 // go and sniff the letter
+    if (r < .10) return this.goRead();                 // go and sniff the letter
     if (r < .34) return this.hold('sniffing', rnd(1.6,3.4), ()=>this.think());
     if (r < .44) return this.goNibbleHay();
     if (r < .52) return this.goDrink();
@@ -1129,22 +1177,37 @@ const LETTERS = [
   ['W','ಡಬ್ಲ್ಯೂ','WATCH','ವಾಚ್'],   ['X','ಎಕ್ಸ್','X-RAY','ಎಕ್ಸ್-ರೇ'],
   ['Y','ವೈ','YO-YO','ಯೋ-ಯೋ'],      ['Z','ಝೆಡ್','ZEBRA','ಝೀಬ್ರಾ']
 ];
-/* Teaching order, not A-B-C: it opens with letters that are easy to tell
-   apart, and keeps the pairs beginners mix up well away from each other
-   (B and D, P and Q, M and W, I and L and J, N and U). Capitals run all the
-   way through first, then the same order again in small letters. */
-const ORDER = ['A','S','T','O','M','I','N','C','E','R','H','L','B','F','K',
-               'D','G','P','U','J','V','W','Q','X','Y','Z'];
+/* Words for things that are right there in the box, so the letter is tied to
+   something the reader can see and point at. These Kannada words are
+   translations (not the sound of the English word) — easy to change if any
+   reads oddly. */
+const SCENE = {
+  C:['carrot','ಗಜ್ಜರಿ'], W:['water','ನೀರು'],   H:['hay','ಹುಲ್ಲು'],
+  B:['box','ಪೆಟ್ಟಿಗೆ'],  T:['tunnel','ಸುರಂಗ'], P:['pig','ಹಂದಿ'],
+  L:['Lalu','ಲಾಲು'],     G:['green','ಹಸಿರು'],  F:['food','ಆಹಾರ'],
+  E:['eat','ತಿನ್ನು']
+};
+/* Teaching order, not A-B-C. The ten letters whose word is visible in the box
+   come first, then the rest — and either way the pairs beginners mix up stay
+   well apart (B and D, P and Q, M and W, I and L and J, N and U). Capitals run
+   all the way through first, then the same order again in small letters. */
+const ORDER = ['C','W','T','P','H','E','L','B','G','F',
+               'A','S','O','M','I','N','R','K','D','U','J','V','Q','X','Y','Z'];
 const card = document.getElementById('letterCard');
-let orderPos = 0, smallCase = false;
+let orderPos = 0, smallCase = false, lastPigRead = 0;
 function paintLetter(tell){
   const en = ORDER[orderPos];
   const row = LETTERS.find(r => r[0] === en);
   const shown = smallCase ? en.toLowerCase() : en;
+  // something in the box if we have it, otherwise the word from the lesson
+  const scene = SCENE[en];
+  const word = scene ? scene[0] : row[2].toLowerCase();
+  const wordKn = scene ? scene[1] : row[3];
   document.getElementById('lBig').textContent = shown;
   document.getElementById('lKn').textContent = row[1];
+  document.getElementById('lWord').textContent = word + ' · ' + wordKn;
   card.classList.remove('flip'); void card.offsetWidth; card.classList.add('flip');
-  if (tell) say(`${shown} is “${row[1]}”. Like ${smallCase ? row[2].toLowerCase() : row[2]}.`, true);
+  if (tell) say(`${shown} is “${row[1]}”. Like ${word} — ${wordKn}.`, true);
 }
 function nextLetter(tell){
   orderPos++;
@@ -1252,9 +1315,7 @@ document.getElementById('btnWater').addEventListener('click', freshWater);
 bottleEl.addEventListener('pointerdown', e => { e.stopPropagation(); freshWater(); });
 
 /* clean the box: sweep out the mess */
-document.getElementById('btnClean').addEventListener('click', ()=>{
-  if (cooling('clean')){ refuse('clean'); return; }
-  startCooldown('clean');
+function sweepBox(){
   const mess = floor.querySelectorAll('.poop');
   mess.forEach((m,i)=> setTimeout(()=>{
     m.style.transition = 'opacity .35s,transform .35s';
@@ -1273,13 +1334,18 @@ document.getElementById('btnClean').addEventListener('click', ()=>{
   need.clean = 100;
   need.love = clamp(need.love + 6, 0, 100);
   paintNeeds();
-  say('The box is clean now! ✨', true);
   HERD.forEach((p,i)=> setTimeout(()=>{
     if (p.petting) return;
     p.clear();
     p.popcorn(); p.bubbleSay(pick(['wheek!','clean!','♥']), 1500);
     p.timer = setTimeout(()=>p.think(), 800);
   }, i*260));
+}
+document.getElementById('btnClean').addEventListener('click', ()=>{
+  if (cooling('clean')){ refuse('clean'); return; }
+  startCooldown('clean');
+  sweepBox();
+  say('The box is clean now! ✨', true);
 });
 
 /* tap the floor: they come and sniff */
@@ -1295,6 +1361,89 @@ floor.addEventListener('pointerdown', e => {
     best.hold('sniffing', rnd(1.4,2.6), ()=>best.think()); });
   say(`${best.name} comes to look.`);
 });
+
+
+/* ====================== the bonus quiz ======================
+   Now and then a quiz slip appears: an English letter (capital or small) or a
+   word from the box, with two or three answers in Kannada. Get it right and
+   the food is filled and the box swept clean. Get it wrong and it simply asks
+   something else, until one lands. */
+const quizEl = document.getElementById('quiz');
+const shuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+let quizOpen = false, lastQuiz = 0;
+
+function makeQuestion(){
+  if (Math.random() < .55){                          // a letter
+    const row = pick(LETTERS);
+    const small = Math.random() < .5;
+    const wrong = shuffle(LETTERS.filter(r => r[1] !== row[1])).slice(0, 2).map(r => r[1]);
+    return {ask: small ? 'Which sound is this small letter?' : 'Which sound is this letter?',
+            big: small ? row[0].toLowerCase() : row[0],
+            right: row[1], opts: shuffle([row[1], ...wrong])};
+  }
+  const keys = Object.keys(SCENE);                   // or a word from the box
+  const k = pick(keys);
+  const wrong = shuffle(keys.filter(x => x !== k)).slice(0, 2).map(x => SCENE[x][1]);
+  return {ask: 'Which one is this word?', big: SCENE[k][0],
+          right: SCENE[k][1], opts: shuffle([SCENE[k][1], ...wrong])};
+}
+
+function askQuiz(){
+  const q = makeQuestion();
+  document.getElementById('qAsk').textContent = q.ask;
+  document.getElementById('qBig').textContent = q.big;
+  const box = document.getElementById('qOpts');
+  box.innerHTML = '';
+  q.opts.forEach(opt => {
+    const b = document.createElement('button');
+    b.className = 'qopt'; b.type = 'button'; b.textContent = opt;
+    b.addEventListener('click', ()=>{
+      if (opt === q.right){
+        b.classList.add('right');
+        setTimeout(()=>quizWon(), 420);
+      } else {
+        b.classList.remove('wrong'); void b.offsetWidth; b.classList.add('wrong');
+        b.style.opacity = .45; b.disabled = true;
+        setTimeout(()=>askQuiz(), 650);              // try another one
+      }
+    });
+    box.appendChild(b);
+  });
+  quizEl.classList.add('show');
+  quizOpen = true;
+}
+
+function quizWon(){
+  quizEl.classList.remove('show');
+  quizOpen = false;
+  lastQuiz = Date.now();
+  need.food = 100;
+  sweepBox();                                        // fills clean + a sweep
+  need.love = clamp(need.love + 8, 0, 100);
+  paintNeeds();
+  say('ಸರಿ! Correct — full food and a clean box. 🎉', true);
+  for (let i=0;i<8;i++) setTimeout(()=>{
+    const h = document.createElement('div'); h.className = 'heart';
+    h.textContent = pick(['🎉','✨','💗','🥬']);
+    h.style.left = rnd(innerWidth*0.2, innerWidth*0.8) + 'px';
+    h.style.top  = rnd(innerHeight*0.35, innerHeight*0.65) + 'px';
+    document.body.appendChild(h); setTimeout(()=>h.remove(), 1150);
+  }, i*90);
+  HERD.forEach((p,i)=> setTimeout(()=>{ if (!p.petting){ p.popcorn();
+    p.bubbleSay(pick(['wheek!','♥','!']), 1400); } }, i*220));
+}
+
+document.getElementById('qSkip').addEventListener('click', ()=>{
+  quizEl.classList.remove('show'); quizOpen = false; lastQuiz = Date.now();
+});
+
+/* it turns up on its own — soon after you arrive, then only now and then */
+setTimeout(()=>{ if (!quizOpen) askQuiz(); }, rnd(70000, 110000));
+setInterval(()=>{
+  if (quizOpen || PHASE === 'night' || document.hidden) return;
+  if (Date.now() - lastQuiz < 150000) return;         // never twice in a row
+  if (Math.random() < 0.05) askQuiz();                // roughly one in twenty
+}, 20000);
 
 /* ============================ layout ============================ */
 let lastW = 0, lastH = 0;
