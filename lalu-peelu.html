@@ -50,9 +50,15 @@
     text-shadow:0 1px 3px rgba(0,0,0,.45)}
   .status{margin:2px 0 0;font-size:.82rem;min-height:1.15em;color:#f0dfc4;opacity:.92}
 
-  .meters{display:flex;gap:6px;justify-content:center;margin-top:6px}
+  .meters{display:flex;gap:6px;justify-content:center;margin-top:7px}
   .meter{flex:1;max-width:130px;background:rgba(0,0,0,.28);border-radius:99px;
     padding:3px 7px 3px 5px;display:flex;align-items:center;gap:5px}
+  .meter.life{max-width:290px;padding:5px 12px 5px 9px;gap:8px}
+  .meter.life span{font-size:1.05rem}
+  .meter.life .bar{height:11px}
+  .meter.life b{font-size:.76rem;min-width:2.4em;text-align:right;color:#f4e7d2;opacity:.9}
+  .meter.life.fading{animation:heartbeat 1.4s ease-in-out infinite}
+  @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
   .meter span{font-size:.8rem;line-height:1}
   .bar{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
   .bar i{display:block;height:100%;width:80%;border-radius:99px;transition:width .5s ease,background .5s}
@@ -182,6 +188,14 @@
   .sniffing .nose{animation:wiggle .18s ease-in-out infinite}
   @keyframes wiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
 
+  /* out of sorts: ears down, heavy eyelids, slower breath */
+  .sad .ear{rotate:24deg}
+  .sad .headg{rotate:8deg}
+  .sad .lid{transform:scaleY(.42)}
+  .sad .shine{opacity:.35}
+  .sad .bodyg{animation-duration:5.6s}
+  .sad .tail,.sad .happyeye{opacity:0}
+
   .bubble{position:absolute;left:50%;bottom:88%;transform:translate(-50%,6px);
     padding:5px 10px;background:#fff;border-radius:13px;white-space:nowrap;
     font-size:14px;font-weight:650;opacity:0;transition:opacity .25s,transform .25s;
@@ -194,12 +208,18 @@
   .tray{flex:0 0 auto;width:100%;max-width:860px;
     padding:9px 8px calc(10px + env(safe-area-inset-bottom));
     display:flex;gap:8px;justify-content:center;align-items:stretch;z-index:10}
-  .item{flex:1 1 0;min-width:0;max-width:130px;height:56px;border-radius:16px;border:0;padding:0;
+  .item{position:relative;flex:1 1 0;min-width:0;max-width:130px;height:56px;border-radius:16px;border:0;padding:0;
     background:rgba(255,255,255,.94);box-shadow:0 4px 0 rgba(0,0,0,.3);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
     font:inherit;font-size:.6rem;font-weight:700;color:#5b5147;
     transition:transform .09s,box-shadow .09s;touch-action:none}
   .item:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.3)}
+  .item.cooling{filter:saturate(.5)}
+  .item.cooling:active{transform:none;box-shadow:0 4px 0 rgba(0,0,0,.3)}
+  .item .cd{position:absolute;inset:0;border-radius:inherit;display:none;
+    align-items:center;justify-content:center;background:rgba(26,22,16,.5);
+    color:#fff;font-size:.92rem;font-weight:800;letter-spacing:.5px}
+  .item.cooling .cd{display:flex}
   .item svg{width:27px;height:23px;display:block}
   .item.act{background:rgba(255,255,255,.88)}
 
@@ -265,10 +285,10 @@
   <h1>Lalu &amp; Peelu 🐹</h1>
   <p class="status" id="status">Tap them for a scratch. Drag a veggie into the box.</p>
   <div class="meters">
-    <div class="meter"><span>🥬</span><div class="bar food"><i id="mFood"></i></div></div>
-    <div class="meter"><span>💧</span><div class="bar water"><i id="mWater"></i></div></div>
-    <div class="meter"><span>💗</span><div class="bar love"><i id="mLove"></i></div></div>
-    <div class="meter"><span>🧹</span><div class="bar clean"><i id="mClean"></i></div></div>
+    <div class="meter life"><span id="heartIcon">❤️</span>
+      <div class="bar love"><i id="mHeart"></i></div>
+      <b id="heartPct">—</b>
+    </div>
   </div>
 </header>
 
@@ -559,13 +579,36 @@ const COATS = {
 
 /* ============================ needs ============================ */
 const need = {food:78, water:74, love:66, clean:88};
-const bars = {food:document.getElementById('mFood'), water:document.getElementById('mWater'),
-              love:document.getElementById('mLove'), clean:document.getElementById('mClean')};
+
+/* one life line: the worst-cared-for thing drags it down hardest */
+function heartValue(){
+  const vals = [need.food, need.water, need.love, need.clean].map(v => clamp(v,0,100));
+  const avg = vals.reduce((a,b)=>a+b,0) / vals.length;
+  const worst = Math.min(...vals);
+  return clamp(Math.round(worst*0.5 + avg*0.5), 0, 100);
+}
+let sadMode = false;
+function setSad(on){
+  if (on === sadMode) return;
+  sadMode = on;
+  HERD.forEach(p => {
+    p.el.classList.toggle('sad', on);
+    if (on){ p.bubbleSay('…', 2600); }
+    else { p.bubbleSay(pick(['wheek!','♥','popcorn!']), 1800); p.popcorn(); }
+  });
+  say(on ? 'They have gone quiet. A snack, some water and a scratch would help. 💔'
+         : 'They have perked right up again. ❤️', true);
+}
 function paintNeeds(){
-  for (const k in need){
-    bars[k].style.width = clamp(need[k],0,100) + '%';
-    bars[k].classList.toggle('low', need[k] < 30);
-  }
+  const h = heartValue();
+  const bar = document.getElementById('mHeart');
+  bar.style.width = h + '%';
+  bar.classList.toggle('low', h < 35);
+  document.getElementById('heartPct').textContent = h + '%';
+  document.getElementById('heartIcon').textContent = h === 0 ? '💔' : (h < 35 ? '🧡' : '❤️');
+  document.querySelector('.meter.life').classList.toggle('fading', h > 0 && h < 35);
+  if (h === 0) setSad(true);
+  else if (sadMode && h > 12) setSad(false);
   const wf = document.getElementById('waterFill');
   if (wf){ const h = 6 + 72*(clamp(need.water,0,100)/100);   // bottle body runs y=14..98
     wf.setAttribute('y', (98 - h).toFixed(1)); wf.setAttribute('height', h.toFixed(1)); }
@@ -700,6 +743,7 @@ class Pig {
     this.timer = setTimeout(()=>{ this.state(null); then && then(); }, sec*1000);
   }
   popcorn(){
+    if (sadMode) return;                       // no bouncing while miserable
     this.el.classList.add('pop');
     setTimeout(()=>this.el.classList.remove('pop'), 600);
   }
@@ -750,30 +794,46 @@ class Pig {
       });
     });
   }
+  /* stand so the food sits right at the nose, then work through it bite by
+     bite until the whole piece is gone */
+  mouthOffset(y){
+    return 0.46 * (this.opts.width || 140) * scaleAt(y) * this.sizeMul;
+  }
   goEatCrumb(crumb){
     this.clear();
     this.target = crumb;
-    this.walkTo(crumb.x + rnd(-16,16), crumb.y, ()=>{
-      if (!crumb.el.isConnected){ return this.think(); }
+    if (!crumb.el.isConnected || !crumbs.includes(crumb)) return this.think();
+    this.syncFromDOM();
+    const side = this.x <= crumb.x ? 1 : -1;          // walk up to whichever side it's on
+    const stand = crumb.x - side * this.mouthOffset(crumb.y);
+    this.walkTo(stand, crumb.y + 6, ()=>{
+      this.facing = side;                              // nose towards the food
+      this.flip.classList.toggle('left', side === -1);
       this.bubbleSay(pick(['nom nom','munch','mmm!']), 1400);
-      this.hold('eating', rnd(2.4,4), ()=>{
-        crumb.bites--;
-        need.food = clamp(need.food + 12, 0, 100);
-        need.love = clamp(need.love + 3, 0, 100);
-        paintNeeds();
-        if (crumb.bites <= 0){
-          crumb.el.style.transition = 'opacity .4s,transform .4s';
-          crumb.el.style.opacity = 0;
-          setTimeout(()=>crumb.el.remove(), 420);
-          crumbs.splice(crumbs.indexOf(crumb), 1);
-          if (Math.random() < .6) this.popcorn();
-        } else {
-          crumb.el.style.transform = crumb.el.style.getPropertyValue('--t') +
-            ` scale(${0.55 + 0.45*crumb.bites/crumb.max})`;
-        }
-        say(`${this.name} finished a bite. 🥬`);
-        this.think();
-      });
+      this.eatCrumb(crumb);
+    });
+  }
+  eatCrumb(crumb){
+    if (!crumb.el.isConnected || !crumbs.includes(crumb)) return this.think();
+    this.hold('eating', rnd(1.7,2.6), ()=>{
+      crumb.bites--;
+      need.food = clamp(need.food + 12, 0, 100);
+      need.love = clamp(need.love + 2, 0, 100);
+      paintNeeds();
+      if (crumb.bites > 0){
+        crumb.el.style.transform = crumb.el.style.getPropertyValue('--t') +
+          ` scale(${0.5 + 0.5*crumb.bites/crumb.max})`;
+        say(`${this.name} is working on the ${crumb.kind}. 🥬`);
+        return this.eatCrumb(crumb);                   // keep at it until it's finished
+      }
+      crumb.el.style.transition = 'opacity .4s,transform .4s';
+      crumb.el.style.opacity = 0;
+      setTimeout(()=>crumb.el.remove(), 420);
+      const i = crumbs.indexOf(crumb); if (i >= 0) crumbs.splice(i, 1);
+      say(`${this.name} finished the whole ${crumb.kind}! 🎉`, true);
+      this.bubbleSay(pick(['all gone!','♥','wheek!']), 1500);
+      if (Math.random() < .7) this.popcorn();
+      this.timer = setTimeout(()=>this.think(), 700);
     });
   }
   goNibbleHay(){
@@ -836,6 +896,11 @@ class Pig {
     }
     if (need.water < 42) return this.goDrink();
     if (need.food  < 40) return Math.random() < .6 ? this.goNibbleHay() : this.goBowl();
+
+    if (sadMode){                              // low on everything: just mope
+      if (Math.random() < .3) this.bubbleSay('…', 2200);
+      return this.hold(pick(['chewing','sniffing']), rnd(4,8), ()=>this.think());
+    }
 
     const r = Math.random();
     if (r < .16 && need.love > 55) { this.popcorn();
@@ -903,8 +968,10 @@ function dropPiece(kind, x, y){
 }
 /* a portion each, dropped well apart, so nobody has to share */
 function dropFood(kind, x, y){
+  if (cooling(kind)){ refuse(kind); return; }
   const a = dropPiece(kind, x, y);
   if (!a) return;
+  startCooldown(kind);
   const away = (x > FW*0.5 ? -1 : 1) * rnd(FW*0.26, FW*0.40);
   const b = dropPiece(kind, x + away, y + rnd(-FH*0.14, FH*0.14));
   say(`${kind} — one for each of them! 🥬`, true);
@@ -923,12 +990,57 @@ function dropFood(kind, x, y){
   });
 }
 
+/* every so often, for no reason at all, a little jump */
+setInterval(()=>{
+  if (sadMode) return;
+  const h = heartValue();
+  const chance = h > 70 ? .75 : h > 40 ? .45 : .18;
+  if (Math.random() > chance) return;
+  const p = pick(HERD);
+  if (p.petting || p.el.classList.contains('walking')) return;
+  p.popcorn();
+  if (Math.random() < .5) p.bubbleSay(pick(['wheek!','!','♥']), 1200);
+}, 11000);
+
+/* ============================ refill timers ============================ */
+/* each food needs a moment before you can put the same thing in again — long
+   enough that trying the other two is the natural thing to do */
+const COOLDOWN = {lettuce:42000, cucumber:42000, carrot:42000, clean:50000};
+const readyAt = {};
+document.querySelectorAll('.item').forEach(b => {
+  const i = document.createElement('i'); i.className = 'cd'; b.appendChild(i);
+});
+function cdKey(btn){ return btn.dataset.kind || (btn.id === 'btnClean' ? 'clean' : null); }
+function cooling(key){ return key && Date.now() < (readyAt[key] || 0); }
+function leftSec(key){ return Math.ceil(((readyAt[key] || 0) - Date.now())/1000); }
+function startCooldown(key){ if (COOLDOWN[key]) readyAt[key] = Date.now() + COOLDOWN[key]; }
+setInterval(()=>{
+  document.querySelectorAll('.item').forEach(btn => {
+    const key = cdKey(btn);
+    if (!key) return;
+    const on = cooling(key);
+    btn.classList.toggle('cooling', on);
+    const badge = btn.querySelector('.cd');
+    if (badge) badge.textContent = on ? leftSec(key) + 's' : '';
+  });
+}, 350);
+function refuse(key){
+  const others = ['lettuce','cucumber','carrot']
+    .filter(k => k !== key && !cooling(k));
+  say(key === 'clean'
+      ? `Just tidied — the broom needs ${leftSec(key)}s.`
+      : (others.length ? `More ${key} in ${leftSec(key)}s — try the ${others.join(' or ')}.`
+                       : `More ${key} in ${leftSec(key)}s.`), true);
+}
+
 /* drag a veggie off the tray, or just tap one */
 let drag = null;
 document.getElementById('tray').addEventListener('pointerdown', e => {
   const item = e.target.closest('.item');
-  if (!item || item.id === 'btnHay') return;
+  if (!item) return;
   const kind = item.dataset.kind;
+  if (!kind) return;                       // water and clean are plain buttons
+  if (cooling(kind)){ refuse(kind); return; }
   drag = {kind, moved:false, x:e.clientX, y:e.clientY};
   const g = document.createElement('div');
   g.className = 'ghost';
@@ -976,6 +1088,8 @@ bottleEl.addEventListener('pointerdown', e => { e.stopPropagation(); freshWater(
 
 /* clean the box: sweep out the mess */
 document.getElementById('btnClean').addEventListener('click', ()=>{
+  if (cooling('clean')){ refuse('clean'); return; }
+  startCooldown('clean');
   const mess = floor.querySelectorAll('.poop');
   mess.forEach((m,i)=> setTimeout(()=>{
     m.style.transition = 'opacity .35s,transform .35s';
