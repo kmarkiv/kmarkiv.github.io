@@ -1,6 +1,8 @@
-/* Lalu & Peelu — a small offline cache so the box works without a signal,
-   and so Chrome offers "Add to home screen" on Android. */
-const CACHE = 'lalu-peelu-v1';
+/* Lalu & Peelu — keeps the whole box saved on the phone, so it still works
+   with no internet, and so Chrome offers "Add to home screen" on Android. */
+const CACHE = 'lalu-peelu-v2';
+
+/* everything the page needs — it is one self-contained file plus its icons */
 const ASSETS = [
   '/lalu-peelu.html',
   '/lalu-peelu.webmanifest',
@@ -8,38 +10,66 @@ const ASSETS = [
   '/assets/images/lalu-peelu/icon-512.png',
   '/assets/images/lalu-peelu/icon-512-maskable.png',
   '/assets/images/lalu-peelu/apple-touch-icon.png',
-  '/assets/images/lalu-peelu/favicon-32.png'
+  '/assets/images/lalu-peelu/favicon-32.png',
+  '/assets/images/lalu-peelu/og.png'
 ];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE)
-    .then(c => Promise.allSettled(ASSETS.map(u => c.add(u))))
-    .then(() => self.skipWaiting()));
+  e.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    // one bad file must not stop the rest from being saved
+    await Promise.allSettled(ASSETS.map(u => cache.add(new Request(u, {cache: 'reload'}))));
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys()
-    .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
-    .then(() => self.clients.claim()));
+  e.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)));
+    await self.clients.claim();
+  })());
 });
 
 self.addEventListener('fetch', e => {
   const req = e.request;
-  if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
+  if (req.method !== 'GET') return;
+  let url;
+  try { url = new URL(req.url); } catch { return; }
+  if (url.origin !== location.origin) return;
 
-  // the page itself: fresh when online, cached copy when not
+  // The page: try the network first so updates arrive, fall back to the saved
+  // copy when there is no signal.
   if (req.mode === 'navigate' || req.destination === 'document'){
-    e.respondWith(fetch(req)
-      .then(res => { const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(req, copy)); return res; })
-      .catch(() => caches.match(req).then(r => r || caches.match('/lalu-peelu.html'))));
+    e.respondWith((async () => {
+      try {
+        const fresh = await fetch(req);
+        const cache = await caches.open(CACHE);
+        cache.put(req, fresh.clone());
+        return fresh;
+      } catch {
+        return (await caches.match(req)) ||
+               (await caches.match('/lalu-peelu.html')) ||
+               new Response('<h1>Offline</h1><p>Open this once with internet, then it works offline.</p>',
+                            {headers: {'Content-Type': 'text/html'}, status: 200});
+      }
+    })());
     return;
   }
-  // icons and the manifest: cached first, they never change within a version
-  e.respondWith(caches.match(req).then(hit => hit || fetch(req).then(res => {
-    if (res.ok && ASSETS.some(a => req.url.endsWith(a))){
-      const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy));
+
+  // Icons and the manifest: use the saved copy first, they do not change.
+  e.respondWith((async () => {
+    const hit = await caches.match(req);
+    if (hit) return hit;
+    try {
+      const res = await fetch(req);
+      if (res.ok && url.pathname.startsWith('/assets/images/lalu-peelu/')){
+        const cache = await caches.open(CACHE);
+        cache.put(req, res.clone());
+      }
+      return res;
+    } catch {
+      return new Response('', {status: 504, statusText: 'offline'});
     }
-    return res;
-  }).catch(() => hit || new Response('offline', {status: 504, statusText: 'offline'}))));
+  })());
 });
