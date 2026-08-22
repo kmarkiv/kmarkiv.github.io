@@ -502,21 +502,24 @@ const scaleAt = y => 1 - 0.22*clamp(depth(y), 0, 1);
 const atDepth = d => yNear + d*(yFar - yNear);
 
 const props = [];
-function placeProp(el, fx, fd, extra){
+function placeProp(el, fx, fd, extra, zOff){
   const y = atDepth(fd), s = scaleAt(y)*(extra||1);
   const t = `translate(${fx*FW}px, ${-y}px) translateX(-50%) scale(${s})`;
   el.style.setProperty('--t', t);
   el.style.transform = t;
-  el.style.zIndex = Math.round(500 - y);
+  el.style.zIndex = Math.round(500 - y + (zOff||0));
 }
-function layoutProps(){ props.forEach(p => placeProp(p.el, p.fx, p.fd, p.extra)); }
+function layoutProps(){ props.forEach(p => placeProp(p.el, p.fx, p.fd, p.extra, p.zOff)); }
 
 /* where things live inside the box */
+/* Everything lines up along the back of the cage: the two nests together on
+   the left like a pair of neighbours, then the food and water to the right. */
 const SPOT = {
-  bottle:{fx:.80, fd:.88},     // where a piggy stands to drink
-  bowl  :{fx:.68, fd:.78},
-  hay   :{fx:.46, fd:.88},
-  tunnel:{fx:.27, fd:.40}
+  nestA :{fx:.16, fd:.92},
+  nestB :{fx:.49, fd:.92},     // side by side in the top left, like neighbours
+  hay   :{fx:.74, fd:.90},
+  bowl  :{fx:.90, fd:.74},
+  bottle:{fx:.80, fd:.62}      // where a piggy stands to drink
 };
 const spot = k => ({x: SPOT[k].fx*FW, y: atDepth(SPOT[k].fd)});
 
@@ -533,12 +536,12 @@ const spot = k => ({x: SPOT[k].fx*FW, y: atDepth(SPOT[k].fd)});
 })();
 
 /* ============================ props ============================ */
-function addProp(fx, fd, cls, html, extra){
+function addProp(fx, fd, cls, html, extra, zOff){
   const d = document.createElement('div');
   d.className = 'prop ' + (cls||'');
   d.innerHTML = html;
   floor.appendChild(d);
-  props.push({el:d, fx, fd, extra});
+  props.push({el:d, fx, fd, extra, zOff});
   return d;
 }
 
@@ -576,25 +579,63 @@ const bowlEl = addProp(SPOT.bowl.fx, SPOT.bowl.fd, 'bowl',
    </svg>`, 1.25);
 
 /* hay pile */
-const hayEl = addProp(SPOT.hay.fx, SPOT.hay.fd, 'hay',
-  `<svg width="90" height="42" viewBox="0 0 90 42">
-     <ellipse cx="45" cy="36" rx="40" ry="6" fill="rgba(0,0,0,.18)"/>
-     <g stroke="#d9b661" stroke-width="2.6" stroke-linecap="round">
-       <path d="M8 34 L26 12 M16 36 L34 10 M26 36 L38 14 M36 36 L44 12 M46 36 L52 15
-                M56 36 L48 14 M66 35 L54 16 M74 33 L58 18 M82 32 L64 20"/></g>
-     <g stroke="#efd48f" stroke-width="1.6" stroke-linecap="round" opacity=".85">
-       <path d="M14 33 L28 16 M32 34 L40 17 M50 34 L46 18 M62 33 L52 19"/></g>
-   </svg>`, 1.3);
+/* A house each, drawn in two layers so a piggy can be *inside* it: the dark
+   interior goes behind them, the roof, posts and threshold in front. Standing
+   at the house's own depth puts them neatly between the two. */
+function nestBackSVG(){
+  return `<svg width="132" height="140" viewBox="0 0 132 140">
+    <ellipse cx="66" cy="133" rx="56" ry="6" fill="rgba(0,0,0,.22)"/>
+    <!-- the inside: dark, with a lit floor and a little bedding -->
+    <path d="M20 128 L20 56 Q20 46 32 46 L100 46 Q112 46 112 56 L112 128 Z" fill="#3a2a1a"/>
+    <path d="M20 128 L20 56 Q20 46 32 46 L52 46 Q38 58 36 128 Z" fill="#2c1f12"/>
+    <path d="M24 128 q42 -10 84 0 z" fill="#5a4229"/>
+    <g stroke="#c9a45e" stroke-width="2" stroke-linecap="round" opacity=".5">
+      <path d="M32 126 l9 -7 M48 127 l9 -7 M66 126 l9 -6 M84 127 l9 -7"/></g>
+  </svg>`;
+}
+function nestFrontSVG(roof, trim, wall){
+  return `<svg width="132" height="140" viewBox="0 0 132 140">
+    <!-- shade falling into the doorway, over whoever is in there -->
+    <path d="M20 46 h92 v26 q-46 12 -92 0 z" fill="#241a0f" opacity=".5"/>
+    <!-- side posts -->
+    <path d="M6 130 L6 54 Q6 44 18 44 L26 44 L26 130 Z" fill="${wall}"/>
+    <path d="M106 130 L106 44 L114 44 Q126 44 126 54 L126 130 Z" fill="${wall}"/>
+    <g stroke="${trim}" stroke-width="1.5" opacity=".5">
+      <path d="M6 74 h20 M6 98 h20 M106 74 h20 M106 98 h20"/></g>
+    <!-- roof, overhanging enough to hide a head poking up -->
+    <path d="M66 4 L128 52 L120 62 L66 20 L12 62 L4 52 Z" fill="${roof}"/>
+    <path d="M66 11 L120 54 L66 24 L12 54 Z" fill="${trim}" opacity=".5"/>
+    <!-- a low front lip: enough to sit behind, low enough that most of a
+         piggy still shows when it is indoors -->
+    <path d="M26 108 h80 q6 0 6 6 v10 q0 6 -6 6 H26 q-6 0 -6 -6 v-10 q0 -6 6 -6z" fill="${wall}"/>
+    <path d="M26 108 h80 q6 0 6 6 v4 H20 v-4 q0 -6 6 -6z" fill="${trim}"/>
+    <g stroke="${trim}" stroke-width="1.3" opacity=".4"><path d="M50 114 v14 M78 114 v14"/></g>
+    <!-- threshold -->
+    <path d="M10 126 h112 q5 0 5 5 v3 q0 4 -5 4 H10 q-5 0 -5 -4 v-3 q0 -5 5 -5z" fill="${wall}"/>
+    <path d="M10 126 h112 q5 0 5 5 v1 H5 v-1 q0 -5 5 -5z" fill="${trim}" opacity=".7"/>
+  </svg>`;
+}
+function makeNest(key, roof, trim, wall){
+  const sp = SPOT[key];
+  addProp(sp.fx, sp.fd, 'nest-back',  nestBackSVG(),                    0.9, -14);
+  return addProp(sp.fx, sp.fd, 'nest-front', nestFrontSVG(roof, trim, wall), 0.9, +14);
+}
+const nestA = makeNest('nestA', '#8f6a45', '#c49a68', '#b0855a');
+const nestB = makeNest('nestB', '#6f6350', '#a89272', '#94836a');
 
-/* a cardboard tunnel to hide in */
-const tunnelEl = addProp(SPOT.tunnel.fx, SPOT.tunnel.fd, 'tunnel',
-  `<svg width="104" height="60" viewBox="0 0 104 60">
-     <path d="M6 56 L6 26 Q6 6 52 6 Q98 6 98 26 L98 56 Z" fill="#b8895a"/>
-     <path d="M6 56 L6 26 Q6 6 52 6 Q68 6 78 12 Q40 16 36 56 Z" fill="#c79a6a"/>
-     <ellipse cx="52" cy="30" rx="26" ry="22" fill="#4a3520"/>
-     <ellipse cx="52" cy="30" rx="26" ry="22" fill="none" stroke="#8f6740" stroke-width="4"/>
-     <path d="M30 52 q22 6 44 0" stroke="#8f6740" stroke-width="3" fill="none" opacity=".7"/>
-   </svg>`, 1.25);
+/* hay kept in a box instead of loose on the floor */
+const hayEl = addProp(SPOT.hay.fx, SPOT.hay.fd, 'hay',
+  `<svg width="96" height="76" viewBox="0 0 96 76">
+     <ellipse cx="48" cy="70" rx="40" ry="6" fill="rgba(0,0,0,.2)"/>
+     <g stroke="#d8b45e" stroke-width="2.6" stroke-linecap="round">
+       <path d="M26 34 L20 12 M34 32 L32 8 M44 31 L46 6 M54 32 L60 10 M64 34 L72 16"/></g>
+     <g stroke="#efd48f" stroke-width="1.7" stroke-linecap="round" opacity=".9">
+       <path d="M30 33 L28 14 M40 31 L41 10 M50 31 L55 12 M60 33 L67 18"/></g>
+     <path d="M14 40 h68 q4 0 4 4 v22 q0 4 -4 4 h-68 q-4 0 -4 -4 v-22 q0 -4 4 -4z" fill="#a9764a"/>
+     <path d="M14 40 h68 q4 0 4 4 v6 h-76 v-6 q0 -4 4 -4z" fill="#c08c58"/>
+     <g stroke="#8c603a" stroke-width="1.4" opacity=".8"><path d="M10 56 h76 M32 44 v26 M64 44 v26"/></g>
+   </svg>`, 1.1);
+
 layoutProps();
 
 /* ============================ the time of day ============================ */
@@ -1041,14 +1082,18 @@ class Pig {
       this.timer = setTimeout(()=>this.zoomies(laps - 1), 120);
     });
   }
-  goHide(){
+  goNest(sleepFor){
     this.clear();
-    const t = spot('tunnel');
-    this.walkTo(t.x, t.y - 6, ()=>{
+    const n = spot(this.opts.nest || 'nestA');
+    // the house's two layers sit either side of this depth, so stopping here
+    // puts the piggy inside the doorway
+    this.walkTo(n.x + rnd(-4,4), n.y + 6, ()=>{      // a little way in
       this.bubbleSay('…', 1200);
+      if (sleepFor) return this.sleep(sleepFor);
       this.hold('sleeping', rnd(6,12), ()=>this.think());
     });
   }
+  goHide(){ return this.goNest(); }
   sleep(sec){
     this.state('sleeping');
     for (let i=0;i<2;i++){
@@ -1089,12 +1134,11 @@ class Pig {
 
     // night: mostly curled up asleep
     if (PHASE === 'night'){
-      if (Math.random() < .75) return Math.random() < .5
-        ? this.goHide() : this.sleep(rnd(10,20));
+      if (Math.random() < .8) return this.goNest(rnd(12,24));   // home to bed
     }
     // afternoon: long naps
     if (PHASE === 'day' && Math.random() < .4)
-      return Math.random() < .5 ? this.sleep(rnd(8,16)) : this.goHide();
+      return Math.random() < .6 ? this.goNest(rnd(8,16)) : this.sleep(rnd(8,16));
     // morning: hungry, straight to the food
     if (PHASE === 'morning' && Math.random() < .45){
       if (Math.random() < .35) this.wheek();
@@ -1132,9 +1176,10 @@ class Pig {
 }
 
 const pigWidth = () => clamp((FW || floor.clientWidth || innerWidth*0.9)*0.32, 112, 190);
-const lalu  = new Pig('L', COATS.lalu,  {name:'Lalu',  fx:.36, fd:.52, width:pigWidth(), speed:50, facing:1});
-const peelu = new Pig('P', COATS.peelu, {name:'Peelu', fx:.66, fd:.30, width:pigWidth(), speed:58,
-                                          sizeMul:.92, facing:-1});
+const lalu  = new Pig('L', COATS.lalu,  {name:'Lalu',  fx:.30, fd:.55, width:pigWidth(), speed:50,
+                                          facing:1,  nest:'nestA'});
+const peelu = new Pig('P', COATS.peelu, {name:'Peelu', fx:.62, fd:.38, width:pigWidth(), speed:58,
+                                          sizeMul:.92, facing:-1, nest:'nestB'});
 const HERD = [lalu, peelu];
 
 /* ============================ feeding ============================ */
@@ -1412,7 +1457,7 @@ const LETTERS = [
    reads oddly. */
 const SCENE = {
   C:['carrot','ಗಜ್ಜರಿ'], W:['water','ನೀರು'],   H:['hay','ಹುಲ್ಲು'],
-  B:['box','ಪೆಟ್ಟಿಗೆ'],  T:['tunnel','ಸುರಂಗ'], P:['pig','ಹಂದಿ'],
+  B:['box','ಪೆಟ್ಟಿಗೆ'],  N:['nest','ಗೂಡು'],    P:['pig','ಹಂದಿ'],
   L:['leaf','ಎಲೆ'],       G:['green','ಹಸಿರು'],  F:['food','ಆಹಾರ'],
   E:['eat','ತಿನ್ನು']
 };
