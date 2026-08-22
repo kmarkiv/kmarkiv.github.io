@@ -150,7 +150,11 @@
                       64% 100%,30% 97%,2% 99%,0 60%,2% 28%);
     background-image:repeating-linear-gradient(rgba(120,114,104,.10) 0 1px,transparent 1px 5px)}
   .quiz .qtag{font-size:.58rem;font-weight:800;letter-spacing:1px;opacity:.5;text-transform:uppercase}
-  .quiz .qask{margin:2px 0 4px;font-size:.82rem;font-weight:700;opacity:.8}
+  .quiz .qask-kn{margin:4px 0 1px;font-size:1.02rem;font-weight:700;line-height:1.35;
+    font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",serif}
+  .quiz .qask{margin:0 0 4px;font-size:.7rem;font-weight:700;opacity:.55}
+  .quiz .qprize .kn{font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",sans-serif;
+    font-size:1.05em}
   .quiz .qbig{font-size:3.1rem;font-weight:800;line-height:1.05;letter-spacing:1px}
   .quiz .qopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
   .quiz .qopt{border:0;border-radius:12px;padding:12px 10px;font:inherit;font-size:1.15rem;
@@ -167,6 +171,8 @@
   @media (min-width:700px){
     .quiz .slip{max-width:420px;padding:26px 24px 20px}
     .quiz .qbig{font-size:4rem}
+    .quiz .qask-kn{font-size:1.3rem}
+    .quiz .qask{font-size:.85rem}
     .quiz .qopt{font-size:1.4rem;padding:15px}
   }
 
@@ -372,11 +378,13 @@
 <div class="quiz" id="quiz">
   <div class="slip">
     <button class="qskip" id="qSkip" aria-label="Close">✕</button>
-    <div class="qtag">bonus</div>
-    <p class="qask" id="qAsk">Which sound is this letter?</p>
+    <div class="qtag">ಬೋನಸ್ · bonus</div>
+    <p class="qask-kn" id="qAskKn">ಈ ಅಕ್ಷರದ ಹೆಸರು ಯಾವುದು?</p>
+    <p class="qask" id="qAsk">What is this letter called?</p>
     <div class="qbig" id="qBig">C</div>
     <div class="qopts" id="qOpts"></div>
-    <p class="qprize">Get it right: full food + a clean box 🎉</p>
+    <p class="qprize"><span class="kn">ಸರಿ ಉತ್ತರ: ಆಹಾರ + ಸ್ವಚ್ಛ ಪೆಟ್ಟಿಗೆ</span><br>
+      Get it right: full food + a clean box 🎉</p>
   </div>
 </div>
 
@@ -1389,20 +1397,23 @@ function makeQuestion(){
     if (askWord){
       const wrong = seen.filter(r => r.wordKn !== it.wordKn).slice(0, 2).map(r => r.wordKn);
       if (wrong.length === 2)
-        return {ask: 'Which one is this word?', big: it.word,
+        return {askKn: 'ಈ ಪದ ಯಾವುದು?', ask: 'Which one is this word?', big: it.word,
                 right: it.wordKn, opts: shuffle([it.wordKn, ...wrong])};
     }
     const wrong = seen.filter(r => r.kn !== it.kn).slice(0, 2).map(r => r.kn);
-    if (wrong.length === 2)
-      return {ask: it.shown === it.shown.toLowerCase() && /[a-z]/.test(it.shown)
-                     ? 'Which sound is this small letter?' : 'Which sound is this letter?',
+    if (wrong.length === 2){
+      const isSmall = /[a-z]/.test(it.shown);
+      return {askKn: isSmall ? 'ಈ ಸಣ್ಣ ಅಕ್ಷರದ ಹೆಸರು ಯಾವುದು?' : 'ಈ ಅಕ್ಷರದ ಹೆಸರು ಯಾವುದು?',
+              ask: isSmall ? 'What is this small letter called?' : 'What is this letter called?',
               big: it.shown, right: it.kn, opts: shuffle([it.kn, ...wrong])};
+    }
   }
   // not enough seen yet: fall back to the lesson list
   const row = pick(LETTERS);
   const small = Math.random() < .5;
   const wrong = shuffle(LETTERS.filter(r => r[1] !== row[1])).slice(0, 2).map(r => r[1]);
-  return {ask: small ? 'Which sound is this small letter?' : 'Which sound is this letter?',
+  return {askKn: small ? 'ಈ ಸಣ್ಣ ಅಕ್ಷರದ ಹೆಸರು ಯಾವುದು?' : 'ಈ ಅಕ್ಷರದ ಹೆಸರು ಯಾವುದು?',
+          ask: small ? 'What is this small letter called?' : 'What is this letter called?',
           big: small ? row[0].toLowerCase() : row[0],
           right: row[1], opts: shuffle([row[1], ...wrong])};
 }
@@ -1410,6 +1421,7 @@ function makeQuestion(){
 function askQuiz(){
   lastQuiz = Date.now();                              // the clock starts when it opens
   const q = makeQuestion();
+  document.getElementById('qAskKn').textContent = q.askKn;
   document.getElementById('qAsk').textContent = q.ask;
   document.getElementById('qBig').textContent = q.big;
   const box = document.getElementById('qOpts');
@@ -1424,7 +1436,9 @@ function askQuiz(){
       } else {
         b.classList.remove('wrong'); void b.offsetWidth; b.classList.add('wrong');
         b.style.opacity = .45; b.disabled = true;
-        setTimeout(()=>askQuiz(), 650);              // try another one
+        document.getElementById('qAskKn').textContent = 'ಇನ್ನೊಮ್ಮೆ ನೋಡಿ';
+        document.getElementById('qAsk').textContent = 'Try another one';
+        setTimeout(()=>askQuiz(), 800);              // ask something else
       }
     });
     box.appendChild(b);
