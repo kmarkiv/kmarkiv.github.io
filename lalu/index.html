@@ -8,7 +8,7 @@
 <meta name="description" content="Two little guinea pigs in a green box. Pet them, feed them, top up their water and keep the box clean.">
 
 <!-- add to home screen -->
-<meta name="app-version" content="v2.2">
+<meta name="app-version" content="v2.3">
 <link rel="manifest" href="./manifest.webmanifest?v=2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,18 +47,31 @@
   /* ---------------- header ---------------- */
   header{width:100%;max-width:900px;padding:calc(8px + env(safe-area-inset-top)) 12px 4px;
     text-align:center;flex:0 0 auto;z-index:10}
-  h1{margin:0;font-size:1.22rem;letter-spacing:.5px;color:#ffeccd;
+  h1{margin:0 58px;font-size:1.22rem;letter-spacing:.5px;color:#ffeccd;
     text-shadow:0 1px 3px rgba(0,0,0,.45)}
-  .status{margin:2px 0 0;font-size:.82rem;min-height:1.15em;color:#f0dfc4;opacity:.92}
+  .status{margin:2px 58px 0;font-size:.82rem;line-height:1.3;min-height:1.15em;
+    color:#f0dfc4;opacity:.92}
 
   .meters{display:flex;justify-content:center;margin-top:7px}
   .meter + .meter{margin-left:6px}
   .meter{flex:1;max-width:130px;background:rgba(0,0,0,.28);border-radius:99px;
     padding:3px 7px 3px 5px;display:flex;align-items:center;gap:5px}
-  .meter.life{max-width:290px;padding:5px 12px 5px 9px;gap:8px}
-  .meter.life span{font-size:1.05rem}
-  .meter.life .bar{height:11px}
-  .meter.life b{font-size:.76rem;min-width:2.4em;text-align:right;color:#f4e7d2;opacity:.9}
+  .meter.life{max-width:340px;padding:7px 14px 7px 11px;gap:10px;
+    background:rgba(0,0,0,.34);box-shadow:0 0 0 1.5px rgba(255,255,255,.14)}
+  .meter.life span{font-size:1.35rem}
+  .meter.life .bar{height:15px;background:rgba(255,255,255,.16)}
+  .meter.life b{font-size:.95rem;min-width:2.6em;text-align:right;color:#fff6e6;opacity:.95}
+  .goal{margin:5px 0 0;font-size:.7rem;letter-spacing:.6px;color:#f0dfc4;opacity:.75;
+    text-transform:uppercase;font-weight:700}
+  .goal b{color:#ff9fc0;opacity:1}
+  @media (min-width:700px){
+    .meter.life{max-width:460px;padding:10px 18px 10px 14px}
+    .meter.life span{font-size:1.7rem}
+    .meter.life .bar{height:19px}
+    .meter.life b{font-size:1.2rem}
+    .goal{font-size:.9rem;margin-top:7px}
+  }
+  @media (max-height:640px){ .goal{font-size:.62rem;margin-top:3px} }
   .meter.life.fading{animation:heartbeat 1.4s ease-in-out infinite}
   @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
   .meter span{font-size:.8rem;line-height:1}
@@ -311,8 +324,8 @@
 
   /* tablets: bigger box, bigger everything you touch */
   @media (min-width:700px){
-    h1{font-size:1.55rem}
-    .status{font-size:.95rem}
+    h1{font-size:1.55rem;margin:0 124px}
+    .status{font-size:.95rem;margin:3px 124px 0}
     .meter{max-width:170px;padding:5px 10px 5px 7px}
     .meter span{font-size:1rem}
     .bar{height:9px}
@@ -404,6 +417,7 @@
       <b id="heartPct">—</b>
     </div>
   </div>
+  <p class="goal" id="goal">your job: keep their <b>heart</b> full ❤️</p>
 </header>
 
 <button class="snd" id="btnSound" aria-label="Sound on or off">🔊</button>
@@ -435,7 +449,7 @@
 
 <div class="sheet" id="sheet">
   <div>
-    <h2>Put them on your phone <span style="opacity:.45;font-size:.7em">v2.2</span></h2>
+    <h2>Put them on your phone <span style="opacity:.45;font-size:.7em">v2.3</span></h2>
     <p id="sheetHow"></p>
     <button id="sheetOk">Got it</button>
   </div>
@@ -450,7 +464,7 @@
       <span class="l-kn" id="lKn">ಸೀ</span>
       <span class="l-word" id="lWord">carrot · ಗಜ್ಜರಿ</span>
     </button>
-    <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in · v2.2</div>
+    <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in · v2.3</div>
   </div>
 </div>
 
@@ -856,6 +870,12 @@ function paintNeeds(){
   document.getElementById('heartPct').textContent = h + '%';
   document.getElementById('heartIcon').textContent = h === 0 ? '💔' : (h < 35 ? '🧡' : '❤️');
   document.querySelector('.meter.life').classList.toggle('fading', h > 0 && h < 35);
+  const goal = document.getElementById('goal');
+  if (goal){
+    goal.innerHTML = h === 0 ? 'their <b>heart</b> is empty — feed, water and pet them 💔'
+                   : h < 35  ? 'their <b>heart</b> is dropping — look after them ❤️'
+                             : 'your job: keep their <b>heart</b> full ❤️';
+  }
   if (h === 0) setSad(true);
   else if (sadMode && h > 12) setSad(false);
   const wf = document.getElementById('waterFill');
@@ -1885,7 +1905,7 @@ addEventListener('load', ()=>relayout(true));
   });
 })();
 
-var APP_VERSION = 'v2.2';
+var APP_VERSION = 'v2.3';
 console.log('Lalu & Peelu ' + APP_VERSION);
 
 /* The first version of this lived at /lalu-peelu.html with a worker scoped to
@@ -1934,7 +1954,9 @@ if ('serviceWorker' in navigator && location.protocol === 'https:'){
 
 requestAnimationFrame(()=>requestAnimationFrame(()=>{
   relayout(true);
-  say(phaseGreeting(), true);
+  // lead with the goal, then settle into the time of day
+  say('Feed them, water them, pet them, keep it clean. ❤️', true);
+  setTimeout(()=>say(phaseGreeting(), true), 7000);
   setTimeout(()=>{ document.getElementById('hint').style.transition = 'opacity 1.2s';
     document.getElementById('hint').style.opacity = 0; }, 9000);
 }));
@@ -1953,7 +1975,7 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>{
     var here = location.href.replace(/^https?:\/\//, '');
     wrap.innerHTML =
       '<h2 style="margin:0 0 10px;font-size:19px">Lalu &amp; Peelu needs a newer browser view</h2>' +
-      '<p style="margin:0 0 10px;font-size:12px;opacity:.5">version v2.2</p>' +
+      '<p style="margin:0 0 10px;font-size:12px;opacity:.5">version v2.3</p>' +
       '<p style="margin:0 0 14px;font-size:15px;line-height:1.5;opacity:.9">' +
       'This works in Chrome on this tablet, but the installed app uses the ' +
       '<b>Android System WebView</b>, which is older here.</p>' +
