@@ -148,7 +148,8 @@
 
   /* the bonus quiz, on a slip of the same paper */
   .quiz{position:fixed;top:0;right:0;bottom:0;left:0;z-index:130;display:none;
-    align-items:center;justify-content:center;padding:20px;background:rgba(20,16,12,.6)}
+    align-items:center;justify-content:center;padding:20px;background:rgba(20,16,12,.6);
+    overflow:auto;-webkit-overflow-scrolling:touch}
   .quiz.show{display:flex}
   .quiz .slip{position:relative;width:100%;max-width:330px;background:#ece5d6;color:#3f3b33;
     padding:20px 18px 16px;text-align:center;transform:rotate(-1.2deg);
@@ -333,6 +334,19 @@
   .ghost{position:fixed;pointer-events:none;z-index:99;transform:translate(-50%,-50%) scale(1.25);
     filter:drop-shadow(0 6px 6px rgba(0,0,0,.35))}
 
+  @media (max-height:640px){
+    header{padding-top:calc(5px + env(safe-area-inset-top))}
+    h1{font-size:1.15rem}
+    .status{font-size:.78rem}
+    .quiz .qbig{font-size:2.3rem}
+    .quiz .slip{padding:14px 16px 12px}
+    .quiz .qopt{padding:9px 10px;font-size:1.05rem}
+    .quiz .qopts{margin-top:8px}
+    .item{height:52px;font-size:.72rem}
+    .item svg{width:26px;height:22px}
+    .tray{padding:6px 8px calc(7px + env(safe-area-inset-bottom))}
+  }
+
   .heart{position:fixed;pointer-events:none;z-index:98;font-size:1.4rem;
     animation:rise 1.1s ease-out forwards}
   @keyframes rise{0%{opacity:1;transform:translate(-50%,0) scale(.5)}
@@ -362,7 +376,7 @@
     .install .long{display:inline}
   }
   .sheet{position:fixed;top:0;right:0;bottom:0;left:0;z-index:120;display:none;align-items:center;justify-content:center;
-    background:rgba(20,16,12,.62);padding:22px}
+    background:rgba(20,16,12,.62);padding:22px;overflow:auto;-webkit-overflow-scrolling:touch}
   .sheet.show{display:flex}
   .sheet div{max-width:340px;background:#fffaf2;border-radius:20px;padding:20px 20px 16px;
     text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.4)}
@@ -521,8 +535,7 @@ function layoutProps(){ props.forEach(p => placeProp(p.el, p.fx, p.fd, p.extra, 
 /* Everything lines up along the back of the cage: the two nests together on
    the left like a pair of neighbours, then the food and water to the right. */
 const SPOT = {
-  nestA :{fx:.16, fd:.92},
-  nestB :{fx:.49, fd:.92},     // side by side in the top left, like neighbours
+  cave  :{fx:.40, fd:.92},     // one shared cave, with a spot each inside
   hay   :{fx:.86, fd:.72},
   bowl  :{fx:.88, fd:.52},
   bottle:{fx:.80, fd:.62}      // where a piggy stands to drink
@@ -570,6 +583,15 @@ bottleEl.innerHTML =
    </svg>`;
 document.getElementById('box').appendChild(bottleEl);
 
+/* The bottle hangs on the wall, so work out the floor spot right under its
+   spout rather than guessing at a fraction. */
+function bottleSpout(){
+  const f = floor.getBoundingClientRect();
+  const b = bottleEl.getBoundingClientRect();
+  if (!f.width || !b.width) return spot('bottle');
+  return {x: clamp(b.left + b.width/2 - f.left, FW*0.08, FW*0.92), y: yFar - 4};
+}
+
 /* pellet bowl */
 const bowlEl = addProp(SPOT.bowl.fx, SPOT.bowl.fd, 'bowl',
   `<svg width="72" height="40" viewBox="0 0 72 40">
@@ -588,77 +610,65 @@ const bowlEl = addProp(SPOT.bowl.fx, SPOT.bowl.fd, 'bowl',
 /* A house each, drawn in two layers so a piggy can be *inside* it: the dark
    interior goes behind them, the roof, posts and threshold in front. Standing
    at the house's own depth puts them neatly between the two. */
+/* One wide cave the two of them share. The front layer is the mound with the
+   mouth cut out of it (even-odd fill), so whoever is inside is seen through the
+   opening rather than hidden behind a wall. */
 function nestBackSVG(){
-  return `<svg width="132" height="140" viewBox="0 0 132 140">
-    <ellipse cx="66" cy="133" rx="56" ry="6" fill="rgba(0,0,0,.22)"/>
-    <!-- the inside: dark, with a lit floor and a little bedding -->
-    <path d="M20 128 L20 56 Q20 46 32 46 L100 46 Q112 46 112 56 L112 128 Z" fill="#3a2a1a"/>
-    <path d="M20 128 L20 56 Q20 46 32 46 L52 46 Q38 58 36 128 Z" fill="#2c1f12"/>
-    <path d="M24 128 q42 -10 84 0 z" fill="#5a4229"/>
+  return `<svg width="220" height="136" viewBox="0 0 220 136">
+    <ellipse cx="110" cy="130" rx="100" ry="6" fill="rgba(0,0,0,.22)"/>
+    <path d="M22 130 C22 64 58 36 110 36 C162 36 198 64 198 130 Z" fill="#2b1f14"/>
+    <path d="M28 130 q82 -11 164 0 z" fill="#5a4229"/>
     <g stroke="#c9a45e" stroke-width="2" stroke-linecap="round" opacity=".5">
-      <path d="M32 126 l9 -7 M48 127 l9 -7 M66 126 l9 -6 M84 127 l9 -7"/></g>
+      <path d="M40 128 l9 -7 M64 129 l9 -7 M94 128 l9 -6 M126 129 l9 -7 M158 128 l9 -6"/></g>
   </svg>`;
 }
-function nestFrontSVG(roof, trim, wall){
-  return `<svg width="132" height="140" viewBox="0 0 132 140">
-    <!-- shade falling into the doorway, over whoever is in there -->
-    <path d="M20 46 h92 v26 q-46 12 -92 0 z" fill="#241a0f" opacity=".5"/>
-    <!-- side posts -->
-    <path d="M6 130 L6 54 Q6 44 18 44 L26 44 L26 130 Z" fill="${wall}"/>
-    <path d="M106 130 L106 44 L114 44 Q126 44 126 54 L126 130 Z" fill="${wall}"/>
-    <g stroke="${trim}" stroke-width="1.5" opacity=".5">
-      <path d="M6 74 h20 M6 98 h20 M106 74 h20 M106 98 h20"/></g>
-    <!-- roof, overhanging enough to hide a head poking up -->
-    <path d="M66 4 L128 52 L120 62 L66 20 L12 62 L4 52 Z" fill="${roof}"/>
-    <path d="M66 11 L120 54 L66 24 L12 54 Z" fill="${trim}" opacity=".5"/>
-    <!-- a low front lip: enough to sit behind, low enough that most of a
-         piggy still shows when it is indoors -->
-    <path d="M26 108 h80 q6 0 6 6 v10 q0 6 -6 6 H26 q-6 0 -6 -6 v-10 q0 -6 6 -6z" fill="${wall}"/>
-    <path d="M26 108 h80 q6 0 6 6 v4 H20 v-4 q0 -6 6 -6z" fill="${trim}"/>
-    <g stroke="${trim}" stroke-width="1.3" opacity=".4"><path d="M50 114 v14 M78 114 v14"/></g>
-    <!-- threshold -->
-    <path d="M10 126 h112 q5 0 5 5 v3 q0 4 -5 4 H10 q-5 0 -5 -4 v-3 q0 -5 5 -5z" fill="${wall}"/>
-    <path d="M10 126 h112 q5 0 5 5 v1 H5 v-1 q0 -5 5 -5z" fill="${trim}" opacity=".7"/>
+function nestFrontSVG(shell, trim){
+  return `<svg width="220" height="136" viewBox="0 0 220 136">
+    <path fill-rule="evenodd" fill="${shell}"
+          d="M2 132 C2 48 46 10 110 10 C174 10 218 48 218 132 Z
+             M22 130 C22 64 58 36 110 36 C162 36 198 64 198 130 Z"/>
+    <path fill-rule="evenodd" fill="${trim}" opacity=".5"
+          d="M2 132 C2 48 46 10 110 10 C136 10 158 18 176 32 C120 30 46 62 38 132 Z
+             M22 130 C22 64 58 36 110 36 C162 36 198 64 198 130 Z"/>
+    <g stroke="${trim}" stroke-width="2" opacity=".4" fill="none">
+      <path d="M10 110 C14 62 46 24 96 18 M210 110 C206 62 176 24 130 19"/></g>
+    <path d="M22 130 C22 64 58 36 110 36 C162 36 198 64 198 130"
+          fill="none" stroke="${trim}" stroke-width="3.5" opacity=".9"/>
+    <path d="M26 84 C26 54 60 40 110 40 C160 40 194 54 194 84 Z" fill="#241a0f" opacity=".2"/>
+    <path d="M24 120 h172 q5 0 5 4 v4 q0 4 -5 4 H24 q-5 0 -5 -4 v-4 q0 -4 5 -4z" fill="${shell}"/>
+    <path d="M24 120 h172 q5 0 5 4 v1 H19 v-1 q0 -4 5 -4z" fill="${trim}" opacity=".8"/>
   </svg>`;
 }
-const NEST_ART_W = 132;                    // width of the house drawing
-function makeNest(key, roof, trim, wall){
-  const sp = SPOT[key];
-  const back  = addProp(sp.fx, sp.fd, 'nest-back',  nestBackSVG(),                    0.9, -14);
-  const front = addProp(sp.fx, sp.fd, 'nest-front', nestFrontSVG(roof, trim, wall), 0.9, +14);
-  back.dataset.nest = key; front.dataset.nest = key;
-  return front;
+const CAVE_ART_W = 220;                    // width of the cave drawing
+const caveBack  = addProp(SPOT.cave.fx, SPOT.cave.fd, 'nest-back', nestBackSVG(), 0.9, -14);
+const caveFront = addProp(SPOT.cave.fx, SPOT.cave.fd, 'nest-front',
+                          nestFrontSVG('#9a7048', '#c9a172'), 0.9, +14);
+caveBack.dataset.cave = '1'; caveFront.dataset.cave = '1';
+
+let caveHalfSpan = 30;                     // how far each one sits from the middle
+function caveSpot(side){
+  const c = spot('cave');
+  return {x: c.x + (side === 'left' ? -caveHalfSpan : caveHalfSpan), y: c.y};
 }
 
-/* The piggies grow with the screen, so the houses have to as well — a house
-   should always be comfortably bigger than its occupant, on a phone and on a
-   tablet alike. This works out the size from the animal, then places the pair
-   side by side on the left with a real gap between them. */
+/* The piggies grow with the screen, so the cave has to as well: wide enough for
+   the two of them side by side, and never wider than the box. */
 function fitNests(){
   if (FW < 60) return;
-  const drawnPig = 1.04 * pigWidth();               // the animal is a little wider than its box
-  const scale = clamp((drawnPig * 1.52) / NEST_ART_W, 0.8, 3);
-  const depthScale = scaleAt(atDepth(SPOT.nestA.fd));
-  const w = NEST_ART_W * scale * depthScale;        // house width on screen
-  const gap = Math.max(12, FW * 0.045);
-
-  let ax = Math.max(w/2 + FW*0.02, FW*0.21);        // keep the pair towards the left
-  let bx = ax + w + gap;
-  if (bx + w/2 > FW*0.97){                          // ran out of room: pull them in
-    bx = FW*0.97 - w/2;
-    ax = Math.max(w/2 + FW*0.02, bx - w - gap);
-  }
-  SPOT.nestA.fx = ax / FW;
-  SPOT.nestB.fx = bx / FW;
+  const drawnPig = 1.04 * pigWidth();
+  const depthScale = scaleAt(atDepth(SPOT.cave.fd));
+  let scale = (drawnPig * 2.6) / CAVE_ART_W;              // room for two side by side
+  let w = CAVE_ART_W * scale * depthScale;
+  const maxW = FW * 0.88;
+  if (w > maxW){ scale *= maxW / w; w = maxW; }
+  caveHalfSpan = w * 0.17;
+  SPOT.cave.fx = clamp(FW*0.42, w/2 + FW*0.02, FW*0.98 - w/2) / FW;
   props.forEach(pr => {
-    const key = pr.el.dataset && pr.el.dataset.nest;
-    if (!key) return;
+    if (!(pr.el.dataset && pr.el.dataset.cave)) return;
     pr.extra = scale;
-    pr.fx = SPOT[key].fx;
+    pr.fx = SPOT.cave.fx;
   });
 }
-const nestA = makeNest('nestA', '#8f6a45', '#c49a68', '#b0855a');
-const nestB = makeNest('nestB', '#6f6350', '#a89272', '#94836a');
 
 /* hay kept in a box instead of loose on the floor */
 const hayEl = addProp(SPOT.hay.fx, SPOT.hay.fd, 'hay',
@@ -1025,21 +1035,29 @@ class Pig {
 
   /* --- going to things --- */
   goDrink(){
-    this.clear();
-    const b = spot('bottle');
-    this.walkTo(b.x - 34, b.y - 8, ()=>{
-      this.facing = 1; this.flip.classList.remove('left');
-      this.hold('drinking', rnd(2.6,4.2), ()=>{
-        need.water = clamp(need.water + 26, 0, 100); paintNeeds();
-        say(`${this.name} drank some water. 💧`);
-        this.think();
-      });
+    this.goToward(bottleSpout(), 'drinking', rnd(2.6,4.2), 0, ()=>{
+      need.water = clamp(need.water + 26, 0, 100); paintNeeds();
+      say(`${this.name} drank some water. 💧`);
+      this.think();
     });
   }
   /* stand so the food sits right at the nose, then work through it bite by
      bite until the whole piece is gone */
   mouthOffset(y){
     return 0.46 * (this.opts.width || 140) * scaleAt(y) * this.sizeMul;
+  }
+  /* stand so the nose reaches `target`, approaching from whichever side it is
+     already on, and stay a little behind it so the food is drawn in front */
+  goToward(target, cls, sec, back, then){
+    this.clear();
+    this.syncFromDOM();
+    const side = this.x <= target.x ? 1 : -1;
+    const stand = target.x - side * this.mouthOffset(target.y);
+    this.walkTo(stand, target.y + (back || 0), ()=>{
+      this.facing = side;
+      this.flip.classList.toggle('left', side === -1);
+      this.hold(cls, sec, then);
+    });
   }
   goEatCrumb(crumb){
     this.clear();
@@ -1079,23 +1097,17 @@ class Pig {
     });
   }
   goNibbleHay(){
-    this.clear();
     const h = spot('hay');
-    this.walkTo(h.x + rnd(-30,30), h.y - rnd(4,14), ()=>{
-      this.hold('nibbling', rnd(3,6), ()=>{
-        need.food = clamp(need.food + 7, 0, 100); paintNeeds();
-        this.think();
-      });
+    this.goToward(h, 'nibbling', rnd(3,6), 6, ()=>{
+      need.food = clamp(need.food + 7, 0, 100); paintNeeds();
+      this.think();
     });
   }
   goBowl(){
-    this.clear();
     const b = spot('bowl');
-    this.walkTo(b.x + rnd(-14,26), b.y - rnd(2,10), ()=>{
-      this.hold('eating', rnd(2.5,4.5), ()=>{
-        need.food = clamp(need.food + 9, 0, 100); paintNeeds();
-        this.think();
-      });
+    this.goToward(b, 'eating', rnd(2.5,4.5), 5, ()=>{
+      need.food = clamp(need.food + 9, 0, 100); paintNeeds();
+      this.think();
     });
   }
   goRead(){                                  // wander over and sniff the paper
@@ -1121,10 +1133,13 @@ class Pig {
   }
   goNest(sleepFor){
     this.clear();
-    const n = spot(this.opts.nest || 'nestA');
+    const side = this.opts.side || 'left';
+    const n = caveSpot(side);
     // the house's two layers sit either side of this depth, so stopping here
     // puts the piggy inside the doorway
-    this.walkTo(n.x + rnd(-4,4), n.y + 6, ()=>{      // a little way in
+    this.walkTo(n.x, n.y + (side === 'left' ? 8 : 2), ()=>{   // a little way in
+      this.facing = side === 'left' ? -1 : 1;          // looking out its own side
+      this.flip.classList.toggle('left', this.facing === -1);
       this.bubbleSay('…', 1200);
       if (sleepFor) return this.sleep(sleepFor);
       this.hold('sleeping', rnd(6,12), ()=>this.think());
@@ -1214,9 +1229,9 @@ class Pig {
 
 const pigWidth = () => clamp((FW || floor.clientWidth || innerWidth*0.9)*0.32, 112, 190);
 const lalu  = new Pig('L', COATS.lalu,  {name:'Lalu',  fx:.30, fd:.55, width:pigWidth(), speed:50,
-                                          facing:1,  nest:'nestA'});
+                                          facing:1,  side:'left'});
 const peelu = new Pig('P', COATS.peelu, {name:'Peelu', fx:.62, fd:.38, width:pigWidth(), speed:58,
-                                          sizeMul:.92, facing:-1, nest:'nestB'});
+                                          sizeMul:.92, facing:-1, side:'right'});
 const HERD = [lalu, peelu];
 
 /* ============================ feeding ============================ */
