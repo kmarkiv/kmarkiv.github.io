@@ -257,10 +257,17 @@
     25%{opacity:1}100%{opacity:0;transform:translate(16px,-40px) scale(1.2)}}
 
   .install{position:absolute;top:calc(9px + env(safe-area-inset-top));right:10px;
-    display:none;align-items:center;gap:5px;padding:7px 12px;border:0;border-radius:99px;
-    background:rgba(255,255,255,.92);color:#3f4a36;font:inherit;font-size:.74rem;font-weight:750;
-    box-shadow:0 3px 0 rgba(0,0,0,.3);z-index:30}
-  .install.show{display:flex}
+    display:flex;align-items:center;gap:4px;padding:7px 11px;border:0;border-radius:99px;
+    background:rgba(255,255,255,.92);color:#3f4a36;font:inherit;font-size:.72rem;font-weight:750;
+    box-shadow:0 3px 0 rgba(0,0,0,.3);z-index:30;transition:transform .09s,box-shadow .09s}
+  .install:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.3)}
+  .install.hide{display:none}
+  .install .long{display:none}
+  @media (min-width:600px){
+    .install{font-size:.86rem;padding:9px 15px;gap:6px}
+    .install .short{display:none}
+    .install .long{display:inline}
+  }
   .sheet{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;
     background:rgba(20,16,12,.62);padding:22px}
   .sheet.show{display:flex}
@@ -292,7 +299,7 @@
   </div>
 </header>
 
-<button class="install" id="btnInstall">⬇︎ <span>Add to home</span></button>
+<button class="install" id="btnInstall" aria-label="Save to home screen">⬇︎<span class="short">&nbsp;App</span><span class="long">&nbsp;Add to home</span></button>
 
 <div class="sheet" id="sheet">
   <div>
@@ -1162,36 +1169,58 @@ addEventListener('load', ()=>relayout(true));
   const sheet = document.getElementById('sheet');
   const how = document.getElementById('sheetHow');
   const standalone = matchMedia('(display-mode: standalone)').matches ||
+                     matchMedia('(display-mode: fullscreen)').matches ||
                      navigator.standalone === true;
-  if (standalone) return;                       // already installed, nothing to offer
+  if (standalone){ btn.classList.add('hide'); return; }   // already an app on this phone
 
-  let prompter = null;
-  addEventListener('beforeinstallprompt', e => {   // Android / desktop Chrome
-    e.preventDefault();
-    prompter = e;
-    btn.classList.add('show');
-  });
-
-  const iOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+  const ua = navigator.userAgent;
+  const iOS = /iphone|ipad|ipod/i.test(ua) ||
               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (iOS) btn.classList.add('show');             // Safari has no prompt event
+  const android = /android/i.test(ua);
+  const firefox = /firefox|fxios/i.test(ua);
+
+  let prompter = null;                       // Chrome hands us one of these when it can
+  const waiting = [];
+  addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); prompter = e;
+    while (waiting.length) waiting.pop()(e);
+  });
+  // Chrome sometimes fires that event a beat after load, so give it a moment
+  // before falling back to talking the user through the menu
+  const getPrompter = () => prompter ? Promise.resolve(prompter) : new Promise(res => {
+    const t = setTimeout(()=>res(null), 1200);
+    waiting.push(e => { clearTimeout(t); res(e); });
+  });
+  const label = btn.innerHTML;               // keep the button looking identical after a tap
 
   btn.addEventListener('click', async () => {
-    if (prompter){
+    if (!prompter && !iOS){
+      btn.textContent = '\u2026';
+      await getPrompter();
+      btn.innerHTML = label;
+    }
+    if (prompter){                            // the real one-tap install
       prompter.prompt();
       const res = await prompter.userChoice.catch(()=>null);
-      if (res && res.outcome === 'accepted') btn.classList.remove('show');
       prompter = null;
+      if (res && res.outcome === 'accepted') btn.classList.add('hide');
       return;
     }
-    how.textContent = iOS
-      ? 'Tap the Share button at the bottom of Safari, then choose “Add to Home Screen”.'
-      : 'Open your browser menu (⋮) and choose “Add to Home screen” — it will open like an app, without the address bar.';
+    how.innerHTML = iOS
+      ? 'In Safari, tap the <b>Share</b> button at the bottom of the screen, scroll down and choose <b>Add to Home Screen</b>.'
+      : android
+        ? (firefox
+            ? 'Open the <b>⋮</b> menu and choose <b>Install</b> (or <b>Add to Home screen</b>).'
+            : 'Open the <b>⋮</b> menu at the top right of Chrome and tap <b>Add to Home screen</b>. It then opens like an app, without the address bar.')
+        : 'Use your browser menu and look for <b>Install</b> or <b>Add to Home screen</b> — on desktop Chrome there is also an install icon in the address bar.';
     sheet.classList.add('show');
   });
   document.getElementById('sheetOk').addEventListener('click', ()=>sheet.classList.remove('show'));
   sheet.addEventListener('click', e => { if (e.target === sheet) sheet.classList.remove('show'); });
-  addEventListener('appinstalled', ()=> btn.classList.remove('show'));
+  addEventListener('appinstalled', ()=>{
+    btn.classList.add('hide');
+    say('Lalu & Peelu are on your home screen now. 🏠', true);
+  });
 })();
 
 /* offline-capable, which is also what makes Chrome offer to install it */
