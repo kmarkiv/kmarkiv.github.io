@@ -76,7 +76,7 @@
     box-shadow:0 22px 50px rgba(0,0,0,.5),inset 0 0 0 3px #35592f;
   }
   /* soft sheen down the green walls */
-  .box::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  .box::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;opacity:.5;
     background:
       linear-gradient(103deg,rgba(255,255,255,.16) 0 12%,rgba(255,255,255,0) 34%),
       repeating-linear-gradient(91deg,rgba(0,0,0,.05) 0 1px,transparent 1px 9px)}
@@ -88,6 +88,7 @@
     background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,0))}
 
   .floor{position:absolute;left:5%;right:5%;top:9%;bottom:3%;
+    -webkit-clip-path:polygon(6% 0,94% 0,100% 100%,0 100%);
     clip-path:polygon(6% 0,94% 0,100% 100%,0 100%);
     overflow:hidden;
     background-color:#5b8c50;
@@ -96,7 +97,7 @@
       repeating-linear-gradient(96deg,rgba(255,255,255,.032) 0 2px,rgba(0,0,0,0) 2px 11px),
       repeating-linear-gradient(9deg,rgba(0,0,0,.022) 0 3px,rgba(0,0,0,0) 3px 17px)}
   /* inner wall shadow, so it reads as a box you look into */
-  .floor::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:900;
+  .floor::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:900;
     box-shadow:inset 0 22px 32px -12px rgba(18,42,16,.6),
                inset 26px 0 26px -18px rgba(18,42,16,.45),
                inset -26px 0 26px -18px rgba(18,42,16,.45)}
@@ -104,7 +105,7 @@
   /* ---------------- props ---------------- */
   /* after dark the box cools down, with a warm glow from the room */
   .box.night{filter:brightness(.84) saturate(.92)}
-  .box.night::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:950;
+  .box.night::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:950;
     background:
       radial-gradient(55% 34% at 84% 3%,rgba(255,214,140,.20),rgba(0,0,0,0) 70%),
       linear-gradient(rgba(22,32,62,.16),rgba(22,32,62,.26))}
@@ -117,6 +118,8 @@
     background:#ece5d6;color:#3f3b33;font:inherit;line-height:1;
     transform:rotate(3deg);
     filter:drop-shadow(0 4px 5px rgba(0,0,0,.34));
+    -webkit-clip-path:polygon(3% 4%,40% 0,76% 5%,100% 2%,97% 36%,100% 70%,95% 97%,
+                      60% 100%,24% 95%,4% 99%,0 64%,3% 31%);
     clip-path:polygon(3% 4%,40% 0,76% 5%,100% 2%,97% 36%,100% 70%,95% 97%,
                       60% 100%,24% 95%,4% 99%,0 64%,3% 31%);
     display:flex;flex-direction:column;align-items:center;gap:5px;
@@ -140,12 +143,14 @@
   }
 
   /* the bonus quiz, on a slip of the same paper */
-  .quiz{position:fixed;inset:0;z-index:130;display:none;
+  .quiz{position:fixed;top:0;right:0;bottom:0;left:0;z-index:130;display:none;
     align-items:center;justify-content:center;padding:20px;background:rgba(20,16,12,.6)}
   .quiz.show{display:flex}
   .quiz .slip{position:relative;width:100%;max-width:330px;background:#ece5d6;color:#3f3b33;
     padding:20px 18px 16px;text-align:center;transform:rotate(-1.2deg);
     filter:drop-shadow(0 10px 16px rgba(0,0,0,.45));
+    -webkit-clip-path:polygon(1% 2%,34% 0,68% 3%,100% 1%,98% 30%,100% 62%,97% 98%,
+                      64% 100%,30% 97%,2% 99%,0 60%,2% 28%);
     clip-path:polygon(1% 2%,34% 0,68% 3%,100% 1%,98% 30%,100% 62%,97% 98%,
                       64% 100%,30% 97%,2% 99%,0 60%,2% 28%);
     background-image:repeating-linear-gradient(rgba(120,114,104,.10) 0 1px,transparent 1px 5px)}
@@ -290,7 +295,7 @@
   .item:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.3)}
   .item.cooling{filter:saturate(.5)}
   .item.cooling:active{transform:none;box-shadow:0 4px 0 rgba(0,0,0,.3)}
-  .item .cd{position:absolute;inset:0;border-radius:inherit;display:none;
+  .item .cd{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;display:none;
     align-items:center;justify-content:center;background:rgba(26,22,16,.5);
     color:#fff;font-size:.92rem;font-weight:800;letter-spacing:.5px}
   .item.cooling .cd{display:flex}
@@ -330,6 +335,13 @@
   @keyframes zfloat{0%{opacity:0;transform:translate(0,0) scale(.7)}
     25%{opacity:1}100%{opacity:0;transform:translate(16px,-40px) scale(1.2)}}
 
+  .snd{position:absolute;top:calc(9px + env(safe-area-inset-top));left:10px;z-index:30;
+    width:36px;height:36px;padding:0;border:0;border-radius:50%;font-size:1rem;
+    background:rgba(255,255,255,.9);box-shadow:0 3px 0 rgba(0,0,0,.3)}
+  .snd:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.3)}
+  .snd.off{opacity:.5}
+  @media (min-width:700px){ .snd{width:46px;height:46px;font-size:1.3rem} }
+
   .install{position:absolute;top:calc(9px + env(safe-area-inset-top));right:10px;
     display:flex;align-items:center;gap:4px;padding:7px 11px;border:0;border-radius:99px;
     background:rgba(255,255,255,.92);color:#3f4a36;font:inherit;font-size:.72rem;font-weight:750;
@@ -342,7 +354,7 @@
     .install .short{display:none}
     .install .long{display:inline}
   }
-  .sheet{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;
+  .sheet{position:fixed;top:0;right:0;bottom:0;left:0;z-index:120;display:none;align-items:center;justify-content:center;
     background:rgba(20,16,12,.62);padding:22px}
   .sheet.show{display:flex}
   .sheet div{max-width:340px;background:#fffaf2;border-radius:20px;padding:20px 20px 16px;
@@ -373,7 +385,19 @@
   </div>
 </header>
 
+<button class="snd" id="btnSound" aria-label="Sound on or off">🔊</button>
 <button class="install" id="btnInstall" aria-label="Save to home screen">⬇︎<span class="short">&nbsp;Save</span><span class="long">&nbsp;Save to phone</span></button>
+
+<script>
+  /* Written in old-fashioned JavaScript on purpose: it has to run even where
+     the main script cannot. Installed apps on older Android tablets use the
+     Android System WebView, which can be years behind the Chrome on the same
+     device — so the page works in a tab and shows nothing as an app. */
+  window.__laluErr = null;
+  window.onerror = function (m, src, line, col) {
+    if (!window.__laluErr) window.__laluErr = m + ' (line ' + line + ')';
+  };
+</script>
 
 <div class="quiz" id="quiz">
   <div class="slip">
@@ -448,6 +472,11 @@
 
 <script>
 /* ============================ helpers ============================ */
+/* Element.animate is missing on some older Android builds, and throwing
+   inside a click handler would stop the rest of it running */
+function softAnimate(el, frames, opts){
+  try { if (el && el.animate) el.animate(frames, opts); } catch (e) {}
+}
 const rnd = (a,b) => a + Math.random()*(b-a);
 const pick = a => a[Math.floor(Math.random()*a.length)];
 const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
@@ -847,7 +876,8 @@ class Pig {
     clearTimeout(this._b);
     this._b = setTimeout(()=>this.bubble.classList.remove('show'), ms||1600);
   }
-  wheek(){ if (!this.el.classList.contains('sleeping')) this.bubbleSay(pick(['wheek!','WHEEK!','wheeek~'])); }
+  wheek(){ if (this.el.classList.contains('sleeping')) return;
+    this.bubbleSay(pick(['wheek!','WHEEK!','wheeek~'])); sndWheek(); }
 
   walkTo(x, y, then){
     this.syncFromDOM();
@@ -886,6 +916,7 @@ class Pig {
     this.petting = true;
     this.state('petted');
     this.bubbleSay(pick(['purrr…','rrrr~','♥','mmm…']), 2200);
+    sndPurr();
     say(`${this.name} likes this!`, true);
     const heartAt = (ev)=>{ if (!ev) return;
       const h = document.createElement('div'); h.className = 'heart';
@@ -1167,6 +1198,94 @@ function dropFood(kind, x, y){
 }
 
 
+
+/* ====================== little sounds ======================
+   A guinea pig wheek is a short rising squeak. Kept soft and brief, low in
+   volume, and behind a mute button that remembers your choice. Phones only
+   allow sound after the first touch, so it waits for that. */
+var AC = null, audioOn = true, audioTouched = false, lastSnd = 0;
+try { audioOn = localStorage.getItem('lp-mute') !== '1'; } catch (e) {}
+
+function actx(){
+  try {
+    if (!AC){ var C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return null; AC = new C(); }
+    if (AC.state === 'suspended') AC.resume();
+    return AC;
+  } catch (e) { return null; }
+}
+
+/* a short, soft wheek */
+function sndWheek(force){
+  if (!audioOn || !audioTouched) return;
+  if (!force && Date.now() - lastSnd < 6000) return;
+  var ac = actx(); if (!ac) return;
+  lastSnd = Date.now();
+  var t = ac.currentTime, base = rnd(500, 660), len = 0.34;
+
+  var amp = ac.createGain();
+  amp.gain.setValueAtTime(0.0001, t);
+  amp.gain.linearRampToValueAtTime(0.085, t + 0.05);
+  amp.gain.setValueAtTime(0.085, t + len * 0.55);
+  amp.gain.exponentialRampToValueAtTime(0.0001, t + len + 0.12);
+
+  var lp = ac.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 2300; lp.Q.value = 0.6;
+
+  [['triangle', 1, 0.9], ['sine', 2, 0.12]].forEach(function (v){
+    var o = ac.createOscillator(); o.type = v[0];
+    o.frequency.setValueAtTime(base * v[1], t);
+    o.frequency.linearRampToValueAtTime(base * 1.6 * v[1], t + 0.12);   // the rise
+    o.frequency.linearRampToValueAtTime(base * 1.15 * v[1], t + len);   // and settle
+    var g = ac.createGain(); g.gain.value = v[2];
+    o.connect(g); g.connect(lp);
+    o.start(t); o.stop(t + len + 0.16);
+  });
+  lp.connect(amp); amp.connect(ac.destination);
+}
+
+/* a low rumble for when they are being petted */
+function sndPurr(){
+  if (!audioOn || !audioTouched) return;
+  var ac = actx(); if (!ac) return;
+  var t = ac.currentTime, len = 0.5;
+  var o = ac.createOscillator(); o.type = 'sine';
+  o.frequency.setValueAtTime(108, t);
+  o.frequency.linearRampToValueAtTime(96, t + len);
+  var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 320;
+  var amp = ac.createGain();
+  amp.gain.setValueAtTime(0.0001, t);
+  amp.gain.linearRampToValueAtTime(0.075, t + 0.08);
+  amp.gain.exponentialRampToValueAtTime(0.0001, t + len);
+  var flut = ac.createOscillator(); flut.frequency.value = 22;          // the rumble
+  var flutG = ac.createGain(); flutG.gain.value = 0.03;
+  flut.connect(flutG); flutG.connect(amp.gain);
+  o.connect(lp); lp.connect(amp); amp.connect(ac.destination);
+  o.start(t); o.stop(t + len + 0.05);
+  flut.start(t); flut.stop(t + len + 0.05);
+}
+
+addEventListener('pointerdown', function (){ audioTouched = true; actx(); }, {once:true});
+var sndBtn = document.getElementById('btnSound');
+sndBtn.textContent = audioOn ? '🔊' : '🔇';
+sndBtn.classList.toggle('off', !audioOn);
+sndBtn.addEventListener('click', function (){
+  audioOn = !audioOn;
+  try { localStorage.setItem('lp-mute', audioOn ? '0' : '1'); } catch (e) {}
+  sndBtn.textContent = audioOn ? '🔊' : '🔇';
+  sndBtn.classList.toggle('off', !audioOn);
+  if (audioOn){ audioTouched = true; sndWheek(true); }
+});
+
+/* one of them pipes up about every half minute */
+setInterval(function (){
+  if (document.hidden || sadMode || PHASE === 'night') return;
+  var p = pick(HERD);
+  if (p.petting || p.el.classList.contains('sleeping')) return;
+  p.bubbleSay(pick(['wheek!','wheeek~','meep!']), 1500);
+  sndWheek(true);
+}, 30000);
+
 /* ====================== the letter in the corner ======================
    English letters with their names read in Kannada, taken from the
    akka alphabet lesson. The Kannada spelling is how the letter's NAME
@@ -1318,7 +1437,7 @@ addEventListener('pointercancel', ()=>{ if (drag){ drag.ghost.remove(); drag = n
 /* fresh water — both from the button and by tapping the bottle itself */
 function freshWater(){
   need.water = clamp(need.water + 34, 0, 100); paintNeeds();
-  bottleEl.animate([{filter:'brightness(1)'},{filter:'brightness(1.5)'},{filter:'brightness(1)'}],
+  softAnimate(bottleEl, [{filter:'brightness(1)'},{filter:'brightness(1.5)'},{filter:'brightness(1)'}],
                    {duration:600, easing:'ease-out'});
   say('New water in the bottle! 💧', true);
   HERD.forEach((p,i)=> setTimeout(()=>{
@@ -1344,7 +1463,7 @@ function sweepBox(){
     setTimeout(()=>c.el.remove(), 420);
     crumbs.splice(crumbs.indexOf(c), 1);
   });
-  floor.animate([{filter:'brightness(1)'},{filter:'brightness(1.14)'},{filter:'brightness(1)'}],
+  softAnimate(floor, [{filter:'brightness(1)'},{filter:'brightness(1.14)'},{filter:'brightness(1)'}],
                 {duration:800, easing:'ease-out'});
   need.clean = 100;
   need.love = clamp(need.love + 6, 0, 100);
@@ -1456,6 +1575,7 @@ function quizWon(){
   need.love = clamp(need.love + 8, 0, 100);
   paintNeeds();
   say('ಸರಿ! Correct — full food and a clean box. 🎉', true);
+  sndWheek(true);
   for (let i=0;i<8;i++) setTimeout(()=>{
     const h = document.createElement('div'); h.className = 'heart';
     h.textContent = pick(['🎉','✨','💗','🥬']);
@@ -1503,6 +1623,7 @@ function relayout(force){
     p.think();
   });
 }
+window.__laluReady = true;                 // the old-browser notice checks this
 addEventListener('resize', ()=>relayout(false));
 addEventListener('load', ()=>relayout(true));
 /* ============================ add to home screen ============================ */
@@ -1587,6 +1708,38 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>{
   setTimeout(()=>{ document.getElementById('hint').style.transition = 'opacity 1.2s';
     document.getElementById('hint').style.opacity = 0; }, 9000);
 }));
+</script>
+
+<script>
+  /* If the main script never got going, say so plainly instead of showing a
+     blank green box, and offer the two things that actually fix it. */
+  (function () {
+    if (window.__laluReady) return;
+    var wrap = document.createElement('div');
+    wrap.setAttribute('style',
+      'position:fixed;top:0;right:0;bottom:0;left:0;z-index:999;background:#2f2a22;' +
+      'color:#f4e7d2;font-family:sans-serif;padding:26px 22px;overflow:auto;' +
+      '-webkit-box-sizing:border-box;box-sizing:border-box');
+    var here = location.href.replace(/^https?:\/\//, '');
+    wrap.innerHTML =
+      '<h2 style="margin:0 0 10px;font-size:19px">Lalu &amp; Peelu needs a newer browser view</h2>' +
+      '<p style="margin:0 0 14px;font-size:15px;line-height:1.5;opacity:.9">' +
+      'This works in Chrome on this tablet, but the installed app uses the ' +
+      '<b>Android System WebView</b>, which is older here.</p>' +
+      '<p style="margin:0 0 8px;font-size:15px;line-height:1.5">1. Open it in Chrome:<br>' +
+      '<a style="color:#9ad155" href="intent://' + here +
+      '#Intent;scheme=https;package=com.android.chrome;end">open in Chrome</a>' +
+      ' &nbsp;·&nbsp; <a style="color:#9ad155" href="' + location.href + '">open here</a></p>' +
+      '<p style="margin:0 0 14px;font-size:15px;line-height:1.5">2. Or update ' +
+      '<b>Android System WebView</b> in the Play Store, then reopen the app:<br>' +
+      '<a style="color:#9ad155" href="https://play.google.com/store/apps/details?id=com.google.android.webview">' +
+      'Android System WebView</a></p>' +
+      (window.__laluErr
+        ? '<p style="margin:14px 0 0;font-size:12px;opacity:.6;word-break:break-word">' +
+          'What went wrong: ' + window.__laluErr + '</p>'
+        : '');
+    document.body.appendChild(wrap);
+  })();
 </script>
 </body>
 </html>

@@ -1,9 +1,13 @@
 /* Lalu & Peelu — keeps the whole box saved on the phone, so it still works
-   with no internet, and so Chrome offers "Add to home screen" on Android. */
-const CACHE = 'lalu-peelu-v2';
+   with no internet, and so Chrome offers "Add to home screen" on Android.
 
-/* everything the page needs — it is one self-contained file plus its icons */
-const ASSETS = [
+   Deliberately written in older JavaScript: no optional catch binding and no
+   Promise.allSettled, both of which are syntax/runtime errors on the Chrome
+   builds that ship with older Android tablets. If this file fails to parse,
+   nothing gets saved and the installed app shows a blank page offline. */
+var CACHE = 'lalu-peelu-v3';
+
+var ASSETS = [
   '/lalu-peelu.html',
   '/lalu-peelu.webmanifest',
   '/assets/images/lalu-peelu/icon-192.png',
@@ -14,62 +18,76 @@ const ASSETS = [
   '/assets/images/lalu-peelu/og.png'
 ];
 
-self.addEventListener('install', e => {
-  e.waitUntil((async () => {
-    const cache = await caches.open(CACHE);
-    // one bad file must not stop the rest from being saved
-    await Promise.allSettled(ASSETS.map(u => cache.add(new Request(u, {cache: 'reload'}))));
-    await self.skipWaiting();
-  })());
+/* save each file on its own, so one failure cannot stop the rest */
+function cacheAll(cache) {
+  return Promise.all(ASSETS.map(function (url) {
+    return fetch(url, {cache: 'reload'}).then(function (res) {
+      if (res && res.ok) return cache.put(url, res);
+    }).catch(function () { /* skip this one */ });
+  }));
+}
+
+self.addEventListener('install', function (e) {
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(cacheAll)
+      .then(function () { return self.skipWaiting(); })
+      .catch(function () {})
+  );
 });
 
-self.addEventListener('activate', e => {
-  e.waitUntil((async () => {
-    const keys = await caches.keys();
-    await Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)));
-    await self.clients.claim();
-  })());
+self.addEventListener('activate', function (e) {
+  e.waitUntil(
+    caches.keys().then(function (keys) {
+      return Promise.all(keys.map(function (k) {
+        if (k !== CACHE) return caches.delete(k);
+      }));
+    }).then(function () { return self.clients.claim(); })
+     .catch(function () {})
+  );
 });
 
-self.addEventListener('fetch', e => {
-  const req = e.request;
+self.addEventListener('fetch', function (e) {
+  var req = e.request;
   if (req.method !== 'GET') return;
-  let url;
-  try { url = new URL(req.url); } catch { return; }
+
+  var url;
+  try { url = new URL(req.url); } catch (err) { return; }
   if (url.origin !== location.origin) return;
 
-  // The page: try the network first so updates arrive, fall back to the saved
-  // copy when there is no signal.
-  if (req.mode === 'navigate' || req.destination === 'document'){
-    e.respondWith((async () => {
-      try {
-        const fresh = await fetch(req);
-        const cache = await caches.open(CACHE);
-        cache.put(req, fresh.clone());
-        return fresh;
-      } catch {
-        return (await caches.match(req)) ||
-               (await caches.match('/lalu-peelu.html')) ||
-               new Response('<h1>Offline</h1><p>Open this once with internet, then it works offline.</p>',
-                            {headers: {'Content-Type': 'text/html'}, status: 200});
-      }
-    })());
+  /* the page itself: fresh when online, the saved copy when there is no signal */
+  if (req.mode === 'navigate' || req.destination === 'document') {
+    e.respondWith(
+      fetch(req).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});
+        return res;
+      }).catch(function () {
+        return caches.match(req).then(function (hit) {
+          return hit || caches.match('/lalu-peelu.html');
+        }).then(function (hit) {
+          return hit || new Response(
+            '<h1>Offline</h1><p>Open this once with internet, then it works offline.</p>',
+            {headers: {'Content-Type': 'text/html'}});
+        });
+      })
+    );
     return;
   }
 
-  // Icons and the manifest: use the saved copy first, they do not change.
-  e.respondWith((async () => {
-    const hit = await caches.match(req);
-    if (hit) return hit;
-    try {
-      const res = await fetch(req);
-      if (res.ok && url.pathname.startsWith('/assets/images/lalu-peelu/')){
-        const cache = await caches.open(CACHE);
-        cache.put(req, res.clone());
-      }
-      return res;
-    } catch {
-      return new Response('', {status: 504, statusText: 'offline'});
-    }
-  })());
+  /* icons and the manifest: the saved copy first, they do not change */
+  e.respondWith(
+    caches.match(req).then(function (hit) {
+      if (hit) return hit;
+      return fetch(req).then(function (res) {
+        if (res && res.ok && url.pathname.indexOf('/assets/images/lalu-peelu/') === 0) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});
+        }
+        return res;
+      }).catch(function () {
+        return new Response('', {status: 504, statusText: 'offline'});
+      });
+    })
+  );
 });
