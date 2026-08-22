@@ -1277,6 +1277,106 @@ sndBtn.addEventListener('click', function (){
   if (audioOn){ audioTouched = true; sndWheek(true); }
 });
 
+
+/* ---- the small noises of a guinea pig going about its business ----
+   All of these are built from a short burst of noise, which sounds more like
+   bedding and chewing than any tone would. They are deliberately far quieter
+   than the wheek: texture you notice only when the room is quiet. */
+var noiseBuf = null;
+function noiseSource(ac){
+  if (!noiseBuf){
+    var n = Math.floor(ac.sampleRate * 0.35);
+    noiseBuf = ac.createBuffer(1, n, ac.sampleRate);
+    var d = noiseBuf.getChannelData(0);
+    for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+  }
+  var src = ac.createBufferSource();
+  src.buffer = noiseBuf;
+  return src;
+}
+/* one short burst, shaped by a filter and an envelope */
+function burst(opts){
+  if (!audioOn || !audioTouched) return;
+  var ac = actx(); if (!ac) return;
+  var t = ac.currentTime;
+  var src = noiseSource(ac);
+  src.playbackRate.value = opts.rate || 1;
+  var f = ac.createBiquadFilter();
+  f.type = opts.type || 'bandpass';
+  f.frequency.value = opts.freq || 1600;
+  f.Q.value = opts.q || 1;
+  var g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(opts.vol, t + (opts.attack || 0.008));
+  g.gain.exponentialRampToValueAtTime(0.0001, t + opts.len);
+  src.connect(f); f.connect(g); g.connect(ac.destination);
+  src.start(t); src.stop(t + opts.len + 0.02);
+}
+/* a foot shuffling over the bedding */
+function sndStep(near){
+  burst({freq: rnd(900, 1500), q: 0.7, len: 0.045, rate: rnd(0.9, 1.2),
+         vol: 0.006 + 0.005 * (near || 0)});
+}
+/* the ball in the water bottle, and a small lick */
+function sndSip(){
+  if (!audioOn || !audioTouched) return;
+  var ac = actx(); if (!ac) return;
+  var t = ac.currentTime;
+  var o = ac.createOscillator(); o.type = 'square';
+  o.frequency.setValueAtTime(rnd(1500, 1900), t);
+  var g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(0.014, t + 0.004);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.035);
+  var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2600;
+  o.connect(lp); lp.connect(g); g.connect(ac.destination);
+  o.start(t); o.stop(t + 0.05);
+  burst({freq: 900, q: 0.7, len: 0.05, vol: 0.01, type: 'lowpass'});
+}
+/* the slow breath of a sleeping piggy: a long, soft swell */
+function sndSnore(){
+  if (!audioOn || !audioTouched) return;
+  var ac = actx(); if (!ac) return;
+  var t = ac.currentTime, len = 0.62;
+  var src = noiseSource(ac);
+  src.playbackRate.value = 0.55;
+  var lp = ac.createBiquadFilter(); lp.type = 'lowpass';
+  lp.frequency.setValueAtTime(340, t);
+  lp.frequency.linearRampToValueAtTime(220, t + len);
+  var g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(0.02, t + 0.22);       // breathe in
+  g.gain.exponentialRampToValueAtTime(0.0001, t + len); // and out
+  src.connect(lp); lp.connect(g); g.connect(ac.destination);
+  src.start(t); src.stop(t + len + 0.05);
+}
+
+/* a soft crunch of cabbage */
+function sndMunch(){
+  burst({freq: rnd(600, 1000), q: 0.8, len: 0.075, rate: rnd(0.8, 1.1), vol: 0.024});
+}
+
+/* one small clock drives all three, reading whatever each piggy is doing */
+setInterval(function (){
+  if (!audioOn || !audioTouched || document.hidden) return;
+  var now = Date.now();
+  HERD.forEach(function (p){
+    var cls = p.el.className;
+    var near = 1 - clamp(depth(p.y), 0, 1);          // nearer sounds a touch louder
+    if (!p.sndNext) p.sndNext = 0;
+    if (now < p.sndNext) return;
+    if (cls.indexOf('walking') >= 0){
+      sndStep(near); p.sndNext = now + rnd(340, 470);   // roughly in step with the waddle
+    } else if (cls.indexOf('drinking') >= 0){
+      sndSip(); p.sndNext = now + rnd(260, 420);
+    } else if (cls.indexOf('eating') >= 0 || cls.indexOf('nibbling') >= 0){
+      sndMunch(); p.sndNext = now + rnd(280, 420);
+    } else if (cls.indexOf('sleeping') >= 0){
+      sndSnore(); p.sndNext = now + rnd(3200, 4800);     // slow, sleepy breathing
+    }
+  });
+}, 110);
+
 /* one of them pipes up about every half minute */
 setInterval(function (){
   if (document.hidden || sadMode || PHASE === 'night') return;
