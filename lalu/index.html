@@ -8,7 +8,7 @@
 <meta name="description" content="Two little guinea pigs in a green box. Pet them, feed them, top up their water and keep the box clean.">
 
 <!-- add to home screen -->
-<meta name="app-version" content="v2">
+<meta name="app-version" content="v2.1">
 <link rel="manifest" href="./manifest.webmanifest?v=2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -421,7 +421,7 @@
 
 <div class="sheet" id="sheet">
   <div>
-    <h2>Put them on your phone <span style="opacity:.45;font-size:.7em">v2</span></h2>
+    <h2>Put them on your phone <span style="opacity:.45;font-size:.7em">v2.1</span></h2>
     <p id="sheetHow"></p>
     <button id="sheetOk">Got it</button>
   </div>
@@ -436,7 +436,7 @@
       <span class="l-kn" id="lKn">ಸೀ</span>
       <span class="l-word" id="lWord">carrot · ಗಜ್ಜರಿ</span>
     </button>
-    <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in</div>
+    <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in · v2.1</div>
   </div>
 </div>
 
@@ -1870,7 +1870,7 @@ addEventListener('load', ()=>relayout(true));
   });
 })();
 
-var APP_VERSION = 'v2';
+var APP_VERSION = 'v2.1';
 console.log('Lalu & Peelu ' + APP_VERSION);
 
 /* The first version of this lived at /lalu-peelu.html with a worker scoped to
@@ -1938,7 +1938,7 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>{
     var here = location.href.replace(/^https?:\/\//, '');
     wrap.innerHTML =
       '<h2 style="margin:0 0 10px;font-size:19px">Lalu &amp; Peelu needs a newer browser view</h2>' +
-      '<p style="margin:0 0 10px;font-size:12px;opacity:.5">version v2</p>' +
+      '<p style="margin:0 0 10px;font-size:12px;opacity:.5">version v2.1</p>' +
       '<p style="margin:0 0 14px;font-size:15px;line-height:1.5;opacity:.9">' +
       'This works in Chrome on this tablet, but the installed app uses the ' +
       '<b>Android System WebView</b>, which is older here.</p>' +
