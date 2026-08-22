@@ -28,7 +28,7 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Two guinea pigs in a green box lined with newspaper">
+<meta property="og:image:alt" content="Two guinea pigs in a green box">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lalu &amp; Peelu 🐹">
 <meta name="twitter:description" content="Pet them, feed them, water them, keep their box clean.">
@@ -83,23 +83,17 @@
 
   .floor{position:absolute;left:5%;right:5%;top:9%;bottom:3%;
     clip-path:polygon(6% 0,94% 0,100% 100%,0 100%);
-    background:#4f8146;overflow:hidden}
+    overflow:hidden;
+    background-color:#5b8c50;
+    background-image:
+      radial-gradient(120% 90% at 50% 8%,rgba(255,255,255,.10),rgba(255,255,255,0) 60%),
+      repeating-linear-gradient(96deg,rgba(255,255,255,.032) 0 2px,rgba(0,0,0,0) 2px 11px),
+      repeating-linear-gradient(9deg,rgba(0,0,0,.022) 0 3px,rgba(0,0,0,0) 3px 17px)}
   /* inner wall shadow, so it reads as a box you look into */
   .floor::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:900;
     box-shadow:inset 0 22px 32px -12px rgba(18,42,16,.6),
                inset 26px 0 26px -18px rgba(18,42,16,.45),
                inset -26px 0 26px -18px rgba(18,42,16,.45)}
-
-  /* ---------------- newspaper lining ---------------- */
-  /* faint, sun-bleached newsprint — there, but never competing with the piggies */
-  .paper{position:absolute;pointer-events:none;background:#efe9de;opacity:.72;
-    box-shadow:0 2px 6px rgba(0,0,0,.16)}
-  .paper .col{position:absolute;opacity:.5;background-image:repeating-linear-gradient(
-      rgba(126,120,110,.3) 0 1.2px,transparent 1.2px 5px)}
-  .paper .head{position:absolute;background:#6f6a61;border-radius:1px;opacity:.3}
-  .paper .ad{position:absolute;border-radius:2px;opacity:.28}
-  .paper .pic{position:absolute;opacity:.3;border-radius:2px;
-    background:linear-gradient(135deg,#c3bcae,#a09889)}
 
   /* ---------------- props ---------------- */
   .prop,.crumb{position:absolute;left:0;bottom:0}
@@ -374,29 +368,8 @@ const SPOT = {
 };
 const spot = k => ({x: SPOT[k].fx*FW, y: atDepth(SPOT[k].fd)});
 
-/* ============================ newspaper lining ============================ */
-(function lining(){
-  // two overlapping sheets, slightly askew, like a box lined in a hurry
-  [{l:-5,t:1,w:72,h:76,r:-2.5},{l:30,t:15,w:74,h:80,r:1.8}].forEach((s,i)=>{
-    const p = document.createElement('div');
-    p.className = 'paper';
-    Object.assign(p.style,{left:s.l+'%',top:s.t+'%',width:s.w+'%',height:s.h+'%',
-      transform:`rotate(${s.r}deg)`, zIndex: i});
-    // headline + columns + a picture block + a couple of coloured ads
-    p.innerHTML =
-      `<div class="head" style="left:8%;top:6%;width:60%;height:3.2%"></div>
-       <div class="head" style="left:8%;top:11%;width:38%;height:2.2%"></div>
-       <div class="col" style="left:8%;top:17%;width:24%;height:26%"></div>
-       <div class="col" style="left:36%;top:17%;width:24%;height:20%"></div>
-       <div class="pic" style="left:64%;top:16%;width:28%;height:20%"></div>
-       <div class="col" style="left:64%;top:39%;width:28%;height:14%"></div>
-       <div class="ad" style="left:6%;top:48%;width:30%;height:9%;background:#d8543f"></div>
-       <div class="ad" style="left:40%;top:52%;width:22%;height:7%;background:#e8a13c"></div>
-       <div class="col" style="left:8%;top:60%;width:52%;height:22%"></div>
-       <div class="col" style="left:64%;top:58%;width:28%;height:24%"></div>
-       <div class="ad" style="left:66%;top:86%;width:24%;height:6%;background:#5b8fc9"></div>`;
-    floor.appendChild(p);
-  });
+/* ============================ bedding ============================ */
+(function bedding(){
   // a few pellets of evidence that piggies live here
   for (let i=0;i<9;i++){
     const d = document.createElement('div');
@@ -622,7 +595,7 @@ function dropPellet(x, y){
   floor.appendChild(d);
 }
 setInterval(()=>{
-  if (need.clean < 6) return;
+  if (need.clean < 6 || FW < 60) return;
   const p = pick(HERD); p.syncFromDOM();
   dropPellet(clamp(p.x + rnd(-14,14), 8, FW-8), clamp(p.y + rnd(-6,6), yNear, yFar));
   need.clean = clamp(need.clean - 2.5, 0, 100);
@@ -630,7 +603,7 @@ setInterval(()=>{
 }, 17000);
 
 /* ============================ a piggy ============================ */
-const crumbs = [];                        // food dropped on the newspaper
+const crumbs = [];                        // food dropped in the box
 
 class Pig {
   constructor(id, coat, opts){
@@ -875,7 +848,8 @@ class Pig {
     if (r < .78){                            // nose-to-nose with the other one
       const o = HERD.find(p => p !== this);
       if (o){ o.syncFromDOM();
-        return this.walkTo(o.x + (this.x < o.x ? -34 : 34), o.y + rnd(-6,6), ()=>{
+        const gap = (this.opts.width || 140) * 0.58;      // stand beside, not on top of
+        return this.walkTo(o.x + (this.x < o.x ? -gap : gap), o.y + rnd(-10,10), ()=>{
           this.bubbleSay(pick(['♥','sniff sniff','wheek?']), 1400);
           this.hold('sniffing', rnd(1.6,3), ()=>this.think());
         });
@@ -1000,7 +974,7 @@ function freshWater(){
 document.getElementById('btnWater').addEventListener('click', freshWater);
 bottleEl.addEventListener('pointerdown', e => { e.stopPropagation(); freshWater(); });
 
-/* clean the box: sweep out the mess, lay fresh paper */
+/* clean the box: sweep out the mess */
 document.getElementById('btnClean').addEventListener('click', ()=>{
   const mess = floor.querySelectorAll('.poop');
   mess.forEach((m,i)=> setTimeout(()=>{
@@ -1015,12 +989,12 @@ document.getElementById('btnClean').addEventListener('click', ()=>{
     setTimeout(()=>c.el.remove(), 420);
     crumbs.splice(crumbs.indexOf(c), 1);
   });
-  floor.querySelectorAll('.paper').forEach(pp => pp.animate(
-    [{opacity:.72},{opacity:1},{opacity:.72}], {duration:900, easing:'ease-out'}));
+  floor.animate([{filter:'brightness(1)'},{filter:'brightness(1.14)'},{filter:'brightness(1)'}],
+                {duration:800, easing:'ease-out'});
   need.clean = 100;
   need.love = clamp(need.love + 6, 0, 100);
   paintNeeds();
-  say('Fresh paper, clean box. ✨', true);
+  say('Swept out — a nice clean box. ✨', true);
   HERD.forEach((p,i)=> setTimeout(()=>{
     if (p.petting) return;
     p.clear();
