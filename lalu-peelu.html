@@ -102,6 +102,39 @@
                inset -26px 0 26px -18px rgba(18,42,16,.45)}
 
   /* ---------------- props ---------------- */
+  /* after dark the box cools down, with a warm glow from the room */
+  .box.night{filter:brightness(.84) saturate(.92)}
+  .box.night::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:950;
+    background:
+      radial-gradient(55% 34% at 84% 3%,rgba(255,214,140,.20),rgba(0,0,0,0) 70%),
+      linear-gradient(rgba(22,32,62,.16),rgba(22,32,62,.26))}
+
+  /* a torn scrap of newsprint with one letter on it, lying near the front of
+     the box: closest to the reader, clear of the piggies' favourite spots, and
+     a high z-index because anything at the front is drawn over what is behind */
+  .letter{position:absolute;right:5.5%;bottom:4%;z-index:820;width:96px;
+    border:0;padding:9px 6px 10px;cursor:pointer;text-align:center;
+    background:#ece5d6;color:#3f3b33;font:inherit;line-height:1;
+    transform:rotate(3deg);
+    filter:drop-shadow(0 4px 5px rgba(0,0,0,.34));
+    clip-path:polygon(3% 4%,40% 0,76% 5%,100% 2%,97% 36%,100% 70%,95% 97%,
+                      60% 100%,24% 95%,4% 99%,0 64%,3% 31%);
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    background-image:repeating-linear-gradient(rgba(120,114,104,.11) 0 1px,transparent 1px 5px)}
+  .letter:active{transform:rotate(3deg) scale(.95)}
+  .letter .l-big{font-size:2.5rem;font-weight:800;letter-spacing:1px}
+  .letter .l-kn{font-size:1.15rem;
+    font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",serif}
+  .letter.flip{animation:cardflip .45s ease}
+  @keyframes cardflip{0%{transform:rotate(3deg) rotateY(0)}
+    50%{transform:rotate(3deg) rotateY(74deg) scale(.94)}
+    100%{transform:rotate(3deg) rotateY(0)}}
+  @media (min-width:700px){
+    .letter{width:138px;padding:14px 10px 16px;gap:8px}
+    .letter .l-big{font-size:3.6rem}
+    .letter .l-kn{font-size:1.7rem}
+  }
+
   .prop,.crumb{position:absolute;left:0;bottom:0}
   .prop{transform-origin:50% 100%}
   .bottle{cursor:pointer;pointer-events:auto}
@@ -313,6 +346,10 @@
   <div class="box" id="box">
     <div class="rim"></div>
     <div class="floor" id="floor"></div>
+    <button class="letter" id="letterCard" aria-label="Next letter">
+      <span class="l-big" id="lBig">A</span>
+      <span class="l-kn" id="lKn">ಏ</span>
+    </button>
     <div class="hint" id="hint">tap a piggy · tap the bottle · drag food in</div>
   </div>
 </div>
@@ -392,8 +429,8 @@ function layoutProps(){ props.forEach(p => placeProp(p.el, p.fx, p.fd, p.extra))
 /* where things live inside the box */
 const SPOT = {
   bottle:{fx:.80, fd:.88},     // where a piggy stands to drink
-  bowl  :{fx:.24, fd:.80},
-  hay   :{fx:.56, fd:.86},
+  bowl  :{fx:.68, fd:.78},
+  hay   :{fx:.46, fd:.88},
   tunnel:{fx:.27, fd:.40}
 };
 const spot = k => ({x: SPOT[k].fx*FW, y: atDepth(SPOT[k].fd)});
@@ -474,6 +511,35 @@ const tunnelEl = addProp(SPOT.tunnel.fx, SPOT.tunnel.fd, 'tunnel',
      <path d="M30 52 q22 6 44 0" stroke="#8f6740" stroke-width="3" fill="none" opacity=".7"/>
    </svg>`, 1.25);
 layoutProps();
+
+/* ============================ the time of day ============================ */
+/* morning they are hungry, afternoons are for naps, evenings are silly,
+   nights are quiet */
+function phaseNow(){
+  const h = new Date().getHours();
+  return h < 6  ? 'night'
+       : h < 11 ? 'morning'
+       : h < 17 ? 'day'
+       : h < 22 ? 'evening'
+       :          'night';
+}
+let PHASE = phaseNow();
+function phaseGreeting(){
+  return PHASE === 'morning' ? 'Good morning! They are hungry. 🌅'
+       : PHASE === 'day'     ? 'Sleepy afternoon in the box. ☀️'
+       : PHASE === 'evening' ? 'Evening! They have the zoomies. 🌆'
+       :                       'Shh… it is night. They are sleeping. 🌙';
+}
+function applyPhase(){
+  PHASE = phaseNow();
+  document.getElementById('box').classList.toggle('night', PHASE === 'night');
+}
+applyPhase();
+setInterval(()=>{
+  const was = PHASE;
+  applyPhase();
+  if (PHASE !== was) say(phaseGreeting(), true);
+}, 60000);
 
 /* ============================ the piggies ============================ */
 /* one silhouette, painted in tricolour patches per pig */
@@ -629,10 +695,11 @@ function paintNeeds(){
 }
 paintNeeds();
 setInterval(()=>{                        // needs drift down over a few minutes
-  need.food  = clamp(need.food  - .5, 0, 100);
-  need.water = clamp(need.water - .45, 0, 100);
-  need.love  = clamp(need.love  - .35, 0, 100);
-  need.clean = clamp(need.clean - .6, 0, 100);
+  const slow = PHASE === 'night' ? 0.45 : 1;   // asleep, so they need less
+  need.food  = clamp(need.food  - .5*slow, 0, 100);
+  need.water = clamp(need.water - .45*slow, 0, 100);
+  need.love  = clamp(need.love  - .35*slow, 0, 100);
+  need.clean = clamp(need.clean - .6*slow, 0, 100);
   if (need.clean < 25) need.love = clamp(need.love - .5, 0, 100);   // a grubby box is no fun
   paintNeeds();
   if (need.food < 22 && Math.random() < .5) HERD.forEach(p => p.wheek());
@@ -866,6 +933,25 @@ class Pig {
       });
     });
   }
+  goRead(){                                  // wander over and sniff the paper
+    this.clear();
+    this.walkTo(FW*0.80, yNear + rnd(2,16), ()=>{     // the scrap is at the front right now
+      this.bubbleSay(pick(['sniff','?','nom?']), 1300);
+      nextLetter(true);
+      this.hold('sniffing', rnd(1.6,3), ()=>this.think());
+    });
+  }
+  zoomies(laps){                             // a quick silly lap of the box
+    laps = laps == null ? 2 + Math.floor(Math.random()*2) : laps;
+    if (laps <= 0 || sadMode) return this.think();
+    const boost = this.speed;
+    this.speed = boost * 2.1;
+    this.walkTo(rnd(FW*0.14, FW*0.86), rnd(yNear+6, yFar-6), ()=>{
+      this.speed = boost;
+      if (Math.random() < .4) this.bubbleSay(pick(['wheeek!','!!','zoom!']), 900);
+      this.timer = setTimeout(()=>this.zoomies(laps - 1), 120);
+    });
+  }
   goHide(){
     this.clear();
     const t = spot('tunnel');
@@ -912,14 +998,34 @@ class Pig {
       return this.hold(pick(['chewing','sniffing']), rnd(4,8), ()=>this.think());
     }
 
+    // night: mostly curled up asleep
+    if (PHASE === 'night'){
+      if (Math.random() < .75) return Math.random() < .5
+        ? this.goHide() : this.sleep(rnd(10,20));
+    }
+    // afternoon: long naps
+    if (PHASE === 'day' && Math.random() < .4)
+      return Math.random() < .5 ? this.sleep(rnd(8,16)) : this.goHide();
+    // morning: hungry, straight to the food
+    if (PHASE === 'morning' && Math.random() < .45){
+      if (Math.random() < .35) this.wheek();
+      return Math.random() < .5 ? this.goNibbleHay() : this.goBowl();
+    }
+    // evening: zoomies and silliness
+    if (PHASE === 'evening' && Math.random() < .3 && !sadMode){
+      this.popcorn();
+      return this.zoomies();
+    }
+
     const r = Math.random();
     if (r < .16 && need.love > 55) { this.popcorn();
       this.timer = setTimeout(()=>this.think(), 900); return; }
-    if (r < .30) return this.hold('sniffing', rnd(1.6,3.4), ()=>this.think());
-    if (r < .42) return this.goNibbleHay();
-    if (r < .50) return this.goDrink();
-    if (r < .58) return this.goHide();
-    if (r < .66 && need.love > 40) return this.sleep(rnd(5,11));
+    if (r < .24) return this.goRead();                 // go and sniff the letter
+    if (r < .34) return this.hold('sniffing', rnd(1.6,3.4), ()=>this.think());
+    if (r < .44) return this.goNibbleHay();
+    if (r < .52) return this.goDrink();
+    if (r < .60) return this.goHide();
+    if (r < .68 && need.love > 40) return this.sleep(rnd(5,11));
     if (r < .78){                            // nose-to-nose with the other one
       const o = HERD.find(p => p !== this);
       if (o){ o.syncFromDOM();
@@ -1002,6 +1108,52 @@ function dropFood(kind, x, y){
     setTimeout(()=>{ if (p.petting) return; p.clear(); p.wheek(); p.goEatCrumb(c); }, i*rnd(160,420));
   });
 }
+
+
+/* ====================== the letter in the corner ======================
+   English letters with their names read in Kannada, taken from the
+   akka alphabet lesson. The Kannada spelling is how the letter's NAME
+   sounds — it is not the matching Kannada letter. */
+const LETTERS = [
+  ['A','ಏ','APPLE','ಆ್ಯಪಲ್'],      ['B','ಬೀ','BALL','ಬಾಲ್'],
+  ['C','ಸೀ','CAT','ಕ್ಯಾಟ್'],        ['D','ಡೀ','DOG','ಡಾಗ್'],
+  ['E','ಈ','EGG','ಎಗ್'],            ['F','ಎಫ್','FISH','ಫಿಶ್'],
+  ['G','ಜೀ','GOAT','ಗೋಟ್'],        ['H','ಏಚ್','HAT','ಹ್ಯಾಟ್'],
+  ['I','ಐ','ICE','ಐಸ್'],            ['J','ಜೇ','JUG','ಜಗ್'],
+  ['K','ಕೇ','KITE','ಕೈಟ್'],         ['L','ಎಲ್','LION','ಲಯನ್'],
+  ['M','ಎಮ್','MANGO','ಮ್ಯಾಂಗೋ'],   ['N','ಎನ್','NEST','ನೆಸ್ಟ್'],
+  ['O','ಓ','ORANGE','ಆರೆಂಜ್'],      ['P','ಪೀ','PEN','ಪೆನ್'],
+  ['Q','ಕ್ಯೂ','QUEEN','ಕ್ವೀನ್'],    ['R','ಆರ್','ROSE','ರೋಸ್'],
+  ['S','ಎಸ್','SUN','ಸನ್'],          ['T','ಟೀ','TREE','ಟ್ರೀ'],
+  ['U','ಯೂ','UMBRELLA','ಅಂಬ್ರೆಲಾ'], ['V','ವೀ','VAN','ವ್ಯಾನ್'],
+  ['W','ಡಬ್ಲ್ಯೂ','WATCH','ವಾಚ್'],   ['X','ಎಕ್ಸ್','X-RAY','ಎಕ್ಸ್-ರೇ'],
+  ['Y','ವೈ','YO-YO','ಯೋ-ಯೋ'],      ['Z','ಝೆಡ್','ZEBRA','ಝೀಬ್ರಾ']
+];
+/* Teaching order, not A-B-C: it opens with letters that are easy to tell
+   apart, and keeps the pairs beginners mix up well away from each other
+   (B and D, P and Q, M and W, I and L and J, N and U). Capitals run all the
+   way through first, then the same order again in small letters. */
+const ORDER = ['A','S','T','O','M','I','N','C','E','R','H','L','B','F','K',
+               'D','G','P','U','J','V','W','Q','X','Y','Z'];
+const card = document.getElementById('letterCard');
+let orderPos = 0, smallCase = false;
+function paintLetter(tell){
+  const en = ORDER[orderPos];
+  const row = LETTERS.find(r => r[0] === en);
+  const shown = smallCase ? en.toLowerCase() : en;
+  document.getElementById('lBig').textContent = shown;
+  document.getElementById('lKn').textContent = row[1];
+  card.classList.remove('flip'); void card.offsetWidth; card.classList.add('flip');
+  if (tell) say(`${shown} is “${row[1]}”. Like ${smallCase ? row[2].toLowerCase() : row[2]}.`, true);
+}
+function nextLetter(tell){
+  orderPos++;
+  if (orderPos >= ORDER.length){ orderPos = 0; smallCase = !smallCase; }  // A-Z, then a-z
+  paintLetter(tell);
+}
+paintLetter(false);
+card.addEventListener('pointerdown', e => { e.stopPropagation(); nextLetter(true); });
+setInterval(()=>{ if (!document.hidden) nextLetter(false); }, 70000);
 
 /* every so often, for no reason at all, a little jump */
 setInterval(()=>{
@@ -1247,6 +1399,7 @@ if ('serviceWorker' in navigator && location.protocol === 'https:'){
 
 requestAnimationFrame(()=>requestAnimationFrame(()=>{
   relayout(true);
+  say(phaseGreeting(), true);
   setTimeout(()=>{ document.getElementById('hint').style.transition = 'opacity 1.2s';
     document.getElementById('hint').style.opacity = 0; }, 9000);
 }));
