@@ -523,8 +523,8 @@ function layoutProps(){ props.forEach(p => placeProp(p.el, p.fx, p.fd, p.extra, 
 const SPOT = {
   nestA :{fx:.16, fd:.92},
   nestB :{fx:.49, fd:.92},     // side by side in the top left, like neighbours
-  hay   :{fx:.74, fd:.90},
-  bowl  :{fx:.90, fd:.74},
+  hay   :{fx:.86, fd:.72},
+  bowl  :{fx:.88, fd:.52},
   bottle:{fx:.80, fd:.62}      // where a piggy stands to drink
 };
 const spot = k => ({x: SPOT[k].fx*FW, y: atDepth(SPOT[k].fd)});
@@ -621,10 +621,41 @@ function nestFrontSVG(roof, trim, wall){
     <path d="M10 126 h112 q5 0 5 5 v1 H5 v-1 q0 -5 5 -5z" fill="${trim}" opacity=".7"/>
   </svg>`;
 }
+const NEST_ART_W = 132;                    // width of the house drawing
 function makeNest(key, roof, trim, wall){
   const sp = SPOT[key];
-  addProp(sp.fx, sp.fd, 'nest-back',  nestBackSVG(),                    0.9, -14);
-  return addProp(sp.fx, sp.fd, 'nest-front', nestFrontSVG(roof, trim, wall), 0.9, +14);
+  const back  = addProp(sp.fx, sp.fd, 'nest-back',  nestBackSVG(),                    0.9, -14);
+  const front = addProp(sp.fx, sp.fd, 'nest-front', nestFrontSVG(roof, trim, wall), 0.9, +14);
+  back.dataset.nest = key; front.dataset.nest = key;
+  return front;
+}
+
+/* The piggies grow with the screen, so the houses have to as well — a house
+   should always be comfortably bigger than its occupant, on a phone and on a
+   tablet alike. This works out the size from the animal, then places the pair
+   side by side on the left with a real gap between them. */
+function fitNests(){
+  if (FW < 60) return;
+  const drawnPig = 1.04 * pigWidth();               // the animal is a little wider than its box
+  const scale = clamp((drawnPig * 1.52) / NEST_ART_W, 0.8, 3);
+  const depthScale = scaleAt(atDepth(SPOT.nestA.fd));
+  const w = NEST_ART_W * scale * depthScale;        // house width on screen
+  const gap = Math.max(12, FW * 0.045);
+
+  let ax = Math.max(w/2 + FW*0.02, FW*0.21);        // keep the pair towards the left
+  let bx = ax + w + gap;
+  if (bx + w/2 > FW*0.97){                          // ran out of room: pull them in
+    bx = FW*0.97 - w/2;
+    ax = Math.max(w/2 + FW*0.02, bx - w - gap);
+  }
+  SPOT.nestA.fx = ax / FW;
+  SPOT.nestB.fx = bx / FW;
+  props.forEach(pr => {
+    const key = pr.el.dataset && pr.el.dataset.nest;
+    if (!key) return;
+    pr.extra = scale;
+    pr.fx = SPOT[key].fx;
+  });
 }
 const nestA = makeNest('nestA', '#8f6a45', '#c49a68', '#b0855a');
 const nestB = makeNest('nestB', '#6f6350', '#a89272', '#94836a');
@@ -1759,6 +1790,7 @@ function relayout(force){
   if (FW < 60) return;
   if (force !== true && FW === lastW && Math.abs(FH - lastH) < FH*0.2) return;
   lastW = FW; lastH = FH;
+  fitNests();                               // houses sized from the animals
   layoutProps();
   const w = pigWidth();                     // re-fit the piggies to the box
   HERD.forEach(p => { p.opts.width = w; p.el.style.width = w + 'px'; });
