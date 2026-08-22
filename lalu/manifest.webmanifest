@@ -1,0 +1,51 @@
+{
+  "name": "Lalu and Peelu",
+  "short_name": "Lalu Peelu",
+  "description": "Two little guinea pigs in a green box. Pet them, feed them, give them water and keep the box clean.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#2f2a22",
+  "theme_color": "#4e7c45",
+  "icons": [
+    {
+      "src": "/assets/images/lalu-peelu/icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/lalu-peelu/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr"
+}
