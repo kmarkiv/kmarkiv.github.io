@@ -127,6 +127,7 @@
     font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",serif}
   .letter .l-word{font-size:.5rem;font-weight:700;opacity:.7;line-height:1.2;
     font-family:"Noto Sans Kannada","Kannada Sangam MN","Tunga",sans-serif}
+  .letter .l-word b{color:#c2503c;font-size:1.35em;font-weight:800;opacity:1}
   .letter.flip{animation:cardflip .45s ease}
   @keyframes cardflip{0%{transform:rotate(3deg) rotateY(0)}
     50%{transform:rotate(3deg) rotateY(74deg) scale(.94)}
@@ -1184,7 +1185,7 @@ const LETTERS = [
 const SCENE = {
   C:['carrot','ಗಜ್ಜರಿ'], W:['water','ನೀರು'],   H:['hay','ಹುಲ್ಲು'],
   B:['box','ಪೆಟ್ಟಿಗೆ'],  T:['tunnel','ಸುರಂಗ'], P:['pig','ಹಂದಿ'],
-  L:['Lalu','ಲಾಲು'],     G:['green','ಹಸಿರು'],  F:['food','ಆಹಾರ'],
+  L:['leaf','ಎಲೆ'],       G:['green','ಹಸಿರು'],  F:['food','ಆಹಾರ'],
   E:['eat','ತಿನ್ನು']
 };
 /* Teaching order, not A-B-C. The ten letters whose word is visible in the box
@@ -1195,19 +1196,25 @@ const ORDER = ['C','W','T','P','H','E','L','B','G','F',
                'A','S','O','M','I','N','R','K','D','U','J','V','Q','X','Y','Z'];
 const card = document.getElementById('letterCard');
 let orderPos = 0, smallCase = false, lastPigRead = 0;
+const recent = [];                       // the last few letters she has seen
 function paintLetter(tell){
   const en = ORDER[orderPos];
   const row = LETTERS.find(r => r[0] === en);
   const shown = smallCase ? en.toLowerCase() : en;
   // something in the box if we have it, otherwise the word from the lesson
   const scene = SCENE[en];
-  const word = scene ? scene[0] : row[2].toLowerCase();
+  const base = (scene ? scene[0] : row[2]).toLowerCase();
   const wordKn = scene ? scene[1] : row[3];
+  // the word starts with the same letter in the same case, picked out in red
+  const word = smallCase ? base : base[0].toUpperCase() + base.slice(1);
   document.getElementById('lBig').textContent = shown;
   document.getElementById('lKn').textContent = row[1];
-  document.getElementById('lWord').textContent = word + ' · ' + wordKn;
+  document.getElementById('lWord').innerHTML =
+    '<b>' + word[0] + '</b>' + word.slice(1) + ' · ' + wordKn;
   card.classList.remove('flip'); void card.offsetWidth; card.classList.add('flip');
   if (tell) say(`${shown} is “${row[1]}”. Like ${word} — ${wordKn}.`, true);
+  recent.unshift({shown, kn:row[1], word, wordKn});
+  recent.splice(8);                       // keep the last eight
 }
 function nextLetter(tell){
   orderPos++;
@@ -1373,22 +1380,35 @@ const shuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v
 let quizOpen = false, lastQuiz = 0;
 
 function makeQuestion(){
-  if (Math.random() < .55){                          // a letter
-    const row = pick(LETTERS);
-    const small = Math.random() < .5;
-    const wrong = shuffle(LETTERS.filter(r => r[1] !== row[1])).slice(0, 2).map(r => r[1]);
-    return {ask: small ? 'Which sound is this small letter?' : 'Which sound is this letter?',
-            big: small ? row[0].toLowerCase() : row[0],
-            right: row[1], opts: shuffle([row[1], ...wrong])};
+  // ask about the letters she has actually seen on the paper just now, with the
+  // other choices taken from the same handful so nothing comes out of nowhere
+  if (recent.length >= 3){
+    const seen = shuffle(recent.slice());
+    const it = seen[0];
+    const askWord = Math.random() < .45;
+    if (askWord){
+      const wrong = seen.filter(r => r.wordKn !== it.wordKn).slice(0, 2).map(r => r.wordKn);
+      if (wrong.length === 2)
+        return {ask: 'Which one is this word?', big: it.word,
+                right: it.wordKn, opts: shuffle([it.wordKn, ...wrong])};
+    }
+    const wrong = seen.filter(r => r.kn !== it.kn).slice(0, 2).map(r => r.kn);
+    if (wrong.length === 2)
+      return {ask: it.shown === it.shown.toLowerCase() && /[a-z]/.test(it.shown)
+                     ? 'Which sound is this small letter?' : 'Which sound is this letter?',
+              big: it.shown, right: it.kn, opts: shuffle([it.kn, ...wrong])};
   }
-  const keys = Object.keys(SCENE);                   // or a word from the box
-  const k = pick(keys);
-  const wrong = shuffle(keys.filter(x => x !== k)).slice(0, 2).map(x => SCENE[x][1]);
-  return {ask: 'Which one is this word?', big: SCENE[k][0],
-          right: SCENE[k][1], opts: shuffle([SCENE[k][1], ...wrong])};
+  // not enough seen yet: fall back to the lesson list
+  const row = pick(LETTERS);
+  const small = Math.random() < .5;
+  const wrong = shuffle(LETTERS.filter(r => r[1] !== row[1])).slice(0, 2).map(r => r[1]);
+  return {ask: small ? 'Which sound is this small letter?' : 'Which sound is this letter?',
+          big: small ? row[0].toLowerCase() : row[0],
+          right: row[1], opts: shuffle([row[1], ...wrong])};
 }
 
 function askQuiz(){
+  lastQuiz = Date.now();                              // the clock starts when it opens
   const q = makeQuestion();
   document.getElementById('qAsk').textContent = q.ask;
   document.getElementById('qBig').textContent = q.big;
@@ -1437,13 +1457,14 @@ document.getElementById('qSkip').addEventListener('click', ()=>{
   quizEl.classList.remove('show'); quizOpen = false; lastQuiz = Date.now();
 });
 
-/* it turns up on its own — soon after you arrive, then only now and then */
-setTimeout(()=>{ if (!quizOpen) askQuiz(); }, rnd(70000, 110000));
+/* it turns up on its own: never more than one a minute, and it waits until a
+   few letters have gone by so it can ask about something she has just seen */
+setTimeout(()=>{ if (!quizOpen) askQuiz(); }, rnd(50000, 75000));
 setInterval(()=>{
   if (quizOpen || PHASE === 'night' || document.hidden) return;
-  if (Date.now() - lastQuiz < 150000) return;         // never twice in a row
-  if (Math.random() < 0.05) askQuiz();                // roughly one in twenty
-}, 20000);
+  if (Date.now() - lastQuiz < 60000) return;           // at most one a minute
+  if (Math.random() < 0.22) askQuiz();
+}, 15000);
 
 /* ============================ layout ============================ */
 let lastW = 0, lastH = 0;
