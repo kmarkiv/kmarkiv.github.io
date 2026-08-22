@@ -5,7 +5,7 @@
    Promise.allSettled, both of which are syntax/runtime errors on the Chrome
    builds that ship with older Android tablets. If this file fails to parse,
    nothing gets saved and the installed app shows a blank page offline. */
-var CACHE = 'lalu-v4';
+var CACHE = 'lalu-v2-1';
 
 var ASSETS = [
   './',

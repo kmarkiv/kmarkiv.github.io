@@ -8,7 +8,8 @@
 <meta name="description" content="Two little guinea pigs in a green box. Pet them, feed them, top up their water and keep the box clean.">
 
 <!-- add to home screen -->
-<link rel="manifest" href="./manifest.webmanifest">
+<meta name="app-version" content="v2">
+<link rel="manifest" href="./manifest.webmanifest?v=2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lalu &amp; Peelu">
@@ -414,7 +415,7 @@
 
 <div class="sheet" id="sheet">
   <div>
-    <h2>Put them on your phone</h2>
+    <h2>Put them on your phone <span style="opacity:.45;font-size:.7em">v2</span></h2>
     <p id="sheetHow"></p>
     <button id="sheetOk">Got it</button>
   </div>
@@ -1786,6 +1787,36 @@ addEventListener('load', ()=>relayout(true));
   });
 })();
 
+var APP_VERSION = 'v2';
+console.log('Lalu & Peelu ' + APP_VERSION);
+
+/* The first version of this lived at /lalu-peelu.html with a worker scoped to
+   the WHOLE site, which means it can still intercept this page on a device
+   that installed it. Clear out anything that is not ours before registering,
+   so an old tablet lets go of the stale copy instead of serving it forever. */
+function shedOldVersions(){
+  if (!('serviceWorker' in navigator)) return Promise.resolve();
+  var mine = new URL('./', location.href).href;
+  return navigator.serviceWorker.getRegistrations().then(function (regs){
+    return Promise.all(regs.map(function (r){
+      if (r.scope !== mine){                       // a worker from the old layout
+        console.log('removing old worker at', r.scope);
+        return r.unregister();
+      }
+    }));
+  }).then(function (){
+    if (!window.caches || !caches.keys) return;
+    return caches.keys().then(function (keys){
+      return Promise.all(keys.map(function (k){
+        if (k.indexOf('lalu-' + APP_VERSION) !== 0){
+          console.log('dropping old cache', k);
+          return caches.delete(k);
+        }
+      }));
+    });
+  }).catch(function (){});
+}
+
 /* Save the whole box on the phone, so it still works with no internet.
    This is also what lets Chrome on Android offer "Add to home screen". */
 if ('serviceWorker' in navigator && location.protocol === 'https:'){
@@ -1796,9 +1827,10 @@ if ('serviceWorker' in navigator && location.protocol === 'https:'){
     if (hadWorker && !reloaded){ reloaded = true; location.reload(); }
   });
   addEventListener('load', ()=>{
-    navigator.serviceWorker.register('./sw.js').then(()=>{
+    shedOldVersions().then(()=>
+    navigator.serviceWorker.register('./sw.js?v=2').then(()=>{
       if (!hadWorker) setTimeout(()=>say('Saved. It works with no internet now. 📴'), 2500);
-    }).catch(()=>{});
+    }).catch(()=>{}));
   });
 }
 
@@ -1823,6 +1855,7 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>{
     var here = location.href.replace(/^https?:\/\//, '');
     wrap.innerHTML =
       '<h2 style="margin:0 0 10px;font-size:19px">Lalu &amp; Peelu needs a newer browser view</h2>' +
+      '<p style="margin:0 0 10px;font-size:12px;opacity:.5">version v2</p>' +
       '<p style="margin:0 0 14px;font-size:15px;line-height:1.5;opacity:.9">' +
       'This works in Chrome on this tablet, but the installed app uses the ' +
       '<b>Android System WebView</b>, which is older here.</p>' +
