@@ -1,6 +1,6 @@
 ### Hello!
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Everyday AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
+I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
 My current focus is **thoughtful AI**: building AI *with* people, adapting it to the realities of their lives, and asking what they remain able to do once the assistance ends.
 
