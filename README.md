@@ -2,6 +2,8 @@
 
 I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
+I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/), a research community based at Carnegie Mellon University Africa in Kigali that supports practical research and innovation for Africa.
+
 My current focus is **thoughtful AI**: building AI *with* people, adapting it to the realities of their lives, and asking what they remain able to do once the assistance ends.
 
 I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
