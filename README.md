@@ -26,17 +26,25 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 - **Aug 2023** – Defended PhD at CMU 🎓
 
 
-### Selected Publications  
+### Selected Publications
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
-- Behmanush H., Akhtari F., Weber I., Cannanure V.K. **Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education.** *ACM FAccT 2026.*
-- Wolf S., Ogan A., Jasińska K.K., Kembou S., Cannanure V.K., et al. **Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire.** *American Educational Research Journal, 2026.*
-- Cannanure V.K., Ngoon T., Wolf S., Jasińska K., Brown T., Ogan A. **Understanding the Longitudinal Impacts of a Chatbot for Teacher PD at Scale.** *ACM COMPASS 2024.*
-- Adhikari D.M., Hartland A., Cannanure V.K., Weber I. **LLMs for Automated Generation & Adaptation of Questionnaires.** *ACM CUI 2025.*
-- Zhu J., Kempermann M., Cannanure V.K., Weber I. **Learn, Explore, and Reflect by Chatting: An LLM-based Voting Advice Assistant.** *ACM CUI 2025.*
-- Behmanush H., Akhtari F., Nooripoor R., Weber I., Cannanure V.K. **Online Learning & GenAI for Afghan Women.** *ACM COMPASS 2025.*
-- Cannanure V.K., Brown T., Ogan A. **DIA: A Human-AI Hybrid Chatbot for Low-Resource Contexts.** *ICTD 2020.*
-- Cannanure V.K., Souvenir J., Adji Y., Apke H., Brown T., Ogan A. **Teacher Aspirations in Rural Côte d’Ivoire.** *ACM COMPASS 2020.*
+<ul class="pubs">
+{%- for p in site.data.publications %}
+  <li>
+    <a class="pub-title" href="{{ p.url }}"{% if p.url contains "http" %} target="_blank" rel="noopener"{% endif %}>{{ p.title }}</a>
+    <span class="pub-meta">{{ p.authors }}. <em>{{ p.venue }}</em>, {{ p.year }}.</span>
+    <span class="pub-links">
+      {%- if p.preprint and p.preprint != p.url %} <a href="{{ p.preprint }}" target="_blank" rel="noopener">Preprint</a>{% endif -%}
+      {%- if p.doi %} <a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif -%}
+    </span>
+    <details class="cite">
+      <summary>Cite</summary>
+      <pre>{{ p.bibtex | strip | escape }}</pre>
+    </details>
+  </li>
+{%- endfor %}
+</ul>
 
 
 ### Service

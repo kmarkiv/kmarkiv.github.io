@@ -164,47 +164,10 @@ input:focus, input:active { background-color: var(--secondary-color); border-col
 
 .social-icons a{display:inline-block;height:3rem;width:3rem;background-color:#495057;color:#fff!important;border-radius:100%;text-align:center;font-size:1.5rem;line-height:3.1rem;margin-right:1rem}.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#000000}
 
-autocolor{
-  color:#494949;
-}
-
-lightonly {
-  visibility: visible;
-}
-
-darkonly {
-  visibility: hidden;
-}
-
-education {
-    font-weight: 500;
-    font-size: 115%;
-  }
-papertitle {
-    font-weight: 600;
-    font-size: 100%;
-  }
-
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #20212b;
         color: #dadbdf;
-    }
-
-    autocolor{
-      color:#dadbdf;
-    }
-
-    lightonly {
-      visibility: hidden;
-    }
-
-    darkonly {
-      visibility: visible;
-    }
-
-    papertitle {
-    color:#eeeff0;
     }
 
 }
@@ -423,49 +386,6 @@ header {
 
 
 
-header ul {
-  list-style:none;
-  height:40px;
-  padding:0;
-  background: #f4f4f4;
-  border-radius:5px;
-  border:1px solid #e0e0e0;
-  width:270px;
-}
-
-header li {
-  width:89px;
-  float:left;
-  border-right:1px solid #e0e0e0;
-  height:40px;
-}
-
-header li:first-child a {
-  border-radius:5px 0 0 5px;
-}
-
-header li:last-child a {
-  border-radius:0 5px 5px 0;
-}
-
-header ul a {
-  line-height:1;
-  font-size:11px;
-  color:#999;
-  display:block;
-  text-align:center;
-  padding-top:6px;
-  height:34px;
-}
-
-header ul a:hover {
-  color:#999;
-}
-
-header ul a:active {
-  background-color:#f0f0f0;
-}
-
 strong {
   color:#eeeff0;
   font-weight:500;
@@ -475,17 +395,6 @@ strong {
   strong {
     color:#eeeff0;
   }
-}
-
-header ul li + li + li {
-  border-right:none;
-  width:89px;
-}
-
-header ul a strong {
-  font-size:14px;
-  display:block;
-  color:#222;
 }
 
 section {
@@ -544,12 +453,6 @@ footer {
     display:inline;
   }
 
-  header ul {
-    position:absolute;
-    right:50px;
-    top:52px;
-  }
-
 
    .image.avatar img {
         border-radius: 100%;
@@ -574,10 +477,6 @@ footer {
     padding:0;
   }
 
-  header ul, header p.view {
-    
-  }
-
   pre, code {
     word-wrap:normal;
   }
@@ -586,14 +485,6 @@ footer {
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;
-  }
-
-  header ul {
-    width:99%;
-  }
-
-  header li, header ul li + li + li {
-    width:33%;
   }
 
   .image.avatar img {
@@ -615,25 +506,6 @@ footer {
     font-size:12pt;
     color:#444;
   }
-}
-
-.biblink {
-  text-decoration:none;
-  display: inline;
-  margin-right: 0px;
-}
-
-.fakelink {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.bibref {
-  font-size: 70%;
-  margin-top: 10px;
-  margin-left: 0px;
-  display:none;
-  font-family: monospace;
 }
 
 body {
@@ -728,6 +600,103 @@ li + li {
   }
 
   header, footer, .social-icons {
+    display: none;
+  }
+}
+
+
+
+/* ---------------------------------------------------------------------------
+   Publication list
+   Rendered from _data/publications.yml. The cite block is a native
+   <details>/<summary> disclosure, so this costs no JavaScript at all.
+   --------------------------------------------------------------------------- */
+
+.pubs {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.pubs > li {
+  margin: 0 0 1.15rem;
+}
+
+.pubs > li + li {
+  margin-top: 1.15rem;
+}
+
+.pub-title {
+  display: block;
+  font-weight: 600;
+}
+
+.pub-meta {
+  display: block;
+  color: #b4b9c2;
+  font-size: 0.9em;
+  margin-top: 0.15rem;
+}
+
+.pub-links {
+  font-size: 0.85em;
+}
+
+.pub-links a {
+  margin-right: 0.6rem;
+}
+
+.cite {
+  display: inline;
+  font-size: 0.85em;
+}
+
+.cite > summary {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--link);
+  list-style: none;
+}
+
+.cite > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cite > summary::before {
+  content: "▸ ";
+}
+
+.cite[open] > summary::before {
+  content: "▾ ";
+}
+
+.cite > summary:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.cite > summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.cite > pre {
+  background: #17181c;
+  border: 1px solid #33363d;
+  border-radius: 4px;
+  color: #d5d8de;
+  font-size: 0.95em;
+  line-height: 1.45;
+  margin: 0.5rem 0 0;
+  max-width: none;
+  overflow-x: auto;
+  padding: 0.6rem 0.8rem;
+  white-space: pre;
+}
+
+@media print {
+  .cite {
     display: none;
   }
 }

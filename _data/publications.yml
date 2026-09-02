@@ -7,7 +7,8 @@
     - "Ingmar Weber"
     - "Vikram Kamath Cannanure"
   venue: "Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency (FAccT), 6203-6225"
-  url: "https://arxiv.org/abs/2604.07253"
+  doi: "10.1145/3805689.3806466"
+  url: "https://doi.org/10.1145/3805689.3806466"
   preprint: "https://arxiv.org/abs/2604.07253"
   tag: "Learning & Safety"
   bibtex: |
