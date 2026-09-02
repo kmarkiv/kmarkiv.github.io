@@ -94,6 +94,9 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <!-- Copy-to-clipboard for the BibTeX blocks. One delegated listener; if the
+         Clipboard API is unavailable the text stays selectable by hand. -->
+    <script>document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".cite-copy");if(!b)return;var p=b.parentNode.querySelector("pre");if(!navigator.clipboard){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);return}navigator.clipboard.writeText(p.textContent).then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)})});</script>
     {% if site.google_analytics %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

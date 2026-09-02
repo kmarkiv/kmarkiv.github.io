@@ -40,7 +40,10 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
     </span>
     <details class="cite">
       <summary>Cite</summary>
-      <pre>{{ p.bibtex | strip | escape }}</pre>
+      <div class="cite-box">
+        <button class="cite-copy" type="button" aria-live="polite">Copy</button>
+        <pre>{{ p.bibtex | strip | escape }}</pre>
+      </div>
     </details>
   </li>
 {%- endfor %}

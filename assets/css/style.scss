@@ -698,17 +698,52 @@ li + li {
   outline-offset: 2px;
 }
 
-.cite > pre {
+.cite-box {
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.cite-copy {
+  background: #262932;
+  border: 1px solid #4a4f57;
+  border-radius: 4px;
+  color: var(--link);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9em;
+  line-height: 1;
+  padding: 0.3em 0.7em;
+  position: absolute;
+  right: 0.45rem;
+  top: 0.45rem;
+}
+
+.cite-copy:hover {
+  border-color: var(--link);
+  color: var(--link-hover);
+}
+
+.cite-copy:active {
+  background: #1b1d23;
+}
+
+.cite-copy:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.cite > .cite-box > pre {
   background: #17181c;
   border: 1px solid #33363d;
   border-radius: 4px;
   color: #d5d8de;
   font-size: 0.95em;
   line-height: 1.45;
-  margin: 0.5rem 0 0;
+  margin: 0;
   max-width: none;
   overflow-x: auto;
   padding: 0.6rem 0.8rem;
+  padding-right: 5rem;
   white-space: pre;
 }
 
