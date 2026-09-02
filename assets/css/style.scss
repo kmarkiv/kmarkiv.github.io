@@ -640,6 +640,7 @@ li + li {
 
 .pub-links {
   font-size: 0.85em;
+  margin-right: 0.25rem;
 }
 
 .pub-links a {
@@ -651,11 +652,21 @@ li + li {
   font-size: 0.85em;
 }
 
+/* Looks and behaves like a button: border, padding, pointer cursor and a
+   pressed state. It is still a <summary>, so it stays keyboard-operable
+   without any script. */
 .cite > summary {
+  background: transparent;
+  border: 1px solid #4a4f57;
+  border-radius: 4px;
+  color: var(--link);
   cursor: pointer;
   display: inline-block;
-  color: var(--link);
+  line-height: 1;
   list-style: none;
+  padding: 0.25em 0.6em;
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  user-select: none;
 }
 
 .cite > summary::-webkit-details-marker {
@@ -663,22 +674,28 @@ li + li {
 }
 
 .cite > summary::before {
-  content: "▸ ";
+  content: "▸";
+  margin-right: 0.35em;
 }
 
 .cite[open] > summary::before {
-  content: "▾ ";
+  content: "▾";
+  margin-right: 0.35em;
 }
 
 .cite > summary:hover {
+  background: #262932;
+  border-color: var(--link);
   color: var(--link-hover);
-  text-decoration: underline;
+}
+
+.cite > summary:active {
+  background: #1b1d23;
 }
 
 .cite > summary:focus-visible {
   outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline-offset: 2px;
 }
 
 .cite > pre {

@@ -18,8 +18,8 @@
       booktitle = {Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency},
       pages = {6203--6225},
       year = {2026},
-      eprint = {2604.07253},
-      archivePrefix = {arXiv}
+      publisher = {ACM},
+      doi = {10.1145/3805689.3806466}
     }
 
 - year: 2026
@@ -60,20 +60,21 @@
     - "Douglas Bryan"
     - "Mati Amin"
     - "Ingmar Weber"
-  venue: "arXiv preprint arXiv:2604.04139"
-  doi: "10.48550/arXiv.2604.04139"
-  url: "https://arxiv.org/abs/2604.04139"
+  venue: "Artificial Intelligence in Education (AIED 2026), Communications in Computer and Information Science, 249-261"
+  doi: "10.1007/978-3-032-29791-4_18"
+  url: "https://doi.org/10.1007/978-3-032-29791-4_18"
   preprint: "https://arxiv.org/abs/2604.04139"
   tag: "Teacher Learning"
   bibtex: |
-    @misc{cannanure2026whatsapp,
+    @inproceedings{cannanure2026whatsapp,
       title = {Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon},
       author = {Cannanure, Vikram Kamath and Yinkfu, Bruno and Bryan, Douglas and Amin, Mati and Weber, Ingmar},
+      booktitle = {Artificial Intelligence in Education (AIED 2026)},
+      series = {Communications in Computer and Information Science},
+      pages = {249--261},
       year = {2026},
-      eprint = {2604.04139},
-      archivePrefix = {arXiv},
-      primaryClass = {cs.HC},
-      doi = {10.48550/arXiv.2604.04139}
+      publisher = {Springer Nature Switzerland},
+      doi = {10.1007/978-3-032-29791-4_18}
     }
 
 - year: 2025
