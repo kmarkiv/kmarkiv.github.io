@@ -10,6 +10,8 @@
   --accent-dark: #00534f;
   --accent-soft: #e6f2f0;
   --warm: #b04b31;
+  --accent-visited: #6b3fa0;
+  --focus: #b04b31;
   --border: #dce3df;
   --shadow: 0 14px 42px rgba(20, 36, 43, 0.07);
   --content: 1100px;
@@ -19,8 +21,19 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 section[id],
@@ -43,9 +56,24 @@ a {
   text-underline-offset: 3px;
 }
 
+a:visited {
+  color: var(--accent-visited);
+  text-decoration-color: rgba(107, 63, 160, 0.32);
+}
+
 a:hover {
   color: var(--accent-dark);
   text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+/* Keyboard focus needs a visible ring, not just a colour change. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 p, ul {

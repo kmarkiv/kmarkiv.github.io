@@ -31,10 +31,15 @@ time, mark, audio, video {
 
 /* Variables */
 :root {
-    --desktop-font-size: 1.3rem/1.5;
-    --mobile-font-size: 1.1rem/1.4;
+    --desktop-font-size: 1.125rem/1.65;
+    --mobile-font-size: 1.0625rem/1.6;
     --text-color: #fff;
-    --link-color: blue;
+    --link-color: #3eb7f0;
+    --link: #3eb7f0;
+    --link-visited: #c6a8ee;
+    --link-hover: #8ed8fa;
+    --link-active: #ffd166;
+    --focus: #ffd166;
     --primary-color: lightsteelblue;
     --secondary-color: aliceblue;
     --tertiary-color: whitesmoke;
@@ -65,7 +70,7 @@ h5, h6 { text-transform: uppercase; }
 
 p { margin: 2rem 0; }
 
-a,a:visited { color: var(--link-color); }
+a { color: var(--link-color); }
 
 strong, time, b { font-weight: bold; }
 em, dfn, i { font-style: italic; }
@@ -253,7 +258,7 @@ h1, h3, h4, h5, h6 {
 }
 
 h2 {
-  color:#043361;
+  color:#3eb7f0;
   margin:2px 0px 15px;
   font-size: 130%;
 }
@@ -280,37 +285,76 @@ h1 {
   font-size:28px;
 }
 
+/* Link states.
+   The page background is dark in every colour scheme (see the body rule at the
+   end of this file), so all four states are tuned against #202124. Each state
+   is distinguishable by colour AND by a non-colour cue (underline weight,
+   outline), so the distinction survives for colour-blind readers. */
 a {
-  color:#39c;
-  text-decoration:none;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(62, 183, 240, 0.55);
+}
+
+a:visited {
+  color: var(--link-visited);
+  text-decoration-color: rgba(198, 168, 238, 0.55);
 }
 
 a:hover {
-  color:#069;
+  color: var(--link-hover);
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
 }
 
-@media (prefers-color-scheme: dark) {
-  a {
-    color:rgb(62, 183, 240);
-  }
+a:active {
+  color: var(--link-active);
+}
+
+/* Keyboard focus: a real outline, not just a colour change. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+  text-decoration-color: currentColor;
+}
+
+/* Headings, the avatar and the social icons read as blocks, not prose, so they
+   carry the underline only on hover/focus. */
+header a,
+.social-icons a,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  text-decoration: none;
+}
+
+header a:hover,
+header a:focus-visible,
+h1 a:hover, h2 a:hover, h3 a:hover,
+h1 a:focus-visible, h2 a:focus-visible, h3 a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 a small {
-  font-size:11px;
-  color:#777;
+  font-size:0.8125em;
+  color:#a9adb4;
   margin-top:-0.3em;
   display:block;
 }
 
-a:hover small {
-  color:#777;
+a:hover small,
+a:focus-visible small {
+  color:#c9ced6;
 }
 
 .wrapper {
   width:960px;
   margin:0 auto;
-  font-size:smaller;
-
 }
 
 blockquote {
@@ -452,7 +496,7 @@ section {
 }
 
 small {
-  font-size:11px;
+  font-size:0.875em;
 }
 
 hr {
@@ -594,5 +638,96 @@ footer {
 
 body {
   background-color: #202124;
-  font-weight:250;
+  font-weight:400;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+   Readability and accessibility defaults
+   No web fonts: everything below relies on the system stack already declared
+   on `body`.
+   --------------------------------------------------------------------------- */
+
+/* Long URLs and unbroken strings should wrap rather than force a horizontal
+   scrollbar on narrow screens. */
+p, li, dd, td, th, blockquote, figcaption {
+  overflow-wrap: break-word;
+}
+
+/* Avoids the ragged one-word last line. Ignored by browsers that lack it. */
+p, li, h1, h2, h3, h4, h5, h6 {
+  text-wrap: pretty;
+}
+
+/* Lists were indented 4rem, which pushed them well out of the text column. */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li + li {
+  margin-top: 0.4rem;
+}
+
+/* Anchor targets should not land flush against the top edge. */
+:target {
+  scroll-margin-top: 2rem;
+}
+
+::selection {
+  background: #3eb7f0;
+  color: #10131a;
+}
+
+/* Respect the OS "reduce motion" setting. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Higher-contrast link colours when the reader asks for more contrast. */
+@media (prefers-contrast: more) {
+  :root {
+    --link: #9bdcfb;
+    --link-visited: #dcc6ff;
+    --link-hover: #ffffff;
+  }
+
+  a {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Printing: the page is dark on screen, so invert it for paper and spell out
+   where the links actually go. */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  section a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  header, footer, .social-icons {
+    display: none;
+  }
 }
