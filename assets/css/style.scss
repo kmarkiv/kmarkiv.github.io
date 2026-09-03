@@ -752,3 +752,38 @@ li + li {
     display: none;
   }
 }
+
+
+
+/* A title that goes straight to a PDF says so, rather than surprising the
+   reader with a download. .visually-hidden carries the same information to
+   screen readers, including the new-tab warning. */
+.pdf-flag {
+  border: 1px solid #4a4f57;
+  border-radius: 3px;
+  color: #a9adb4;
+  font-size: 0.62em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-left: 0.45em;
+  padding: 0.15em 0.4em;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.pub-title:hover .pdf-flag,
+.pub-title:focus-visible .pdf-flag {
+  border-color: var(--link);
+  color: var(--link-hover);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

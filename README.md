@@ -32,7 +32,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 <ul class="pubs">
 {%- for p in site.data.publications %}
   <li>
-    <a class="pub-title" href="{% if p.slug %}{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}{% else %}{{ p.url }}{% endif %}">{{ p.title }}</a>
+    <a class="pub-title" href="{% if p.pdf %}{{ p.pdf }}{% elsif p.slug %}{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}{% else %}{{ p.url }}{% endif %}"{% if p.pdf %} target="_blank" rel="noopener" title="PDF, opens in a new tab"{% endif %}>{{ p.title }}{% if p.pdf %}<span class="pdf-flag" aria-hidden="true"> PDF</span><span class="visually-hidden"> (PDF, opens in a new tab)</span>{% endif %}</a>
     <span class="pub-meta">{{ p.authors }}. <em>{{ p.venue }}</em>, {{ p.year }}.</span>
     <span class="pub-links">
       {%- if p.pdf %} <a href="{{ p.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
