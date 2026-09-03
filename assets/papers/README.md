@@ -1,8 +1,8 @@
-# Author manuscripts
+# Publication PDFs
 
-Accepted (author) versions of papers whose published version sits behind a
-paywall. Publisher-typeset PDFs do not belong here — ACM and Springer permit
-the author's accepted manuscript, not their version of record.
+Stable, site-hosted copies selected by the site owner. A PDF is loaded only
+when a reader opens its link, so these files do not increase the normal page
+payload. Confirm redistribution rights before adding or replacing a file.
 
 To add one:
 
@@ -11,7 +11,12 @@ To add one:
 
    pdf: "/assets/papers/critical-participatory-design-pdc2018.pdf"
 
-A "PDF" link then appears next to Preprint and DOI on the homepage.
+A "PDF" link then appears on the homepage, research pages, publication index,
+and the paper's individual page.
+
+Use the publication slug as the filename so the YAML record, paper page, and
+PDF remain easy to match. The CHI EA 2020 HCI Across Borders record currently
+links to ACM's PDF because no matching local copy was found.
 
 Papers that would benefit most, by citations at stake:
 

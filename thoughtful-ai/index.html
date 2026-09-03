@@ -213,6 +213,7 @@
               <h3><a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">{{ publication.title }}</a></h3>
               <p>{{ publication.authors }}</p>
               <p class="venue">{{ publication.venue }}.</p>
+              {% if publication.pdf %}<p class="publication-links"><a href="{{ publication.pdf }}" target="_blank" rel="noopener">Read PDF ↗</a></p>{% endif %}
               <details class="citation">
                 <summary>Cite this paper</summary>
                 <p class="citation-instruction">Copy the BibTeX below, or find this record in <a href="https://scholar.google.com/scholar?q={{ publication.title | url_encode }}" target="_blank" rel="noopener">Google Scholar</a>.</p>

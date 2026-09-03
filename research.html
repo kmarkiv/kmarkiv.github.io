@@ -147,6 +147,9 @@
               <p class="pub-venue">{{ publication.venue }}.</p>
               <div class="pub-links">
                 <a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">Paper page</a>
+                {% if publication.pdf %}
+                <a href="{{ publication.pdf }}" target="_blank" rel="noopener">PDF</a>
+                {% endif %}
                 <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
                 {% if publication.preprint %}
                 <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>
@@ -185,6 +188,9 @@
               <p class="pub-venue">{{ publication.venue }}.</p>
               <div class="pub-links">
                 <a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">Paper page</a>
+                {% if publication.pdf %}
+                <a href="{{ publication.pdf }}" target="_blank" rel="noopener">PDF</a>
+                {% endif %}
                 <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
                 {% if publication.preprint %}
                 <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>

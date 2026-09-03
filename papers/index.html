@@ -41,6 +41,7 @@
             <h2><a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">{{ publication.title }}</a></h2>
             <p>{{ publication.authors }}</p>
             <p><em>{{ publication.venue }}.</em></p>
+            {% if publication.pdf %}<p><a href="{{ publication.pdf }}" target="_blank" rel="noopener">PDF</a> · <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a></p>{% endif %}
           </li>
           {% endfor %}
         </ol>

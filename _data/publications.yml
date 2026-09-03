@@ -12,7 +12,10 @@
   doi: "10.1145/3805689.3806466"
   url: "https://doi.org/10.1145/3805689.3806466"
   preprint: "https://arxiv.org/abs/2604.07253"
+  pdf: "/assets/papers/safe-accountable-genai-learning-companion.pdf"
   tag: "Learning & Safety"
+  abstract: >-
+    In gender-restrictive and surveilled contexts, where access to formal education may be restricted for women, pursuing education involves safety and privacy risks. When women are excluded from schools and universities, they often turn to online self-learning and generative AI (GenAI) to pursue their educational and career aspirations. However, we know little about what safe and accountable GenAI support is required in the context of surveillance, household responsibilities, and the absence of learning communities. We present a remote participatory design study with 20 women in Afghanistan, informed by a recruitment survey (n = 140), examining how participants envision GenAI for learning and employability. Participants describe using GenAI less as an information source and more as an always-available peer, mentor, and source of career guidance that helps compensate for the absence of learning communities. At the same time, they emphasize that this companionship is constrained by privacy and surveillance risks, contextually unrealistic and culturally unsafe support, and direct-answer interactions that can undermine learning by creating an illusion of progress. Beyond eliciting requirements, envisioning the future with GenAI through participatory design was positively associated with significant increases in participants' aspirations (p = .01), perceived agency (p = .01), and perceived avenues (p = .03). These outcomes show that accountable and safe GenAI is not only about harm reduction but can also actively enable women to imagine and pursue viable learning and employment futures. Building on this, we translate participants' proposals into accountability-focused design directions that center on safety-first interaction and user control, context-grounded support under constrained resources, and offer pedagogically aligned assistance that supports genuine learning rather than quick answers.
   bibtex: |
     @inproceedings{behmanush2026safe,
       title = {Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education},
@@ -45,7 +48,10 @@
   venue: "American Educational Research Journal"
   doi: "10.3102/00028312261430679"
   url: "https://doi.org/10.3102/00028312261430679"
+  pdf: "/assets/papers/targeted-instruction-mobile-support-cote-divoire.pdf"
   tag: "Teacher Learning"
+  abstract: >-
+    We report results from a school-randomized trial examining a targeted instruction program (Teaching at the Right Level) in Côte d’Ivoire implemented by teachers (N = 167 schools, 303 teachers, and 3,808 students). The program modestly improved literacy and numeracy learning levels (d_w = .13, q = .013 and .27, q = .001) but had no statistically significant impacts on functional literacy and numeracy (d_w = .08, q < .096 for both). After two years, 63% and 21% of children scored at the two lowest levels of literacy and numeracy, respectively. Learning gains were concentrated among children at the bottom of the distribution. Quantitative and qualitative data highlighted the importance of distinguishing between fluency and decoding or computational skills, teacher program knowledge, and barriers to and enablers of quality implementation.
   bibtex: |
     @article{wolf2026impacts,
       title = {Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire},
@@ -70,7 +76,10 @@
   doi: "10.1007/978-3-032-29791-4_18"
   url: "https://doi.org/10.1007/978-3-032-29791-4_18"
   preprint: "https://arxiv.org/abs/2604.04139"
+  pdf: "/assets/papers/teacher-development-whatsapp-llms-cameroon.pdf"
   tag: "Teacher Learning"
+  abstract: >-
+    AI in education is commonly delivered through web-based systems such as online forms and institutional platforms. However, these approaches can exclude teachers in low-resource contexts, where everyday mobile platforms like WhatsApp serve as primary digital infrastructure. To address this gap, we present a field pilot in Cameroon that deploys a WhatsApp-based chatbot with LLM-supported content for teacher professional development, compared with an online form baseline. The system was evaluated through a mixed-methods study with 47 primary school teachers, integrating quantitative measures with qualitative insights from interviews and participant feedback. Results show that the chatbot was rated higher in perceived usability and overall experience, while learnability remained comparable. These improvements were driven by platform familiarity, low interaction overhead, and the modular structure of LLM-supported content, but were constrained by connectivity limitations, prepaid data costs, and multilingual needs. Building on these findings, we outline design directions for multilingual, culturally grounded interaction and for supporting prompting and reflection in AI use. More broadly, this work points to Thoughtful AI that supports reflection, relevance, and sustained professional growth.
   bibtex: |
     @inproceedings{cannanure2026whatsapp,
       title = {Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon},
@@ -98,7 +107,10 @@
   venue: "ACM Journal on Computing and Sustainable Societies, 3(4), 1-23"
   doi: "10.1145/3736648"
   url: "https://doi.org/10.1145/3736648"
+  pdf: "/assets/papers/design-based-research-teacher-aspirations.pdf"
   tag: "ICTD"
+  abstract: >-
+    ICTD research has often faced challenges in transferring findings across different projects or general HCI due to its specificity to local communities. Theory-driven research, such as aspirations, can bridge work across communities. However, designing technology for emerging theories like aspirations is inherently complex. This study employs a Design-Based Research methodology to explore designing digital tools for teacher aspirations in rural Côte d’Ivoire. First, we interviewed teachers and found the important role of digital literacy in their aspirations. Then, we conducted four focus groups with 16 teachers to understand their weekly planning practices and challenges. We found that teachers rely on collaboration to help set goals and classroom activities, but this collaboration was inconsistent and often inaccessible. Based on this context, we designed a prototype in Google Forms to scaffold planning for teachers and evaluated it through four additional teacher focus groups. Completing a Design-Based Research iterative cycle, we reflect on design principles to further develop similar technological supports for teachers in low-infrastructure contexts. The study contributes by demonstrating the value of Design-Based Research in designing for teacher aspirations and highlighting the importance of digital literacy, collaboration, and goal-setting in achieving teacher aspirations.
   bibtex: |
     @article{cannanure2025designbased,
       title = {A Design-Based Research Approach to Bridge Teacher Aspirations and Goal-Setting},
@@ -123,7 +135,10 @@
   venue: "ACM Journal on Computing and Sustainable Societies, 3(3), Article 20, 1-23"
   doi: "10.1145/3736645"
   url: "https://doi.org/10.1145/3736645"
+  pdf: "/assets/papers/ai-education-child-computer-interaction-global-south.pdf"
   tag: "AI & Education"
+  abstract: >-
+    Recent artificial intelligence advancements promise to enhance children’s education through well-planned interventions. However, designing AI interventions for the Global South is challenging due to limited literature on children’s interactions with AI-based educational tools. This survey paper identified 18 studies from 2014 to 2025 that explicitly focus on child-computer interaction when integrating AI into education in the Global South. Our synthesized review uncovers three primary themes: enhancing learning through AI-driven tools, addressing barriers like privacy concerns and digital literacy gaps, and designing strategies for effective AI implementation. Key insights reveal AI’s potential to enrich children’s learning through personalized experiences, voice assistants, and educational games. Yet, challenges such as limited technology access, privacy risks, and cultural barriers require targeted solutions to ensure AI benefits all students. We conclude by proposing design strategies for AI integration that involve co-designing with children, enhancing digital literacy, and creating child-friendly interfaces.
   bibtex: |
     @article{verma2025exploring,
       title = {Exploring AI in Education: Child-Computer Interaction in the Global South},
@@ -150,7 +165,10 @@
   doi: "10.1145/3719160.3736606"
   url: "https://doi.org/10.1145/3719160.3736606"
   preprint: "https://arxiv.org/abs/2501.05985"
+  pdf: "/assets/papers/llms-questionnaire-generation-adaptation.pdf"
   tag: "Conversational AI"
+  abstract: >-
+    Effective questionnaire design improves the validity of the results, but creating and adapting questionnaires across contexts is challenging due to resource constraints and limited expert access. Recently, the emergence of LLMs has led researchers to explore their potential in survey research. In this work, we focus on the suitability of LLMs in assisting the generation and adaptation of questionnaires. We introduce a novel pipeline that leverages LLMs to create new questionnaires, pretest with a target audience to determine potential issues, and adapt existing standardized questionnaires for different contexts. We evaluated our pipeline for creation and adaptation through two studies on Prolific, involving 238 participants from the United States and 118 participants from South Africa. Our findings show that participants found LLM-generated text clearer, LLM-pretested text more specific, and LLM-adapted questions slightly clearer and less biased than traditional ones. Our work opens new opportunities for LLM-driven questionnaire support in survey research.
   bibtex: |
     @inproceedings{adhikari2025exploring,
       title = {Exploring LLMs for Automated Generation and Adaptation of Questionnaires},
@@ -179,7 +197,10 @@
   doi: "10.1145/3719160.3736611"
   url: "https://doi.org/10.1145/3719160.3736611"
   preprint: "https://arxiv.org/abs/2505.09806"
+  pdf: "/assets/papers/llm-voting-advice-chatbot.pdf"
   tag: "Conversational AI"
+  abstract: >-
+    Voting advice applications, which have become increasingly prominent in European elections, are seen as a successful tool for boosting electorates’ political knowledge and engagement. However, their complex language and rigid presentation constrain their utility to less-sophisticated voters. While previous work enhanced click-based interaction with scripted explanations, a conversational chatbot’s potential for tailored discussion and deliberate political decision-making remains untapped. Our exploratory mixed-method study investigates how LLM-based chatbots can support voting preparation. We deployed a voting advice chatbot to 331 users before Germany’s 2024 European Parliament election, gathering insights from surveys, conversation logs, and 10 follow-up interviews. Participants found the chatbot intuitive and informative, citing its simple language and flexible interaction. We further uncovered its role as a catalyst for reflection and rationalization. Expanding on participants’ desire for transparency, we provide design recommendations for building interactive and trustworthy voting advice chatbots.
   bibtex: |
     @inproceedings{zhu2025learn,
       title = {Learn, Explore and Reflect by Chatting: Understanding the Value of an LLM-Based Voting Advice Application Chatbot},
@@ -204,7 +225,10 @@
   venue: "ACM Journal on Computing and Sustainable Societies, 2(3), Article 37, 1-37"
   doi: "10.1145/3675762"
   url: "https://doi.org/10.1145/3675762"
+  pdf: "/assets/papers/longitudinal-chatbot-community-of-practice.pdf"
   tag: "Teacher Learning"
+  abstract: >-
+    Communities of practice can improve teachers’ professional development through informal in-person discussions among community members. However, infrastructural challenges pose difficulties in fostering in-person connections, particularly in rural communities in the Global South. The emergence of social media and chatbots has presented an avenue for creating virtual communities for teachers, especially those in rural areas. An unanswered question is the potential impact of a chatbot-supported virtual teacher community on teachers’ professional development. To answer this question, we conducted a longitudinal quasi-experiment involving 313 teachers participating in a new training program in rural Côte d’Ivoire by deploying a chatbot on Facebook Messenger. Our experiment had two chatbot versions for two regions: one version supporting a virtual community and one control. Our findings indicate that teachers in the virtual community condition exhibited modest enhancements in motivation and knowledge indicators. We make a case for implementing virtual communities of practice facilitated by chatbots to bolster the professional development of teachers in rural African contexts.
   bibtex: |
     @article{cannanure2024longitudinal,
       title = {Understanding the Longitudinal Impact of a Chatbot to Facilitate a Virtual Community of Practice for Teachers in Rural C{\^o}te d'Ivoire},
@@ -231,7 +255,10 @@
   venue: "Proceedings of the Eleventh ACM Conference on Learning @ Scale (L@S), 232-242"
   doi: "10.1145/3657604.3662035"
   url: "https://doi.org/10.1145/3657604.3662035"
+  pdf: "/assets/papers/scaling-teacher-mentorship-mobile-technology.pdf"
   tag: "Teacher Learning"
+  abstract: >-
+    Mentoring is crucial for teachers’ professional development, but challenges of access, resources, and capacity make regular in-person mentorship difficult in low-infrastructure contexts. Mobile technologies such as social media have the potential to scale teacher professional development and communities. This paper explores the culture of teacher mentorship in rural Côte d’Ivoire and the motivations and challenges mentors face in using mobile technology in their work through semi-structured interviews with 33 teacher mentors. We found that mentors valued social connections and knowledge sharing in using mobile technology. However, power dynamics between teachers and mentors affected how they could collaborate. Mentors also expressed frustrations with the lack of moderation within social media groups. Lack of infrastructure and connectivity also raise potential issues of inclusion and access to rural areas and schools. We conclude with design recommendations for technologies that scale culturally relevant teaching mentorship in low-infrastructure contexts.
   bibtex: |
     @inproceedings{ngoon2024believe,
       title = {{``I Believe I Did Not Preach into the Desert''}: Opportunities and Challenges in Scaling Teacher Mentorship through Mobile Technology in Rural C{\^o}te d'Ivoire},
@@ -260,7 +287,10 @@
   doi: "10.1145/3530190.3534794"
   url: "https://doi.org/10.1145/3530190.3534794"
   preprint: "https://tngoon.github.io/docs/pubs/Cannanure_etal_2022_COMPASS.pdf"
+  pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2022.pdf"
   tag: "ICTD"
+  abstract: >-
+    As governments in developing countries race to solve the global learning crisis, a key focus is on novel teaching approaches taught in pedagogical programs. To scale, these programs rely on government teacher training infrastructure. However, they face challenges in rural parts of Africa where there is a lack of advisor support, teachers are isolated, and technology infrastructure is still emerging. Conversational agents have addressed some of these challenges by scaling expert knowledge and providing personalized interactions, but it is unclear how this work can translate to rural African contexts. To explore the use of such technology in this design space, we conducted two related studies. The first was a qualitative study with 20 teachers and ministry officials in rural Côte d’Ivoire to understand opportunities and challenges in technology use for these stakeholders. Second, we shared a conversational agent probe over WhatsApp with 38 teachers for 14 weeks to uncover realistic use cases. We examined our findings through a theoretical lens of aspirations to discover sustainable design directions for conversational agents that support teachers in low-infrastructure settings.
   bibtex: |
     @inproceedings{cannanure2022dream,
       title = {{``We dream of climbing the ladder; to get there, we have to do our job better''}: Designing for Teacher Aspirations in rural C{\^o}te d'Ivoire},
@@ -288,7 +318,10 @@
   venue: "ACM SIGCAS Conference on Computing and Sustainable Societies (COMPASS), 1-12"
   doi: "10.1145/3378393.3403653"
   url: "https://doi.org/10.1145/3378393.3403653"
+  pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2020.pdf"
   tag: "ICTD"
+  abstract: >-
+    Teaching is challenging in rural areas in developing countries because of large classroom sizes, limited basic infrastructure, and lack of teacher training. Teachers’ impact on educational outcomes can be improved by teacher training programs, but these programs are limited by poor infrastructure in rural areas. Although infrastructural challenges can be overcome by information technology, it is unclear how such technology can support teacher training. To explore opportunities for teacher training with technology in rural developing contexts, we conducted interviews and observations with 22 primary school teachers in two regions of rural Côte d’Ivoire. We followed an aspirations-based approach that focuses on users’ long-term desires to understand teachers’ intrinsic desire to grow professionally. We found that teacher aspirations conflict with their current role, but solidarity helps them find education role models who balance this conflict. Teachers face challenges in teacher training, yet address issues through solidarity and by creating solutions. We discuss measuring impact on aspirations, designing for conflicting aspirations, and leveraging aspirations to create social change in teacher training using technology.
   bibtex: |
     @inproceedings{cannanure2020aspirations,
       title = {{``I'm Fine Where I Am, but I Want to Do More''}: Exploring Teacher Aspirations in Rural C{\^o}te d'Ivoire},
@@ -311,7 +344,10 @@
   venue: "Proceedings of the 2020 International Conference on Information and Communication Technologies and Development (ICTD), Article 24, 1-5"
   doi: "10.1145/3392561.3397577"
   url: "https://doi.org/10.1145/3392561.3397577"
+  pdf: "/assets/papers/dia-human-ai-hybrid-conversational-assistant.pdf"
   tag: "ICTD"
+  abstract: >-
+    Social media messaging applications such as WhatsApp and Facebook Messenger reached 2.3 billion users in 2019, with the majority of users emerging from developing countries. This high usage opens possibilities for designing text-based interventions for social change, but such interventions rely on expert knowledge that is scarce in developing contexts. Expert knowledge can be scaled using chatbots, yet more research is needed to support users who need context-specific support, local-language interventions, or who may not have regular internet connectivity. To support the design of chatbot-based interventions in low-resource contexts, we built DIA, a chatbot architecture that scales expert knowledge and supports localization. DIA is a human-chatbot hybrid system that organically learns topic-specific knowledge and local language from user interactions. We built a preliminary version on WhatsApp and deployed it to mentor 38 teachers in rural Côte d’Ivoire. The deployment shows that DIA can help build datasets of topic- and language-specific dialogues, reveal users’ online smartphone usage through chat logs, and collect survey data through conversational interaction.
   bibtex: |
     @inproceedings{cannanure2020dia,
       title = {DIA: A Human AI Hybrid Conversational Assistant for Developing Contexts},
@@ -340,7 +376,10 @@
   venue: "Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems (CHI EA), 1-8"
   doi: "10.1145/3334480.3375067"
   url: "https://doi.org/10.1145/3334480.3375067"
+  pdf: "https://dl.acm.org/doi/pdf/10.1145/3334480.3375067"
   tag: "HCI Across Borders"
+  abstract: >-
+    As HCI Across Borders aspires to celebrate its fifth year at CHI, and the CHI 2020 venue of Hawaii signifies a coming together of four continents, the goal of the 2020 symposium is to bring our focus to themes that unify and foster solidarity across borders. Thus we select the United Nations' Sustainable Development Goals as our object of study. Many communities within CHI focus on the constrained and ephemeral nature of resources, including the HCI for Development, Sustainable HCI, and Crisis Informatics communities, among several others. We contend that it is time for these communities to come together in addressing issues of global relevance and impact, and for many more to care. Additionally, as the venue for CHI shifts to Asia in 2021, we aspire to prepare the conference and its participants to grapple with themes that might offer a different and novel perspective when engaged within the Global South.
   bibtex: |
     @inproceedings{kumar2020hcixb,
       title = {HCI Across Borders and Sustainable Development Goals},

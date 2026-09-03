@@ -94,12 +94,25 @@ h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
 }
 .actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+.abstract {
+  border-top: 1px solid var(--border);
+  margin-top: clamp(64px, 9vw, 95px);
+  padding-top: 42px;
+}
+
+.abstract > p:last-child {
+  color: var(--text);
+  font-size: 1.04rem;
+  margin: 18px 0 0;
+  max-width: 74ch;
+}
+
 .citation {
   border-top: 1px solid var(--border);
   display: grid;
   gap: 22px;
   grid-template-columns: 1fr auto;
-  margin-top: clamp(64px, 9vw, 95px);
+  margin-top: 58px;
   padding-top: 42px;
 }
 

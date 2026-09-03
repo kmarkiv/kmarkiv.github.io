@@ -1,6 +1,6 @@
 {% assign publication = site.data.publications | where: "slug", page.publication_slug | first %}
 {% capture paper_url %}{{ site.canonical }}/papers/{{ publication.slug }}/{% endcapture %}
-{% capture page_description %}{{ publication.title }}. {{ publication.venue }} ({{ publication.year }}).{% endcapture %}
+{% capture page_description %}{% if publication.abstract %}{{ publication.abstract | truncate: 160 }}{% else %}{{ publication.title }}. {{ publication.venue }} ({{ publication.year }}).{% endif %}{% endcapture %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,6 +21,9 @@
     {% if publication.kind == "journal" %}<meta name="citation_journal_title" content="{{ publication.venue | escape }}">{% else %}<meta name="citation_conference_title" content="{{ publication.venue | escape }}">{% endif %}
     <meta name="citation_doi" content="{{ publication.doi }}">
     <meta name="citation_abstract_html_url" content="{{ paper_url | strip }}">
+    {% if publication.abstract %}<meta name="citation_abstract" content="{{ publication.abstract | escape }}">{% endif %}
+    {% if publication.pdf %}<meta name="citation_pdf_url" content="{% if publication.pdf contains 'http' %}{{ publication.pdf }}{% else %}{{ site.canonical }}{{ publication.pdf }}{% endif %}">
+    <link rel="alternate" type="application/pdf" href="{{ publication.pdf }}">{% endif %}
     <meta name="citation_language" content="en">
 
     <meta property="og:type" content="article">
@@ -46,11 +49,13 @@
       "name": {{ publication.title | jsonify }},
       "datePublished": "{{ publication.year }}",
       "inLanguage": "en",
+      "abstract": {{ publication.abstract | jsonify }},
       "author": [{% for author in publication.authors_list %}{"@type":"Person","name":{{ author | jsonify }}{% if author contains "Vikram Kamath Cannanure" %},"@id":"{{ site.canonical }}/#me"{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}],
       "isPartOf": {"@type":"Periodical","name":{{ publication.venue | jsonify }}},
       "identifier": {"@type":"PropertyValue","propertyID":"DOI","value":{{ publication.doi | jsonify }}},
       "sameAs": {{ publication.url | jsonify }},
-      "url": {{ paper_url | strip | jsonify }}
+      "url": {{ paper_url | strip | jsonify }}{% if publication.pdf %},
+      "encoding": {"@type":"MediaObject","contentUrl":{% if publication.pdf contains "http" %}{{ publication.pdf | jsonify }}{% else %}{{ site.canonical | append: publication.pdf | jsonify }}{% endif %},"encodingFormat":"application/pdf"}{% endif %}
     }
     </script>
   </head>
@@ -75,10 +80,19 @@
         <p class="venue">{{ publication.venue }}.</p>
 
         <div class="actions" aria-label="Paper links">
-          <a class="primary" href="{{ publication.url }}" target="_blank" rel="noopener">Publisher / DOI <span aria-hidden="true">↗</span></a>
+          {% if publication.pdf %}<a class="primary" href="{{ publication.pdf }}" target="_blank" rel="noopener">Read PDF <span aria-hidden="true">↗</span></a>{% endif %}
+          <a href="{{ publication.url }}" target="_blank" rel="noopener">Publisher / DOI <span aria-hidden="true">↗</span></a>
           {% if publication.preprint %}<a href="{{ publication.preprint }}" target="_blank" rel="noopener">Read preprint <span aria-hidden="true">↗</span></a>{% endif %}
           <a href="https://scholar.google.com/scholar?q={{ publication.title | url_encode }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
         </div>
+
+        {% if publication.abstract %}
+        <section class="abstract" aria-labelledby="abstract-heading">
+          <p class="eyebrow">About the research</p>
+          <h2 id="abstract-heading">Abstract</h2>
+          <p>{{ publication.abstract }}</p>
+        </section>
+        {% endif %}
 
         <section class="citation" aria-labelledby="cite-heading">
           <div>
