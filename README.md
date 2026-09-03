@@ -35,6 +35,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
     <a class="pub-title" href="{{ p.url }}"{% if p.url contains "http" %} target="_blank" rel="noopener"{% endif %}>{{ p.title }}</a>
     <span class="pub-meta">{{ p.authors }}. <em>{{ p.venue }}</em>, {{ p.year }}.</span>
     <span class="pub-links">
+      {%- if p.pdf %} <a href="{{ p.pdf | relative_url }}">PDF</a>{% endif -%}
       {%- if p.preprint and p.preprint != p.url %} <a href="{{ p.preprint }}" target="_blank" rel="noopener">Preprint</a>{% endif -%}
       {%- if p.doi %} <a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif -%}
     </span>
