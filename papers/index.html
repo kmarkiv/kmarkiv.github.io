@@ -1,0 +1,51 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Publications | Vikram Kamath Cannanure</title>
+    <meta name="description" content="Publications by Vikram Kamath Cannanure on human-centered AI, HCI, ICTD, education, and technology in the Global South.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="{{ site.canonical }}/papers/">
+    <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
+    <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
+    <style>
+      .paper-list{list-style:none;margin:48px 0 0;padding:0}.paper-list li{border-top:1px solid var(--border);padding:26px 0}.paper-list h2{font-size:1.2rem;line-height:1.35}.paper-list p{color:var(--muted);margin:8px 0 0}.paper-list .meta{color:var(--accent);font-size:.78rem;font-weight:760;letter-spacing:.06em;text-transform:uppercase}.paper-list a{text-decoration-thickness:1px}.index-intro{color:var(--muted);font-size:1.1rem;max-width:65ch}.index-actions{margin-top:24px}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="name" href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>
+        <nav aria-label="Primary">
+          <a href="{{ '/research.html' | relative_url }}">Research</a>
+          <a href="{{ '/thoughtful-ai/' | relative_url }}">Thoughtful AI Lab</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="paper">
+        <p class="eyebrow">Publication record</p>
+        <h1>Research papers</h1>
+        <p class="index-intro">Separate, stable pages for each paper make the work easier to discover, read, cite, and parse. Each page includes DOI, authors, venue, Scholar metadata, and BibTeX.</p>
+        <div class="actions index-actions">
+          <a class="primary" href="{{ '/assets/publications.bib' | relative_url }}" download>Download all BibTeX</a>
+          <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
+        </div>
+        <ol class="paper-list">
+          {% for publication in site.data.publications %}
+          <li>
+            <p class="meta">{{ publication.year }} · {{ publication.tag }}</p>
+            <h2><a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">{{ publication.title }}</a></h2>
+            <p>{{ publication.authors }}</p>
+            <p><em>{{ publication.venue }}.</em></p>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+    </main>
+    <footer class="container"><p>Publication record maintained by <a href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>.</p></footer>
+  </body>
+</html>

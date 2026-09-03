@@ -1,0 +1,114 @@
+{% assign publication = site.data.publications | where: "slug", page.publication_slug | first %}
+{% capture paper_url %}{{ site.canonical }}/papers/{{ publication.slug }}/{% endcapture %}
+{% capture page_description %}{{ publication.title }}. {{ publication.venue }} ({{ publication.year }}).{% endcapture %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ publication.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page_description | strip | escape }}">
+    <meta name="author" content="{{ publication.authors | escape }}">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="{{ paper_url | strip }}">
+    <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
+    <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
+
+    <!-- Highwire Press tags used by Google Scholar and scholarly crawlers. -->
+    <meta name="citation_title" content="{{ publication.title | escape }}">
+    {% for author in publication.authors_list %}<meta name="citation_author" content="{{ author | escape }}">
+    {% endfor %}<meta name="citation_publication_date" content="{{ publication.year }}">
+    {% if publication.kind == "journal" %}<meta name="citation_journal_title" content="{{ publication.venue | escape }}">{% else %}<meta name="citation_conference_title" content="{{ publication.venue | escape }}">{% endif %}
+    <meta name="citation_doi" content="{{ publication.doi }}">
+    <meta name="citation_abstract_html_url" content="{{ paper_url | strip }}">
+    <meta name="citation_language" content="en">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ publication.title | escape }}">
+    <meta property="og:description" content="{{ page_description | strip | escape }}">
+    <meta property="og:url" content="{{ paper_url | strip }}">
+    <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+    <meta property="og:image:alt" content="Portrait of Vikram Kamath Cannanure">
+    <meta property="article:published_time" content="{{ publication.year }}-01-01">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ publication.title | escape }}">
+    <meta name="twitter:description" content="{{ page_description | strip | escape }}">
+    <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "@id": {{ paper_url | strip | append: "#paper" | jsonify }},
+      "mainEntityOfPage": {{ paper_url | strip | jsonify }},
+      "headline": {{ publication.title | jsonify }},
+      "name": {{ publication.title | jsonify }},
+      "datePublished": "{{ publication.year }}",
+      "inLanguage": "en",
+      "author": [{% for author in publication.authors_list %}{"@type":"Person","name":{{ author | jsonify }}{% if author contains "Vikram Kamath Cannanure" %},"@id":"{{ site.canonical }}/#me"{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}],
+      "isPartOf": {"@type":"Periodical","name":{{ publication.venue | jsonify }}},
+      "identifier": {"@type":"PropertyValue","propertyID":"DOI","value":{{ publication.doi | jsonify }}},
+      "sameAs": {{ publication.url | jsonify }},
+      "url": {{ paper_url | strip | jsonify }}
+    }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="name" href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>
+        <nav aria-label="Primary">
+          <a href="{{ '/papers/' | relative_url }}">All papers</a>
+          <a href="{{ '/research.html' | relative_url }}">Research</a>
+          <a href="{{ '/thoughtful-ai/' | relative_url }}">Thoughtful AI Lab</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% if publication %}
+      <article class="paper">
+        <p class="eyebrow">{{ publication.tag }} · {{ publication.year }}</p>
+        <h1>{{ publication.title }}</h1>
+        <p class="authors">{{ publication.authors }}</p>
+        <p class="venue">{{ publication.venue }}.</p>
+
+        <div class="actions" aria-label="Paper links">
+          <a class="primary" href="{{ publication.url }}" target="_blank" rel="noopener">Publisher / DOI <span aria-hidden="true">↗</span></a>
+          {% if publication.preprint %}<a href="{{ publication.preprint }}" target="_blank" rel="noopener">Read preprint <span aria-hidden="true">↗</span></a>{% endif %}
+          <a href="https://scholar.google.com/scholar?q={{ publication.title | url_encode }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <section class="citation" aria-labelledby="cite-heading">
+          <div>
+            <p class="eyebrow">Citation</p>
+            <h2 id="cite-heading">Cite this paper</h2>
+            <p>The complete BibTeX record is visible below for readers and scholarly agents.</p>
+          </div>
+          <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+          <pre id="bibtex" data-citation-format="bibtex"><code>{{ publication.bibtex | escape }}</code></pre>
+          <p class="machine-note">DOI: <a href="{{ publication.url }}">{{ publication.doi }}</a> · <a href="{{ '/assets/publications.bib' | relative_url }}" download>Download all citations</a></p>
+        </section>
+      </article>
+      {% else %}
+      <article class="paper">
+        <h1>Paper not found</h1>
+        <p><a href="{{ '/papers/' | relative_url }}">Browse all publications</a>.</p>
+      </article>
+      {% endif %}
+    </main>
+
+    <footer class="container">
+      <p>Publication record maintained by <a href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>.</p>
+    </footer>
+    <script>
+      const copyButton = document.querySelector('[data-copy-target]');
+      if (copyButton) copyButton.addEventListener('click', async () => {
+        const citation = document.getElementById(copyButton.dataset.copyTarget).innerText;
+        await navigator.clipboard.writeText(citation);
+        copyButton.textContent = 'Copied';
+      });
+    </script>
+  </body>
+</html>

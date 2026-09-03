@@ -131,7 +131,8 @@
               or <a href="https://dblp.org/pid/221/4536.html" target="_blank" rel="noopener">DBLP</a>.
               Selected metadata verified with indexed/publisher records in May 2026.
             </p>
-            <a class="bib-download" href="{{ '/assets/publications.bib' | relative_url }}" download>Download BibTeX</a>
+            <a class="bib-download" href="{{ '/papers/' | relative_url }}">Browse all paper pages</a>
+            · <a class="bib-download" href="{{ '/assets/publications.bib' | relative_url }}" download>Download BibTeX</a>
           </div>
         </div>
 
@@ -141,10 +142,11 @@
             <div class="pub-year">{{ publication.year }}</div>
             <div class="pub-main">
               <span class="pub-tag">{{ publication.tag }}</span>
-              <h3>{{ publication.title }}</h3>
+              <h3><a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">{{ publication.title }}</a></h3>
               <p class="pub-authors">{{ publication.authors }}</p>
               <p class="pub-venue">{{ publication.venue }}.</p>
               <div class="pub-links">
+                <a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">Paper page</a>
                 <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
                 {% if publication.preprint %}
                 <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>
@@ -178,10 +180,11 @@
             <div class="pub-year">{{ publication.year }}</div>
             <div class="pub-main">
               <span class="pub-tag">{{ publication.tag }}</span>
-              <h3>{{ publication.title }}</h3>
+              <h3><a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">{{ publication.title }}</a></h3>
               <p class="pub-authors">{{ publication.authors }}</p>
               <p class="pub-venue">{{ publication.venue }}.</p>
               <div class="pub-links">
+                <a href="{{ '/papers/' | append: publication.slug | append: '/' | relative_url }}">Paper page</a>
                 <a href="{{ publication.url }}" target="_blank" rel="noopener">DOI</a>
                 {% if publication.preprint %}
                 <a href="{{ publication.preprint }}" target="_blank" rel="noopener">Preprint</a>

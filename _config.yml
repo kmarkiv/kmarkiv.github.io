@@ -18,6 +18,8 @@ keywords: Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, HCI, human-c
 
 plugins:
   - jekyll-sitemap
+exclude:
+  - scripts
 calendar: https://calendly.com/kmarkiv/vikram
 position: Postdoctoral Fellow
 # Universal Analytics (UA-) stopped collecting data in July 2023 — the old

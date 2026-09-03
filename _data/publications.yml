@@ -1,4 +1,6 @@
 - year: 2026
+  slug: "safe-accountable-genai-learning-companion"
+  kind: "conference"
   title: "Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education"
   authors: "Hamayoon Behmanush, Freshta Akhtari, Ingmar Weber, and Vikram Kamath Cannanure"
   authors_list:
@@ -23,6 +25,8 @@
     }
 
 - year: 2026
+  slug: "targeted-instruction-mobile-support-cote-divoire"
+  kind: "journal"
   title: "Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire"
   authors: "Sharon Wolf, Amy Ogan, Kaja K. Jasińska, Samuel Kembou, Vikram Kamath Cannanure, Hannah Whitehead, Julianna Corbett, Fabrice Tanoh, Brooke Wortsman, Joshua Lim, Hui Zhao, and Anahita Kumar"
   authors_list:
@@ -52,6 +56,8 @@
     }
 
 - year: 2026
+  slug: "teacher-development-whatsapp-llms-cameroon"
+  kind: "conference"
   title: "Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon"
   authors: "Vikram Kamath Cannanure, Bruno Yinkfu, Douglas Bryan, Mati Amin, and Ingmar Weber"
   authors_list:
@@ -78,6 +84,8 @@
     }
 
 - year: 2025
+  slug: "design-based-research-teacher-aspirations"
+  kind: "journal"
   title: "A Design-Based Research Approach to Bridge Teacher Aspirations and Goal-Setting"
   authors: "Vikram Kamath Cannanure, Tricia J. Ngoon, Sharon Wolf, Kaja K. Jasińska, Tim Brown, and Amy Ogan"
   authors_list:
@@ -104,8 +112,14 @@
     }
 
 - year: 2025
+  slug: "ai-education-child-computer-interaction-global-south"
+  kind: "journal"
   title: "Exploring AI in Education: Child-Computer Interaction in the Global South"
   authors: "Riti Verma, Ingmar Weber, and Vikram Kamath Cannanure"
+  authors_list:
+    - "Riti Verma"
+    - "Ingmar Weber"
+    - "Vikram Kamath Cannanure"
   venue: "ACM Journal on Computing and Sustainable Societies, 3(3), Article 20, 1-23"
   doi: "10.1145/3736645"
   url: "https://doi.org/10.1145/3736645"
@@ -123,8 +137,15 @@
     }
 
 - year: 2025
+  slug: "llms-questionnaire-generation-adaptation"
+  kind: "conference"
   title: "Exploring LLMs for Automated Generation and Adaptation of Questionnaires"
   authors: "Divya Mani Adhikari, Alexander Hartland, Ingmar Weber, and Vikram Kamath Cannanure"
+  authors_list:
+    - "Divya Mani Adhikari"
+    - "Alexander Hartland"
+    - "Ingmar Weber"
+    - "Vikram Kamath Cannanure"
   venue: "Proceedings of the 7th ACM Conference on Conversational User Interfaces (CUI), Article 70, 1-23"
   doi: "10.1145/3719160.3736606"
   url: "https://doi.org/10.1145/3719160.3736606"
@@ -141,8 +162,19 @@
     }
 
 - year: 2025
+  slug: "llm-voting-advice-chatbot"
+  kind: "conference"
   title: "Learn, Explore and Reflect by Chatting: Understanding the Value of an LLM-Based Voting Advice Application Chatbot"
   authors: "Jianlong Zhu, Manon Kempermann, Vikram Kamath Cannanure, Alexander Hartland, Rosa M. Navarrete, Giuseppe Carteny, Daniela Braun, and Ingmar Weber"
+  authors_list:
+    - "Jianlong Zhu"
+    - "Manon Kempermann"
+    - "Vikram Kamath Cannanure"
+    - "Alexander Hartland"
+    - "Rosa M. Navarrete"
+    - "Giuseppe Carteny"
+    - "Daniela Braun"
+    - "Ingmar Weber"
   venue: "Proceedings of the 7th ACM Conference on Conversational User Interfaces (CUI)"
   doi: "10.1145/3719160.3736611"
   url: "https://doi.org/10.1145/3719160.3736611"
@@ -158,8 +190,17 @@
     }
 
 - year: 2024
+  slug: "longitudinal-chatbot-community-of-practice"
+  kind: "journal"
   title: "Understanding the Longitudinal Impact of a Chatbot to Facilitate a Virtual Community of Practice for Teachers in Rural Côte d’Ivoire"
   authors: "Vikram Kamath Cannanure, Tricia Ngoon, Sharon Wolf, Kaja Jasińska, Timothy X. Brown, and Amy Ogan"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Tricia Ngoon"
+    - "Sharon Wolf"
+    - "Kaja Jasińska"
+    - "Timothy X. Brown"
+    - "Amy Ogan"
   venue: "ACM Journal on Computing and Sustainable Societies, 2(3), Article 37, 1-37"
   doi: "10.1145/3675762"
   url: "https://doi.org/10.1145/3675762"
@@ -177,8 +218,16 @@
     }
 
 - year: 2024
+  slug: "scaling-teacher-mentorship-mobile-technology"
+  kind: "conference"
   title: "“I Believe I Did Not Preach into the Desert”: Opportunities and Challenges in Scaling Teacher Mentorship through Mobile Technology in Rural Côte d’Ivoire"
   authors: "Tricia J. Ngoon, Vikram Kamath Cannanure, Kaja Jasińska, Sharon Wolf, and Amy Ogan"
+  authors_list:
+    - "Tricia J. Ngoon"
+    - "Vikram Kamath Cannanure"
+    - "Kaja Jasińska"
+    - "Sharon Wolf"
+    - "Amy Ogan"
   venue: "Proceedings of the Eleventh ACM Conference on Learning @ Scale (L@S), 232-242"
   doi: "10.1145/3657604.3662035"
   url: "https://doi.org/10.1145/3657604.3662035"
@@ -193,9 +242,49 @@
       doi = {10.1145/3657604.3662035}
     }
 
+- year: 2022
+  slug: "teacher-aspirations-rural-cote-divoire-2022"
+  kind: "conference"
+  title: "“We dream of climbing the ladder; to get there, we have to do our job better”: Designing for Teacher Aspirations in rural Côte d’Ivoire"
+  authors: "Vikram Kamath Cannanure, Eloísa Ávila-Uribe, Tricia Ngoon, Yves Thierry Adji, Sharon Wolf, Kaja Jasińska, Timothy X. Brown, and Amy Ogan"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Eloísa Ávila-Uribe"
+    - "Tricia Ngoon"
+    - "Yves Thierry Adji"
+    - "Sharon Wolf"
+    - "Kaja Jasińska"
+    - "Timothy X. Brown"
+    - "Amy Ogan"
+  venue: "ACM SIGCAS/SIGCHI Conference on Computing and Sustainable Societies (COMPASS), 122-138"
+  doi: "10.1145/3530190.3534794"
+  url: "https://doi.org/10.1145/3530190.3534794"
+  preprint: "https://tngoon.github.io/docs/pubs/Cannanure_etal_2022_COMPASS.pdf"
+  tag: "ICTD"
+  bibtex: |
+    @inproceedings{cannanure2022dream,
+      title = {{``We dream of climbing the ladder; to get there, we have to do our job better''}: Designing for Teacher Aspirations in rural C{\^o}te d'Ivoire},
+      author = {Cannanure, Vikram Kamath and {\'A}vila-Uribe, Elo{\'i}sa and Ngoon, Tricia and Adji, Yves Thierry and Wolf, Sharon and Jasi{\'n}ska, Kaja and Brown, Timothy X. and Ogan, Amy},
+      booktitle = {ACM SIGCAS/SIGCHI Conference on Computing and Sustainable Societies},
+      pages = {122--138},
+      year = {2022},
+      publisher = {ACM},
+      doi = {10.1145/3530190.3534794}
+    }
+
 - year: 2020
+  slug: "teacher-aspirations-rural-cote-divoire-2020"
+  kind: "conference"
   title: "“I’m Fine Where I Am, but I Want to Do More”: Exploring Teacher Aspirations in Rural Côte d’Ivoire"
   authors: "Vikram Kamath Cannanure, Justin Souvenir Niweteto, Yves Thierry Adji, Akpe Yapo Hermann, Kaja K. Jasińska, Timothy X. Brown, and Amy Ogan"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Justin Souvenir Niweteto"
+    - "Yves Thierry Adji"
+    - "Akpe Yapo Hermann"
+    - "Kaja K. Jasińska"
+    - "Timothy X. Brown"
+    - "Amy Ogan"
   venue: "ACM SIGCAS Conference on Computing and Sustainable Societies (COMPASS), 1-12"
   doi: "10.1145/3378393.3403653"
   url: "https://doi.org/10.1145/3378393.3403653"
@@ -211,8 +300,14 @@
     }
 
 - year: 2020
+  slug: "dia-human-ai-hybrid-conversational-assistant"
+  kind: "conference"
   title: "DIA: A Human AI Hybrid Conversational Assistant for Developing Contexts"
   authors: "Vikram Kamath Cannanure, Timothy X. Brown, and Amy Ogan"
+  authors_list:
+    - "Vikram Kamath Cannanure"
+    - "Timothy X. Brown"
+    - "Amy Ogan"
   venue: "Proceedings of the 2020 International Conference on Information and Communication Technologies and Development (ICTD), Article 24, 1-5"
   doi: "10.1145/3392561.3397577"
   url: "https://doi.org/10.1145/3392561.3397577"
@@ -225,4 +320,34 @@
       articleno = {24},
       year = {2020},
       doi = {10.1145/3392561.3397577}
+    }
+
+- year: 2020
+  slug: "hci-across-borders-sustainable-development-goals"
+  kind: "conference"
+  title: "HCI Across Borders and Sustainable Development Goals"
+  authors: "Neha Kumar, Vikram Kamath Cannanure, Dilrukshi Gamage, Annu Sible Prabhakar, Christian Sturm, Cuauhtémoc Rivera Loaiza, Dina Sabie, Md. Moinuddin Bhuiyan, and Mario A. Moreno Rocha"
+  authors_list:
+    - "Neha Kumar"
+    - "Vikram Kamath Cannanure"
+    - "Dilrukshi Gamage"
+    - "Annu Sible Prabhakar"
+    - "Christian Sturm"
+    - "Cuauhtémoc Rivera Loaiza"
+    - "Dina Sabie"
+    - "Md. Moinuddin Bhuiyan"
+    - "Mario A. Moreno Rocha"
+  venue: "Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems (CHI EA), 1-8"
+  doi: "10.1145/3334480.3375067"
+  url: "https://doi.org/10.1145/3334480.3375067"
+  tag: "HCI Across Borders"
+  bibtex: |
+    @inproceedings{kumar2020hcixb,
+      title = {HCI Across Borders and Sustainable Development Goals},
+      author = {Kumar, Neha and Cannanure, Vikram Kamath and Gamage, Dilrukshi and Prabhakar, Annu Sible and Sturm, Christian and Rivera Loaiza, Cuauht{\'e}moc and Sabie, Dina and Bhuiyan, Md. Moinuddin and Moreno Rocha, Mario A.},
+      booktitle = {Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems},
+      pages = {1--8},
+      year = {2020},
+      publisher = {ACM},
+      doi = {10.1145/3334480.3375067}
     }
