@@ -35,4 +35,5 @@ PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
 
 - The site is static HTML. No content requires JavaScript to render.
 - Canonical URL for a paper is its page under /papers/, not the publisher DOI.
-- Where a paper is open access, a PDF link is given; closed papers link to the DOI instead.
+- A publication title links to its PDF when one is hosted, opening in a new tab; otherwise it links to the paper's own page.
+- "Details" beside each entry always reaches the paper page, which carries the full metadata and BibTeX.

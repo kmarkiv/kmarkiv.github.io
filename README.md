@@ -1,4 +1,4 @@
-### Hello!
+## Hello!
 
 I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
 
@@ -10,14 +10,14 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 
 
-### Research Interests
+## Research Interests
 
 - **ICTD** – aspirations, asset-based design, local innovation  
 - **Human-Centered AI** – chatbots, IVR, microlearning, reflective practice  
 - **Education & Health** – teacher PD, community health information access  
 
 
-### News
+## News
 - **2026** – Serving as **Papers Chair for ACM COMPASS 2026**.
 - **2026** – Paper at **ACM FAccT 2026** on designing safe, accountable GenAI learning companions with women banned from formal education.
 - **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
@@ -26,7 +26,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 - **Aug 2023** – Defended PhD at CMU 🎓
 
 
-### Selected Publications
+## Selected Publications
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
 <ul class="pubs">
@@ -52,7 +52,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 </ul>
 
 
-### Service
+## Service
 
 - **Co-Organizer & Community Lead**, HCI Across Borders (CHI ’20–’25; COMPASS ’23/’24).
 - **Papers Chair**, ACM COMPASS 2026.
@@ -62,7 +62,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 - **Kannada language teacher** (volunteer), SV Temple, Pittsburgh.
 
 
-### Swimming
+## Swimming
 
 I’m a long-distance swimmer and have raised funds for NGOs in India.  
 Stories on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/).  
@@ -73,13 +73,13 @@ Selected swims:
 - Lake Muhazi, Rwanda  
 
 
-### Software & Making Things
+## Software & Making Things
 
 I’ve built systems for **web, Android, desktop, iOS**, and **hardware**.  
 Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D viewer**, **Learn Kannada** (10K+ downloads), and **Jedi Mouse** (gesture + EEG cursor control).
 
 
-### Contact
+## Contact
 
 **Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)  
 **Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)  

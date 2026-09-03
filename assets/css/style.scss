@@ -787,3 +787,20 @@ li + li {
   white-space: nowrap;
   width: 1px;
 }
+
+
+
+/* The two header links used to be an <h2> and an <h3>, which put navigation
+   into the document outline. They are paragraphs now; these rules keep the
+   size and weight they had. */
+.header-action {
+  font-size: 130%;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.header-action-sub {
+  font-size: 120%;
+  margin-bottom: 20px;
+}
