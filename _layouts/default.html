@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
+    <meta name="robots" content="index,follow">
     {% if site.keywords %}
     <meta name="keywords" content="{{ site.keywords }}">
     {% endif %}
@@ -23,11 +24,17 @@
     <meta property="og:title" content="{{ site.title }} | {{ site.position }}, {{ site.affiliation }}">
     <meta property="og:description" content="{{ site.description }}">
     <meta property="og:url" content="{{ site.canonical }}">
+    <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:alt" content="Portrait of Vikram Kamath Cannanure">
     <meta property="profile:first_name" content="Vikram">
     <meta property="profile:last_name" content="Kamath Cannanure">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ site.title }} | {{ site.position }}, {{ site.affiliation }}">
     <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+    <meta name="twitter:image:alt" content="Portrait of Vikram Kamath Cannanure">
 
     <!-- Structured data. One @graph so the schema context is declared once:
          who this page is about, then the publications it lists. sameAs ties
@@ -43,7 +50,10 @@
       "image": "{{ '/assets/avatar.jpg' | absolute_url }}",
       "jobTitle": {{ site.position | jsonify }},
       "description": {{ site.description | jsonify }},
-      "affiliation": { "@type": "CollegeOrUniversity", "name": {{ site.affiliation | jsonify }} },
+      "affiliation": [
+        { "@type": "CollegeOrUniversity", "name": {{ site.affiliation | jsonify }} },
+        { "@type": "ResearchOrganization", "name": "Kigali Collaborative Research Centre", "url": "https://www.kcrc.rw/" }
+      ],
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
       "knowsAbout": ["Human-Computer Interaction","Information and Communication Technologies for Development","Human-Centered Artificial Intelligence","Educational Technology","Global South"],
       "sameAs": [{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
