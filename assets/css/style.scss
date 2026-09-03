@@ -634,8 +634,16 @@ li + li {
 .pub-meta {
   display: block;
   color: #b4b9c2;
-  font-size: 0.9em;
+  font-size: 0.82em;
+  line-height: 1.5;
   margin-top: 0.15rem;
+}
+
+/* Own name picked out of the author list. Slightly brighter as well as
+   bolder, since bold alone is weak against the muted grey. */
+.pub-meta .me {
+  color: #dfe2e8;
+  font-weight: 700;
 }
 
 .pub-links {
