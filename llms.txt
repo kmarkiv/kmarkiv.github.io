@@ -1,0 +1,38 @@
+# Vikram Kamath Cannanure
+
+> Postdoctoral fellow at Saarland University and KCRC Fellow at the Kigali
+> Collaborative Research Centre. Works on Thoughtful AI: human-centered systems
+> for reflection, care and trust, at the intersection of Human-Computer
+> Interaction (HCI) and Information and Communication Technologies for
+> Development (ICTD).
+
+Also published as "Vikram Cannanure" and "Vikram Kamath".
+PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
+
+## Structured data
+
+- [Publications, JSON](https://kmarkiv.com/publications.json): every paper with title, authors, venue, year, DOI, and links
+- [Publications, BibTeX](https://kmarkiv.com/assets/publications.bib): the same list as citable BibTeX entries
+- [Sitemap](https://kmarkiv.com/sitemap.xml): every indexable page
+- Each page carries JSON-LD (schema.org Person and ScholarlyArticle); paper pages also carry Highwire Press `citation_*` tags.
+
+## Pages
+
+- [Homepage](https://kmarkiv.com/): biography, research interests, news, publication list, service
+- [Research](https://kmarkiv.com/research.html): research agenda and selected work
+- [Papers index](https://kmarkiv.com/papers/): one page per publication, each with full metadata and a BibTeX record
+- [Thoughtful AI](https://kmarkiv.com/thoughtful-ai/): the research programme
+
+## Profiles
+
+- [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en)
+- [ORCID](https://orcid.org/0000-0002-0944-7074)
+- [DBLP](https://dblp.org/pid/221/4536)
+- [GitHub](https://github.com/kmarkiv)
+- [LinkedIn](https://www.linkedin.com/in/vikramkamathc/)
+
+## Notes for automated readers
+
+- The site is static HTML. No content requires JavaScript to render.
+- Canonical URL for a paper is its page under /papers/, not the publisher DOI.
+- Where a paper is open access, a PDF link is given; closed papers link to the DOI instead.

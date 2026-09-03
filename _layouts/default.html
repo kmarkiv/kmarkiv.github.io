@@ -13,6 +13,8 @@
     {% endif %}
     {% if site.canonical %}
     <link rel="canonical" href="{{ site.canonical }}"/>
+    <link rel="alternate" type="application/json" href="{{ '/publications.json' | absolute_url }}" title="Publications as JSON">
+    <link rel="alternate" type="application/x-bibtex" href="{{ '/assets/publications.bib' | absolute_url }}" title="Publications as BibTeX">
     {% endif %}
 
     <meta name="author" content="{{ site.author }}">
@@ -116,6 +118,7 @@
         </div>
 
       </header>
+      <main>
       <section>
 
       {{ content }}
@@ -125,6 +128,7 @@
       <p><small>Thanks to Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
 
       </section>
+      </main>
       <footer>
         <div class="social-icons">
 
