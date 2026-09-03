@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <title>{{ site.title }} | {{site.affiliation}}</title>
+    <title>{{ site.title }} | HCI, ICTD and Human-Centered AI, {{ site.affiliation }}</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +14,52 @@
     <link rel="canonical" href="{{ site.canonical }}"/>
     {% endif %}
 
-   
-     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="author" content="{{ site.author }}">
+    <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ site.title }} | {{ site.position }}, {{ site.affiliation }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:url" content="{{ site.canonical }}">
+    <meta property="profile:first_name" content="Vikram">
+    <meta property="profile:last_name" content="Kamath Cannanure">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site.title }} | {{ site.position }}, {{ site.affiliation }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+
+    <!-- Structured data. One @graph so the schema context is declared once:
+         who this page is about, then the publications it lists. sameAs ties
+         the profiles together so search engines treat them as one person. -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+    {
+      "@type": "Person",
+      "@id": "{{ site.canonical }}/#me",
+      "name": "Vikram Kamath Cannanure",
+      "alternateName": ["Vikram Cannanure", "Vikram Kamath"],
+      "url": "{{ site.canonical }}",
+      "image": "{{ '/assets/avatar.jpg' | absolute_url }}",
+      "jobTitle": {{ site.position | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "affiliation": { "@type": "CollegeOrUniversity", "name": {{ site.affiliation | jsonify }} },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
+      "knowsAbout": ["Human-Computer Interaction","Information and Communication Technologies for Development","Human-Centered Artificial Intelligence","Educational Technology","Global South"],
+      "sameAs": [{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
+    }
+    {%- for p in site.data.publications -%}
+    {%- assign names = p.authors | replace: ', and ', '|' | replace: ' and ', '|' | replace: ', ', '|' | split: '|' -%}
+    ,{"@type":"ScholarlyArticle",
+    "headline":{{ p.title | jsonify }},
+    "author":[{% for n in names %}{"@type":"Person","name":{{ n | strip | jsonify }}{% if n contains 'Cannanure' %},"@id":"{{ site.canonical }}/#me"{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}],
+    "datePublished":"{{ p.year }}",
+    "publication":{{ p.venue | jsonify }},
+    "url":{{ p.url | jsonify }}{% if p.doi %},
+    "sameAs":"https://doi.org/{{ p.doi }}"{% endif %}}
+    {%- endfor -%}
+    ]}
+    </script>
 
    <!-- 
  <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
