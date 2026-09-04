@@ -12,18 +12,11 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 ## Research Interests
 
-- **ICTD** – aspirations, asset-based design, local innovation  
-- **Human-Centered AI** – chatbots, IVR, microlearning, reflective practice  
-- **Education & Health** – teacher PD, community health information access  
+Three threads run through my work. Each one filters the publication list below.
 
-
-## News
-- **2026** – Serving as **Papers Chair for ACM COMPASS 2026**.
-- **2026** – Paper at **ACM FAccT 2026** on designing safe, accountable GenAI learning companions with women banned from formal education.
-- **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
-- **Feb 2025** – Papers accepted to **CUI 2025** (LLM survey design; VAA reflection) and **COMPASS 2025** (online learning & GenAI for Afghan women).
-- **Oct 2023** – Started postdoc in Saarbrücken.
-- **Aug 2023** – Defended PhD at CMU 🎓
+- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai"} — chatbots, large language models, interactive voice response, and microlearning
+- [**Teacher Learning**](#selected-publications){:data-jump="teacher-learning"} — teacher professional development, mentorship at scale, and teacher aspirations
+- [**Global South**](#selected-publications){:data-jump="global-south"} — ICTD, asset-based design, and community access to health and education information
 
 
 ## Selected Publications
@@ -67,14 +60,23 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 </ul>
 
 
+## News
+- **2026** – Serving as **Papers Chair for ACM COMPASS 2026**.
+- **2026** – Paper at **ACM FAccT 2026** on designing safe, accountable GenAI learning companions with women banned from formal education.
+- **Oct 2025** – Teaching: **AI & the Global South** (lead instructor).
+- **Feb 2025** – Papers accepted to **CUI 2025** (LLM survey design; reflection with a voting advice application) and **COMPASS 2025** (online learning & GenAI for Afghan women).
+- **Oct 2023** – Started my postdoc in Saarbrücken.
+- **Aug 2023** – Defended PhD at CMU 🎓
+
+
 ## Service
 
 - **Co-Organizer & Community Lead**, HCI Across Borders (CHI ’20–’25; COMPASS ’23/’24).
 - **Papers Chair**, ACM COMPASS 2026.
-- **Program Committees:** COMPASS 2025, AfriCHI 2025.
-- **Reviewer:** CHI, CSCW, COMPASS, ICTD, CHI EA, CHI Case Studies.
-- **Fundraising:** Raised ~$25,000 for social causes in India.
-- **Kannada language teacher** (volunteer), SV Temple, Pittsburgh.
+- **Program Committees**, COMPASS 2025 and AfriCHI 2025.
+- **Reviewer**, CHI, CSCW, COMPASS, ICTD, CHI Extended Abstracts, and CHI Case Studies.
+- **Fundraising**, raised over $20,000 for social causes in India.
+- **Kannada language teacher** (volunteer), S.V. Temple, Pittsburgh.
 
 
 ## Swimming
@@ -98,4 +100,4 @@ Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D view
 
 **Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)<br>
 **Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)<br>
-**Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="\_blank" rel="noopener"} 
+**Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} 

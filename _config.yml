@@ -14,7 +14,7 @@ canonical: https://kmarkiv.com
 url: https://kmarkiv.com
 author: Vikram Kamath Cannanure
 orcid: https://orcid.org/0000-0002-0944-7074
-keywords: Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, HCI, human-computer interaction, ICTD, human-centered AI, Saarland University, Carnegie Mellon University, teacher professional development, chatbots, Global South
+keywords: "Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, conversational AI, chatbots, large language models, teacher learning, teacher professional development, AI in education, Global South, ICTD, human-computer interaction, HCI, Saarland University, Carnegie Mellon University, WhatsApp, mentorship, teacher aspirations"
 
 plugins:
   - jekyll-sitemap
