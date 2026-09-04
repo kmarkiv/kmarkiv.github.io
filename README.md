@@ -15,7 +15,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 Three threads run through my work. Each one filters the publication list below.
 
 - [**Conversational AI**](#selected-publications){:data-jump="conversational-ai"} — chatbots, large language models, interactive voice response, and microlearning
-- [**Teacher Learning**](#selected-publications){:data-jump="teacher-learning"} — teacher professional development, mentorship at scale, and teacher aspirations
+- [**Learning**](#selected-publications){:data-jump="learning"} — teacher professional development, mentorship at scale, and teacher aspirations
 - [**Global South**](#selected-publications){:data-jump="global-south"} — ICTD, asset-based design, and community access to health and education information
 
 

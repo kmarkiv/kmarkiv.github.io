@@ -55,9 +55,9 @@
   doi: "10.3102/00028312261430679"
   url: "https://doi.org/10.3102/00028312261430679"
   pdf: "/assets/papers/targeted-instruction-mobile-support-cote-divoire.pdf"
-  tag: "Teacher Learning"
+  tag: "Learning"
   keywords:
-    - "Teacher Learning"
+    - "Learning"
     - "Randomised Trial"
     - "Côte d'Ivoire"
   abstract: >-
@@ -124,9 +124,9 @@
   doi: "10.1145/3736648"
   url: "https://doi.org/10.1145/3736648"
   pdf: "/assets/papers/design-based-research-teacher-aspirations.pdf"
-  tag: "Teacher Learning"
+  tag: "Learning"
   keywords:
-    - "Teacher Learning"
+    - "Learning"
     - "Aspirations"
     - "Design-Based Research"
   abstract: >-
@@ -297,9 +297,9 @@
   doi: "10.1145/3657604.3662035"
   url: "https://doi.org/10.1145/3657604.3662035"
   pdf: "/assets/papers/scaling-teacher-mentorship-mobile-technology.pdf"
-  tag: "Teacher Learning"
+  tag: "Learning"
   keywords:
-    - "Teacher Learning"
+    - "Learning"
     - "Mentorship"
     - "Mobile Technology"
   abstract: >-
@@ -334,9 +334,9 @@
   url: "https://doi.org/10.1145/3530190.3534794"
   preprint: "https://tngoon.github.io/docs/pubs/Cannanure_etal_2022_COMPASS.pdf"
   pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2022.pdf"
-  tag: "Teacher Learning"
+  tag: "Learning"
   keywords:
-    - "Teacher Learning"
+    - "Learning"
     - "Teacher Aspirations"
     - "Scaling"
   abstract: >-
@@ -370,9 +370,9 @@
   doi: "10.1145/3378393.3403653"
   url: "https://doi.org/10.1145/3378393.3403653"
   pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2020.pdf"
-  tag: "Teacher Learning"
+  tag: "Learning"
   keywords:
-    - "Teacher Learning"
+    - "Learning"
     - "Teacher Aspirations"
     - "Rural Education"
   abstract: >-

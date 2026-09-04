@@ -15,7 +15,7 @@ Work is organised under three topics, which are also the filters on the homepage
 publication list and the first keyword on every paper:
 
 - **Conversational AI** — chatbots, large language models, interactive voice response, microlearning
-- **Teacher Learning** — teacher professional development, mentorship at scale, teacher aspirations
+- **Learning** — teacher professional development, mentorship at scale, teacher aspirations
 - **Global South** — ICTD, asset-based design, community access to health and education information
 
 ## Structured data
