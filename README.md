@@ -29,7 +29,8 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 ## Selected Publications
 (see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
 
-{%- assign cats = site.data.publications | map: "tag" | uniq | sort -%}
+{% assign cats = site.data.publications | map: "tag" | uniq | sort %}
+
 <div class="pub-filter" role="group" aria-label="Filter publications by topic">
   <button type="button" class="pf is-on" data-filter="all" aria-pressed="true">All <span class="pf-n">{{ site.data.publications | size }}</span></button>
   {%- for c in cats %}{% assign n = site.data.publications | where: "tag", c | size %}
