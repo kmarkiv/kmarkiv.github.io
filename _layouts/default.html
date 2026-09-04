@@ -240,9 +240,15 @@
 
       function hide() { frame.classList.remove("is-portrait"); }
 
-      frame.addEventListener("mouseenter", reveal);
-      frame.addEventListener("mouseleave", hide);
-      // Touch has no hover: tap toggles instead.
+      // The whole header column is the hover target: the name, the position,
+      // the CV and meeting links. The swap still happens in the avatar.
+      var zone = frame.closest("header") || frame;
+      zone.addEventListener("mouseenter", reveal);
+      zone.addEventListener("mouseleave", hide);
+
+      // Touch has no hover, so a tap on the avatar toggles instead. Kept on
+      // the avatar rather than the whole column so it cannot swallow taps
+      // meant for the links.
       frame.addEventListener("click", function () {
         frame.classList.contains("is-portrait") ? hide() : reveal();
       });
