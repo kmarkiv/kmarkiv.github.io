@@ -69,7 +69,7 @@
     ,{"@type":"ScholarlyArticle",
     "@id":"{{ site.canonical }}/papers/{{ p.slug }}/#paper",
     "headline":{{ p.title | jsonify }},
-    "datePublished":"{{ p.year }}",
+    "datePublished":"{% if p.date %}{{ p.date }}T00:00:00+00:00{% else %}{{ p.year }}{% endif %}",
     "url":"{{ site.canonical }}/papers/{{ p.slug }}/",
     "author":{"@id":"{{ site.canonical }}/#me"}}
     {%- endfor -%}

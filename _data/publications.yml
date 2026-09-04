@@ -1,5 +1,6 @@
 - year: 2026
   slug: "safe-accountable-genai-learning-companion"
+  date: "2026-06-25"
   kind: "conference"
   title: "Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education"
   authors: "Hamayoon Behmanush, Freshta Akhtari, Ingmar Weber, and Vikram Kamath Cannanure"
@@ -29,6 +30,7 @@
 
 - year: 2026
   slug: "targeted-instruction-mobile-support-cote-divoire"
+  date: "2026-04-09"
   kind: "journal"
   title: "Impacts of Targeted Instruction with Mobile-Based Support on Teachers and Students in Rural Côte d’Ivoire"
   authors: "Sharon Wolf, Amy Ogan, Kaja K. Jasińska, Samuel Kembou, Vikram Kamath Cannanure, Hannah Whitehead, Julianna Corbett, Fabrice Tanoh, Brooke Wortsman, Joshua Lim, Hui Zhao, and Anahita Kumar"
@@ -63,6 +65,7 @@
 
 - year: 2026
   slug: "teacher-development-whatsapp-llms-cameroon"
+  date: "2026-06-27"
   kind: "conference"
   title: "Teacher Professional Development on WhatsApp and LLMs: Early Lessons from Cameroon"
   authors: "Vikram Kamath Cannanure, Bruno Yinkfu, Douglas Bryan, Mati Amin, and Ingmar Weber"
@@ -94,6 +97,7 @@
 
 - year: 2025
   slug: "design-based-research-teacher-aspirations"
+  date: "2025-11-24"
   kind: "journal"
   title: "A Design-Based Research Approach to Bridge Teacher Aspirations and Goal-Setting"
   authors: "Vikram Kamath Cannanure, Tricia J. Ngoon, Sharon Wolf, Kaja K. Jasińska, Tim Brown, and Amy Ogan"
@@ -125,6 +129,7 @@
 
 - year: 2025
   slug: "ai-education-child-computer-interaction-global-south"
+  date: "2025-07-15"
   kind: "journal"
   title: "Exploring AI in Education: Child-Computer Interaction in the Global South"
   authors: "Riti Verma, Ingmar Weber, and Vikram Kamath Cannanure"
@@ -153,6 +158,7 @@
 
 - year: 2025
   slug: "llms-questionnaire-generation-adaptation"
+  date: "2025-07-07"
   kind: "conference"
   title: "Exploring LLMs for Automated Generation and Adaptation of Questionnaires"
   authors: "Divya Mani Adhikari, Alexander Hartland, Ingmar Weber, and Vikram Kamath Cannanure"
@@ -181,6 +187,7 @@
 
 - year: 2025
   slug: "llm-voting-advice-chatbot"
+  date: "2025-07-07"
   kind: "conference"
   title: "Learn, Explore and Reflect by Chatting: Understanding the Value of an LLM-Based Voting Advice Application Chatbot"
   authors: "Jianlong Zhu, Manon Kempermann, Vikram Kamath Cannanure, Alexander Hartland, Rosa M. Navarrete, Giuseppe Carteny, Daniela Braun, and Ingmar Weber"
@@ -212,6 +219,7 @@
 
 - year: 2024
   slug: "longitudinal-chatbot-community-of-practice"
+  date: "2024-09-16"
   kind: "journal"
   title: "Understanding the Longitudinal Impact of a Chatbot to Facilitate a Virtual Community of Practice for Teachers in Rural Côte d’Ivoire"
   authors: "Vikram Kamath Cannanure, Tricia Ngoon, Sharon Wolf, Kaja Jasińska, Timothy X. Brown, and Amy Ogan"
@@ -243,6 +251,7 @@
 
 - year: 2024
   slug: "scaling-teacher-mentorship-mobile-technology"
+  date: "2024-07-15"
   kind: "conference"
   title: "“I Believe I Did Not Preach into the Desert”: Opportunities and Challenges in Scaling Teacher Mentorship through Mobile Technology in Rural Côte d’Ivoire"
   authors: "Tricia J. Ngoon, Vikram Kamath Cannanure, Kaja Jasińska, Sharon Wolf, and Amy Ogan"
@@ -271,6 +280,7 @@
 
 - year: 2022
   slug: "teacher-aspirations-rural-cote-divoire-2022"
+  date: "2022-06-29"
   kind: "conference"
   title: "“We dream of climbing the ladder; to get there, we have to do our job better”: Designing for Teacher Aspirations in rural Côte d’Ivoire"
   authors: "Vikram Kamath Cannanure, Eloísa Ávila-Uribe, Tricia Ngoon, Yves Thierry Adji, Sharon Wolf, Kaja Jasińska, Timothy X. Brown, and Amy Ogan"
@@ -304,6 +314,7 @@
 
 - year: 2020
   slug: "teacher-aspirations-rural-cote-divoire-2020"
+  date: "2020-06-15"
   kind: "conference"
   title: "“I’m Fine Where I Am, but I Want to Do More”: Exploring Teacher Aspirations in Rural Côte d’Ivoire"
   authors: "Vikram Kamath Cannanure, Justin Souvenir Niweteto, Yves Thierry Adji, Akpe Yapo Hermann, Kaja K. Jasińska, Timothy X. Brown, and Amy Ogan"
@@ -334,6 +345,7 @@
 
 - year: 2020
   slug: "dia-human-ai-hybrid-conversational-assistant"
+  date: "2020-06-17"
   kind: "conference"
   title: "DIA: A Human AI Hybrid Conversational Assistant for Developing Contexts"
   authors: "Vikram Kamath Cannanure, Timothy X. Brown, and Amy Ogan"
@@ -360,6 +372,7 @@
 
 - year: 2020
   slug: "hci-across-borders-sustainable-development-goals"
+  date: "2020-04-25"
   kind: "conference"
   title: "HCI Across Borders and Sustainable Development Goals"
   authors: "Neha Kumar, Vikram Kamath Cannanure, Dilrukshi Gamage, Annu Sible Prabhakar, Christian Sturm, Cuauhtémoc Rivera Loaiza, Dina Sabie, Md. Moinuddin Bhuiyan, and Mario A. Moreno Rocha"
