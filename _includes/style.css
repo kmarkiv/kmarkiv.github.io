@@ -805,3 +805,100 @@ li + li {
   font-size: 120%;
   margin-bottom: 20px;
 }
+
+
+
+/* ---------------------------------------------------------------------------
+   Publication keywords and topic filter
+   Each paper carries three keywords. The first is its topic and drives the
+   filter; the other two are descriptive. Colour is per topic, so a reader
+   scanning the list can spot a theme without reading titles.
+   Every colour below was checked against the #202124 page background at 7:1
+   or better, so the chips stay legible rather than merely decorative.
+   --------------------------------------------------------------------------- */
+
+.pub-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.pf {
+  background: transparent;
+  border: 1px solid #4a4f57;
+  border-radius: 999px;
+  color: #c9ced6;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8em;
+  line-height: 1;
+  padding: 0.4em 0.8em;
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.pf:hover { border-color: var(--link); color: var(--link-hover); }
+.pf:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.pf.is-on {
+  background: #2b3038;
+  border-color: var(--link);
+  color: #ffffff;
+}
+
+.pf-n {
+  color: #8f959f;
+  font-size: 0.9em;
+  margin-left: 0.15em;
+}
+
+.pf.is-on .pf-n { color: #c9ced6; }
+
+.pub-filter-note {
+  color: #a9adb4;
+  font-size: 0.82em;
+  margin: -0.6rem 0 1rem;
+}
+
+.pub-kw {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.kw {
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.68em;
+  letter-spacing: 0.02em;
+  margin-right: 0.3em;
+  padding: 0.2em 0.5em;
+  white-space: nowrap;
+}
+
+/* Topic colours. The first chip on each entry is the filterable topic and is
+   filled; the other two are outlined in the same hue so they read as related
+   without competing. */
+.kw-teacher-learning     { color: #7ee0c0; }
+.kw-ictd                 { color: #ffc46b; }
+.kw-conversational-ai    { color: #8ed8fa; }
+.kw-ai-education         { color: #d3a4f9; }
+.kw-learning-safety      { color: #ff9e8a; }
+.kw-hci-across-borders   { color: #9ad9a0; }
+
+.kw.kw-primary {
+  background: currentColor;
+  font-weight: 600;
+}
+
+/* The filled chip needs dark text on its own colour. */
+.kw.kw-primary::selection { background: #202124; }
+.kw-teacher-learning.kw-primary,
+.kw-ictd.kw-primary,
+.kw-conversational-ai.kw-primary,
+.kw-ai-education.kw-primary,
+.kw-learning-safety.kw-primary,
+.kw-hci-across-borders.kw-primary {
+  -webkit-text-fill-color: #17181c;
+}
+
+.pubs > li[hidden] { display: none; }

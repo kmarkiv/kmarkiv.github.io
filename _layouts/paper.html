@@ -1,6 +1,6 @@
 {% assign publication = site.data.publications | where: "slug", page.publication_slug | first %}
 {% capture paper_url %}{{ site.canonical }}/papers/{{ publication.slug }}/{% endcapture %}
-{% capture page_description %}{% if publication.abstract %}{{ publication.abstract | truncate: 160 }}{% else %}{{ publication.title }}. {{ publication.venue }} ({{ publication.year }}).{% endif %}{% endcapture %}
+{% capture page_description %}{% if publication.keywords %}{{ publication.keywords | join: " · " }}. {% endif %}{% if publication.abstract %}{{ publication.abstract | truncate: 118 }}{% else %}{{ publication.title }}. {{ publication.venue }} ({{ publication.year }}).{% endif %}{% endcapture %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,6 +10,7 @@
     <meta name="description" content="{{ page_description | strip | escape }}">
     <meta name="author" content="{{ publication.authors | escape }}">
     <meta name="robots" content="index,follow">
+    {% if publication.keywords %}<meta name="keywords" content="{{ publication.keywords | join: ', ' | escape }}">{% endif %}
     <link rel="canonical" href="{{ paper_url | strip }}">
     <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
     <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
@@ -47,6 +48,7 @@
       "mainEntityOfPage": {{ paper_url | strip | jsonify }},
       "headline": {{ publication.title | jsonify }},
       "image": {{ '/assets/og-vikram.jpg' | absolute_url | jsonify }},
+      {% if publication.keywords %}"keywords": {{ publication.keywords | join: ", " | jsonify }},{% endif %}
       "name": {{ publication.title | jsonify }},
       "datePublished": "{% if publication.date %}{{ publication.date }}T00:00:00+00:00{% else %}{{ publication.year }}{% endif %}",
       "inLanguage": "en",
