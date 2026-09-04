@@ -85,7 +85,7 @@
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin=anonymous>
 
     <link rel="stylesheet" href="./assets/css/vanilla.css">!-->
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <style>{% include style.css %}</style>
 
   </head>
   <body>
@@ -94,7 +94,7 @@
         
         {% if site.avatar %}
       
-        <a class="image avatar">  <img src="{{site.avatar}}" alt="{{ site.title }}"></a>
+        <span class="image avatar"><img src="{{site.avatar}}" alt="{{ site.title }}" width="100" height="99" decoding="async"></span>
         {% endif %}
 
         <h1>{{ site.title }}</h1> 
@@ -154,7 +154,6 @@
         <br>
       </footer>
     </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <!-- Copy-to-clipboard for the BibTeX blocks. One delegated listener; if the
          Clipboard API is unavailable the text stays selectable by hand. -->
     <script>document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".cite-copy");if(!b)return;var p=b.parentNode.querySelector("pre");if(!navigator.clipboard){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);return}navigator.clipboard.writeText(p.textContent).then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)})});</script>
