@@ -14,9 +14,9 @@
   url: "https://doi.org/10.1145/3805689.3806466"
   preprint: "https://arxiv.org/abs/2604.07253"
   pdf: "/assets/papers/safe-accountable-genai-learning-companion.pdf"
-  tag: "Learning & Safety"
+  tag: "Conversational AI"
   keywords:
-    - "Learning & Safety"
+    - "Conversational AI"
     - "Generative AI"
     - "Privacy"
   abstract: >-
@@ -88,11 +88,11 @@
   url: "https://doi.org/10.1007/978-3-032-29791-4_18"
   preprint: "https://arxiv.org/abs/2604.04139"
   pdf: "/assets/papers/teacher-development-whatsapp-llms-cameroon.pdf"
-  tag: "Teacher Learning"
+  tag: "Conversational AI"
   keywords:
-    - "Teacher Learning"
+    - "Conversational AI"
     - "WhatsApp"
-    - "LLMs"
+    - "Teacher Training"
   abstract: >-
     AI in education is commonly delivered through web-based systems such as online forms and institutional platforms. However, these approaches can exclude teachers in low-resource contexts, where everyday mobile platforms like WhatsApp serve as primary digital infrastructure. To address this gap, we present a field pilot in Cameroon that deploys a WhatsApp-based chatbot with LLM-supported content for teacher professional development, compared with an online form baseline. The system was evaluated through a mixed-methods study with 47 primary school teachers, integrating quantitative measures with qualitative insights from interviews and participant feedback. Results show that the chatbot was rated higher in perceived usability and overall experience, while learnability remained comparable. These improvements were driven by platform familiarity, low interaction overhead, and the modular structure of LLM-supported content, but were constrained by connectivity limitations, prepaid data costs, and multilingual needs. Building on these findings, we outline design directions for multilingual, culturally grounded interaction and for supporting prompting and reflection in AI use. More broadly, this work points to Thoughtful AI that supports reflection, relevance, and sustained professional growth.
   bibtex: |
@@ -124,9 +124,9 @@
   doi: "10.1145/3736648"
   url: "https://doi.org/10.1145/3736648"
   pdf: "/assets/papers/design-based-research-teacher-aspirations.pdf"
-  tag: "ICTD"
+  tag: "Teacher Learning"
   keywords:
-    - "ICTD"
+    - "Teacher Learning"
     - "Aspirations"
     - "Design-Based Research"
   abstract: >-
@@ -157,11 +157,11 @@
   doi: "10.1145/3736645"
   url: "https://doi.org/10.1145/3736645"
   pdf: "/assets/papers/ai-education-child-computer-interaction-global-south.pdf"
-  tag: "AI & Education"
+  tag: "Global South"
   keywords:
-    - "AI & Education"
-    - "Children"
     - "Global South"
+    - "Children"
+    - "AI in Education"
   abstract: >-
     Recent artificial intelligence advancements promise to enhance children’s education through well-planned interventions. However, designing AI interventions for the Global South is challenging due to limited literature on children’s interactions with AI-based educational tools. This survey paper identified 18 studies from 2014 to 2025 that explicitly focus on child-computer interaction when integrating AI into education in the Global South. Our synthesized review uncovers three primary themes: enhancing learning through AI-driven tools, addressing barriers like privacy concerns and digital literacy gaps, and designing strategies for effective AI implementation. Key insights reveal AI’s potential to enrich children’s learning through personalized experiences, voice assistants, and educational games. Yet, challenges such as limited technology access, privacy risks, and cultural barriers require targeted solutions to ensure AI benefits all students. We conclude by proposing design strategies for AI integration that involve co-designing with children, enhancing digital literacy, and creating child-friendly interfaces.
   bibtex: |
@@ -232,8 +232,8 @@
   tag: "Conversational AI"
   keywords:
     - "Conversational AI"
-    - "Civic Engagement"
     - "LLMs"
+    - "Civic Engagement"
   abstract: >-
     Voting advice applications, which have become increasingly prominent in European elections, are seen as a successful tool for boosting electorates’ political knowledge and engagement. However, their complex language and rigid presentation constrain their utility to less-sophisticated voters. While previous work enhanced click-based interaction with scripted explanations, a conversational chatbot’s potential for tailored discussion and deliberate political decision-making remains untapped. Our exploratory mixed-method study investigates how LLM-based chatbots can support voting preparation. We deployed a voting advice chatbot to 331 users before Germany’s 2024 European Parliament election, gathering insights from surveys, conversation logs, and 10 follow-up interviews. Participants found the chatbot intuitive and informative, citing its simple language and flexible interaction. We further uncovered its role as a catalyst for reflection and rationalization. Expanding on participants’ desire for transparency, we provide design recommendations for building interactive and trustworthy voting advice chatbots.
   bibtex: |
@@ -262,9 +262,9 @@
   doi: "10.1145/3675762"
   url: "https://doi.org/10.1145/3675762"
   pdf: "/assets/papers/longitudinal-chatbot-community-of-practice.pdf"
-  tag: "Teacher Learning"
+  tag: "Conversational AI"
   keywords:
-    - "Teacher Learning"
+    - "Conversational AI"
     - "Chatbots"
     - "Community of Practice"
   abstract: >-
@@ -334,9 +334,9 @@
   url: "https://doi.org/10.1145/3530190.3534794"
   preprint: "https://tngoon.github.io/docs/pubs/Cannanure_etal_2022_COMPASS.pdf"
   pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2022.pdf"
-  tag: "ICTD"
+  tag: "Teacher Learning"
   keywords:
-    - "ICTD"
+    - "Teacher Learning"
     - "Teacher Aspirations"
     - "Scaling"
   abstract: >-
@@ -370,9 +370,9 @@
   doi: "10.1145/3378393.3403653"
   url: "https://doi.org/10.1145/3378393.3403653"
   pdf: "/assets/papers/teacher-aspirations-rural-cote-divoire-2020.pdf"
-  tag: "ICTD"
+  tag: "Teacher Learning"
   keywords:
-    - "ICTD"
+    - "Teacher Learning"
     - "Teacher Aspirations"
     - "Rural Education"
   abstract: >-
@@ -401,9 +401,9 @@
   doi: "10.1145/3392561.3397577"
   url: "https://doi.org/10.1145/3392561.3397577"
   pdf: "/assets/papers/dia-human-ai-hybrid-conversational-assistant.pdf"
-  tag: "ICTD"
+  tag: "Conversational AI"
   keywords:
-    - "ICTD"
+    - "Conversational AI"
     - "Chatbots"
     - "WhatsApp"
   abstract: >-
@@ -437,10 +437,10 @@
   venue: "Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems (CHI EA), 1-8"
   doi: "10.1145/3334480.3375067"
   url: "https://doi.org/10.1145/3334480.3375067"
-  tag: "HCI Across Borders"
+  tag: "Global South"
   keywords:
-    - "HCI Across Borders"
     - "Global South"
+    - "HCI Across Borders"
     - "Community"
   abstract: >-
     As HCI Across Borders aspires to celebrate its fifth year at CHI, and the CHI 2020 venue of Hawaii signifies a coming together of four continents, the goal of the 2020 symposium is to bring our focus to themes that unify and foster solidarity across borders. Thus we select the United Nations' Sustainable Development Goals as our object of study. Many communities within CHI focus on the constrained and ephemeral nature of resources, including the HCI for Development, Sustainable HCI, and Crisis Informatics communities, among several others. We contend that it is time for these communities to come together in addressing issues of global relevance and impact, and for many more to care. Additionally, as the venue for CHI shifts to Asia in 2021, we aspire to prepare the conference and its participants to grapple with themes that might offer a different and novel perspective when engaged within the Global South.
