@@ -79,7 +79,7 @@
         <p class="authors">{{ publication.authors }}</p>
         <p class="venue">{{ publication.venue }}.</p>
 
-        <div class="actions" aria-label="Paper links">
+        <div class="actions" role="group" aria-label="Paper links">
           {% if publication.pdf %}<a class="primary" href="{{ publication.pdf }}" target="_blank" rel="noopener">Read PDF <span aria-hidden="true">↗</span></a>{% endif %}
           <a href="{{ publication.url }}" target="_blank" rel="noopener">Publisher / DOI <span aria-hidden="true">↗</span></a>
           {% if publication.preprint %}<a href="{{ publication.preprint }}" target="_blank" rel="noopener">Read preprint <span aria-hidden="true">↗</span></a>{% endif %}
