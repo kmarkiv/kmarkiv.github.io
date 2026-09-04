@@ -48,7 +48,7 @@
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin=anonymous>
 
     <link rel="stylesheet" href="./assets/css/vanilla.css">!-->
-        <style>{% include style.css %}</style>
+        <style>{% capture main_css %}@import "main";{% endcapture %}{{ main_css | scssify }}</style>
 
   </head>
   <body>
@@ -117,12 +117,6 @@
         <br>
       </footer>
     </div>
-    <!-- Copy-to-clipboard for the BibTeX blocks. One delegated listener; if the
-         Clipboard API is unavailable the text stays selectable by hand. -->
-    <!-- Topic filter. Without JavaScript every paper stays visible, which is
-         the correct fallback: the filter only ever hides things. -->
-    <script>document.addEventListener("click",function(e){var j=e.target.closest&&e.target.closest("[data-jump]");if(j){var t=document.querySelector('.pf[data-filter="'+j.dataset.jump+'"]');if(t){t.click()}return}var f=e.target.closest&&e.target.closest(".pf");if(!f)return;var want=f.dataset.filter,bar=f.parentNode,note=document.querySelector(".pub-filter-note"),n=0;bar.querySelectorAll(".pf").forEach(function(b){var on=b===f;b.classList.toggle("is-on",on);b.setAttribute("aria-pressed",on)});document.querySelectorAll(".pubs > li").forEach(function(li){var show=want==="all"||li.dataset.cat===want;li.hidden=!show;if(show)n++});if(note){note.hidden=want==="all";note.querySelector("[data-count]").textContent=n}});</script>
-    <script>document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".cite-copy");if(!b)return;var p=b.parentNode.querySelector("pre");if(!navigator.clipboard){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);return}navigator.clipboard.writeText(p.textContent).then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)})});</script>
     {% if site.google_analytics %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -180,6 +174,66 @@ End emojicom.io widget -->
     "author":{"@id":"{{ site.canonical }}/#me"}}
     {%- endfor -%}
     ]}
+    </script>
+    <!-- One delegated click listener for both interactive controls: the topic
+         filter and the BibTeX copy buttons. Kept inline rather than in a
+         separate deferred file, because at ~1 KB the round trip to fetch it
+         would cost more than parsing it does. Neither feature is required for
+         the page to be usable: without JavaScript every paper stays visible
+         and the BibTeX is still selectable. -->
+    <script>
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+
+      // A research interest links to the list and applies its filter.
+      var jump = t.closest && t.closest("[data-jump]");
+      if (jump) {
+        var target = document.querySelector('.pf[data-filter="' + jump.dataset.jump + '"]');
+        if (target) { target.click(); }
+        return;
+      }
+
+      // Topic filter.
+      var btn = t.closest && t.closest(".pf");
+      if (btn) {
+        var want = btn.dataset.filter,
+            note = document.querySelector(".pub-filter-note"),
+            shown = 0;
+        btn.parentNode.querySelectorAll(".pf").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("is-on", on);
+          b.setAttribute("aria-pressed", on);
+        });
+        document.querySelectorAll(".pubs > li").forEach(function (li) {
+          var show = want === "all" || li.dataset.cat === want;
+          li.hidden = !show;
+          if (show) { shown++; }
+        });
+        if (note) {
+          note.hidden = want === "all";
+          note.querySelector("[data-count]").textContent = shown;
+        }
+        return;
+      }
+
+      // Copy a BibTeX record.
+      var copy = t.closest && t.closest(".cite-copy");
+      if (copy) {
+        var pre = copy.parentNode.querySelector("pre");
+        if (!navigator.clipboard) {
+          var range = document.createRange();
+          range.selectNodeContents(pre);
+          var sel = getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          return;
+        }
+        navigator.clipboard.writeText(pre.textContent).then(function () {
+          copy.textContent = "Copied";
+          setTimeout(function () { copy.textContent = "Copy"; }, 1500);
+        });
+      }
+    });
     </script>
   </body>
 </html>

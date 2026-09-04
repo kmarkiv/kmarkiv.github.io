@@ -58,3 +58,8 @@ thesis_link: https://kilthub.cmu.edu/articles/thesis/DIA_Supporting_Teacher_Prof
 
 #theme: jekyll-theme-minimal
 #https://kmarkiv.com/assets/Vikram_Kamath_CV-4.pdf
+
+# Compress the compiled CSS. The source in _sass/main.scss keeps its
+# comments and spacing; only the output is minified.
+sass:
+  style: compressed
