@@ -63,4 +63,4 @@ sass:
 # Google Analytics 4. Paste the Measurement ID (G-XXXXXXXXXX) from
 # Admin > Data streams in the GA console. Left empty, no analytics code is
 # emitted at all and the site makes no third-party requests.
-google_analytics:
+google_analytics: G-R965CELXL5
