@@ -45,10 +45,6 @@ defaults:
       sitemap: false
 calendar: https://calendly.com/kmarkiv/vikram
 position: Postdoctoral Fellow
-# Universal Analytics (UA-) stopped collecting data in July 2023 — the old
-# property is left here only as a record. Replace with a GA4 id (G-XXXXXXX)
-# to start measuring again, or delete this block entirely.
-# google_analytics: UA-12079075-1
 remote_theme: yaoyao-liu/minimal-light
 # Direct, not a shortener: bit.ly only redirected here anyway, and the hop
 # cost a round trip, put a third party in front of every CV click, and broke
@@ -63,3 +59,8 @@ thesis_link: https://kilthub.cmu.edu/articles/thesis/DIA_Supporting_Teacher_Prof
 # comments and spacing; only the output is minified.
 sass:
   style: compressed
+
+# Google Analytics 4. Paste the Measurement ID (G-XXXXXXXXXX) from
+# Admin > Data streams in the GA console. Left empty, no analytics code is
+# emitted at all and the site makes no third-party requests.
+google_analytics:

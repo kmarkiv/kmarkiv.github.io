@@ -1,0 +1,13 @@
+{%- if site.google_analytics -%}
+<!-- Google Analytics 4. gtag.js is fetched async so it never blocks parsing or
+     rendering, and the include sits at the end of the document so it is
+     requested after the content. Renders nothing unless google_analytics is
+     set in _config.yml. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{%- endif -%}
