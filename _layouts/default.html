@@ -57,7 +57,7 @@
         
         {% if site.avatar %}
       
-        <span class="image avatar"><img src="{{site.avatar}}" alt="{{ site.title }}" width="100" height="99" decoding="async"></span>
+        <span class="image avatar" data-portrait="{{ '/assets/avatar-photo.jpg' | relative_url }}"><img src="{{site.avatar}}" alt="{{ site.title }}" width="100" height="99" decoding="async"></span>
         {% endif %}
 
         <h1>{{ site.title }}</h1> 
@@ -216,6 +216,37 @@
         });
       }
     });
+
+    // The monogram turns into a portrait on hover, like a face arriving in a
+    // painted frame. The photo is only fetched the first time someone hovers,
+    // so it costs nothing on load.
+    (function () {
+      var frame = document.querySelector(".image.avatar[data-portrait]");
+      if (!frame) { return; }
+      var photo = null;
+
+      function reveal() {
+        if (!photo) {
+          photo = new Image();
+          photo.className = "avatar-photo";
+          photo.alt = "";
+          photo.setAttribute("aria-hidden", "true");
+          photo.decoding = "async";
+          photo.src = frame.dataset.portrait;
+          frame.appendChild(photo);
+        }
+        frame.classList.add("is-portrait");
+      }
+
+      function hide() { frame.classList.remove("is-portrait"); }
+
+      frame.addEventListener("mouseenter", reveal);
+      frame.addEventListener("mouseleave", hide);
+      // Touch has no hover: tap toggles instead.
+      frame.addEventListener("click", function () {
+        frame.classList.contains("is-portrait") ? hide() : reveal();
+      });
+    })();
     </script>
     {% include analytics.html %}
   </body>

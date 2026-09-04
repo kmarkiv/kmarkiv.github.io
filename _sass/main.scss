@@ -902,3 +902,46 @@ li + li {
   font-size: 0.82em;
   margin: -0.5rem 0 1.1rem;
 }
+
+/* Monogram to portrait on hover. The photo element is only created by script
+   on first hover, so nothing extra is fetched on load. Cross-fade rather than
+   a hard swap, so the face arrives in the frame instead of snapping into it. */
+.image.avatar[data-portrait] {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.image.avatar[data-portrait] > img:first-child {
+  transition: opacity 0.45s ease;
+}
+
+.image.avatar.is-portrait > img:first-child {
+  opacity: 0;
+}
+
+.avatar-photo {
+  border-radius: 100%;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(1.04);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  width: 100%;
+}
+
+.image.avatar.is-portrait .avatar-photo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image.avatar[data-portrait] > img:first-child,
+  .avatar-photo {
+    transition: none;
+    transform: none;
+  }
+}
