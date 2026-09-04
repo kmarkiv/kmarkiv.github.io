@@ -38,43 +38,6 @@
     <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <meta name="twitter:image:alt" content="Portrait of Vikram Kamath Cannanure">
 
-    <!-- Structured data. One @graph so the schema context is declared once:
-         who this page is about, then the publications it lists. sameAs ties
-         the profiles together so search engines treat them as one person. -->
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[
-    {
-      "@type": "Person",
-      "@id": "{{ site.canonical }}/#me",
-      "name": "Vikram Kamath Cannanure",
-      "alternateName": ["Vikram Cannanure", "Vikram Kamath"],
-      "url": "{{ site.canonical }}",
-      "image": "{{ '/assets/avatar.jpg' | absolute_url }}",
-      "jobTitle": {{ site.position | jsonify }},
-      "description": {{ site.description | jsonify }},
-      "affiliation": [
-        { "@type": "CollegeOrUniversity", "name": {{ site.affiliation | jsonify }} },
-        { "@type": "ResearchOrganization", "name": "Kigali Collaborative Research Centre", "url": "https://www.kcrc.rw/" }
-      ],
-      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
-      "knowsAbout": ["Human-Computer Interaction","Information and Communication Technologies for Development","Human-Centered Artificial Intelligence","Educational Technology","Global South"],
-      "sameAs": [{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
-    }
-    {%- comment -%}
-    Each paper carries its full ScholarlyArticle record on its own page
-    (see _layouts/paper.html), keyed by the same @id. Listing stubs here
-    keeps the graph connected without repeating the author lists.
-    {%- endcomment -%}
-    {%- for p in site.data.publications -%}
-    ,{"@type":"ScholarlyArticle",
-    "@id":"{{ site.canonical }}/papers/{{ p.slug }}/#paper",
-    "headline":{{ p.title | jsonify }},
-    "datePublished":"{% if p.date %}{{ p.date }}T00:00:00+00:00{% else %}{{ p.year }}{% endif %}",
-    "url":"{{ site.canonical }}/papers/{{ p.slug }}/",
-    "author":{"@id":"{{ site.canonical }}/#me"}}
-    {%- endfor -%}
-    ]}
-    </script>
 
    <!-- 
  <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
@@ -178,5 +141,45 @@ End emojicom.io widget -->
      <!--    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f72e4303b5e0df0"
         async="async"></script>!-->
     {% endif %}
+    <!-- Structured data. One @graph so the schema context is declared once:
+         who this page is about, then the publications it lists. sameAs ties
+         the profiles together so search engines treat them as one person.
+         It sits at the end of the document rather than in <head> so the
+         parser reaches the content sooner; JSON-LD is read anywhere in the
+         page, so indexing is unaffected. -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+    {
+      "@type": "Person",
+      "@id": "{{ site.canonical }}/#me",
+      "name": "Vikram Kamath Cannanure",
+      "alternateName": ["Vikram Cannanure", "Vikram Kamath"],
+      "url": "{{ site.canonical }}",
+      "image": "{{ '/assets/avatar.jpg' | absolute_url }}",
+      "jobTitle": {{ site.position | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "affiliation": [
+        { "@type": "CollegeOrUniversity", "name": {{ site.affiliation | jsonify }} },
+        { "@type": "ResearchOrganization", "name": "Kigali Collaborative Research Centre", "url": "https://www.kcrc.rw/" }
+      ],
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
+      "knowsAbout": ["Human-Computer Interaction","Information and Communication Technologies for Development","Human-Centered Artificial Intelligence","Educational Technology","Global South"],
+      "sameAs": [{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
+    }
+    {%- comment -%}
+    Each paper carries its full ScholarlyArticle record on its own page
+    (see _layouts/paper.html), keyed by the same @id. Listing stubs here
+    keeps the graph connected without repeating the author lists.
+    {%- endcomment -%}
+    {%- for p in site.data.publications -%}
+    ,{"@type":"ScholarlyArticle",
+    "@id":"{{ site.canonical }}/papers/{{ p.slug }}/#paper",
+    "headline":{{ p.title | jsonify }},
+    "datePublished":"{% if p.date %}{{ p.date }}T00:00:00+00:00{% else %}{{ p.year }}{% endif %}",
+    "url":"{{ site.canonical }}/papers/{{ p.slug }}/",
+    "author":{"@id":"{{ site.canonical }}/#me"}}
+    {%- endfor -%}
+    ]}
+    </script>
   </body>
 </html>
