@@ -64,7 +64,7 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 ## Swimming
 
-I’m a long-distance swimmer and have raised funds for NGOs in India.  
+I’m a long-distance swimmer and have raised funds for NGOs in India.<br>
 Stories on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/).  
 
 Selected swims:  
@@ -75,12 +75,12 @@ Selected swims:
 
 ## Software & Making Things
 
-I’ve built systems for **web, Android, desktop, iOS**, and **hardware**.  
+I’ve built systems for **web, Android, desktop, iOS**, and **hardware**.<br>
 Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D viewer**, **Learn Kannada** (10K+ downloads), and **Jedi Mouse** (gesture + EEG cursor control).
 
 
 ## Contact
 
-**Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)  
-**Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)  
+**Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)<br>
+**Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)<br>
 **Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="\_blank" rel="noopener"} 
