@@ -31,6 +31,7 @@ Three threads run through my work. Each one filters the publication list below.
   {%- endfor %}
 </div>
 <p class="pub-filter-note" hidden>Showing <span data-count></span> of {{ site.data.publications | size }}.</p>
+<p class="pub-topics">Topic pages: {% for c in cats %}<a href="{{ c | slugify | prepend: '/topics/' | append: '/' | relative_url }}">{{ c }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
 
 <ul class="pubs">
 {%- for p in site.data.publications %}

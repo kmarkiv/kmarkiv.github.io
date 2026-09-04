@@ -107,6 +107,34 @@
           <pre id="bibtex" data-citation-format="bibtex"><code>{{ publication.bibtex | escape }}</code></pre>
           <p class="machine-note">DOI: <a href="{{ publication.url }}">{{ publication.doi }}</a> · <a href="{{ '/assets/publications.bib' | relative_url }}" download>Download all citations</a></p>
         </section>
+
+        {%- assign siblings = site.data.publications | where: "tag", publication.tag -%}
+        {%- assign others = "" | split: "" -%}
+        {%- for s in siblings -%}
+          {%- unless s.slug == publication.slug -%}{%- assign others = others | push: s -%}{%- endunless -%}
+        {%- endfor -%}
+        {%- if others.size == 0 -%}
+          {%- assign others = site.data.publications -%}
+        {%- endif -%}
+        {%- if others.size > 0 %}
+        <section class="related" aria-labelledby="related-heading">
+          <div>
+            <p class="eyebrow">{{ publication.tag }}</p>
+            <h2 id="related-heading">Related work</h2>
+          </div>
+          <ul class="related-list">
+            {%- for s in others limit: 3 -%}
+            {%- unless s.slug == publication.slug %}
+            <li>
+              <a href="{{ s.slug | prepend: '/papers/' | append: '/' | relative_url }}">{{ s.title }}</a>
+              <span class="related-meta">{{ s.venue | truncate: 70 }}, {{ s.year }}</span>
+            </li>
+            {%- endunless -%}
+            {%- endfor %}
+          </ul>
+          <p class="machine-note"><a href="{{ '/papers/' | relative_url }}">All publications</a></p>
+        </section>
+        {%- endif %}
       </article>
       {% else %}
       <article class="paper">

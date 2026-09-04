@@ -894,3 +894,11 @@ li + li {
 }
 
 .pubs > li[hidden] { display: none; }
+
+/* Links out to the per-topic pages. The in-page filter is faster for someone
+   already here; these are real pages, so they can be crawled and linked to. */
+.pub-topics {
+  color: #a9adb4;
+  font-size: 0.82em;
+  margin: -0.5rem 0 1.1rem;
+}

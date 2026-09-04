@@ -1,0 +1,70 @@
+{% assign papers = site.data.publications | where: "tag", page.topic | sort: "date" | reverse %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.topic }} — {{ site.title }}</title>
+    <meta name="description" content="{{ page.blurb | strip | escape }}">
+    <meta name="author" content="{{ site.author }}">
+    <link rel="canonical" href="{{ site.canonical }}/topics/{{ page.topic | slugify }}/">
+    <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
+    <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.topic }} — {{ site.title }}">
+    <meta property="og:description" content="{{ page.blurb | strip | escape }}">
+    <meta property="og:url" content="{{ site.canonical }}/topics/{{ page.topic | slugify }}/">
+    <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="name" href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="{{ '/papers/' | relative_url }}">Publications</a>
+          <a href="{{ '/research.html' | relative_url }}">Research</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="paper">
+        <p class="eyebrow">Topic</p>
+        <h1>{{ page.topic }}</h1>
+        <p class="lede">{{ page.blurb }}</p>
+        <p class="machine-note">{{ papers | size }} publication{% if papers.size != 1 %}s{% endif %}.</p>
+
+        <ul class="related-list">
+          {%- for p in papers %}
+          <li>
+            <a href="{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}">{{ p.title }}</a>
+            <span class="related-meta">{{ p.authors }}. {{ p.venue }}, {{ p.year }}.</span>
+            <span class="related-meta">{{ p.keywords | join: " · " }}</span>
+          </li>
+          {%- endfor %}
+        </ul>
+
+        <p class="machine-note"><a href="{{ '/papers/' | relative_url }}">All publications</a> · <a href="{{ '/' | relative_url }}">Home</a></p>
+      </article>
+    </main>
+
+    <footer class="container">
+      <p>Publication record maintained by <a href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>.</p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": {{ page.topic | jsonify }},
+      "description": {{ page.blurb | strip | jsonify }},
+      "url": "{{ site.canonical }}/topics/{{ page.topic | slugify }}/",
+      "about": {{ page.topic | jsonify }},
+      "author": { "@id": "{{ site.canonical }}/#me" },
+      "hasPart": [{% for p in papers %}{"@type":"ScholarlyArticle","@id":"{{ site.canonical }}/papers/{{ p.slug }}/#paper","headline":{{ p.title | jsonify }},"url":"{{ site.canonical }}/papers/{{ p.slug }}/"}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    }
+    </script>
+    {% include analytics.html %}
+  </body>
+</html>
