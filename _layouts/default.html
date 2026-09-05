@@ -71,7 +71,7 @@
         {{ site.affiliation }}
         {% if site.email %}
         <br>
-        {{ site.email }}
+        <a class="header-email" href="mailto:{{ site.email | replace: ' (at) ', '@' }}">{{ site.email }}</a>
         <br>
           <p class="header-action"><a href="{{site.cv_link}}" target="_blank" rel="noopener">View my CV</a></p>
           <p class="header-action header-action-sub"><a href="{{site.calendar}}" target="_blank" rel="noopener">Schedule a meeting</a></p>

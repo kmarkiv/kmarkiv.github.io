@@ -791,19 +791,30 @@ li + li {
 
 
 
-/* The two header links used to be an <h2> and an <h3>, which put navigation
-   into the document outline. They are paragraphs now; these rules keep the
-   size and weight they had. */
+/* The two header links used to be an <h2> and an <h3>. As paragraphs they
+   kept those sizes, which left them at 22px and 20px against 17px body text:
+   larger than the affiliation and nearly the size of the name, so the actions
+   shouted over the identity. Sized just above body text instead, which keeps
+   them tappable and legible while restoring the hierarchy. */
 .header-action {
-  font-size: 130%;
-  font-weight: 500;
-  line-height: 1.1;
-  margin: 0 0 12px;
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0.6em 0 0.35em;
 }
 
 .header-action-sub {
-  font-size: 120%;
-  margin-bottom: 20px;
+  font-weight: 500;
+  margin-bottom: 1.2em;
+}
+
+/* The address is one long unbroken token in a narrow column, so it needs an
+   explicit break rule or it overflows rather than wrapping. */
+.header-email {
+  display: inline-block;
+  font-size: 0.95em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 

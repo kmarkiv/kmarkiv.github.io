@@ -100,5 +100,6 @@ Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D view
 ## Contact
 
 **Email:** [vica001@teams.uni-saarland.de](mailto:vica001@teams.uni-saarland.de)<br>
+**Meet:** [Schedule a meeting]({{ site.calendar }}){:target="_blank" rel="noopener"}<br>
 **Twitter:** [@kmarkiv](https://twitter.com/kmarkiv)<br>
 **Blog:** [kmarkiv.wordpress.com](https://kmarkiv.wordpress.com/){:target="_blank" rel="noopener"} 
