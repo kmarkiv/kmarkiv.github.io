@@ -71,10 +71,10 @@
         {{ site.affiliation }}
         {% if site.email %}
         <br>
-        <a class="header-email" href="mailto:{{ site.email | replace: ' (at) ', '@' }}">{{ site.email }}</a>
+        <a class="header-email" href="mailto:{{ site.email | replace: ' (at) ', '@' }}" title="Email Vikram Kamath Cannanure at Saarland University">{{ site.email }}</a>
         <br>
-          <p class="header-action"><a href="{{site.cv_link}}" target="_blank" rel="noopener">View my CV</a></p>
-          <p class="header-action header-action-sub"><a href="{{site.calendar}}" target="_blank" rel="noopener">Schedule a meeting</a></p>
+          <p class="header-action"><a href="{{site.cv_link}}" target="_blank" rel="noopener" title="Academic CV of Vikram Kamath Cannanure: publications, grants, teaching and service (PDF)">View my CV</a></p>
+          <p class="header-action header-action-sub"><a href="{{site.calendar}}" target="_blank" rel="noopener" title="Book a meeting with Vikram Kamath Cannanure">Schedule a meeting</a></p>
         <br>
         <br>
         {% endif %}
