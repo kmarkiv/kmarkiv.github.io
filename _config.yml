@@ -9,12 +9,12 @@ avatar: ./assets/avatar.jpg
 favicon: ./assets/avatar.jpg
 cv: ./assets/Vikram_Kamath_CV.pdf
 favicon_dark: ./assets/avatar.jpg
-description: "I design Thoughtful AI: conversational AI and chatbots for teacher learning, AI in education, and communities in the Global South. Postdoctoral fellow at Saarland University (HCI, ICTD)."
+description: "I design Thoughtful AI: LLM-based chatbots for teacher learning, AI in education and communities in the Global South. HCI, HCI4D and ICTD researcher; postdoctoral fellow at Saarland University."
 canonical: https://kmarkiv.com
 url: https://kmarkiv.com
 author: Vikram Kamath Cannanure
 orcid: https://orcid.org/0000-0002-0944-7074
-keywords: "Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, conversational AI, chatbots, large language models, teacher learning, teacher professional development, AI in education, Global South, ICTD, human-computer interaction, HCI, Saarland University, Carnegie Mellon University, WhatsApp, mentorship, teacher aspirations"
+keywords: "Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, HCI, human-computer interaction, HCI4D, HCI for development, ICTD, ICT4D, information and communication technologies for development, LLMs, large language models, generative AI, conversational AI, chatbots, teacher learning, teacher professional development, AI in education, Global South, Saarland University, Carnegie Mellon University, WhatsApp, mentorship, teacher aspirations"
 
 plugins:
   - jekyll-sitemap

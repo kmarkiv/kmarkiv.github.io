@@ -3,8 +3,8 @@
 > Postdoctoral fellow at Saarland University and KCRC Fellow at the Kigali
 > Collaborative Research Centre. Works on Thoughtful AI: human-centered systems
 > for reflection, care and trust, at the intersection of Human-Computer
-> Interaction (HCI) and Information and Communication Technologies for
-> Development (ICTD).
+> Interaction (HCI), HCI for development (HCI4D), Information and Communication
+> Technologies for Development (ICTD), and large language models (LLMs).
 
 Also published as "Vikram Cannanure" and "Vikram Kamath".
 PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
@@ -14,9 +14,9 @@ PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
 Work is organised under three topics, which are also the filters on the homepage
 publication list and the first keyword on every paper:
 
-- **Conversational AI** — chatbots, large language models, interactive voice response, microlearning
+- **Conversational AI** — chatbots, large language models (LLMs), interactive voice response, microlearning
 - **Learning** — teacher professional development, mentorship at scale, teacher aspirations
-- **Global South** — ICTD, asset-based design, community access to health and education information
+- **Global South** — HCI4D and ICTD, asset-based design, community access to health and education information
 
 ## Structured data
 

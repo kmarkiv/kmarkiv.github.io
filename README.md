@@ -1,6 +1,6 @@
 ## Hello!
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI that supports learning, reflection, and civic participation.
+I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction (HCI)**, **HCI for development (HCI4D)**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI, much of it built on large language models (LLMs), that supports learning, reflection, and civic participation.
 
 I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/), a research community based at Carnegie Mellon University Africa in Kigali that supports practical research and innovation for Africa.
 
@@ -14,9 +14,9 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 Three threads run through my work. Each one filters the publication list below.
 
-- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai"} — chatbots, large language models, interactive voice response, and microlearning
+- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
 - [**Learning**](#selected-publications){:data-jump="learning"} — teacher professional development, mentorship at scale, and teacher aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south"} — ICTD, asset-based design, and community access to health and education information
+- [**Global South**](#selected-publications){:data-jump="global-south"} — HCI4D and ICTD, asset-based design, and community access to health and education information
 
 
 ## Selected Publications
