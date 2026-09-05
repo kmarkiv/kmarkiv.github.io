@@ -993,6 +993,18 @@ li + li {
   animation: avatar-sheen 0.85s ease-out;
 }
 
+/* Leaving mirrors arriving: the light sweeps back the way it came while the
+   portrait returns to blur, so the face recedes rather than blinking off. */
+.image.avatar.is-leaving::after {
+  animation: avatar-sheen-out 0.7s ease-out;
+}
+
+@keyframes avatar-sheen-out {
+  0%   { opacity: 0; transform: translateX(120%); }
+  35%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-120%); }
+}
+
 @keyframes avatar-sheen {
   0%   { opacity: 0;   transform: translateX(-120%); }
   35%  { opacity: 1; }
@@ -1016,7 +1028,8 @@ li + li {
     transform: none;
   }
 
-  .image.avatar.is-portrait::after {
+  .image.avatar.is-portrait::after,
+  .image.avatar.is-leaving::after {
     animation: none;
   }
 }

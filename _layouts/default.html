@@ -238,13 +238,29 @@
         frame.classList.add("is-portrait");
       }
 
-      function hide() { frame.classList.remove("is-portrait"); }
+      function hide() {
+        // Only run the exit sweep if a portrait was actually showing.
+        if (photo && frame.classList.contains("is-portrait")) {
+          frame.classList.add("is-leaving");
+          window.setTimeout(function () {
+            frame.classList.remove("is-leaving");
+          }, 700);
+        }
+        frame.classList.remove("is-portrait");
+      }
 
-      // The whole header column is the hover target: the name, the position,
-      // the CV and meeting links. The swap still happens in the avatar.
-      var zone = frame.closest("header") || frame;
-      zone.addEventListener("mouseenter", reveal);
-      zone.addEventListener("mouseleave", hide);
+      // The whole left column is the hover target, not just the avatar: the
+      // header carrying the name, position, CV and meeting links, and the
+      // footer of social icons below it. They are two fixed blocks rather than
+      // one element, so both are wired. The swap still happens in the avatar.
+      var wrapper = frame.closest(".wrapper");
+      var zones = [frame.closest("header"),
+                   wrapper && wrapper.querySelector("footer")].filter(Boolean);
+      if (!zones.length) { zones = [frame]; }
+      zones.forEach(function (zone) {
+        zone.addEventListener("mouseenter", reveal);
+        zone.addEventListener("mouseleave", hide);
+      });
 
       // Touch has no hover, so a tap on the avatar toggles instead. Kept on
       // the avatar rather than the whole column so it cannot swallow taps
