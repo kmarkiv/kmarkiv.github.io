@@ -905,15 +905,30 @@ li + li {
 
 /* Monogram to portrait on hover. The photo element is only created by script
    on first hover, so nothing extra is fetched on load. Cross-fade rather than
-   a hard swap, so the face arrives in the frame instead of snapping into it. */
+   a hard swap, so the face arrives in the frame instead of snapping into it.
+
+   The theme gives every img a 2rem vertical margin. On the monogram that added
+   32px above and below inside the span, so the frame measured 100x163 and
+   border-radius drew an egg while the photo stretched to fill it. Zeroing the
+   margin and pinning both images to the same 100x100 box makes the monogram,
+   the photo and the ring share one circle. */
 .image.avatar[data-portrait] {
   cursor: pointer;
+  display: block;
+  height: 100px;
+  margin: 0 auto 1em;
   overflow: hidden;
   position: relative;
+  width: 100px;
 }
 
 .image.avatar[data-portrait] > img:first-child {
+  display: block;
+  height: 100px;
+  margin: 0;
+  object-fit: cover;
   transition: opacity 0.45s ease;
+  width: 100px;
 }
 
 .image.avatar.is-portrait > img:first-child {
@@ -932,6 +947,7 @@ li + li {
   filter: blur(7px) saturate(0.4) contrast(1.15);
   height: 100%;
   left: 0;
+  margin: 0;                 /* the same theme img margin hit this one too */
   object-fit: cover;
   opacity: 0;
   position: absolute;

@@ -1,6 +1,6 @@
 ## Hello!
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work at the intersection of **Human–Computer Interaction (HCI)**, **HCI for development (HCI4D)**, **ICTD**, and **Thoughtful AI**—practical, low-cost AI, much of it built on large language models (LLMs), that supports learning, reflection, and civic participation.
+I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work in **Human–Computer Interaction (HCI)** and its development-focused branches, **HCI4D** and **ICTD**. I call the result **Thoughtful AI**: practical, low-cost systems—many built on large language models (LLMs)—that support learning, reflection, and civic participation.
 
 I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/), a research community based at Carnegie Mellon University Africa in Kigali that supports practical research and innovation for Africa.
 

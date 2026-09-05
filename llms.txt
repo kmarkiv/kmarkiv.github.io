@@ -30,6 +30,10 @@ publication list and the first keyword on every paper:
 - [Homepage](https://kmarkiv.com/): biography, research interests, news, publication list, service
 - [Research](https://kmarkiv.com/research.html): research agenda and selected work
 - [Papers index](https://kmarkiv.com/papers/): one page per publication, each with full metadata and a BibTeX record
+- Topic pages, each listing its papers with CollectionPage structured data:
+  [Conversational AI](https://kmarkiv.com/topics/conversational-ai/) ·
+  [Learning](https://kmarkiv.com/topics/learning/) ·
+  [Global South](https://kmarkiv.com/topics/global-south/)
 - [Thoughtful AI](https://kmarkiv.com/thoughtful-ai/): the research programme
 
 ## Profiles
