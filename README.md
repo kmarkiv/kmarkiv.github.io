@@ -14,9 +14,9 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 Three threads run through my work. Each one filters the publication list below.
 
-- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter the list below to chatbot, LLM and voice-interface publications"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
-- [**Learning**](#selected-publications){:data-jump="learning" title="Filter the list below to teacher learning and professional development publications"} — teacher professional development, mentorship at scale, and teacher aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter the list below to HCI4D and ICTD publications"} — HCI4D and ICTD, asset-based design, and community access to health and education information
+- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
+- [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, mentorship at scale, and teacher aspirations
+- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD, asset-based design, and community access to health and education information
 
 
 ## Selected Publications
@@ -31,12 +31,12 @@ Three threads run through my work. Each one filters the publication list below.
   {%- endfor %}
 </div>
 <p class="pub-filter-note" hidden>Showing <span data-count></span> of {{ site.data.publications | size }}.</p>
-<p class="pub-topics">Topic pages: {% for c in cats %}<a href="{{ c | slugify | prepend: '/topics/' | append: '/' | relative_url }}" title="All {{ c }} publications by Vikram Kamath Cannanure">{{ c }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+<p class="pub-topics">Topic pages: {% for c in cats %}<a href="{{ c | slugify | prepend: '/topics/' | append: '/' | relative_url }}" title="All {{ c }} publications">{{ c }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
 
 <ul class="pubs">
 {%- for p in site.data.publications %}
   <li data-cat="{{ p.tag | slugify }}">
-    <a class="pub-title" href="{% if p.pdf %}{{ p.pdf }}{% elsif p.slug %}{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}{% else %}{{ p.url }}{% endif %}"{% if p.pdf %} target="_blank" rel="noopener" title="Read &ldquo;{{ p.title | escape }}&rdquo; ({{ p.venue | truncate: 50 | escape }}, {{ p.year }}) as a PDF, opens in a new tab"{% else %} title="{{ p.title | escape }} &mdash; abstract, keywords and BibTeX"{% endif %}>{{ p.title }}{% if p.pdf %}<span class="pdf-flag" aria-hidden="true"> PDF</span><span class="visually-hidden"> (PDF, opens in a new tab)</span>{% endif %}</a>
+    <a class="pub-title" href="{% if p.pdf %}{{ p.pdf }}{% elsif p.slug %}{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}{% else %}{{ p.url }}{% endif %}"{% if p.pdf %} target="_blank" rel="noopener" title="Read the PDF, opens in a new tab"{% else %} title="Abstract, keywords and BibTeX"{% endif %}>{{ p.title }}{% if p.pdf %}<span class="pdf-flag" aria-hidden="true"> PDF</span><span class="visually-hidden"> (PDF, opens in a new tab)</span>{% endif %}</a>
     <span class="pub-meta">{{ p.authors | replace: 'Vikram Kamath Cannanure', '<b class="me">Vikram Kamath Cannanure</b>' }}. <em>{{ p.venue }}</em>, {{ p.year }}.</span>
     {%- if p.keywords %}
     <span class="pub-kw">
@@ -44,10 +44,10 @@ Three threads run through my work. Each one filters the publication list below.
     </span>
     {%- endif %}
     <span class="pub-links">
-      {%- if p.pdf %} <a href="{{ p.pdf }}" target="_blank" rel="noopener" title="Read the PDF of &ldquo;{{ p.title | escape }}&rdquo; ({{ p.year }})" aria-label="PDF: {{ p.title | escape }}">PDF</a>{% endif -%}
-      {%- if p.preprint and p.preprint != p.url %} <a href="{{ p.preprint }}" target="_blank" rel="noopener" title="Read the open-access preprint of &ldquo;{{ p.title | escape }}&rdquo;" aria-label="Preprint: {{ p.title | escape }}">Preprint</a>{% endif -%}
-      {%- if p.doi %} <a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener" title="Publisher version of &ldquo;{{ p.title | escape }}&rdquo; at {{ p.venue | truncate: 60 | escape }}" aria-label="DOI, publisher version: {{ p.title | escape }}">DOI</a>{% endif -%}
-      {%- if p.slug %} <a href="{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}" title="Abstract, keywords and BibTeX for &ldquo;{{ p.title | escape }}&rdquo;" aria-label="Details, abstract and BibTeX: {{ p.title | escape }}">Details</a>{% endif -%}
+      {%- if p.pdf %} <a href="{{ p.pdf }}" target="_blank" rel="noopener" title="Read the PDF, opens in a new tab" aria-label="PDF: {{ p.title | escape }}">PDF</a>{% endif -%}
+      {%- if p.preprint and p.preprint != p.url %} <a href="{{ p.preprint }}" target="_blank" rel="noopener" title="Open-access preprint, opens in a new tab" aria-label="Preprint: {{ p.title | escape }}">Preprint</a>{% endif -%}
+      {%- if p.doi %} <a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener" title="Publisher version at the DOI, opens in a new tab" aria-label="DOI, publisher version: {{ p.title | escape }}">DOI</a>{% endif -%}
+      {%- if p.slug %} <a href="{{ p.slug | prepend: '/papers/' | append: '/' | relative_url }}" title="Abstract, keywords and BibTeX" aria-label="Details, abstract and BibTeX: {{ p.title | escape }}">Details</a>{% endif -%}
     </span>
     <details class="cite">
       <summary>Cite</summary>
