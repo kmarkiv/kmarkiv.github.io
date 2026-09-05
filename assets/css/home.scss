@@ -820,3 +820,17 @@ section[id] {
 .footer-bottom a {
   text-decoration-color: rgba(255, 255, 255, 0.4);
 }
+
+/* The h1 has to name what the page is about — "Thoughtful AI" — but the
+   tagline is what should dominate. The name sits above it as a small lead-in
+   inside the same heading, so the wording is in the h1 without the display
+   type shouting two things at once. */
+.h1-name {
+  display: block;
+  font-size: 0.3em;
+  font-weight: 640;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55em;
+  opacity: 0.72;
+  text-transform: uppercase;
+}
