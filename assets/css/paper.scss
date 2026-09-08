@@ -187,3 +187,10 @@ footer p { margin: 0; }
   font-size: 0.9rem;
   margin-top: 0.15rem;
 }
+
+/* Breadcrumb. Tells a reader arriving from search where this page sits, and
+   gives every paper page a link up to its topic hub and the index. */
+.crumbs { font-size: 0.88rem; margin: 1.4rem 0 -0.4rem; }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
+.crumbs li + li::before { color: var(--muted); content: "/"; margin-right: 0.35rem; }
+.crumbs li[aria-current] { color: var(--muted); }

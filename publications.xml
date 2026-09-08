@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /publications.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Publications — {{ site.title }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ '/publications.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.canonical }}/papers/" rel="alternate" type="text/html"/>
+  <id>{{ site.canonical }}/publications.xml</id>
+  {%- assign sorted = site.data.publications | sort: "date" | reverse -%}
+  <updated>{{ sorted.first.date }}T00:00:00Z</updated>
+  <author><name>{{ site.author }}</name><uri>{{ site.canonical }}</uri></author>
+  {%- for p in sorted %}
+  <entry>
+    <title>{{ p.title | xml_escape }}</title>
+    <link href="{{ site.canonical }}/papers/{{ p.slug }}/" rel="alternate" type="text/html"/>
+    {%- if p.doi %}<link href="https://doi.org/{{ p.doi }}" rel="related" type="text/html"/>{% endif %}
+    {%- if p.pdf %}<link href="{{ p.pdf | absolute_url }}" rel="enclosure" type="application/pdf"/>{% endif %}
+    <id>{{ site.canonical }}/papers/{{ p.slug }}/</id>
+    <published>{{ p.date }}T00:00:00Z</published>
+    <updated>{{ p.date }}T00:00:00Z</updated>
+    <author><name>{{ p.authors | xml_escape }}</name></author>
+    {%- if p.keywords %}{% for k in p.keywords %}<category term="{{ k | xml_escape }}"/>{% endfor %}{% endif %}
+    <summary type="text">{{ p.venue | xml_escape }}, {{ p.year }}.{% if p.abstract %} {{ p.abstract | strip | truncate: 400 | xml_escape }}{% endif %}</summary>
+  </entry>
+  {%- endfor %}
+</feed>

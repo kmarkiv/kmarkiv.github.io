@@ -6,12 +6,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ publication.title }} | {{ site.title }}</title>
+    <title>{% if publication.title.size > 55 %}{{ publication.title }}{% else %}{{ publication.title }} | {{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ page_description | strip | escape }}">
     <meta name="author" content="{{ publication.authors | escape }}">
     <meta name="robots" content="index,follow">
     {% if publication.keywords %}<meta name="keywords" content="{{ publication.keywords | join: ', ' | escape }}">{% endif %}
     <link rel="canonical" href="{{ paper_url | strip }}">
+    <link rel="alternate" type="application/atom+xml" href="{{ '/publications.xml' | absolute_url }}" title="Publications feed">
     <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
     <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
 
@@ -34,7 +35,7 @@
     <meta property="og:url" content="{{ paper_url | strip }}">
     <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <meta property="og:image:alt" content="Portrait of Vikram Kamath Cannanure">
-    <meta property="article:published_time" content="{{ publication.year }}-01-01">
+    <meta property="article:published_time" content="{% if publication.date %}{{ publication.date }}T00:00:00+00:00{% else %}{{ publication.year }}{% endif %}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ publication.title | escape }}">
     <meta name="twitter:description" content="{{ page_description | strip | escape }}">
@@ -61,6 +62,18 @@
       "encoding": {"@type":"MediaObject","contentUrl":{% if publication.pdf contains "http" %}{{ publication.pdf | jsonify }}{% else %}{{ site.canonical | append: publication.pdf | jsonify }}{% endif %},"encodingFormat":"application/pdf"}{% endif %}
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.canonical }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Publications", "item": "{{ site.canonical }}/papers/" },
+        { "@type": "ListItem", "position": 3, "name": {{ publication.tag | jsonify }}, "item": "{{ site.canonical }}/topics/{{ publication.tag | slugify }}/" },
+        { "@type": "ListItem", "position": 4, "name": {{ publication.title | jsonify }} }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -76,6 +89,14 @@
 
     <main class="container">
       {% if publication %}
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/papers/' | relative_url }}">Publications</a></li>
+          <li><a href="{{ publication.tag | slugify | prepend: '/topics/' | append: '/' | relative_url }}">{{ publication.tag }}</a></li>
+          <li aria-current="page">{{ publication.title | truncate: 60 }}</li>
+        </ol>
+      </nav>
       <article class="paper">
         <p class="eyebrow">{{ publication.tag }} · {{ publication.year }}</p>
         <h1>{{ publication.title }}</h1>
@@ -119,7 +140,7 @@
         {%- if others.size > 0 %}
         <section class="related" aria-labelledby="related-heading">
           <div>
-            <p class="eyebrow">{{ publication.tag }}</p>
+            <p class="eyebrow"><a href="{{ publication.tag | slugify | prepend: '/topics/' | append: '/' | relative_url }}" title="All {{ publication.tag }} publications">{{ publication.tag }}</a></p>
             <h2 id="related-heading">Related work</h2>
           </div>
           <ul class="related-list">
