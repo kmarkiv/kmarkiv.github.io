@@ -12,15 +12,15 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 ## Research Interests
 
-### LLMs for HCI4D and ICTD
-
-I study how large language models can support learning and participation in HCI4D and ICTD settings. My work with teachers in Cameroon and rural Côte d’Ivoire examines what chat-based tools can offer when connectivity, cost, and local support shape everyday use.
-
 Three threads run through my work. Each one filters the publication list below.
 
 - [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
 - [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, mentorship at scale, and teacher aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD, asset-based design, and community access to health and education information
+- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD for social impact, asset-based design, and community access to health, education, and environmental information
+
+### LLMs for HCI4D and ICTD
+
+I study how large language models can support learning and participation in HCI4D and ICTD settings. My work with teachers in Cameroon and rural Côte d’Ivoire examines what chat-based tools can offer when connectivity, cost, and local support shape everyday use. Current projects in rural India explore community-informed AI for sensitive health questions and locally grounded WhatsApp guidance for natural resource conservation.
 
 
 ## Selected Publications
