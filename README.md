@@ -20,11 +20,9 @@ My work spans three areas. Select one to see related publications below.
 
 ### LLMs for HCI4D, ICTD and Social Impact
 
-I study how large language models (LLMs) can support learning and participation in the Global South. I focus on how connectivity, cost, and access to local support shape the way people use these tools.
+My work applies LLMs to education, health, and civic learning. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation. Together, we study AI for sensitive health questions and WhatsApp tools that help communities learn about caring for land and water.
 
-For my PhD, I designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Read my [thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}. In Cameroon, I study how WhatsApp and LLMs can support teachers’ professional development.
-
-In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation. Together, we study AI shaped by community input to help people ask sensitive health questions. We also study WhatsApp tools that offer guidance on natural resource conservation tailored to local conditions.
+For my PhD, I designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Read my [thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}.
 
 
 ## Selected Publications
