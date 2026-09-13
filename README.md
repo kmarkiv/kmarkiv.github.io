@@ -6,7 +6,7 @@ I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https:
 
 My current focus is **thoughtful AI**: building AI *with* people, adapting it to the realities of their lives, and asking what they remain able to do once the assistance ends.
 
-I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html). My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Here is the draft of my [thesis]({{ site.thesis_link }}).
+I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html).
 
 
 
@@ -18,9 +18,9 @@ Three threads run through my work. Each one filters the publication list below.
 - [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, mentorship at scale, and teacher aspirations
 - [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD for social impact, asset-based design, and community access to health, education, and environmental information
 
-### LLMs for HCI4D and ICTD
+### LLMs for HCI4D, ICTD and Social Impact
 
-I study how large language models can support learning and participation in HCI4D and ICTD settings. My work with teachers in Cameroon and rural Côte d’Ivoire examines what chat-based tools can offer when connectivity, cost, and local support shape everyday use. Current projects in rural India explore community-informed AI for sensitive health questions and locally grounded WhatsApp guidance for natural resource conservation.
+I study how large language models (LLMs) can support learning and participation in HCI4D and ICTD settings, where connectivity, cost, and local support shape everyday use. My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire; here is the draft of my [thesis]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}. With teachers in Cameroon, I am studying what WhatsApp and LLMs add to professional development. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation, on community-informed AI for sensitive health questions and locally grounded WhatsApp guidance for natural resource conservation.
 
 
 ## Selected Publications
