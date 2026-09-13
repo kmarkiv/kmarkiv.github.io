@@ -1,8 +1,10 @@
 ## Hello!
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). I work in **Human–Computer Interaction (HCI)** and its development-focused branches, **HCI4D** and **ICTD**. I call the result **Thoughtful AI**: low-cost systems, often built on large language models (LLMs), designed *with* people to support learning, reflection, and civic participation, and judged by what people can still do once the assistance ends.
+I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). My research brings together **Human–Computer Interaction (HCI)**, **HCI for development (HCI4D)**, and **information and communication technologies for development (ICTD)**.
 
-I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/), a research community based at Carnegie Mellon University Africa in Kigali that supports practical research and innovation for Africa.
+I design **Thoughtful AI**: low-cost systems built *with* people to support learning, reflection, and participation in their communities. A question guides this work: what can people still do when the AI assistance ends?
+
+I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/). Based at Carnegie Mellon University Africa in Kigali, it brings researchers together to work on practical challenges across Africa.
 
 I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html).
 
@@ -10,19 +12,24 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 ## Research Interests
 
-Three threads run through my work. Each one filters the publication list below.
+My work spans three areas. Select one to see related publications below.
 
-- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
-- [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, mentorship at scale, and teacher aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD for social impact, asset-based design, and community access to health, education, and environmental information
+- [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice systems, and short learning activities
+- [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, wider access to mentoring, and teachers’ aspirations
+- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD for social impact, building on community strengths in health, education, and conservation
 
 ### LLMs for HCI4D, ICTD and Social Impact
 
-I study how large language models (LLMs) can support learning and participation in HCI4D and ICTD settings, where connectivity, cost, and local support shape everyday use. My dissertation designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire; here is the draft of my [thesis]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}. With teachers in Cameroon, I am studying what WhatsApp and LLMs add to professional development. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation, on community-informed AI for sensitive health questions and locally grounded WhatsApp guidance for natural resource conservation.
+I study how large language models (LLMs) can support learning and participation in the Global South. I focus on how connectivity, cost, and access to local support shape the way people use these tools.
+
+For my PhD, I designed and evaluated **low-cost, chat-based teacher learning systems** that supported **400+ teachers and 10,000+ students** in rural Côte d’Ivoire. Read my [thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}. In Cameroon, I study how WhatsApp and LLMs can support teachers’ professional development.
+
+In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation. Together, we study AI shaped by community input to help people ask sensitive health questions. We also study WhatsApp tools that offer guidance on natural resource conservation tailored to local conditions.
 
 
 ## Selected Publications
-(see more on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en))
+
+See my full publication record on [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en).
 
 {% assign cats = site.data.publications | map: "tag" | uniq | sort %}
 
@@ -84,8 +91,7 @@ I study how large language models (LLMs) can support learning and participation 
 
 ## Swimming
 
-I’m a long-distance swimmer and have raised funds for NGOs in India.<br>
-Stories on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/).  
+I’m a long-distance swimmer and have raised funds for NGOs in India. Read about my swims on my [blog](https://kmarkiv.wordpress.com/2017/06/21/swimming-10-miles-from-elephanta-island-to-gateway-of-india-for-acid-attack/).
 
 Selected swims:  
 - Elephanta → Gateway of India  
@@ -95,8 +101,7 @@ Selected swims:
 
 ## Software & Making Things
 
-I’ve built systems for **web, Android, desktop, iOS**, and **hardware**.<br>
-Selected projects include scalable **Flask APIs** (4M+ users), a **WebGL 3D viewer**, **Learn Kannada** (10K+ downloads), and **Jedi Mouse** (gesture + EEG cursor control).
+I’ve built **web, Android, iOS, and desktop software**, as well as **hardware**. My projects include **Flask APIs** serving over 4 million users, a **WebGL 3D viewer**, **Learn Kannada** with over 10,000 downloads, and **Jedi Mouse**, which lets people control a cursor using gestures and EEG signals.
 
 
 ## Contact
