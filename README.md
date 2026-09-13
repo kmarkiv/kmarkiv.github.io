@@ -12,6 +12,10 @@ I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon Univ
 
 ## Research Interests
 
+### LLMs for HCI4D and ICTD
+
+I study how large language models can support learning and participation in HCI4D and ICTD settings. My work with teachers in Cameroon and rural Côte d’Ivoire examines what chat-based tools can offer when connectivity, cost, and local support shape everyday use.
+
 Three threads run through my work. Each one filters the publication list below.
 
 - [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice response, and microlearning
