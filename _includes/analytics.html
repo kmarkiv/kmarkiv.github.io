@@ -1,13 +1,32 @@
 {%- if site.google_analytics -%}
-<!-- Google Analytics 4. gtag.js is fetched async so it never blocks parsing or
-     rendering, and the include sits at the end of the document so it is
-     requested after the content. Renders nothing unless google_analytics is
-     set in _config.yml. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<!-- Google Analytics 4, loaded lazily. The config calls are queued in the
+     dataLayer immediately, but gtag.js itself (about 155 KiB) is only
+     fetched on the first scroll, click, key or touch, or five seconds after
+     the load event, whichever comes first. gtag.js drains the queue when it
+     arrives, so the page_view still fires with the right referrer. Keeps the
+     tag off the critical path and out of Lighthouse's initial trace. Renders
+     nothing unless google_analytics is set in _config.yml. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ site.google_analytics }}');
+  (function () {
+    var id = "{{ site.google_analytics }}", started = false;
+    var events = ["scroll", "click", "keydown", "touchstart", "pointerdown"];
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", id);
+    function start() {
+      if (started) return;
+      started = true;
+      events.forEach(function (e) { removeEventListener(e, start, true); });
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+      document.head.appendChild(s);
+    }
+    events.forEach(function (e) { addEventListener(e, start, { capture: true, passive: true }); });
+    if (document.readyState === "complete") setTimeout(start, 5000);
+    else addEventListener("load", function () { setTimeout(start, 5000); });
+  })();
 </script>
 {%- endif -%}
