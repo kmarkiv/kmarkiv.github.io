@@ -15,6 +15,8 @@ reads the latest published release. It refreshes `_data/gitleaf.json` and
 `assets/images/gitleaf/`. The guide retains every README documentation section;
 repository-relative links point back to the exact GitHub source revision. Liquid
 renders the Markdown from data rather than executing README text as a template.
+Expandable sections opt into Kramdown rendering so their code blocks display
+correctly on GitHub Pages.
 
 Review the changes and the rendered guide, then commit and push them to `master`.
 The existing GitHub Pages branch build publishes the site. No daily sync or

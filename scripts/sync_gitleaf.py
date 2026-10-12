@@ -41,7 +41,9 @@ def make_guide(readme, sha):
             return match[0]
         return match[1] + urljoin(base, target) + match[3]
 
-    return re.sub(r"(\]\()([^\s)]+)(\))", link, guide)
+    guide = re.sub(r"(\]\()([^\s)]+)(\))", link, guide)
+    # Kramdown needs an explicit opt-in to render fenced code inside HTML.
+    return guide.replace("<details>", '<details markdown="1">')
 
 
 def main():
