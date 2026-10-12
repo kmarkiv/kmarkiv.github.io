@@ -10,6 +10,9 @@ sync; the owner explicitly prefers updates alongside README pushes.
 
 The sync script uses public GitHub data and prefers Mac DMGs only when a published
 release actually includes them. Keep source version and published release version
-distinct. Maintain the lightweight LaTeX editor positioning on the landing page.
+distinct. Maintain the free, lightweight, offline LaTeX editor positioning on the landing
+page and README. Qualify offline compilation: all required packages and tools
+must already be cached or installed; downloads and remote Git operations need
+internet.
 
 Preserve unrelated local changes, including `.DS_Store`.

@@ -1,27 +1,27 @@
 ---
 layout: gitleaf
-title: "GitLeaf — Lightweight LaTeX Editor with Git & PDF Preview"
-description: "Write LaTeX locally with GitLeaf, a free lightweight editor with Git history, autosave and PDF preview. Download for Mac, Windows or Linux."
+title: "GitLeaf — Free, Lightweight Offline LaTeX Editor"
+description: "GitLeaf is a free, lightweight offline LaTeX editor for Mac, Windows and Linux. Write locally with Git history, autosave and PDF preview."
 permalink: /gitleaf/
 ---
 <section class="hero wrap">
-  <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Local files. Open source. Yours.</p>
-  <h1>A lightweight<br><em>LaTeX editor.</em></h1>
-  <p class="lede">Write your paper. See your PDF. Keep your history.<br class="desktop-break"> GitLeaf brings a familiar editing experience to your own computer.</p>
+  <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Free &amp; open source · Mac, Windows &amp; Linux</p>
+  <h1>A free, lightweight<br><em>offline LaTeX editor.</em></h1>
+  <p class="lede">Write papers on your own computer, with Git history<br class="desktop-break"> and a PDF preview beside your source. No account or subscription needed.</p>
   <div class="actions">
     <a class="button" href="#downloads">Download GitLeaf <span aria-hidden="true">↓</span></a>
     <a class="text-link" href="{{ '/gitleaf/guide/' | relative_url }}">Get started <span aria-hidden="true">→</span></a>
   </div>
-  <p class="fine">Free · Mac, Windows &amp; Linux · No account needed to write locally</p>
+  <p class="fine">Offline compilation needs cached or installed LaTeX packages. <a href="#offline">Prepare for offline writing</a>.</p>
   <figure class="preview">
     <img src="{{ '/assets/images/gitleaf/screenshot.jpg' | relative_url }}" width="800" height="500" fetchpriority="high" decoding="async" alt="GitLeaf showing a file explorer on the left, LaTeX source in the middle and the compiled PDF on the right">
     <figcaption>Your files, your LaTeX, your PDF. One workspace.</figcaption>
   </figure>
 </section>
 <section class="wrap features" aria-label="Why GitLeaf">
-  <article><span class="number">01</span><h2>Write without the clutter.</h2><p>A focused editor with tabs, autosave and a PDF preview beside your source. Compile with one button and jump from errors to the line that needs fixing.</p></article>
+  <article><span class="number">01</span><h2>Write without the clutter.</h2><p>A lightweight app with a bundled editor and PDF viewer. No separate web server, Rust or Node.js setup. Write with tabs and autosave, then Compile with one button.</p></article>
   <article><span class="number">02</span><h2>Your papers stay with you.</h2><p>Every project is a plain Git repository on your computer. Commit milestones, review history and push to GitHub or another remote when you choose.</p></article>
-  <article><span class="number">03</span><h2>Start small. Bring your tools.</h2><p>Start from a template or import an Overleaf source ZIP. Your first compile can install Tectonic; an existing MacTeX or TeX Live installation works too.</p></article>
+  <article><span class="number">03</span><h2>Work offline after setup.</h2><p>Edit, autosave and commit locally without internet. Compile with cached Tectonic packages or an installed MacTeX or TeX Live distribution.</p></article>
 </section>
 <section class="download-section" id="downloads">
   <div class="wrap">
@@ -40,6 +40,14 @@ permalink: /gitleaf/
     <p class="fine">GitLeaf opens in your browser and runs locally. The Mac app requires macOS 13+. Mac downloads are not yet notarized and may need first-launch approval. <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">Setup help</a> · <a href="{{ site.data.gitleaf.release_url }}">All assets &amp; checksums</a></p>
   </div>
 </section>
+<section class="wrap start" id="offline">
+  <div><p class="eyebrow">Write wherever you are</p><h2>Prepare for offline LaTeX writing.</h2><p class="section-lede">Your files, editor, PDF viewer and local Git history stay available without a connection.</p></div>
+  <ol>
+    <li><strong>Set up while online.</strong><p>Download GitLeaf, install Git, then install Tectonic or a full LaTeX distribution with latexmk.</p></li>
+    <li><strong>Compile your paper once.</strong><p>Include its bibliography and figures. Tectonic downloads and caches needed packages; full LaTeX uses packages installed on your computer.</p></li>
+    <li><strong>Test without a connection.</strong><p>Try compiling that paper without internet. New packages may still need a download; remote Git operations, online templates and updates need a connection.</p></li>
+  </ol>
+</section>
 <section class="wrap start">
   <div><p class="eyebrow">From download to PDF</p><h2>Your first paper,<br>in three steps.</h2></div>
   <ol>
@@ -51,7 +59,8 @@ permalink: /gitleaf/
 <section class="wrap faq">
   <p class="eyebrow">A few useful details</p><h2>Before you begin.</h2>
   <details><summary>Can I use GitLeaf instead of Overleaf?</summary><p>GitLeaf offers a similar source-and-PDF workflow on your computer. Import an Overleaf source ZIP, or use Overleaf’s Git bridge if your account supports it. Collaboration uses Git; live simultaneous editing is not included.</p></details>
+  <details><summary>Is GitLeaf free?</summary><p>Yes. GitLeaf is free and open source under the MIT license. Local writing needs no account or subscription. Optional third-party services such as Overleaf’s Git bridge have their own access requirements.</p></details>
   <details><summary>Do I need to install LaTeX?</summary><p>You need Git, but you can start without a LaTeX installation. On your first Compile, GitLeaf offers to install Tectonic if no compiler is found. You can also install MacTeX or TeX Live with latexmk. See <a href="{{ '/gitleaf/guide/#latex-compiler-options' | relative_url }}">compiler options</a>.</p></details>
-  <details><summary>Does it work offline?</summary><p>The editor and your local files work offline. Tectonic needs internet to fetch packages it has not cached. A full LaTeX installation can compile using its installed packages offline. Downloads and remote Git operations need internet.</p></details>
+  <details><summary>Can I edit and compile LaTeX offline?</summary><p>The editor and your local files work offline. Tectonic needs internet to fetch packages it has not cached. A full LaTeX installation can compile using its installed packages offline. Downloads and remote Git operations need internet. Follow the <a href="{{ '/gitleaf/guide/#offline-latex-editing' | relative_url }}">offline setup checklist</a>.</p></details>
   <details><summary>Where is the full documentation?</summary><p>The <a href="{{ '/gitleaf/guide/' | relative_url }}">setup and reference guide</a> comes from the GitHub README. It includes compiler choices, troubleshooting, configuration and source builds.</p></details>
 </section>
