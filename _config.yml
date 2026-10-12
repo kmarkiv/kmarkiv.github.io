@@ -19,6 +19,7 @@ keywords: "Vikram Kamath Cannanure, Vikram Cannanure, Vikram Kamath, HCI, human-
 plugins:
   - jekyll-sitemap
 exclude:
+  - AGENTS.md
   # Maintenance notes, not a page. Without this Jekyll renders it at
   # /assets/papers/ and jekyll-sitemap submits it for indexing.
   - scripts

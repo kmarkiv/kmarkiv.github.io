@@ -99,6 +99,8 @@ Selected swims:
 
 ## Software & Making Things
 
+[**GitLeaf — a lightweight LaTeX editor**]({{ "/gitleaf/" | relative_url }}) runs on your own computer, with Git history, autosave and a PDF preview beside your writing. Free and open source for Mac, Windows and Linux. [Download and get started]({{ "/gitleaf/" | relative_url }}).
+
 I’ve built **web, Android, iOS, and desktop software**, as well as **hardware**. My projects include **Flask APIs** serving over 4 million users, a **WebGL 3D viewer**, **Learn Kannada** with over 10,000 downloads, and **Jedi Mouse**, which lets people control a cursor using gestures and EEG signals.
 
 

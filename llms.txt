@@ -36,6 +36,12 @@ publication list and the first keyword on every paper:
   [Global South](https://kmarkiv.com/topics/global-south/)
 - [Thoughtful AI](https://kmarkiv.com/thoughtful-ai/): the research programme
 
+## Software
+
+- [GitLeaf](https://kmarkiv.com/gitleaf/): free, lightweight local LaTeX editor with Git history, autosave and PDF preview for Mac, Windows and Linux
+- [GitLeaf setup guide](https://kmarkiv.com/gitleaf/guide/): README-based installation, compiler options, troubleshooting and source builds
+- [GitLeaf source](https://github.com/kmarkiv/gitleaf): MIT-licensed source and published downloads
+
 ## Profiles
 
 - [Google Scholar](https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en)

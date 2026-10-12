@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }}</title>
+  <meta name="description" content="{{ page.description | escape }}">
+  <meta name="author" content="{{ site.author | escape }}">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f7faf8">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/assets/images/gitleaf/logo.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/gitleaf.css' | relative_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GitLeaf">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/images/gitleaf/screenshot.jpg' | absolute_url }}">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="GitLeaf file explorer, LaTeX editor and PDF preview side by side">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | escape }}">
+  <meta name="twitter:description" content="{{ page.description | escape }}">
+  <meta name="twitter:image" content="{{ '/assets/images/gitleaf/screenshot.jpg' | absolute_url }}">
+  <meta name="twitter:image:alt" content="GitLeaf file explorer, LaTeX editor and PDF preview side by side">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebPage","@id":{{ page.url | absolute_url | append: '#page' | jsonify }},
+     "url":{{ page.url | absolute_url | jsonify }},"name":{{ page.title | jsonify }},
+     "description":{{ page.description | jsonify }},"about":{"@id":"{{ site.url }}/gitleaf/#app"}},
+    {"@type":"SoftwareApplication","@id":"{{ site.url }}/gitleaf/#app","name":"GitLeaf",
+     "url":"{{ site.url }}/gitleaf/","applicationCategory":"DeveloperApplication",
+     "operatingSystem":"macOS, Windows, Linux",
+     "description":"A lightweight, local LaTeX editor with Git history and a side-by-side PDF preview.",
+     "softwareVersion":{{ site.data.gitleaf.release_version | remove_first: 'v' | jsonify }},
+     "downloadUrl":{{ site.data.gitleaf.release_url | jsonify }},
+     "screenshot":"{{ site.url }}/assets/images/gitleaf/screenshot.jpg",
+     "license":"https://github.com/kmarkiv/gitleaf/blob/main/LICENSE",
+     "isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+     "author":{"@type":"Person","name":{{ site.author | jsonify }},"url":{{ site.url | jsonify }}}
+    }
+  ]}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="{{ '/gitleaf/' | relative_url }}"><img src="{{ '/assets/images/gitleaf/logo.svg' | relative_url }}" width="32" height="32" alt="">GitLeaf</a>
+    <nav aria-label="Main navigation">
+      <a href="{{ '/gitleaf/#downloads' | relative_url }}">Download</a>
+      <a href="{{ '/gitleaf/guide/' | relative_url }}">Setup guide</a>
+      <a href="https://github.com/kmarkiv/gitleaf">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">{{ content }}</main>
+  <footer class="wrap footer">
+    <p>Built by <a href="{{ '/' | relative_url }}">Vikram Kamath Cannanure</a>.</p>
+    <p>Free &amp; open source · <a href="https://github.com/kmarkiv/gitleaf/blob/main/LICENSE">MIT license</a> · <a href="https://github.com/kmarkiv/gitleaf/issues">Report an issue</a></p>
+  </footer>
+  {% include analytics.html %}
+</body>
+</html>
