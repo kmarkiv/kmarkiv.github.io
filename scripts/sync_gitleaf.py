@@ -60,12 +60,26 @@ def main():
         raise ValueError("Expected a published stable release")
     assets = {a["name"]: a for a in release["assets"] if a["state"] == "uploaded"}
     downloads = []
+    latest = REPO + "/releases/latest/download/"
+    # Copy-paste install commands, identical to the README's step 2. They use the
+    # releases/latest URL so they stay valid between website syncs.
+    unix = ("mkdir -p {d} && cd {d} && curl -fL -o gitleaf " + latest
+            + "{a} && chmod +x gitleaf && ./gitleaf")
+    commands = {
+        "macos-arm64": unix.format(d="~/Applications/gitleaf", a="gitleaf-macos-arm64"),
+        "macos-x86_64": unix.format(d="~/Applications/gitleaf", a="gitleaf-macos-x86_64"),
+        "windows-x86_64.exe": ('mkdir -Force "$env:LOCALAPPDATA\\gitleaf" | Out-Null; '
+                               'cd "$env:LOCALAPPDATA\\gitleaf"; Invoke-WebRequest ' + latest
+                               + "gitleaf-windows-x86_64.exe -OutFile gitleaf.exe; .\\gitleaf.exe"),
+        "linux-x86_64": unix.format(d="~/.local/bin/gitleaf-app", a="gitleaf-linux-x86_64"),
+        "linux-arm64": unix.format(d="~/.local/bin/gitleaf-app", a="gitleaf-linux-arm64"),
+    }
     for label, suffix, description in [
-        ("Mac · Apple silicon", "macos-arm64", "M1, M2, M3 and newer Apple chips"),
-        ("Mac · Intel", "macos-x86_64", "Macs with an Intel processor"),
+        ("Mac with Apple silicon", "macos-arm64", "M1 or newer, Macs from 2020 on"),
+        ("Older Mac (Intel)", "macos-x86_64", "Macs with an Intel processor"),
         ("Windows", "windows-x86_64.exe", "64-bit Windows PCs"),
         ("Linux · x86_64", "linux-x86_64", "Most Intel and AMD PCs"),
-        ("Linux · ARM64", "linux-arm64", "64-bit ARM computers"),
+        ("Linux · ARM64", "linux-arm64", "Raspberry Pi and other 64-bit ARM computers"),
     ]:
         executable = "gitleaf-" + suffix
         name = executable + ".dmg" if executable + ".dmg" in assets else executable
@@ -74,8 +88,11 @@ def main():
         url = assets[name]["browser_download_url"]
         if not url.startswith(REPO + "/releases/download/"):
             raise ValueError("Unexpected download URL")
-        downloads.append({"label": label, "description": description, "name": name,
-                          "url": url, "format": "Mac app · DMG" if name.endswith(".dmg") else "Standalone executable"})
+        dmg = name.endswith(".dmg")
+        downloads.append({"label": label, "description": description, "name": name, "url": url,
+                          "format": "Mac app · DMG" if dmg else "Single file, no installer",
+                          "command": None if dmg else commands[suffix],
+                          "shell": "PowerShell" if suffix.startswith("windows") else "Terminal"})
     if not downloads:
         raise ValueError("No supported published downloads found")
     screenshot = fetch(raw + "docs/screenshot.jpg")

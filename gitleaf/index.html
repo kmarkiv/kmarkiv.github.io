@@ -27,17 +27,22 @@ permalink: /gitleaf/
   <div class="wrap">
     <p class="eyebrow">Start writing</p>
     <h2>Choose your computer.</h2>
-    <p class="section-lede">Published release: <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>. Install Git first, then follow the <a href="{{ '/gitleaf/guide/#get-started' | relative_url }}">setup guide</a>.</p>
+    <p class="section-lede">Install <a href="{{ '/gitleaf/guide/#1-install-git-once' | relative_url }}">Git</a> first. Then paste your computer's command into Terminal (PowerShell on Windows): it downloads GitLeaf, starts it and opens the editor in your browser. Version <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>.</p>
+    <p class="fine which">Which Mac? Apple menu → About This Mac: "Chip: Apple M…" is Apple silicon, "Processor: Intel" is an older Intel Mac.</p>
     <div class="downloads">
       {% for download in site.data.gitleaf.downloads %}
-      <a class="download-card" href="{{ download.url }}">
-        <span class="download-heading">{{ download.label }} <span aria-hidden="true">↗</span></span>
-        <span>{{ download.description }}</span><span class="format">{{ download.format }}</span>
-      </a>
+      <div class="download-card">
+        <span class="download-heading">{{ download.label }}</span>
+        <span>{{ download.description }}</span>
+        {% if download.command %}
+        <span class="command-label">Paste into {{ download.shell }}:</span>
+        <code class="command" tabindex="0" aria-label="Install command for {{ download.label }}; click to select">{{ download.command }}</code>
+        {% endif %}
+        <a class="format" href="{{ download.url }}">{% if download.command %}Or download the file{% else %}Download{% endif %} ({{ download.format | downcase }}) <span aria-hidden="true">↓</span></a>
+      </div>
       {% endfor %}
     </div>
-    {% unless site.data.gitleaf.has_dmg %}<p class="fine">This release provides standalone executables. Mac app / DMG packaging is in the source and will appear here once published in a release.</p>{% endunless %}
-    <p class="fine">GitLeaf opens in your browser and runs locally. The Mac app requires macOS 13+. Mac downloads are not yet notarized and may need first-launch approval. <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">Setup help</a> · <a href="{{ site.data.gitleaf.release_url }}">All assets &amp; checksums</a></p>
+    <p class="fine">Click a command once to select all of it, then copy. Using the command avoids the macOS "could not verify" warning that browser downloads get; for a browser download, see <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">setup help</a>.{% if site.data.gitleaf.has_dmg %} The Mac app (DMG) needs macOS 13 or newer.{% endif %} <a href="{{ site.data.gitleaf.release_url }}">All files &amp; checksums</a></p>
   </div>
 </section>
 <section class="wrap start" id="offline">
@@ -51,7 +56,7 @@ permalink: /gitleaf/
 <section class="wrap start">
   <div><p class="eyebrow">From download to PDF</p><h2>Your first paper,<br>in three steps.</h2></div>
   <ol>
-    <li><strong>Install Git and open GitLeaf.</strong><p>Download for your computer. GitLeaf starts a local server and opens the editor in your browser.</p></li>
+    <li><strong>Install Git and start GitLeaf.</strong><p>Paste your computer's command from <a href="#downloads">Download</a>. GitLeaf runs on your computer and opens the editor in your browser.</p></li>
     <li><strong>Create or import a project.</strong><p>Choose a built-in article template, import a source ZIP, or clone a Git repository.</p></li>
     <li><strong>Write, then Compile.</strong><p>If you need a compiler, accept the Tectonic installation prompt. Your PDF appears beside your writing.</p></li>
   </ol>

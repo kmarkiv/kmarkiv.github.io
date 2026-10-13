@@ -18,6 +18,12 @@ renders the Markdown from data rather than executing README text as a template.
 Expandable sections opt into Kramdown rendering so their code blocks display
 correctly on GitHub Pages.
 
+Each download card also shows a one-line install command (Terminal, or PowerShell on
+Windows), selectable with one click and no JavaScript. The commands are built in
+`sync_gitleaf.py` and must stay identical to the README's step 2 commands; if the README
+changes them, update the `commands` table in the script to match. They use the
+`releases/latest/download/` URL, so they keep working between syncs. DMG cards show no command.
+
 Review the changes and the rendered guide, then commit and push them to `master`.
 The existing GitHub Pages branch build publishes the site. No daily sync or
 publishing-settings changes are needed. Changes to curated landing-page copy
