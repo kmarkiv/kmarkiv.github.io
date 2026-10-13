@@ -1,13 +1,13 @@
 ---
 layout: gitleaf
 title: "GitLeaf — Free, Lightweight Offline LaTeX Editor"
-description: "GitLeaf is a free, lightweight offline LaTeX editor for Mac, Windows and Linux. Write locally with Git history, autosave and PDF preview."
+description: "Free, lightweight offline LaTeX editor with PDF preview, autosave and Git history. Download GitLeaf for Mac, Windows or Linux. No account required."
 permalink: /gitleaf/
 ---
 <section class="hero wrap">
   <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Free &amp; open source · Mac, Windows &amp; Linux</p>
   <h1>A free, lightweight<br><em>offline LaTeX editor.</em></h1>
-  <p class="lede">Write papers on your own computer, with Git history<br class="desktop-break"> and a PDF preview beside your source. No account or subscription needed.</p>
+  <p class="lede">Write papers, theses and presentations on your own computer,<br class="desktop-break"> with autosave, Git history and PDF preview. No account or subscription needed.</p>
   <div class="actions">
     <a class="button" href="#downloads">Download GitLeaf <span aria-hidden="true">↓</span></a>
     <a class="text-link" href="{{ '/gitleaf/guide/' | relative_url }}">Get started <span aria-hidden="true">→</span></a>
@@ -26,8 +26,8 @@ permalink: /gitleaf/
 <section class="download-section" id="downloads">
   <div class="wrap">
     <p class="eyebrow">Start writing</p>
-    <h2>Choose your computer.</h2>
-    <p class="section-lede">Install <a href="{{ '/gitleaf/guide/#1-install-git-once' | relative_url }}">Git</a> first.{% if site.data.gitleaf.has_dmg %} On a Mac, download the app and drag it into Applications.{% endif %} Or paste your computer's command into Terminal (PowerShell on Windows): it downloads GitLeaf, starts it and opens the editor in your browser. Version <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>.</p>
+    <h2>Download for Mac, Windows or Linux.</h2>
+    <p class="section-lede">Install <a href="{{ '/gitleaf/guide/#1-install-git-once' | relative_url }}">Git</a> first.{% if site.data.gitleaf.has_dmg %} On a Mac, download the app and drag it into Applications; no Terminal window is needed after launch.{% endif %} For a standalone executable, paste your computer’s command into Terminal (PowerShell on Windows). Version <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>.</p>
     <p class="fine which">Which Mac? Apple menu → About This Mac: "Chip: Apple M…" is Apple silicon, "Processor: Intel" is an older Intel Mac.</p>
     <div class="downloads">
       {% for download in site.data.gitleaf.downloads %}
@@ -35,8 +35,8 @@ permalink: /gitleaf/
         <span class="download-heading">{{ download.label }}</span>
         <span>{{ download.description }}</span>
         {% if download.dmg %}
-        <a class="dmg-button" href="{{ download.url }}">Download GitLeaf.app <span aria-hidden="true">↓</span></a>
-        <span class="command-label">Or paste into Terminal (no security prompt):</span>
+        <a class="dmg-button" href="{{ download.url }}">Download Mac app (.dmg) <span aria-hidden="true">↓</span></a>
+        <span class="command-label">Or run the standalone version in Terminal:</span>
         {% else %}
         <span class="command-label">Paste into {{ download.shell }}:</span>
         {% endif %}
@@ -45,6 +45,7 @@ permalink: /gitleaf/
       </div>
       {% endfor %}
     </div>
+    <p class="fine">Mac apps use the menu bar to reopen or quit GitLeaf. Standalone executables need their Terminal or console window to stay open.</p>
     {% if site.data.gitleaf.has_dmg %}<p class="fine"><strong>Mac app, first time only:</strong> GitLeaf is not yet notarized by Apple, so macOS says it "could not verify" the app. Click Done, open System Settings → Privacy &amp; Security, click Open Anyway next to GitLeaf and confirm; after that it opens normally. Needs macOS 13 or newer.</p>{% endif %}
     <p class="fine">Click a command once to select all of it, then copy. <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">Setup help</a> · <a href="{{ site.data.gitleaf.release_url }}">All files &amp; checksums</a></p>
   </div>
@@ -60,16 +61,18 @@ permalink: /gitleaf/
 <section class="wrap start">
   <div><p class="eyebrow">From download to PDF</p><h2>Your first paper,<br>in three steps.</h2></div>
   <ol>
-    <li><strong>Install Git and start GitLeaf.</strong><p>Paste your computer's command from <a href="#downloads">Download</a>. GitLeaf runs on your computer and opens the editor in your browser.</p></li>
+    <li><strong>Install Git and start GitLeaf.</strong><p>On macOS, open GitLeaf from Applications. On Windows or Linux, use your <a href="#downloads">download or install command</a>. The editor opens in your browser.</p></li>
     <li><strong>Create or import a project.</strong><p>Choose a built-in article template, import a source ZIP, or clone a Git repository.</p></li>
     <li><strong>Write, then Compile.</strong><p>If you need a compiler, accept the Tectonic installation prompt. Your PDF appears beside your writing.</p></li>
   </ol>
 </section>
 <section class="wrap faq">
   <p class="eyebrow">A few useful details</p><h2>Before you begin.</h2>
-  <details><summary>Can I use GitLeaf instead of Overleaf?</summary><p>GitLeaf offers a similar source-and-PDF workflow on your computer. Import an Overleaf source ZIP, or use Overleaf’s Git bridge if your account supports it. Collaboration uses Git; live simultaneous editing is not included.</p></details>
+  <details><summary>Is GitLeaf an offline alternative to Overleaf?</summary><p>GitLeaf is an alternative for local LaTeX editing, with your source and PDF together on your computer. Import an Overleaf source ZIP, or use Overleaf’s Git bridge if your account supports it. Collaboration uses Git; live simultaneous editing is not included.</p></details>
   <details><summary>Is GitLeaf free?</summary><p>Yes. GitLeaf is free and open source under the MIT license. Local writing needs no account or subscription. Optional third-party services such as Overleaf’s Git bridge have their own access requirements.</p></details>
   <details><summary>Do I need to install LaTeX?</summary><p>You need Git, but you can start without a LaTeX installation. On your first Compile, GitLeaf offers to install Tectonic if no compiler is found. You can also install MacTeX or TeX Live with latexmk. See <a href="{{ '/gitleaf/guide/#latex-compiler-options' | relative_url }}">compiler options</a>.</p></details>
   <details><summary>Can I edit and compile LaTeX offline?</summary><p>The editor and your local files work offline. Tectonic needs internet to fetch packages it has not cached. A full LaTeX installation can compile using its installed packages offline. Downloads and remote Git operations need internet. Follow the <a href="{{ '/gitleaf/guide/#offline-latex-editing' | relative_url }}">offline setup checklist</a>.</p></details>
+  <details><summary>Can I write a thesis or a Beamer presentation?</summary><p>Yes. GitLeaf includes article, thesis and Beamer templates, plus ACM, IEEE and Springer LNCS formats. You can also import an existing LaTeX source ZIP or Git repository.</p></details>
+  <details><summary>How do I update the Mac app?</summary><p>Download the new DMG from the release page, wait for Saved, quit through the leaf menu and replace GitLeaf.app in Applications. Your papers stay in the projects folder. See <a href="{{ '/gitleaf/guide/#updates' | relative_url }}">update instructions</a>.</p></details>
   <details><summary>Where is the full documentation?</summary><p>The <a href="{{ '/gitleaf/guide/' | relative_url }}">setup and reference guide</a> comes from the GitHub README. It includes compiler choices, troubleshooting, configuration and source builds.</p></details>
 </section>

@@ -68,15 +68,16 @@ def main():
     commands = {
         "macos-arm64": unix.format(d="~/Applications/gitleaf", a="gitleaf-macos-arm64"),
         "macos-x86_64": unix.format(d="~/Applications/gitleaf", a="gitleaf-macos-x86_64"),
-        "windows-x86_64.exe": ('mkdir -Force "$env:LOCALAPPDATA\\gitleaf" | Out-Null; '
+        "windows-x86_64.exe": ("$ErrorActionPreference = 'Stop'; "
+                               'mkdir -Force "$env:LOCALAPPDATA\\gitleaf" | Out-Null; '
                                'cd "$env:LOCALAPPDATA\\gitleaf"; Invoke-WebRequest ' + latest
                                + "gitleaf-windows-x86_64.exe -OutFile gitleaf.exe; .\\gitleaf.exe"),
         "linux-x86_64": unix.format(d="~/.local/bin/gitleaf-app", a="gitleaf-linux-x86_64"),
         "linux-arm64": unix.format(d="~/.local/bin/gitleaf-app", a="gitleaf-linux-arm64"),
     }
     for label, suffix, description in [
-        ("Mac with Apple silicon", "macos-arm64", "M1 or newer, Macs from 2020 on"),
-        ("Older Mac (Intel)", "macos-x86_64", "Macs with an Intel processor"),
+        ("Mac with Apple silicon", "macos-arm64", "Macs with an Apple M-series chip"),
+        ("Mac with Intel", "macos-x86_64", "Macs with an Intel processor"),
         ("Windows", "windows-x86_64.exe", "64-bit Windows PCs"),
         ("Linux · x86_64", "linux-x86_64", "Most Intel and AMD PCs"),
         ("Linux · ARM64", "linux-arm64", "Raspberry Pi and other 64-bit ARM computers"),
@@ -89,8 +90,7 @@ def main():
         if not url.startswith(REPO + "/releases/download/"):
             raise ValueError("Unexpected download URL")
         dmg = name.endswith(".dmg")
-        # Mac cards keep the Terminal command next to the DMG: it avoids the one-time
-        # "could not verify" approval that a browser-downloaded, unnotarized app triggers.
+        # Mac cards offer the standalone Terminal route alongside the app download.
         downloads.append({"label": label, "description": description, "name": name, "url": url,
                           "format": "Mac app · DMG" if dmg else "Single file, no installer",
                           "dmg": dmg, "command": commands[suffix],
