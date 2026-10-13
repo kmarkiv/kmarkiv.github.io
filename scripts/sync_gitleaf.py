@@ -89,9 +89,11 @@ def main():
         if not url.startswith(REPO + "/releases/download/"):
             raise ValueError("Unexpected download URL")
         dmg = name.endswith(".dmg")
+        # Mac cards keep the Terminal command next to the DMG: it avoids the one-time
+        # "could not verify" approval that a browser-downloaded, unnotarized app triggers.
         downloads.append({"label": label, "description": description, "name": name, "url": url,
                           "format": "Mac app · DMG" if dmg else "Single file, no installer",
-                          "command": None if dmg else commands[suffix],
+                          "dmg": dmg, "command": commands[suffix],
                           "shell": "PowerShell" if suffix.startswith("windows") else "Terminal"})
     if not downloads:
         raise ValueError("No supported published downloads found")

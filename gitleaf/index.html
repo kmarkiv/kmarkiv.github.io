@@ -27,22 +27,26 @@ permalink: /gitleaf/
   <div class="wrap">
     <p class="eyebrow">Start writing</p>
     <h2>Choose your computer.</h2>
-    <p class="section-lede">Install <a href="{{ '/gitleaf/guide/#1-install-git-once' | relative_url }}">Git</a> first. Then paste your computer's command into Terminal (PowerShell on Windows): it downloads GitLeaf, starts it and opens the editor in your browser. Version <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>.</p>
+    <p class="section-lede">Install <a href="{{ '/gitleaf/guide/#1-install-git-once' | relative_url }}">Git</a> first.{% if site.data.gitleaf.has_dmg %} On a Mac, download the app and drag it into Applications.{% endif %} Or paste your computer's command into Terminal (PowerShell on Windows): it downloads GitLeaf, starts it and opens the editor in your browser. Version <a href="{{ site.data.gitleaf.release_url }}">{{ site.data.gitleaf.release_version }}</a>.</p>
     <p class="fine which">Which Mac? Apple menu → About This Mac: "Chip: Apple M…" is Apple silicon, "Processor: Intel" is an older Intel Mac.</p>
     <div class="downloads">
       {% for download in site.data.gitleaf.downloads %}
       <div class="download-card">
         <span class="download-heading">{{ download.label }}</span>
         <span>{{ download.description }}</span>
-        {% if download.command %}
+        {% if download.dmg %}
+        <a class="dmg-button" href="{{ download.url }}">Download GitLeaf.app <span aria-hidden="true">↓</span></a>
+        <span class="command-label">Or paste into Terminal (no security prompt):</span>
+        {% else %}
         <span class="command-label">Paste into {{ download.shell }}:</span>
-        <code class="command" tabindex="0" aria-label="Install command for {{ download.label }}; click to select">{{ download.command }}</code>
         {% endif %}
-        <a class="format" href="{{ download.url }}">{% if download.command %}Or download the file{% else %}Download{% endif %} ({{ download.format | downcase }}) <span aria-hidden="true">↓</span></a>
+        <code class="command" tabindex="0" aria-label="Install command for {{ download.label }}; click to select">{{ download.command }}</code>
+        {% unless download.dmg %}<a class="format" href="{{ download.url }}">Or download the file ({{ download.format | downcase }}) <span aria-hidden="true">↓</span></a>{% endunless %}
       </div>
       {% endfor %}
     </div>
-    <p class="fine">Click a command once to select all of it, then copy. Using the command avoids the macOS "could not verify" warning that browser downloads get; for a browser download, see <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">setup help</a>.{% if site.data.gitleaf.has_dmg %} The Mac app (DMG) needs macOS 13 or newer.{% endif %} <a href="{{ site.data.gitleaf.release_url }}">All files &amp; checksums</a></p>
+    {% if site.data.gitleaf.has_dmg %}<p class="fine"><strong>Mac app, first time only:</strong> GitLeaf is not yet notarized by Apple, so macOS says it "could not verify" the app. Click Done, open System Settings → Privacy &amp; Security, click Open Anyway next to GitLeaf and confirm; after that it opens normally. Needs macOS 13 or newer.</p>{% endif %}
+    <p class="fine">Click a command once to select all of it, then copy. <a href="{{ '/gitleaf/guide/#troubleshooting' | relative_url }}">Setup help</a> · <a href="{{ site.data.gitleaf.release_url }}">All files &amp; checksums</a></p>
   </div>
 </section>
 <section class="wrap start" id="offline">
