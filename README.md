@@ -1,10 +1,10 @@
-## About
+## About — AI and Society {#about}
 
 I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/).
 
 I design **Thoughtful AI**: low-cost systems built *with* people to support learning, reflection, and participation in their communities. A question guides this work: what can people still do when the AI assistance ends?
 
-My work combines **AI deployments across the Global South** with fieldwork and collaborations in India, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States. Current projects include health chatbots in rural India and research on generative AI learning support with women in Afghanistan. For my PhD, I deployed a teacher learning chatbot in rural **Côte d’Ivoire**, supporting **400+ teachers and 10,000+ students**.
+My work combines **AI deployments across the globe** with fieldwork and collaborations in India, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States. Current projects include health chatbots in rural India and research on generative AI learning support with women in Afghanistan. For my PhD, I deployed a teacher learning chatbot in rural **Côte d’Ivoire**, supporting **400+ teachers and 10,000+ students**.
 
 I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/). Based at Carnegie Mellon University Africa in Kigali, it brings researchers together to work on practical challenges across Africa.
 
