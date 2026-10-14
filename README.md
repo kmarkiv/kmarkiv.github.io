@@ -1,6 +1,6 @@
-## Hello!
+## AI and Society
 
-I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/). My research brings together **Human–Computer Interaction (HCI)**, **HCI for development (HCI4D)**, and **information and communication technologies for development (ICTD)**.
+I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/).
 
 I design **Thoughtful AI**: low-cost systems built *with* people to support learning, reflection, and participation in their communities. A question guides this work: what can people still do when the AI assistance ends?
 
@@ -16,9 +16,9 @@ My work spans three areas. Select one to see related publications below.
 
 - [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice systems, and short learning activities
 - [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, wider access to mentoring, and teachers’ aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — HCI4D and ICTD for social impact, building on community strengths in health, education, and conservation
+- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — who AI serves, whose knowledge shapes it, and how communities use it; drawing on HCI4D and ICTD
 
-### LLMs for HCI4D, ICTD and Social Impact
+### Education, health, and civic life
 
 My work applies LLMs to education, health, and civic learning. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation. Together, we study AI for sensitive health questions and WhatsApp tools that help communities learn about caring for land and water.
 

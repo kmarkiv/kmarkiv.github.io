@@ -1,22 +1,24 @@
 # Vikram Kamath Cannanure
 
 > Postdoctoral fellow at Saarland University and KCRC Fellow at the Kigali
-> Collaborative Research Centre. Works on Thoughtful AI: human-centered systems
-> for reflection, care and trust, at the intersection of Human-Computer
-> Interaction (HCI), HCI for development (HCI4D), Information and Communication
-> Technologies for Development (ICTD), and large language models (LLMs).
+> Collaborative Research Centre. Studies AI and Society: how AI shapes learning,
+> access to information, and participation in everyday life. Designs Thoughtful AI
+> with communities for education, health, and civic learning. The work draws on
+> Human-Computer Interaction (HCI), HCI for development (HCI4D), Information and
+> Communication Technologies for Development (ICTD), and large language models (LLMs).
 
 Also published as "Vikram Cannanure" and "Vikram Kamath".
 PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
 
 ## Topics
 
-Work is organised under three topics, which are also the filters on the homepage
+AI and Society is the overarching research area. Work is organised under three
+topics, which are also the filters on the homepage
 publication list and the first keyword on every paper:
 
 - **Conversational AI** — chatbots, large language models (LLMs), interactive voice response, microlearning
 - **Learning** — teacher professional development, mentorship at scale, teacher aspirations
-- **Global South** — HCI4D and ICTD, asset-based design, community access to health and education information
+- **Global South** — AI and social impact, community knowledge and participation, drawing on HCI4D and ICTD
 
 ## Structured data
 
