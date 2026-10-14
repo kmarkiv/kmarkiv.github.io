@@ -5,11 +5,11 @@ google_scholar: https://scholar.google.com/citations?user=HVuuUzwAAAAJ&hl=en
 github_link: https://github.com/kmarkiv
 twitter_link: https://twitter.com/kmarkiv
 linkedin: https://www.linkedin.com/in/vikramkamathc/
-avatar: ./assets/avatar.jpg
-favicon: ./assets/avatar.jpg
+avatar: /assets/avatar.jpg
+favicon: /assets/avatar.jpg
 cv: ./assets/Vikram_Kamath_CV.pdf
-favicon_dark: ./assets/avatar.jpg
-description: "Vikram Kamath Cannanure studies AI and Society at Saarland University, designing Thoughtful AI with communities for education, health, and civic learning."
+favicon_dark: /assets/avatar.jpg
+description: "Vikram Kamath Cannanure studies AI and Society at Saarland University, designing Thoughtful AI with communities and drawing on HCI, HCI4D, ICTD and LLMs."
 canonical: https://kmarkiv.com
 url: https://kmarkiv.com
 author: Vikram Kamath Cannanure

@@ -1,30 +1,23 @@
 ## About — AI and Society {#about}
 
-I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/).
+I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. I draw on **Human–Computer Interaction (HCI)** and its development-focused branches, **HCI4D** and **ICTD**. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/), and a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/) at Carnegie Mellon University Africa.
 
-I design **Thoughtful AI**: low-cost systems built *with* people to support learning, reflection, and participation in their communities. A question guides this work: what can people still do when the AI assistance ends?
+I design **Thoughtful AI**: low-cost systems built *with* people, often using **large language models (LLMs)**, and deployed across the globe to support learning, reflection, and participation. A question guides this work: what can people still do when the AI assistance ends?
 
-My work combines **AI deployments across the globe** with fieldwork and collaborations in India, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States. Current projects include health chatbots in rural India and research on generative AI learning support with women in Afghanistan. For my PhD, I deployed a teacher learning chatbot in rural **Côte d’Ivoire**, supporting **400+ teachers and 10,000+ students**.
-
-I am also a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/). Based at Carnegie Mellon University Africa in Kigali, it brings researchers together to work on practical challenges across Africa.
-
-I completed my **Ph.D. in Human–Computer Interaction** at Carnegie Mellon University, USA, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html).
-
+For my **Ph.D. in HCI** at Carnegie Mellon University, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html), I deployed a teacher learning chatbot in rural **Côte d’Ivoire** that supported **400+ teachers and 10,000+ students** ([thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}).
 
 
 ## Research Interests
 
-My work spans three areas. Select one to see related publications below.
+Select an area to filter the publications below.
 
 - [**Conversational AI**](#selected-publications){:data-jump="conversational-ai" title="Filter to chatbot, LLM and voice work"} — chatbots, large language models (LLMs), interactive voice systems, and short learning activities
 - [**Learning**](#selected-publications){:data-jump="learning" title="Filter to teacher learning work"} — teacher professional development, wider access to mentoring, and teachers’ aspirations
-- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — who AI serves, whose knowledge shapes it, and how communities use it; drawing on HCI4D and ICTD
+- [**Global South**](#selected-publications){:data-jump="global-south" title="Filter to HCI4D and ICTD work"} — who AI serves, whose knowledge shapes it, and how communities use it, drawing on HCI4D and ICTD
 
-### Education, health, and civic life
+### LLMs for HCI4D and ICTD: education, health, and civic life
 
-My work applies LLMs to education, health, and civic learning. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation. Together, we study AI for sensitive health questions and WhatsApp tools that help communities learn about caring for land and water.
-
-My PhD work explored how chat-based tools could connect rural teachers with mentors and support their professional aspirations. Read my [thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}.
+I apply LLMs to education, health, and civic learning, with fieldwork and collaborations in India, Cameroon, Côte d’Ivoire, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States. In India, I collaborate with [Gram Vaani](https://gramvaani.org/){:title="Gram Vaani, a social technology organisation working with rural communities in India"}, a social technology organisation, on AI for sensitive health questions and WhatsApp tools that help communities care for land and water. In Cameroon, we run LLM-based teacher learning on WhatsApp; in Afghanistan, we study generative AI learning support with women.
 
 
 ## Selected Publications

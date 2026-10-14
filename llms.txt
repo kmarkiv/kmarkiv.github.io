@@ -36,7 +36,7 @@ publication list and the first keyword on every paper:
   [Conversational AI](https://kmarkiv.com/topics/conversational-ai/) ·
   [Learning](https://kmarkiv.com/topics/learning/) ·
   [Global South](https://kmarkiv.com/topics/global-south/)
-- [Thoughtful AI](https://kmarkiv.com/thoughtful-ai/): the research programme
+- [Thoughtful AI Lab](https://kmarkiv.com/thoughtful-ai/): the lab page, with principles and current projects
 
 ## Software
 
