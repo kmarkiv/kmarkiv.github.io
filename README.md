@@ -1,6 +1,6 @@
 ## About {#about}
 
-I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. My research draws on **Human–Computer Interaction (HCI)**, **HCI for Development (HCI4D)**, and **Information and Communication Technologies for Development (ICTD)**. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/), and a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/) at Carnegie Mellon University Africa.
+I study **AI and Society**: how AI shapes learning, access to information, and participation in everyday life. My research draws on **Human–Computer Interaction (HCI)** and **Information and Communication Technologies for Development (ICTD)**. I’m a postdoctoral fellow at **Saarland University**, advised by Prof. [Ingmar Weber](https://ingmarweber.de/), and a **KCRC Fellow** at the [Kigali Collaborative Research Centre](https://www.kcrc.rw/) at Carnegie Mellon University Africa.
 
 I design **Thoughtful AI**: low-cost systems built *with* people, often using **large language models (LLMs)**, and deployed across the globe to support learning, reflection, and participation. I study their **societal impact** by asking who benefits, whose knowledge shapes them, and what people can still do when AI assistance ends.
 
