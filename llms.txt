@@ -2,8 +2,9 @@
 
 > Postdoctoral fellow at Saarland University and KCRC Fellow at the Kigali
 > Collaborative Research Centre. Studies AI and Society: how AI shapes learning,
-> access to information, and participation in everyday life. Designs Thoughtful AI
-> with communities for education, health, and civic learning. The work draws on
+> access to information, and participation in everyday life. Studies the societal
+> impact of AI and designs Thoughtful AI with communities for education, health,
+> and civic learning. The work draws on
 > Human-Computer Interaction (HCI), HCI for development (HCI4D), Information and
 > Communication Technologies for Development (ICTD), and large language models (LLMs).
 
@@ -18,7 +19,7 @@ publication list and the first keyword on every paper:
 
 - **Conversational AI** — chatbots, large language models (LLMs), interactive voice response, microlearning
 - **Learning** — teacher professional development, mentorship at scale, teacher aspirations
-- **Global South** — AI and social impact, community knowledge and participation, drawing on HCI4D and ICTD
+- **Global South** — societal impact of AI, community knowledge and participation, drawing on HCI4D and ICTD
 
 ## Structured data
 

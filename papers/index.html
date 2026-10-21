@@ -1,14 +1,25 @@
 ---
+last_modified_at: 2026-10-21
+description: "AI and Society publications by Vikram Kamath Cannanure on societal impact, LLMs, HCI4D and ICTD, with abstracts, PDFs and citation records."
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Publications | Vikram Kamath Cannanure</title>
-    <meta name="description" content="Publications by Vikram Kamath Cannanure on AI and Society and Thoughtful AI: HCI, HCI4D, ICTD and LLMs for education, health and the Global South.">
+    <title>AI and Society Publications | {{ site.title }}</title>
+    <meta name="description" content="{{ page.description | escape }}">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="{{ site.canonical }}/papers/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI and Society Publications | {{ site.title }}">
+    <meta property="og:description" content="{{ page.description | escape }}">
+    <meta property="og:url" content="{{ site.canonical }}/papers/">
+    <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI and Society Publications | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.description | escape }}">
+    <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
     <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
     <style>
@@ -29,7 +40,7 @@
       <section class="paper">
         <p class="eyebrow">Publication record</p>
         <h1>Research papers</h1>
-        <p class="index-intro">Explore my work in AI and Society and Thoughtful AI: conversational AI and LLMs, teacher learning, and HCI4D and ICTD research on community participation in the Global South. Each paper has its own page with an abstract, citation, and links to read more.</p>
+        <p class="index-intro">Explore my AI and Society research on education, health, and civic life. These papers examine societal impact through LLMs, HCI4D, and ICTD, from teacher learning to community participation in the Global South. Each paper has its own page with an abstract, citation, and links to read more.</p>
         <div class="actions index-actions">
           <a class="primary" href="{{ '/assets/publications.bib' | relative_url }}" download>Download all BibTeX</a>
           <a href="{{ site.google_scholar }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>

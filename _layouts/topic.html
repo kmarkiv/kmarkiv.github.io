@@ -4,18 +4,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.topic }} — {{ site.title }}</title>
-    <meta name="description" content="{{ page.blurb | strip | escape }}">
+    <title>{{ page.seo_title | default: page.topic }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: page.blurb | strip | escape }}">
     <meta name="author" content="{{ site.author }}">
     <link rel="canonical" href="{{ site.canonical }}/topics/{{ page.topic | slugify }}/">
     <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
     <link rel="stylesheet" href="{{ '/assets/css/paper.css' | relative_url }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ page.topic }} — {{ site.title }}">
-    <meta property="og:description" content="{{ page.blurb | strip | escape }}">
+    <meta property="og:title" content="{{ page.seo_title | default: page.topic }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.description | default: page.blurb | strip | escape }}">
     <meta property="og:url" content="{{ site.canonical }}/topics/{{ page.topic | slugify }}/">
     <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.seo_title | default: page.topic }} | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.description | default: page.blurb | strip | escape }}">
+    <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
   </head>
   <body>
     <header class="site-header">

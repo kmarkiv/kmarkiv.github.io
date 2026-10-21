@@ -1,11 +1,13 @@
 ---
+last_modified_at: 2026-10-21
+description: "AI and Society research by Vikram Kamath Cannanure on societal impact in education, health and civic life, drawing on LLMs, HCI4D and ICTD."
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{{ page.description | escape }}">
     <meta name="robots" content="index,follow">
     <title>AI and Society Research | {{ site.title }}</title>
     <link rel="canonical" href="{{ site.canonical }}/research.html">
@@ -13,13 +15,15 @@
     <link rel="icon" href="{{ '/assets/avatar.jpg' | absolute_url }}" type="image/jpeg">
     <meta property="og:type" content="profile">
     <meta property="og:title" content="AI and Society Research | {{ site.title }}">
-    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:description" content="{{ page.description | escape }}">
     <meta property="og:url" content="{{ site.canonical }}/research.html">
     <meta property="og:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
     <meta property="og:image:alt" content="Portrait of Vikram Kamath Cannanure">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI and Society Research | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.description | escape }}">
     <meta name="twitter:image" content="{{ '/assets/og-vikram.jpg' | absolute_url }}">
     <meta name="twitter:image:alt" content="Portrait of Vikram Kamath Cannanure">
     <link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url }}">
@@ -70,8 +74,10 @@
           <h2>AI and Society: designing with communities</h2>
           <p>
             I work with communities to design and study AI for education, health, and
-            civic learning. My AI and Society research asks who benefits, whose knowledge
-            shapes these systems, and what people can do when AI assistance ends.
+            civic learning, including systems built with large language models (LLMs).
+            My AI and Society research examines their <strong>societal impact</strong>:
+            who benefits, whose knowledge shapes these systems, and what people can do
+            when AI assistance ends.
             I draw on Human-Computer Interaction (HCI), HCI for development (HCI4D), and
             information and communication technologies for development (ICTD), with a
             particular interest in the Global South.
