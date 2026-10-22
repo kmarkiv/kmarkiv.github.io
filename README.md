@@ -7,7 +7,7 @@ I design **Thoughtful AI**: low-cost systems built *with* people, often using **
 For my **Ph.D. in HCI** at Carnegie Mellon University, advised by Prof. [Amy Ogan](https://www.amyogan.com/) and Prof. [Tim Brown](https://www.africa.engineering.cmu.edu/about/contact/directory/bios/brown-tim.html), I deployed a teacher learning chatbot in rural **Côte d’Ivoire** that supported **400+ teachers and 10,000+ students** ([thesis draft]({{ site.thesis_link }}){:title="DIA: Supporting Teacher Professional Development in Low-Infrastructure Settings (PhD thesis, CMU)"}).
 
 
-## Research Interests
+## Human-Centered AI for Society
 
 Select an area to filter the publications below.
 
