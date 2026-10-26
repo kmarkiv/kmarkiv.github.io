@@ -41,6 +41,10 @@ defaults:
     values:
       sitemap: false
   - scope:
+      path: "llms-full.txt"
+    values:
+      sitemap: false
+  - scope:
       path: "publications.json"
     values:
       sitemap: false

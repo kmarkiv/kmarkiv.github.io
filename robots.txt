@@ -1,4 +1,5 @@
 # Everything here is public and intended to be read, by people and by machines.
+# Machine-readable summaries: https://kmarkiv.com/llms.txt and https://kmarkiv.com/llms-full.txt
 User-agent: *
 Allow: /
 
@@ -18,13 +19,46 @@ Allow: /
 User-agent: Claude-User
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 
 User-agent: CCBot

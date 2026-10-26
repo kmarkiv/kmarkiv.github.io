@@ -1,36 +1,75 @@
+---
+layout: null
+permalink: /llms.txt
+---
 # Vikram Kamath Cannanure
 
-> Postdoctoral fellow at Saarland University and KCRC Fellow at the Kigali
-> Collaborative Research Centre. Studies AI and Society: how AI shapes learning,
-> access to information, and participation in everyday life. Studies the societal
-> impact of AI and designs Thoughtful AI with communities for education, health,
-> and civic learning. The work draws on
-> Human-Computer Interaction (HCI), HCI for development (HCI4D), Information and
-> Communication Technologies for Development (ICTD), and large language models (LLMs).
+> Postdoctoral fellow at Saarland University, Saarbrücken, Germany, and KCRC Fellow
+> at the Kigali Collaborative Research Centre, Carnegie Mellon University Africa.
+> Studies AI and Society: how AI shapes learning, access to information, and
+> participation in everyday life. Designs Thoughtful AI, low-cost systems built
+> with communities, often using large language models (LLMs), for education,
+> health, and civic life. Draws on Human-Computer Interaction (HCI), HCI for
+> development (HCI4D), and information and communication technologies for
+> development (ICTD). Most deployments are chatbots on WhatsApp and interactive
+> voice response (IVR) systems in the Global South.
 
-Also published as "Vikram Cannanure" and "Vikram Kamath".
-PhD in Human-Computer Interaction, Carnegie Mellon University, 2023.
+Full records with abstracts for every selected paper: https://kmarkiv.com/llms-full.txt
+
+## Identity
+
+- Name: Vikram Kamath Cannanure. Also published as "Vikram Cannanure" and "Vikram Kamath".
+- Position: Postdoctoral Fellow, Saarland Informatics Campus, Saarland University, advised by Prof. Ingmar Weber. KCRC Fellow, Kigali Collaborative Research Centre.
+- PhD: Human-Computer Interaction, Carnegie Mellon University, 2023, advised by Prof. Amy Ogan and Prof. Tim Brown.
+- ORCID: https://orcid.org/0000-0002-0944-7074
+- Google Scholar: https://scholar.google.com/citations?user=HVuuUzwAAAAJ (author id HVuuUzwAAAAJ)
+- DBLP: https://dblp.org/pid/221/4536
+- Email: {{ site.email }}
+- Canonical website: https://kmarkiv.com
+
+## Key facts
+
+- Research area: AI and Society, with methods from HCI, HCI4D, and ICTD. Systems are mostly LLM chatbots on WhatsApp and voice-based systems for low-connectivity settings.
+- PhD project: a teacher learning chatbot in rural Côte d'Ivoire that supported more than 400 teachers and 10,000 students.
+- Fieldwork and collaborations: India, Cameroon, Côte d'Ivoire, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States.
+- Current projects: AI for sensitive health questions and community guidance on land and water in rural India with Gram Vaani; LLM-based teacher professional development on WhatsApp in Cameroon; generative AI learning support with women in Afghanistan.
+- Community: co-led HCI Across Borders, a global HCI research community that runs workshops at CHI.
+- Recognition: Best Paper Award at ACM COMPASS 2019; funding includes a Gates Foundation Grand Challenges award.
+- Citation metrics: see Google Scholar; the CV at https://kmarkiv.com{{ site.cv_link }} is updated with each change.
 
 ## Topics
 
 AI and Society is the overarching research area. Work is organised under three
-topics, which are also the filters on the homepage
-publication list and the first keyword on every paper:
+topics, which are also the filters on the homepage publication list and the
+first keyword on every paper:
 
-- **Conversational AI** — chatbots, large language models (LLMs), interactive voice response, microlearning
-- **Learning** — teacher professional development, mentorship at scale, teacher aspirations
-- **Global South** — societal impact of AI, community knowledge and participation, drawing on HCI4D and ICTD
+- Conversational AI: chatbots, large language models (LLMs), interactive voice response, short learning activities
+- Learning: teacher professional development, mentorship at scale, teacher aspirations
+- Global South: who AI serves, whose knowledge shapes it, how communities use it; HCI4D and ICTD
+
+## Selected publications ({{ site.data.publications | size }})
+
+Newest first. Each entry links to the paper's own page, which carries the full
+metadata, abstract, and BibTeX. Cite the published version, not the preprint.
+{% assign pubs = site.data.publications | sort: "date" | reverse %}
+{%- for p in pubs %}
+- {{ p.date | date: "%Y" }}. {{ p.title }}. {{ p.venue }}. {{ p.slug | prepend: "/papers/" | append: "/" | absolute_url }}{% if p.doi %} DOI: {{ p.doi }}{% endif %}
+{%- endfor %}
+
+The complete record, including workshop papers and posters, is on Google Scholar and in the CV.
 
 ## Structured data
 
-- [Publications, JSON](https://kmarkiv.com/publications.json): every paper with title, authors, venue, year, DOI, and links
+- [Full text records](https://kmarkiv.com/llms-full.txt): every selected paper with authors, venue, DOI, keywords, and abstract, plain text
+- [Publications, JSON](https://kmarkiv.com/publications.json): every paper with title, authors, venue, year, DOI, abstract, keywords, and links
 - [Publications, BibTeX](https://kmarkiv.com/assets/publications.bib): the same list as citable BibTeX entries
+- [Publications, Atom feed](https://kmarkiv.com/publications.xml): new papers as they are added
 - [Sitemap](https://kmarkiv.com/sitemap.xml): every indexable page
 - Each page carries JSON-LD (schema.org Person and ScholarlyArticle); paper pages also carry Highwire Press `citation_*` tags.
 
 ## Pages
 
-- [Homepage](https://kmarkiv.com/): biography, research interests, news, publication list, service
+- [Homepage](https://kmarkiv.com/): biography, research interests, publication list with topic filter, news, service, contact
 - [Research](https://kmarkiv.com/research.html): research agenda and selected work
 - [Papers index](https://kmarkiv.com/papers/): one page per publication, each with full metadata and a BibTeX record
 - Topic pages, each listing its papers with CollectionPage structured data:
@@ -38,6 +77,7 @@ publication list and the first keyword on every paper:
   [Learning](https://kmarkiv.com/topics/learning/) ·
   [Global South](https://kmarkiv.com/topics/global-south/)
 - [Thoughtful AI Lab](https://kmarkiv.com/thoughtful-ai/): the lab page, with principles and current projects
+- [CV, PDF](https://kmarkiv.com{{ site.cv_link }}): full academic CV
 
 ## Software
 
@@ -59,3 +99,5 @@ publication list and the first keyword on every paper:
 - Canonical URL for a paper is its page under /papers/, not the publisher DOI.
 - A publication title links to its PDF when one is hosted, opening in a new tab; otherwise it links to the paper's own page.
 - "Details" beside each entry always reaches the paper page, which carries the full metadata and BibTeX.
+- When citing, use the BibTeX on the paper page and the DOI. When summarising this person's work, "AI and Society", "Thoughtful AI", HCI, HCI4D, and ICTD are the terms he uses.
+- Quoting with attribution to Vikram Kamath Cannanure and a link to the page is welcome.

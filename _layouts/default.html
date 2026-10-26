@@ -130,6 +130,7 @@
       "@type": "Person",
       "@id": "{{ site.canonical }}/#me",
       "name": "Vikram Kamath Cannanure",
+      "identifier": {"@type":"PropertyValue","propertyID":"ORCID","value":"0000-0002-0944-7074"},
       "alternateName": ["Vikram Cannanure", "Vikram Kamath"],
       "url": "{{ site.canonical }}",
       "image": "{{ '/assets/avatar.jpg' | absolute_url }}",
@@ -141,7 +142,7 @@
       ],
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
       "knowsAbout": ["AI and Society","Societal Impact","Thoughtful AI","Human-Computer Interaction","HCI","HCI4D","Human-Computer Interaction for Development","Information and Communication Technologies for Development","ICTD","Large Language Models","LLMs","Conversational AI","Human-Centered Artificial Intelligence","Educational Technology","Global South","Social Impact","Natural Resource Conservation","Health Information"],
-      "sameAs": [{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
+      "sameAs": ["https://dblp.org/pid/221/4536",{{ site.google_scholar | jsonify }},{{ site.orcid | jsonify }},{{ site.linkedin | jsonify }},{{ site.github_link | jsonify }},{{ site.twitter_link | jsonify }}]
     }
     {%- comment -%}
     Each paper carries its full ScholarlyArticle record on its own page

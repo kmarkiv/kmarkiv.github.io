@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# Vikram Kamath Cannanure: full text records
+
+Companion to https://kmarkiv.com/llms.txt. Generated {{ site.time | date: "%Y-%m-%d" }} from the same publication data that builds the site.
+
+Vikram Kamath Cannanure is a postdoctoral fellow at Saarland University, Saarbrücken, Germany, advised by Prof. Ingmar Weber, and a KCRC Fellow at the Kigali Collaborative Research Centre at Carnegie Mellon University Africa. He studies AI and Society: how AI shapes learning, access to information, and participation in everyday life. He designs Thoughtful AI, low-cost systems built with communities, often using large language models (LLMs), for education, health, and civic life, and asks what people can still do when AI assistance ends. His methods draw on Human-Computer Interaction (HCI), HCI for development (HCI4D), and information and communication technologies for development (ICTD). He completed his PhD in Human-Computer Interaction at Carnegie Mellon University in 2023, advised by Prof. Amy Ogan and Prof. Tim Brown, where he deployed a teacher learning chatbot in rural Côte d'Ivoire that supported more than 400 teachers and 10,000 students. Fieldwork and collaborations span India, Cameroon, Côte d'Ivoire, Rwanda, Afghanistan, South Africa, Macau, Germany, and the United States. Also published as "Vikram Cannanure" and "Vikram Kamath". ORCID 0000-0002-0944-7074. Google Scholar author id HVuuUzwAAAAJ. DBLP pid 221/4536.
+
+## Publications ({{ site.data.publications | size }} selected, newest first)
+{% assign pubs = site.data.publications | sort: "date" | reverse %}
+{%- for p in pubs %}
+
+### {{ p.title }}
+
+- Authors: {% if p.authors_list %}{{ p.authors_list | join: ", " }}{% else %}{{ p.authors }}{% endif %}
+- Venue: {{ p.venue }}
+- Date: {{ p.date }}
+- Type: {{ p.kind | default: "article" }}
+- Topic: {{ p.tag }}{% if p.keywords %}
+- Keywords: {{ p.keywords | join: ", " }}{% endif %}{% if p.doi %}
+- DOI: https://doi.org/{{ p.doi }}{% endif %}
+- Page: {{ p.slug | prepend: "/papers/" | append: "/" | absolute_url }}{% if p.pdf %}
+- PDF: {{ p.pdf | absolute_url }}{% endif %}{% if p.preprint %}
+- Preprint: {{ p.preprint }}{% endif %}
+{% if p.abstract %}
+Abstract: {{ p.abstract | strip | newline_to_br | replace: "<br />", " " | strip_newlines }}
+{% endif %}
+{%- endfor %}
