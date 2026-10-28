@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mensa SB Feedback</title>
+<meta name="description" content="The daily Mensa Saarbrücken menu from mensaar.de with a shared 1 to 5 score for every dish, and charts of what everyone thinks.">
+<meta name="theme-color" content="#e9eaec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141618" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/avatar.jpg">
+<link rel="canonical" href="https://kmarkiv.com/mensa/sb/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: compact masthead, sticky day strip, counters as a single column of tray-like panels
+   (each with its mensaar counter colour as a side stripe), then the collective charts below. */
+:root{
+  --bg:#e9eaec;          /* cool concrete grey, the Mensa building */
+  --surface:#ffffff;
+  --surface-2:#f4f4f5;
+  --fg:#1b1d20;
+  --muted:#5f6670;
+  --line:#d2d5d9;
+  --accent:#d9641e;      /* tray orange */
+  --accent-ink:#9a4210;
+  --on-accent:#ffffff;
+  --s1:#f6dccb; --s2:#efb88f; --s3:#e68f56; --s4:#d9641e; --s5:#8f3d0f; /* score ramp 1..5 */
+  --font-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --font-body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141618; --surface:#1e2124; --surface-2:#262a2e; --fg:#e9eaeb; --muted:#9aa1a9; --line:#363b40;
+    --accent:#ef8a48; --accent-ink:#f5b58d; --on-accent:#1b1d20;
+    --s1:#4a2a17; --s2:#7a401a; --s3:#b35a24; --s4:#e5823f; --s5:#f8b88f;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.45;margin:0}
+img{max-width:100%}
+.wrap{max-width:960px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:20px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)}
+a{color:var(--accent-ink)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,textarea:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mast{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:28px 16px}
+.mast p{margin:6px 0 0;max-width:52ch}
+.banner{display:none;background:var(--surface-2);border:1px solid var(--line);border-left:4px solid var(--accent);padding:10px 14px;border-radius:4px;margin-bottom:14px}
+.banner.show{display:block}
+.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding-block:10px;margin-bottom:14px;scrollbar-width:none;border-bottom:1px solid var(--line)}
+.days::-webkit-scrollbar{display:none}
+.day{flex:0 0 auto;padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);font-family:var(--font-mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.day[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.day.today{font-weight:500;color:var(--fg)}
+.day[aria-pressed="true"].today{color:var(--bg)}
+.menu{display:grid;gap:14px}
+.counter{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--cc,var(--line));border-radius:4px;padding:14px 16px 6px;min-width:0}
+.counter-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px}
+.counter-head .meta{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meal{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;padding-block:12px;border-top:1px solid var(--line);min-width:0}
+.meal:first-of-type{border-top:0}
+.meal-name{font-weight:600;font-size:16px}
+.meal-side{font-size:13.5px;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chip{font-family:var(--font-mono);font-size:11px;padding:1px 6px;border:1px solid var(--line);border-radius:3px;color:var(--muted)}
+.chip.al{border-color:var(--accent);color:var(--accent-ink)}
+.price{font-family:var(--font-mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap;text-align:right}
+.price b{color:var(--fg);font-weight:500}
+.rate{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:6px}
+.scale{display:flex;gap:4px}
+.pt{width:36px;height:34px;border:1px solid var(--line);border-radius:4px;background:var(--surface-2);font-family:var(--font-mono);font-size:14px;color:var(--muted)}
+.pt:hover{border-color:var(--accent)}
+.pt[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:500}
+.pt:disabled{opacity:.45;cursor:not-allowed}
+.scale-hint{font-size:12px;color:var(--muted)}
+.note-toggle{font-size:13px;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;padding:4px 0}
+.note{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:flex-start;margin-top:4px}
+.note textarea{min-width:0;width:100%;font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);resize:vertical}
+.note .save{padding:8px 12px;border:1px solid var(--fg);border-radius:4px;font-size:13px;font-weight:500}
+.note label{grid-column:1/-1;font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+.note label input{margin-top:3px}
+.agg{display:flex;align-items:center;gap:10px;margin-left:auto;min-width:0}
+.dist{display:flex;gap:2px;width:120px;height:10px;background:var(--surface-2);border-radius:2px;overflow:hidden}
+.dist i{display:block;height:100%}
+.avg{font-family:var(--font-mono);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.avg b{font-weight:500;color:var(--fg)}
+.mcomments{grid-column:1/-1;display:grid;gap:4px;margin-top:4px;font-size:13.5px}
+.mcomments div{padding-left:10px;border-left:2px solid var(--line);color:var(--muted)}
+.mcomments span{font-family:var(--font-mono);font-size:11px;color:var(--accent-ink);margin-right:6px}
+.empty{color:var(--muted);padding:24px 0}
+.viz{margin-top:40px;padding-top:24px;border-top:2px solid var(--fg)}
+.viz-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:22px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+.tile .v{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;margin-top:6px}
+.tile .v small{font-size:14px;color:var(--muted);font-weight:500;font-family:var(--font-body)}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;min-width:0}
+.chart h3{margin-bottom:2px}
+.chart .sub{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.chart svg{width:100%;height:auto;display:block;font-family:var(--font-mono);font-size:11px}
+.chart svg text{fill:var(--muted)}
+.chart svg text.v{fill:var(--fg)}
+.chart .empty{padding:14px 0 6px;font-size:13.5px}
+.lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;min-width:0}
+.list ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14px}
+.list li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list li .ct{font-size:12px;color:var(--muted)}
+.list li .sc{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:13px;display:flex;align-items:center;gap:8px}
+.list li .sc i{display:inline-block;width:10px;height:10px;border-radius:2px}
+.feed{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+.feed ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+.feed li{display:grid;gap:2px;font-size:14px;border-left:2px solid var(--line);padding-left:10px}
+.feed li .who{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.feed li .who b{color:var(--accent-ink);font-family:var(--font-mono);font-weight:500}
+.tip{position:fixed;z-index:20;pointer-events:none;background:var(--fg);color:var(--bg);font-family:var(--font-mono);font-size:12px;padding:6px 8px;border-radius:3px;display:none;max-width:260px;white-space:pre-line}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted)}
+footer p{margin:4px 0}
+@media (max-width:560px){
+  .meal{grid-template-columns:1fr}
+  .price{text-align:left}
+  .agg{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:no-preference){ .pt{transition:background .12s,border-color .12s} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Mensa Saarbrücken · Gebäude D4.1</div>
+      <h1>Mensa SB Feedback</h1>
+      <p class="muted">The daily menu from mensaar.de, with a shared score for every dish. Rate what you ate from 1 (poor) to 5 (great); the picture below is everyone's together.</p>
+    </div>
+    <div class="eyebrow" id="status">Loading menu…</div>
+  </header>
+
+  <div class="banner" id="banner" role="status"></div>
+
+  <nav class="days" id="days" aria-label="Day"></nav>
+  <section class="menu" id="menu"><p class="empty">Loading today's counters from mensaar.de…</p></section>
+
+  <section class="viz" id="viz">
+    <div class="viz-head">
+      <div>
+        <div class="eyebrow">Collective picture</div>
+        <h2>What the Mensa thinks</h2>
+      </div>
+      <div class="muted" id="viz-sub">Every rating from everyone who opened this page.</div>
+    </div>
+    <div class="tiles" id="tiles"></div>
+    <div class="charts">
+      <div class="chart" id="c-counters"><h3>Counters, ranked</h3><div class="sub">Average score across all rated days</div><div class="body"></div></div>
+      <div class="chart" id="c-days"><h3>Score by day</h3><div class="sub">Average of every rating given for that day's menu</div><div class="body"></div></div>
+      <div class="chart" id="c-hist"><h3>All scores</h3><div class="sub">How the ratings spread from 1 to 5</div><div class="body"></div></div>
+    </div>
+    <div class="lists">
+      <div class="list" id="l-top"><h3>Best dishes</h3><ol></ol></div>
+      <div class="list" id="l-bottom"><h3>Skip these</h3><ol></ol></div>
+    </div>
+    <div class="feed" id="feed"><h3>Latest notes</h3><ul></ul></div>
+  </section>
+
+  <footer>
+    <p>Menu data from <a href="https://mensaar.de/#/menu/sb" target="_blank" rel="noopener">mensaar.de</a> (Studierendenwerk Saarland). Prices: S students, M staff, G guests.</p>
+    <p>Ratings are anonymous: one score per browser per dish, no account, no cookies. They stay on this page unless you tick the box to also send one to the Studierendenwerk. An unofficial side project by <a href="https://kmarkiv.com/">Vikram Kamath Cannanure</a>.</p>
+  </footer>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+(function(){
+/* Paste the Apps Script web-app URL (ends in /exec) here. Empty = ratings switched off, menu still works. */
+var API_URL = "";
+
+var MENSAAR='https://mensaar.de/api/2/TFtD8CTykAXXwrW4WBU4/1/de/';
+var POLL_MS=90000;
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var S={days:[],notices:{},sel:null,today:null,uid:null,mine:{},all:new Map(),writing:false,dirty:false,ready:false,agg:null,pollTimer:null};
+
+var fmtDay=function(d){var x=new Date(d+'T12:00:00');return DOW[x.getDay()]+' '+x.getDate()+'.'+(x.getMonth()+1)+'.'};
+var key=function(d,c,m){return d+'|'+c+'|'+m};
+var hid=function(k){var h=7;for(var i=0;i<k.length;i++){h=(Math.imul(h,31)+k.charCodeAt(i))>>>0}return 'k'+h.toString(36)};
+var hhmm=function(t){return typeof t==='string'&&t.length>=16?t.slice(11,16):''};
+var avgOf=function(e){return e.n?e.sum/e.n:0};
+var f1=function(x){return x.toFixed(1)};
+var scoreVar=function(s){return 'var(--s'+Math.min(5,Math.max(1,Math.round(s)))+')'};
+
+function banner(msg){var b=$('#banner');if(!msg){b.classList.remove('show');b.textContent='';return}b.textContent=msg;b.classList.add('show')}
+function status(msg){$('#status').textContent=msg}
+
+/* ---------- identity: a random id per browser ---------- */
+function getUid(){
+  var id=null;
+  try{id=localStorage.getItem('mensa-uid')}catch(e){}
+  if(!id||!/^[A-Za-z0-9_-]{8,64}$/.test(id)){
+    var a=new Uint8Array(12);
+    if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else for(var i=0;i<12;i++)a[i]=Math.floor(Math.random()*256);
+    id='';for(var j=0;j<a.length;j++)id+=('0'+a[j].toString(16)).slice(-2);
+    try{localStorage.setItem('mensa-uid',id)}catch(e){}
+  }
+  return id;
+}
+
+/* ---------- menu ---------- */
+function loadMenu(){
+  Promise.all([
+    fetch(MENSAAR+'getMenu/sb').then(function(r){return r.json()}),
+    fetch(MENSAAR+'getBaseData').then(function(r){return r.json()})
+  ]).then(function(res){
+    var m=res[0],b=res[1];
+    S.notices=(b&&b.notices)||{};
+    S.days=((m&&m.days)||[]).map(function(d){return {date:String(d.date).slice(0,10),raw:d.date,isPast:!!d.isPast,counters:d.counters||[]}});
+    var t=new Date();S.today=t.getFullYear()+'-'+('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2);
+    var saved=null;try{saved=localStorage.getItem('mensa-day')}catch(e){}
+    var pick=S.days.filter(function(d){return d.date===saved})[0]||S.days.filter(function(d){return d.date>=S.today})[0]||S.days[S.days.length-1];
+    S.sel=pick?pick.date:null;
+    status(S.days.length+' days on the menu');
+    renderDays();renderMenu();applyAgg();
+  }).catch(function(){
+    status('Menu unavailable');
+    $('#menu').innerHTML='<p class="empty">Could not load the menu from mensaar.de. Reload the page to try again.</p>';
+  });
+}
+
+function renderDays(){
+  $('#days').innerHTML=S.days.map(function(d){return '<button class="day'+(d.date===S.today?' today':'')+'" data-d="'+d.date+'" aria-pressed="'+(d.date===S.sel)+'">'+fmtDay(d.date)+(d.date===S.today?' · today':'')+'</button>'}).join('');
+}
+
+function feedbackOpen(c){
+  if(!c||!c.feedback||!c.feedback.start||!c.feedback.end)return false;
+  var now=Date.now();return now>=new Date(c.feedback.start).getTime()&&now<=new Date(c.feedback.end).getTime();
+}
+
+function renderMenu(){
+  var day=S.days.filter(function(d){return d.date===S.sel})[0];
+  if(!day){$('#menu').innerHTML='<p class="empty">No menu for this day.</p>';return}
+  var future=day.date>S.today;
+  var off=!API_URL;
+  if(!day.counters.length){$('#menu').innerHTML='<p class="empty">The Mensa lists nothing for '+fmtDay(day.date)+'.</p>';return}
+  $('#menu').innerHTML=day.counters.map(function(c){
+    var col=c.color?('rgb('+c.color.r+','+c.color.g+','+c.color.b+')'):'';
+    var hrs=c.openingHours?hhmm(c.openingHours.start)+'–'+hhmm(c.openingHours.end):'';
+    var fbOpen=feedbackOpen(c);
+    var meals=(c.meals||[]).map(function(m){
+      var k=key(day.date,c.id,m.name);var id=hid(k);
+      var comps=(m.components||[]).map(function(x){return x.name}).filter(Boolean).join(' · ');
+      var codes=[];[].concat(m.notices||[]).concat.apply([],(m.components||[]).map(function(x){return x.notices||[]})).forEach(function(x){if(codes.indexOf(x)<0)codes.push(x)});
+      var chips=codes.map(function(code){var n=S.notices[code];var al=n&&n.isAllergen;return '<span class="chip'+(al?' al':'')+'" title="'+esc(n?n.displayName:code)+'">'+esc(code)+'</span>'}).join('');
+      var p=m.prices||{};
+      var priced=!!(p.s||p.m||p.g);
+      var price=priced?'<div class="price"><b>'+esc(p.s||'–')+'</b> S · '+esc(p.m||'–')+' M · '+esc(p.g||'–')+' G €</div>':'<div class="price"></div>';
+      var head='<div><div class="meal-name">'+esc(m.name)+'</div>'+(comps?'<div class="meal-side">'+esc(comps)+'</div>':'')+(chips?'<div class="chips">'+chips+'</div>':'')+'</div>';
+      if(!priced){ // an announcement, not a dish: show it, no rating
+        return '<div class="meal">'+head+price+'</div>';
+      }
+      var locked=future||off;
+      var pts=[1,2,3,4,5].map(function(v){return '<button class="pt" role="radio" aria-checked="false" data-v="'+v+'" aria-label="'+v+' of 5"'+(locked?' disabled':'')+'>'+v+'</button>'}).join('');
+      var hint=future?'Opens on the day':off?'Ratings not switched on yet':'1 poor · 5 great';
+      return '<div class="meal">'+head+price+
+        '<div class="rate" data-key="'+esc(k)+'" data-cid="'+esc(c.id)+'" data-kmid="'+esc(m.knownMealId||'undefined')+'" id="'+id+'">'+
+          '<div class="scale" role="radiogroup" aria-label="Your rating for '+esc(m.name)+'">'+pts+'</div>'+
+          '<span class="scale-hint">'+hint+'</span>'+
+          (locked?'':'<button class="note-toggle" type="button">Add a note</button>')+
+          '<div class="agg"><div class="dist" aria-hidden="true"></div><span class="avg muted">no ratings yet</span></div>'+
+        '</div>'+
+        (locked?'':'<div class="note" hidden><textarea id="note-'+id+'" rows="2" maxlength="400" placeholder="What was good or bad?"></textarea><button class="save" type="button">Save note</button>'+
+          (fbOpen?'<label><input type="checkbox" class="fwd" id="fwd-'+id+'"> Also send this score and note to the Studierendenwerk as official feedback (anonymous, through mensaar.de).</label>':'')+'</div>')+
+        '<div class="mcomments" id="mc-'+id+'"></div>'+
+      '</div>';
+    }).join('');
+    return '<article class="counter" style="--cc:'+col+'"><div class="counter-head"><h2>'+esc(c.displayName||c.id)+'</h2><span class="meta">'+esc(c.description||'')+(hrs?' · '+hrs:'')+'</span></div>'+(meals||'<p class="empty">Nothing served here today.</p>')+'</article>';
+  }).join('');
+}
+
+/* ---------- interactions ---------- */
+$('#days').addEventListener('click',function(e){
+  var b=e.target.closest('.day');if(!b)return;
+  S.sel=b.getAttribute('data-d');try{localStorage.setItem('mensa-day',S.sel)}catch(x){}
+  renderDays();renderMenu();applyAgg();
+});
+
+function counterName(d,cid){var day=S.days.filter(function(x){return x.date===d})[0];var c=day&&day.counters.filter(function(x){return x.id===cid})[0];return c?(c.displayName||c.id):cid}
+
+$('#menu').addEventListener('click',function(e){
+  var pt=e.target.closest('.pt');
+  if(pt){
+    var rate=pt.closest('.rate');var k=rate.getAttribute('data-key');var v=+pt.getAttribute('data-v');
+    var parts=k.split('|');
+    var cur=S.mine[k];
+    if(cur&&cur.s===v){delete S.mine[k];queueSave(k,0)}
+    else{S.mine[k]={s:v,c:cur?cur.c:'',t:Date.now(),d:parts[0],k:counterName(parts[0],parts[1]),m:parts[2]};queueSave(k,v)}
+    S.all.set(S.uid,S.mine);applyAgg();
+    return;
+  }
+  var tg=e.target.closest('.note-toggle');
+  if(tg){
+    var note=tg.closest('.meal').querySelector('.note');note.hidden=!note.hidden;
+    if(!note.hidden){var ta=note.querySelector('textarea');var kk=tg.closest('.rate').getAttribute('data-key');if(!ta.value&&S.mine[kk]&&S.mine[kk].c)ta.value=S.mine[kk].c;ta.focus()}
+    return;
+  }
+  var sv=e.target.closest('.save');
+  if(sv){
+    var meal=sv.closest('.meal');var r2=meal.querySelector('.rate');var k2=r2.getAttribute('data-key');
+    var ta2=meal.querySelector('textarea');var text=ta2.value.trim().slice(0,400);
+    var cur2=S.mine[k2];
+    if(!cur2){banner('Pick a score from 1 to 5 first, then save the note.');return}
+    S.mine[k2]=Object.assign({},cur2,{c:text,t:Date.now()});
+    S.all.set(S.uid,S.mine);applyAgg();queueSave(k2,cur2.s);
+    var fwd=meal.querySelector('.fwd');
+    if(fwd&&fwd.checked){forwardToMensaar(r2,S.mine[k2]);fwd.checked=false}
+    meal.querySelector('.note').hidden=true;
+    return;
+  }
+});
+
+/* ---------- storage: Apps Script web app ---------- */
+var pending={};
+function queueSave(k,s){
+  if(!API_URL)return;
+  pending[k]=s;
+  if(S.writing){S.dirty=true;return}
+  flush();
+}
+function flush(){
+  var keys=Object.keys(pending);
+  if(!keys.length){S.writing=false;return}
+  S.writing=true;
+  var k=keys[0];var s=pending[k];delete pending[k];
+  var e=S.mine[k]||{};var parts=k.split('|');
+  var body={u:S.uid,k:k,d:parts[0],c:e.k||counterName(parts[0],parts[1]),m:parts[2],s:s,n:s?(e.c||''):''};
+  fetch(API_URL,{method:'POST',body:JSON.stringify(body)}) // text/plain body: no preflight, Apps Script answers with CORS
+    .then(function(r){return r.json()})
+    .then(function(j){if(!j||!j.ok)throw new Error((j&&j.error)||'rejected');banner('')})
+    .catch(function(){banner('Could not save your rating. Check your connection and try again.')})
+    .then(function(){S.writing=false;flush()});
+}
+
+function loadRatings(){
+  if(!API_URL){S.ready=true;applyAgg();return}
+  fetch(API_URL+'?days=120',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+    if(!j||!j.ok||!Array.isArray(j.rows))throw new Error('bad response');
+    var all=new Map();
+    j.rows.forEach(function(r){
+      if(!r.u||!r.k||!(r.s>=1&&r.s<=5))return;
+      var m=all.get(r.u);if(!m){m={};all.set(r.u,m)}
+      m[r.k]={s:r.s,c:r.n||'',t:r.t||0,d:r.d,k:r.c,m:r.m};
+    });
+    if(S.writing||Object.keys(pending).length){all.set(S.uid,S.mine)}
+    else S.mine=all.get(S.uid)||{};
+    all.set(S.uid,S.mine);
+    S.all=all;S.ready=true;applyAgg();
+  }).catch(function(){
+    S.ready=true;
+    if(!S.all.size)banner('Shared ratings are unavailable right now. Your own choices still save when the store answers.');
+    applyAgg();
+  });
+}
+function schedulePoll(){
+  clearTimeout(S.pollTimer);
+  S.pollTimer=setTimeout(function(){if(document.visibilityState==='visible')loadRatings();schedulePoll()},POLL_MS);
+}
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&API_URL)loadRatings()});
+
+/* ---------- optional: official feedback to the Studierendenwerk ---------- */
+function forwardToMensaar(rateEl,entry){
+  var parts=rateEl.getAttribute('data-key').split('|');
+  var day=S.days.filter(function(x){return x.date===parts[0]})[0];
+  if(!day){return}
+  var form=new URLSearchParams({location:'sb',date:day.raw,counterId:rateEl.getAttribute('data-cid'),knownMealId:rateEl.getAttribute('data-kmid')||'undefined',mealName:parts[2],rating:String(entry.s),feedback:entry.c||'',email:''});
+  fetch(MENSAAR+'submitFeedback',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:form.toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);banner('Sent to the Studierendenwerk as official feedback. Thank you.')})
+    .catch(function(){banner('The Studierendenwerk feedback form did not accept it (their window may be closed). Your score is still saved here.')});
+}
+
+/* ---------- aggregation ---------- */
+function add(map,k,s,extra){var e=map.get(k);if(!e){e={n:0,sum:0,dist:[0,0,0,0,0],comments:[]};map.set(k,e)}e.n++;e.sum+=s;e.dist[s-1]++;if(extra)e.comments.push(extra);return e}
+function aggregate(){
+  var A={n:0,sum:0,hist:[0,0,0,0,0],byKey:new Map(),byCounter:new Map(),byDay:new Map(),byDish:new Map(),comments:[],raters:0,today:0};
+  S.all.forEach(function(r){
+    var any=false;
+    for(var k in r){
+      var e=r[k];if(!e||typeof e.s!=='number')continue;
+      var s=Math.min(5,Math.max(1,Math.round(e.s)));var parts=k.split('|');
+      var d=e.d||parts[0],cn=e.k||parts[1],mn=e.m||parts[2];
+      any=true;A.n++;A.sum+=s;A.hist[s-1]++;if(d===S.today)A.today++;
+      var cm=e.c&&String(e.c).trim()?{c:String(e.c).trim().slice(0,400),s:s,t:+e.t||0,m:mn,d:d,k:k}:null;
+      add(A.byKey,k,s,cm);add(A.byCounter,cn,s);add(A.byDay,d,s);add(A.byDish,mn,s);
+      if(cm)A.comments.push(cm);
+    }
+    if(any)A.raters++;
+  });
+  A.comments.sort(function(a,b){return b.t-a.t});
+  return A;
+}
+
+function applyAgg(){
+  var A=S.agg=aggregate();
+  Array.prototype.forEach.call(document.querySelectorAll('.rate[data-key]'),function(rate){
+    var k=rate.getAttribute('data-key');var e=A.byKey.get(k);var mine=S.mine[k];
+    Array.prototype.forEach.call(rate.querySelectorAll('.pt'),function(b){b.setAttribute('aria-checked',String(!!mine&&mine.s===+b.getAttribute('data-v')))});
+    var dist=rate.querySelector('.dist'),avg=rate.querySelector('.avg');
+    if(e&&e.n){
+      dist.innerHTML=e.dist.map(function(c,i){return c?'<i style="flex:'+c+';background:var(--s'+(i+1)+')" title="'+c+' × '+(i+1)+'"></i>':''}).join('');
+      avg.classList.remove('muted');avg.innerHTML='<b>'+f1(avgOf(e))+'</b> · '+e.n+(e.n===1?' rating':' ratings')+(mine?' · you '+mine.s:'');
+    }else{dist.innerHTML='';avg.classList.add('muted');avg.textContent=mine?'you '+mine.s:'no ratings yet'}
+    var mc=document.getElementById('mc-'+rate.id);
+    if(mc){var cs=e?e.comments.slice().sort(function(a,b){return b.t-a.t}).slice(0,3):[];mc.innerHTML=cs.map(function(c){return '<div><span>'+c.s+'/5</span>'+esc(c.c)+'</div>'}).join('')}
+  });
+  renderViz(A);
+}
+
+/* ---------- visualisation ---------- */
+function tileHTML(label,value,small){return '<div class="tile"><div class="eyebrow">'+label+'</div><div class="v">'+value+(small?' <small>'+small+'</small>':'')+'</div></div>'}
+function barPath(x,y,w,h,r){ // rounded data-end on the right, flat at the baseline
+  if(w<=0)return '';r=Math.min(r,w,h/2);
+  return 'M'+x+' '+y+'H'+(x+w-r)+'a'+r+' '+r+' 0 0 1 '+r+' '+r+'V'+(y+h-r)+'a'+r+' '+r+' 0 0 1 -'+r+' '+r+'H'+x+'Z';
+}
+function colPath(x,y,w,h,r){ // rounded top, flat bottom
+  if(h<=0)return '';r=Math.min(r,h,w/2);
+  return 'M'+x+' '+(y+h)+'V'+(y+r)+'a'+r+' '+r+' 0 0 1 '+r+' -'+r+'H'+(x+w-r)+'a'+r+' '+r+' 0 0 1 '+r+' '+r+'V'+(y+h)+'Z';
+}
+
+function renderViz(A){
+  var tiles=$('#tiles');
+  if(!S.ready)tiles.innerHTML=tileHTML('Ratings','…')+tileHTML('People','…')+tileHTML('Average','…')+tileHTML('Today','…');
+  else tiles.innerHTML=tileHTML('Ratings',A.n)+tileHTML('People rating',A.raters)+tileHTML('Average score',A.n?f1(A.sum/A.n):'–',A.n?'of 5':'')+tileHTML('Rated today',A.today);
+  var empty=!S.ready?'<p class="empty">Waiting for the shared ratings…</p>':!API_URL?'<p class="empty">Ratings are not switched on yet.</p>':'<p class="empty">No ratings yet. Score a dish above and the picture starts here.</p>';
+  var W=600,s,body,rows;
+
+  body=$('#c-counters .body');
+  rows=[];A.byCounter.forEach(function(e,k){rows.push({k:k,avg:avgOf(e),n:e.n})});rows.sort(function(a,b){return b.avg-a.avg||b.n-a.n});
+  if(!rows.length)body.innerHTML=empty;
+  else{
+    var L=150,R=70,rh=26,H=rows.length*rh+8,pw=W-L-R;
+    s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Average score per counter">';
+    for(var g=1;g<=5;g++){var gx=L+pw*g/5;s+='<line x1="'+gx+'" y1="4" x2="'+gx+'" y2="'+(H-4)+'" stroke="var(--line)" stroke-width="1"/>'}
+    rows.forEach(function(r,i){
+      var y=4+i*rh+5,w=pw*r.avg/5;
+      s+='<text x="'+(L-8)+'" y="'+(y+12)+'" text-anchor="end">'+esc(r.k.length>22?r.k.slice(0,21)+'…':r.k)+'</text>';
+      s+='<path d="'+barPath(L,y,w,16,4)+'" style="fill:'+scoreVar(r.avg)+'" data-tip="'+esc(r.k)+'\n'+f1(r.avg)+' of 5 · '+r.n+' ratings"/>';
+      s+='<text class="v" x="'+(L+w+8)+'" y="'+(y+12)+'">'+f1(r.avg)+' <tspan style="fill:var(--muted)">· '+r.n+'</tspan></text>';
+    });
+    body.innerHTML=s+'</svg>';
+  }
+
+  body=$('#c-days .body');
+  rows=[];A.byDay.forEach(function(e,k){rows.push({k:k,avg:avgOf(e),n:e.n})});rows.sort(function(a,b){return a.k<b.k?-1:1});rows=rows.slice(-14);
+  if(!rows.length)body.innerHTML=empty;
+  else{
+    var H2=190,L2=28,B2=34,T2=18,pw2=W-L2-10,ph2=H2-T2-B2,bw=Math.min(44,pw2/rows.length*0.62),step=pw2/rows.length;
+    s='<svg viewBox="0 0 '+W+' '+H2+'" role="img" aria-label="Average score per day">';
+    for(var g2=1;g2<=5;g2++){var gy=T2+ph2-ph2*g2/5;s+='<line x1="'+L2+'" y1="'+gy+'" x2="'+W+'" y2="'+gy+'" stroke="var(--line)" stroke-width="1"/><text x="'+(L2-6)+'" y="'+(gy+4)+'" text-anchor="end">'+g2+'</text>'}
+    rows.forEach(function(r,i){
+      var x=L2+step*i+(step-bw)/2,h=ph2*r.avg/5,y=T2+ph2-h;
+      s+='<path d="'+colPath(x,y,bw,h,4)+'" style="fill:'+scoreVar(r.avg)+'" data-tip="'+fmtDay(r.k)+'\n'+f1(r.avg)+' of 5 · '+r.n+' ratings"/>';
+      s+='<text class="v" x="'+(x+bw/2)+'" y="'+(y-5)+'" text-anchor="middle">'+f1(r.avg)+'</text>';
+      s+='<text x="'+(x+bw/2)+'" y="'+(H2-B2+14)+'" text-anchor="middle">'+fmtDay(r.k).replace(/^\w+ /,'')+'</text>';
+      s+='<text x="'+(x+bw/2)+'" y="'+(H2-B2+27)+'" text-anchor="middle" style="fill:var(--muted)">n='+r.n+'</text>';
+    });
+    body.innerHTML=s+'</svg>';
+  }
+
+  body=$('#c-hist .body');
+  if(!A.n)body.innerHTML=empty;
+  else{
+    var H3=190,L3=12,B3=26,T3=18,pw3=W-L3-12,ph3=H3-T3-B3,step3=pw3/5,bw3=step3*0.62,mx=Math.max.apply(null,A.hist)||1;
+    s='<svg viewBox="0 0 '+W+' '+H3+'" role="img" aria-label="Count of ratings per score">';
+    s+='<line x1="'+L3+'" y1="'+(T3+ph3)+'" x2="'+W+'" y2="'+(T3+ph3)+'" stroke="var(--line)"/>';
+    A.hist.forEach(function(c,i){
+      var x=L3+step3*i+(step3-bw3)/2,h=ph3*c/mx,y=T3+ph3-h;
+      s+='<path d="'+colPath(x,y,bw3,h,4)+'" style="fill:var(--s'+(i+1)+')" data-tip="Score '+(i+1)+'\n'+c+' ratings ('+Math.round(100*c/A.n)+'%)"/>';
+      s+='<text class="v" x="'+(x+bw3/2)+'" y="'+(y-5)+'" text-anchor="middle">'+c+'</text>';
+      s+='<text x="'+(x+bw3/2)+'" y="'+(H3-B3+16)+'" text-anchor="middle">'+(i+1)+(i===0?' poor':i===4?' great':'')+'</text>';
+    });
+    body.innerHTML=s+'</svg>';
+  }
+
+  rows=[];A.byDish.forEach(function(e,k){rows.push({k:k,avg:avgOf(e),n:e.n})});
+  var li=function(r){return '<li><div><div class="nm" title="'+esc(r.k)+'">'+esc(r.k)+'</div><div class="ct">'+r.n+(r.n===1?' rating':' ratings')+'</div></div><div class="sc"><i style="background:'+scoreVar(r.avg)+'"></i>'+f1(r.avg)+'</div></li>'};
+  var top=rows.slice().sort(function(a,b){return b.avg-a.avg||b.n-a.n}).slice(0,6);
+  var bot=rows.slice().sort(function(a,b){return a.avg-b.avg||b.n-a.n}).slice(0,6).filter(function(r){return r.avg<3.5});
+  $('#l-top ol').innerHTML=top.length?top.map(li).join(''):'<li class="muted">Nothing rated yet.</li>';
+  $('#l-bottom ol').innerHTML=bot.length?bot.map(li).join(''):'<li class="muted">Nothing below 3.5 so far.</li>';
+
+  var cs=A.comments.slice(0,8);
+  $('#feed ul').innerHTML=cs.length?cs.map(function(c){return '<li><div class="who"><b>'+c.s+'/5</b> '+esc(c.m)+' · '+fmtDay(c.d)+'</div><div>'+esc(c.c)+'</div></li>'}).join(''):'<li class="muted">No notes yet. Add one under any dish.</li>';
+}
+
+/* ---------- tooltip ---------- */
+var tip=$('#tip');
+document.addEventListener('pointermove',function(e){
+  var t=e.target.closest&&e.target.closest('[data-tip]');
+  if(!t){tip.style.display='none';return}
+  tip.textContent=t.getAttribute('data-tip');tip.style.display='block';
+  var x=Math.min(window.innerWidth-tip.offsetWidth-8,e.clientX+12),y=e.clientY+14;
+  tip.style.left=x+'px';tip.style.top=y+'px';
+});
+document.addEventListener('pointerleave',function(){tip.style.display='none'});
+
+S.uid=getUid();
+loadMenu();
+loadRatings();
+if(API_URL)schedulePoll();
+})();
+</script>
+</body>
+</html>
